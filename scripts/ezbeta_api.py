@@ -1,14 +1,15 @@
-workingdir = r'C:\Users\Nanda Lab\Desktop\Alex\pymol'
+workingdir = r'C:\cygwin\home\alex\beta barrels\pymol'
 
 import biodata
 import selectors
-import moments
 from sundries import CIDict
 
 import os
 import re
 import functools
 import csv
+
+import numpy as np
 
 # This way, I can load objects as G.N and a group called G will be created,
 # containing an object called G.N. Also, I can refer to *.N to talk about
@@ -163,17 +164,14 @@ def cs_load_structures(workingdir, load):
 def cs_load_centers(workingdir, groupdict):
     for name, path in [('sheets_center',
                         '/centers/beta sheets and %sasa over .2.csv'),
-                       ('all_center', '/centers/%sasa over .2.csv'),
-                       ('all_ferm_center', 
-                        '/centers/%sasa over .2 fermat.csv'),
                        ('cored_center','/centers/cored 1.csv')]:
         load_centers(groupdict, workingdir + path, attribute_name = name)
 
 def cs_load_spreadsheets(workingdir, groupdict):
-    phrasebooks = biodata.phrasebooks(workingdir + '/phrasebooks.csv')
+    phrasebooks = biodata.phrasebooks(workingdir + '/misc/phrasebooks.csv')
     ezbeta_phrasebook = phrasebooks['dan_ezbeta']
     load_spreadsheets(groupdict, workingdir + \
-                      '/ez beta data/uncertain scores point five',
+                      '/ez beta data',
                       ['(.*)_DeltaBurial.csv$'],phrasebook = ezbeta_phrasebook,
                       attribute_name = 'ez_data')
 
