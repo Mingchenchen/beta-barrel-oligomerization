@@ -1,0 +1,9 @@
+dan_ezbeta,
+pdbid,pdbID
+resi,ResIndex
+ss,SecondaryStructure
+ab_proj,vectProj
+ez,Ez_N
+%sasa,%SASA_MonoWithHet
+resl,1-Code
+%burial,%burial
