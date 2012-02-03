@@ -1,0 +1,1546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+   <title>Beta-barrel transmembrane superfamilies - Orientations of Proteins in Membranes (OPM) database</title>
+   <link rel="stylesheet" href="style.css" type="text/css" media="screen" />
+   <link rel="stylesheet" href="styleprint.css" type="text/css" media="print" />
+   <meta http-equiv="content-type" content="application/xhtml+xml; charset=utf-8" />
+   <meta name="robots" content="all" />
+   <meta name="author" content="Mikhail Lomize" />
+   <meta name="keywords" content="OPM, orientation, protein, membrane, localization, delta, Gibbs, transfer, topology, thickness, tilt, angle, subunit" />
+   <script language="JavaScript" src="tooltip.js" type="text/javascript"></script>
+   <script language="JavaScript" src="chime_tooltip.js" type="text/javascript"></script>
+   </head>
+<body>
+
+<div id="TipLayer" style="visibility:hidden;position:absolute;z-index:1000;top:0;"></div>
+<script language="JavaScript" type="text/javascript">
+<!--
+var FiltersEnabled = 0
+Text[0]=["1qjp &raquo; Outer membrane protein A (OMPA)","<img src=phpthumb/phpThumb.php?src=../images/png/1qjp.png&amp;w=200&amp;h=200>"]
+Text[1]=["2jmm &raquo; Transmembrane beta-barrel platform protein","<img src=phpthumb/phpThumb.php?src=../images/png/2jmm.png&amp;w=200&amp;h=200>"]
+Text[2]=["2k0l &raquo; Outer membrane protein A from Klebsiella","<img src=phpthumb/phpThumb.php?src=../images/png/2k0l.png&amp;w=200&amp;h=200>"]
+Text[3]=["3qra &raquo; Attachment invasion locus protein","<img src=phpthumb/phpThumb.php?src=../images/png/3qra.png&amp;w=200&amp;h=200>"]
+Text[4]=["1qj8 &raquo; Outer membrane protein X (OMPX)","<img src=phpthumb/phpThumb.php?src=../images/png/1qj8.png&amp;w=200&amp;h=200>"]
+Text[5]=["3qrc &raquo; Attachment invasion locus protein, complex with the heparin analogue","<img src=phpthumb/phpThumb.php?src=../images/png/3qrc.png&amp;w=200&amp;h=200>"]
+Text[6]=["1p4t &raquo; Outer membrane protein NspA","<img src=phpthumb/phpThumb.php?src=../images/png/1p4t.png&amp;w=200&amp;h=200>"]
+Text[7]=["2lhf &raquo; Outer membrane protein H (OprH)","<img src=phpthumb/phpThumb.php?src=../images/png/2lhf.png&amp;w=200&amp;h=200>"]
+Text[8]=["2x27 &raquo; Outer membrane protein OprG","<img src=phpthumb/phpThumb.php?src=../images/png/2x27.png&amp;w=200&amp;h=200>"]
+Text[9]=["2f1v &raquo; Outer membrane protein W","<img src=phpthumb/phpThumb.php?src=../images/png/2f1v.png&amp;w=200&amp;h=200>"]
+Text[10]=["3gp6 &raquo; Lipid A acylase PagP","<img src=phpthumb/phpThumb.php?src=../images/png/3gp6.png&amp;w=200&amp;h=200>"]
+Text[11]=["2erv &raquo; Lipid A deacylase PagL","<img src=phpthumb/phpThumb.php?src=../images/png/2erv.png&amp;w=200&amp;h=200>"]
+Text[12]=["3dzm &raquo; Major outer membrane protein from Thermus thermophilus","<img src=phpthumb/phpThumb.php?src=../images/png/3dzm.png&amp;w=200&amp;h=200>"]
+Text[13]=["1i78 &raquo; Outer membrane protease OmpT","<img src=phpthumb/phpThumb.php?src=../images/png/1i78.png&amp;w=200&amp;h=200>"]
+Text[14]=["2x55 &raquo; Plasminogen activator PLA (coagulase/fibrinolysin)","<img src=phpthumb/phpThumb.php?src=../images/png/2x55.png&amp;w=200&amp;h=200>"]
+Text[15]=["1k24 &raquo; Outer membrane adhesin/invasin OpcA","<img src=phpthumb/phpThumb.php?src=../images/png/1k24.png&amp;w=200&amp;h=200>"]
+Text[16]=["3fid &raquo; Lipid A deacylase LpxR","<img src=phpthumb/phpThumb.php?src=../images/png/3fid.png&amp;w=200&amp;h=200>"]
+Text[17]=["2wjr &raquo; Acidic sugar-specific porin NanC","<img src=phpthumb/phpThumb.php?src=../images/png/2wjr.png&amp;w=200&amp;h=200>"]
+Text[18]=["1uyo &raquo; Autotransporter NalP, different conformation","<img src=phpthumb/phpThumb.php?src=../images/png/1uyo.png&amp;w=200&amp;h=200>"]
+Text[19]=["2qom &raquo; Serine protease EspP, post-cleavage structure","<img src=phpthumb/phpThumb.php?src=../images/png/2qom.png&amp;w=200&amp;h=200>"]
+Text[20]=["3kvn &raquo; Esterase EstA","<img src=phpthumb/phpThumb.php?src=../images/png/3kvn.png&amp;w=200&amp;h=200>"]
+Text[21]=["3qq2 &raquo; Autotransporter BrkA","<img src=phpthumb/phpThumb.php?src=../images/png/3qq2.png&amp;w=200&amp;h=200>"]
+Text[22]=["1uyn &raquo; Autotransporter  NalP","<img src=phpthumb/phpThumb.php?src=../images/png/1uyn.png&amp;w=200&amp;h=200>"]
+Text[23]=["3aeh &raquo; Hemoglobin-binding protease Hbp autotransporter","<img src=phpthumb/phpThumb.php?src=../images/png/3aeh.png&amp;w=200&amp;h=200>"]
+Text[24]=["3slj &raquo; Serine protease EspP, pre-clevage structure ","<img src=phpthumb/phpThumb.php?src=../images/png/3slj.png&amp;w=200&amp;h=200>"]
+Text[25]=["1qd6 &raquo; Outer membrane phospholipase A","<img src=phpthumb/phpThumb.php?src=../images/png/1qd6.png&amp;w=200&amp;h=200>"]
+Text[26]=["1qd5 &raquo; Outer membrane phospholipase A, monomer","<img src=phpthumb/phpThumb.php?src=../images/png/1qd5.png&amp;w=200&amp;h=200>"]
+Text[27]=["1tly &raquo; Bacterial Nucleoside Transporter Ts","<img src=phpthumb/phpThumb.php?src=../images/png/1tly.png&amp;w=200&amp;h=200>"]
+Text[28]=["1t16 &raquo; Fatty Acid Transporter FadL","<img src=phpthumb/phpThumb.php?src=../images/png/1t16.png&amp;w=200&amp;h=200>"]
+Text[29]=["3dwo &raquo; FadL homologue","<img src=phpthumb/phpThumb.php?src=../images/png/3dwo.png&amp;w=200&amp;h=200>"]
+Text[30]=["3bry &raquo; Toluene transporter TbuX","<img src=phpthumb/phpThumb.php?src=../images/png/3bry.png&amp;w=200&amp;h=200>"]
+Text[31]=["3bs0 &raquo; Toluene transporter TodX","<img src=phpthumb/phpThumb.php?src=../images/png/3bs0.png&amp;w=200&amp;h=200>"]
+Text[32]=["2iwv &raquo; Outer membrane protein G (OMPG), open state","<img src=phpthumb/phpThumb.php?src=../images/png/2iwv.png&amp;w=200&amp;h=200>"]
+Text[33]=["2x9k &raquo; Outer membrane protein G (OMPG), more complete loops","<img src=phpthumb/phpThumb.php?src=../images/png/2x9k.png&amp;w=200&amp;h=200>"]
+Text[34]=["2iww &raquo; Outer membrane protein G (OMPG), closed state","<img src=phpthumb/phpThumb.php?src=../images/png/2iww.png&amp;w=200&amp;h=200>"]
+Text[35]=["2f1c &raquo; Outer membrane protein G (OMPG)","<img src=phpthumb/phpThumb.php?src=../images/png/2f1c.png&amp;w=200&amp;h=200>"]
+Text[36]=["1hxx &raquo; Porin OmpF","<img src=phpthumb/phpThumb.php?src=../images/png/1hxx.png&amp;w=200&amp;h=200>"]
+Text[37]=["1osm &raquo; Porin","<img src=phpthumb/phpThumb.php?src=../images/png/1osm.png&amp;w=200&amp;h=200>"]
+Text[38]=["2j1n &raquo; Osmoporin OMPC","<img src=phpthumb/phpThumb.php?src=../images/png/2j1n.png&amp;w=200&amp;h=200>"]
+Text[39]=["1e54 &raquo; Anion-selective porin","<img src=phpthumb/phpThumb.php?src=../images/png/1e54.png&amp;w=200&amp;h=200>"]
+Text[40]=["1pho &raquo; Phosphoporin (PhoE)","<img src=phpthumb/phpThumb.php?src=../images/png/1pho.png&amp;w=200&amp;h=200>"]
+Text[41]=["3a2s &raquo; Porin B (PorB)","<img src=phpthumb/phpThumb.php?src=../images/png/3a2s.png&amp;w=200&amp;h=200>"]
+Text[42]=["2ixx &raquo; Osmoporin OMPC,  isoform 1","<img src=phpthumb/phpThumb.php?src=../images/png/2ixx.png&amp;w=200&amp;h=200>"]
+Text[43]=["3nsg &raquo; Porin OmpF","<img src=phpthumb/phpThumb.php?src=../images/png/3nsg.png&amp;w=200&amp;h=200>"]
+Text[44]=["2ixw &raquo; Osmoporin OMPC, isoform 2","<img src=phpthumb/phpThumb.php?src=../images/png/2ixw.png&amp;w=200&amp;h=200>"]
+Text[45]=["2por &raquo; Porin","<img src=phpthumb/phpThumb.php?src=../images/png/2por.png&amp;w=200&amp;h=200>"]
+Text[46]=["3prn &raquo; Porin","<img src=phpthumb/phpThumb.php?src=../images/png/3prn.png&amp;w=200&amp;h=200>"]
+Text[47]=["2o4v &raquo; Porin OprP","<img src=phpthumb/phpThumb.php?src=../images/png/2o4v.png&amp;w=200&amp;h=200>"]
+Text[48]=["2qdz &raquo; Filamentous hemagglutinin transporter FhaC","<img src=phpthumb/phpThumb.php?src=../images/png/2qdz.png&amp;w=200&amp;h=200>"]
+Text[49]=["1a0s &raquo; Sucrose-specific porin","<img src=phpthumb/phpThumb.php?src=../images/png/1a0s.png&amp;w=200&amp;h=200>"]
+Text[50]=["1af6 &raquo; Maltoporin","<img src=phpthumb/phpThumb.php?src=../images/png/1af6.png&amp;w=200&amp;h=200>"]
+Text[51]=["2mpr &raquo; Maltoporin","<img src=phpthumb/phpThumb.php?src=../images/png/2mpr.png&amp;w=200&amp;h=200>"]
+Text[52]=["3jty &raquo; BenF-like porin","<img src=phpthumb/phpThumb.php?src=../images/png/3jty.png&amp;w=200&amp;h=200>"]
+Text[53]=["2odj &raquo; Outer membrane porin OprD","<img src=phpthumb/phpThumb.php?src=../images/png/2odj.png&amp;w=200&amp;h=200>"]
+Text[54]=["2y0h &raquo; Outer membrane porin OpdL","<img src=phpthumb/phpThumb.php?src=../images/png/2y0h.png&amp;w=200&amp;h=200>"]
+Text[55]=["2y0k &raquo; Pyroglutatmate porin OpdO","<img src=phpthumb/phpThumb.php?src=../images/png/2y0k.png&amp;w=200&amp;h=200>"]
+Text[56]=["2y0l &raquo; Cis-aconitate porin OpdH","<img src=phpthumb/phpThumb.php?src=../images/png/2y0l.png&amp;w=200&amp;h=200>"]
+Text[57]=["2qtk &raquo; Protein OpdK","<img src=phpthumb/phpThumb.php?src=../images/png/2qtk.png&amp;w=200&amp;h=200>"]
+Text[58]=["3rbh &raquo; Alginate export protein","<img src=phpthumb/phpThumb.php?src=../images/png/3rbh.png&amp;w=200&amp;h=200>"]
+Text[59]=["1kmp &raquo; Outer membrane transporter FecA, different conformation","<img src=phpthumb/phpThumb.php?src=../images/png/1kmp.png&amp;w=200&amp;h=200>"]
+Text[60]=["1qfg &raquo; Ferric hydroxamate uptake receptor FhuA","<img src=phpthumb/phpThumb.php?src=../images/png/1qfg.png&amp;w=200&amp;h=200>"]
+Text[61]=["2ysu &raquo; Outer membrane cobalamin transporter BtuB, complex with colicin E2 R-domain","<img src=phpthumb/phpThumb.php?src=../images/png/2ysu.png&amp;w=200&amp;h=200>"]
+Text[62]=["1fep &raquo; Ferric enterobactin receptor FepA","<img src=phpthumb/phpThumb.php?src=../images/png/1fep.png&amp;w=200&amp;h=200>"]
+Text[63]=["1ujw &raquo; Outer membrane cobalamin transporter BtuB, complex with colicin E3 R-domain","<img src=phpthumb/phpThumb.php?src=../images/png/1ujw.png&amp;w=200&amp;h=200>"]
+Text[64]=["3qlb &raquo; Enantio-pyochelin receptor fetA","<img src=phpthumb/phpThumb.php?src=../images/png/3qlb.png&amp;w=200&amp;h=200>"]
+Text[65]=["1kmo &raquo; Outer membrane transporter FecA","<img src=phpthumb/phpThumb.php?src=../images/png/1kmo.png&amp;w=200&amp;h=200>"]
+Text[66]=["1xkw &raquo; Fe(III)-pyochelin receptor FptA","<img src=phpthumb/phpThumb.php?src=../images/png/1xkw.png&amp;w=200&amp;h=200>"]
+Text[67]=["2guf &raquo; Outer membrane cobalamin transporter BtuB, meso form","<img src=phpthumb/phpThumb.php?src=../images/png/2guf.png&amp;w=200&amp;h=200>"]
+Text[68]=["3csl &raquo; Hemophore receptor HasR","<img src=phpthumb/phpThumb.php?src=../images/png/3csl.png&amp;w=200&amp;h=200>"]
+Text[69]=["1nqe &raquo; Outer membrane cobalamin transporter BtuB","<img src=phpthumb/phpThumb.php?src=../images/png/1nqe.png&amp;w=200&amp;h=200>"]
+Text[70]=["2hdi &raquo; Colicin I receptor complex with binding domain of Colicin Ia","<img src=phpthumb/phpThumb.php?src=../images/png/2hdi.png&amp;w=200&amp;h=200>"]
+Text[71]=["2iah &raquo; Pyoverdine Outer Membrane Receptor FpvA","<img src=phpthumb/phpThumb.php?src=../images/png/2iah.png&amp;w=200&amp;h=200>"]
+Text[72]=["2grx &raquo; Ferric hydroxamate uptake receptor FhuA, complex with TonB","<img src=phpthumb/phpThumb.php?src=../images/png/2grx.png&amp;w=200&amp;h=200>"]
+Text[73]=["2hdf &raquo; Colicin I receptor","<img src=phpthumb/phpThumb.php?src=../images/png/2hdf.png&amp;w=200&amp;h=200>"]
+Text[74]=["3efm &raquo; Outer membrane receptor FauA","<img src=phpthumb/phpThumb.php?src=../images/png/3efm.png&amp;w=200&amp;h=200>"]
+Text[75]=["2gsk &raquo; Outer membrane cobalamin transporter BtuB, complex with TonB","<img src=phpthumb/phpThumb.php?src=../images/png/2gsk.png&amp;w=200&amp;h=200>"]
+Text[76]=["3fhh &raquo; Outer membrane heme transporter ShuA","<img src=phpthumb/phpThumb.php?src=../images/png/3fhh.png&amp;w=200&amp;h=200>"]
+Text[77]=["3m8d &raquo; Outer membrane cobalamin transporter BtuB, with cyanocobalamin","<img src=phpthumb/phpThumb.php?src=../images/png/3m8d.png&amp;w=200&amp;h=200>"]
+Text[78]=["2vqi &raquo; P pilus usher PapC translocation domain","<img src=phpthumb/phpThumb.php?src=../images/png/2vqi.png&amp;w=200&amp;h=200>"]
+Text[79]=["3ohn &raquo; Outer membrane usher protein FimD","<img src=phpthumb/phpThumb.php?src=../images/png/3ohn.png&amp;w=200&amp;h=200>"]
+Text[80]=["3rfz &raquo; Outer membrane usher protein FimD, complex with FimC-FimH","<img src=phpthumb/phpThumb.php?src=../images/png/3rfz.png&amp;w=200&amp;h=200>"]
+Text[81]=["3emn &raquo; VDAC-1 channel","<img src=phpthumb/phpThumb.php?src=../images/png/3emn.png&amp;w=200&amp;h=200>"]
+Text[82]=["2k4t &raquo; VDAC-1 channel","<img src=phpthumb/phpThumb.php?src=../images/png/2k4t.png&amp;w=200&amp;h=200>"]
+Text[83]=["2jk4 &raquo; VDAC-1 channel","<img src=phpthumb/phpThumb.php?src=../images/png/2jk4.png&amp;w=200&amp;h=200>"]
+Text[84]=["2gr7 &raquo; Autotransporter Hia","<img src=phpthumb/phpThumb.php?src=../images/png/2gr7.png&amp;w=200&amp;h=200>"]
+Text[85]=["3emo &raquo; Autotransporter Hia, a different conformation","<img src=phpthumb/phpThumb.php?src=../images/png/3emo.png&amp;w=200&amp;h=200>"]
+Text[86]=["1wp1 &raquo; Drug-Discharge Outer Membrane Protein, OprM","<img src=phpthumb/phpThumb.php?src=../images/png/1wp1.png&amp;w=200&amp;h=200>"]
+Text[87]=["3pik &raquo; Cation efflux system protein CusC","<img src=phpthumb/phpThumb.php?src=../images/png/3pik.png&amp;w=200&amp;h=200>"]
+Text[88]=["1ek9 &raquo; Outer membrane protein TolC","<img src=phpthumb/phpThumb.php?src=../images/png/1ek9.png&amp;w=200&amp;h=200>"]
+Text[89]=["1yc9 &raquo; Multidrug Resistance (VceC) protein","<img src=phpthumb/phpThumb.php?src=../images/png/1yc9.png&amp;w=200&amp;h=200>"]
+Text[90]=["1pvl &raquo; Leukocidin F","<img src=phpthumb/phpThumb.php?src=../images/png/1pvl.png&amp;w=200&amp;h=200>"]
+Text[91]=["7ahl &raquo; Alpha-hemolysin","<img src=phpthumb/phpThumb.php?src=../images/png/7ahl.png&amp;w=200&amp;h=200>"]
+Text[92]=["3b07 &raquo; Gamma-hemolysin, complete channel, hetero-octamer","<img src=phpthumb/phpThumb.php?src=../images/png/3b07.png&amp;w=200&amp;h=200>"]
+Text[93]=["2qk7 &raquo; Gamma-hemolysin, heterodimer of components A and B","<img src=phpthumb/phpThumb.php?src=../images/png/2qk7.png&amp;w=200&amp;h=200>"]
+Text[94]=["3lkf &raquo; Gamma-hemolysin, component B","<img src=phpthumb/phpThumb.php?src=../images/png/3lkf.png&amp;w=200&amp;h=200>"]
+Text[95]=["3o44 &raquo; Cytolysin and hemolysin HlyA Pore-forming toxin","<img src=phpthumb/phpThumb.php?src=../images/png/3o44.png&amp;w=200&amp;h=200>"]
+Text[96]=["1xez &raquo; Hemolysin","<img src=phpthumb/phpThumb.php?src=../images/png/1xez.png&amp;w=200&amp;h=200>"]
+Text[97]=["1uun &raquo; Porin MspA","<img src=phpthumb/phpThumb.php?src=../images/png/1uun.png&amp;w=200&amp;h=200>"]
+Style[0]=["white","#000","#0066cc","#ffffff","","","center","","","","","","","",100,"",2,2,10,10,51,1,0,"",""]
+applyCssFilter()
+-->
+</script>
+
+<!-- top section -->
+<div id="top">
+   <div id="logo"></div>
+   <div style="position:absolute; top: 5px; right: 5px;">
+   <div align="right" id="globallinks">
+      <a href="http://www.umich.edu">UNIVERSITY OF MICHIGAN</a> |
+      <a href="http://www.umich.edu/~pharmacy/">COLLEGE OF PHARMACY</a> |
+      <a href="http://mosberglab.phar.umich.edu/">MOSBERG LAB</a>
+   </div>
+   <div id="simplesearch">
+      <form id="searchform" method="get" action="protein.php">
+      <input type="text" name="search" id="search" size="20" value="" maxlength="30" />
+      <input type="submit" value="Search OPM" />
+      <div class="small">PDB ID or protein name</div>
+      </form>
+   </div>
+   </div>
+</div> <!-- end top -->
+
+<!-- head section -->
+<div id="head">
+   <ul id="globalnav">
+      <li><a href="./">HOME</a></li>
+      <li><a href="about.php">ABOUT OPM</a></li>
+      <li><a href="download.php">DOWNLOAD OPM FILES</a></li>
+      <li><a href="contact.php">CONTACT US</a></li>
+      <li><a href="server.php">PPM SERVER</a></li>
+      <li><a href="atlas.php">LIPID COMPOSITION ATLAS</a></li>
+   </ul>
+</div> <!-- end head -->
+
+
+
+<!-- navigation section -->
+<div id="navigation">
+   <ul class="titlelist">
+   <li>Protein Classification</li>
+   </ul>
+   <ul id="navlist">
+   <li><a href="types.php"><b>Types</b> (3 types)</a></li>
+   <li><a href="classes.php"><b>Classes</b> (11 classes)</a></li>
+   <li><a href="superfamilies.php"><b>Superfamilies</b> (386 superfamilies)</a></li>
+   <li><a href="families.php"><b>Families</b> (634 families)</a></li>
+   <li><a href="species.php"><b>Species</b> (518 species)</a></li>
+   <li><a href="localization.php"><b>Localization</b> (24 types)</a></li>
+   <li><a href="proteins.php"><b>All proteins in OPM</b> (1924 proteins)</a></li>
+   </ul>
+   <br />
+   <ul class="titlelist">
+   <li>Protein Links</li>
+   </ul>
+   <ul id="quicklinks">
+   <li><a href="http://www.ebi.ac.uk/thornton-srv/databases/pdbsum/" target="_blank">PDB Sum</a>,</li>
+   <li><a href="http://www.rcsb.org/pdb/" target="_blank">PDB</a>,</li>
+   <li><a href="http://bip.weizmann.ac.il/oca/" target="_blank">OCA</a>,</li>
+   <li><a href="http://blanco.biomol.uci.edu/Membrane_Proteins_xtal.html" target="_blank">MPKS</a>,</li>
+   <li><a href="http://pdbtm.enzim.hu/" target="_blank">PDBTM</a>,</li>
+   <li><a href="http://www.mpdb.tcd.ie/" target="_blank">MPDB</a>,</li>
+   <li><a href="http://sbcb.bioch.ox.ac.uk/cgdb/" target="_blank">CGDB</a></li>
+   </ul>
+   
+   <a href="server.php" style="border-bottom:0px; background:none;"><img src="images/PPMserver.jpg" alt="PPM Server" style="padding:35px;" border="0" /></a>
+</div> <!-- end navigation -->
+   
+
+<!-- body section -->
+<div id="body">
+         
+   <h1>Beta-barrel transmembrane superfamilies</h1>
+   <table cellpadding="0" cellspacing="0" border="0" width="100%">
+   <tr>
+      <td align="right" width="10">1.3.01.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=26">OmpA-OmpF porin family (n=8,S=10)</a> (2 families) <a href="http://www.tcdb.org/search/result.php?tc=1.B.6" class="external" target="_blank">1.B.6 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.02.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=266">Opacity porins (n=8,S=10)</a> (1 family) <a href="http://pfam.sanger.ac.uk/family/PF02462" class="external" target="_blank">PF02462 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.03.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=267">Outer membrane protein W (OmpW) family (n=8,S=10)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.39" class="external" target="_blank">1.B.39 (TCDB)</a> <a href="http://pfam.sanger.ac.uk/family/PF03922" class="external" target="_blank">PF03922 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.04.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=268">Lipid A acylation (n=8,S=10)</a> (1 family) <a href="http://pfam.sanger.ac.uk/family/PF07017" class="external" target="_blank">PF07017 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.05.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=269">Lipid A 3-O-deacylase (PagL) (n=8,S=10)</a> (1 family) <a href="http://pfam.sanger.ac.uk/family/PF09411" class="external" target="_blank">PF09411 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.06.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=270">Major OMP (n=8,S=10)</a> (1 family)</td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.07.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=27">Omptin (n=10,S=12)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.1" class="external" target="_blank">1.B.1 (TCDB)</a> <a href="http://pfam.sanger.ac.uk/family/PF01278" class="external" target="_blank">PF01278 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.08.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=271">OM adhesion protein (n=10,S=12)</a> (1 family) <a href="http://pfam.sanger.ac.uk/family/PF07239" class="external" target="_blank">PF07239 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.09.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=212">Lipid A deacylase (n=12, S=14)</a> (1 family)</td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.10.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=229">Oligogalactoronate-specific porin (KdgM) (n=12,S=14)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.35" class="external" target="_blank">1.B.35 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.11.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=28">Autotransporter (AT) (n=12,S=14)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.12" class="external" target="_blank">1.B.12 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.12.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=29">OM phospholipase (n=12,S=16)</a> (1 family)</td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.13.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=71">Nucleoside-specific channel-forming membrane porin (Tsx) (n=12,S=16)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.10" class="external" target="_blank">1.B.10 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.14.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=30">FadL outer membrane protein (FadL) (n=14,S=14)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.9" class="external" target="_blank">1.B.9 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.15.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=181">OmpG porin (n=14,S=16)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.21" class="external" target="_blank">1.B.21 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.16.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=31">Trimeric porins (n=16,S=20)</a> (3 families)</td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.17.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=200">Omp85-TpsB transporters (n=16,S=20)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.20" class="external" target="_blank">1.B.20 (TCDB)</a> <a href="http://pfam.sanger.ac.uk/clan/CL0191" class="external" target="_blank">CL0191 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.18.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=32">Sugar porins (n=18,S=22)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.3" class="external" target="_blank">1.B.3 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.19.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=203">OprD/AlgE superfamily (n=18,S=22)</a> (2 families)</td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.20.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=33">Ligand-gated protein channels (n=22,S=24)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.14" class="external" target="_blank">1.B.14 (TCDB)</a> <a href="http://pfam.sanger.ac.uk/family/PF00593" class="external" target="_blank">PF00593 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.21.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=208">Fimbrial usher porin (n=24,S=26)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.11" class="external" target="_blank">1.B.11 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.22.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=210">Mitochondrial and plastid porins (n=19,S=20)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.8" class="external" target="_blank">1.B.8 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.23.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=179">Trimeric autotransporter (n=12,S=12)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.40" class="external" target="_blank">1.B.40 (TCDB)</a> <a href="http://pfam.sanger.ac.uk/clan/CL0327" class="external" target="_blank">CL0327 (Pfam)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.24.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=34">Outer Membrane Factor (OMF) (n=12,S=18) trimeric</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.17" class="external" target="_blank">1.B.17 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.25.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=35">Aerolysin</a> (2 families) <a href="http://www.tcdb.org/search/result.php?tc=1.C.14" class="external" target="_blank">1.C.14 (TCDB)</a></td>
+   </tr>
+   <tr>
+      <td align="right" width="10">1.3.26.</td>
+      <td width="20"></td>
+      <td><a href="families.php?superfamily=305">Mycobacterial Porin (MBP) (n=16,S=16)</a> (1 family) <a href="http://www.tcdb.org/search/result.php?tc=1.B.24" class="external" target="_blank">1.B.24 (TCDB)</a> <a href="http://pfam.sanger.ac.uk/family/PF09203" class="external" target="_blank">PF09203 (Pfam)</a></td>
+   </tr>
+   </table>            <center><a href="superfamilies_dl.php?class=2">See list of these PDB codes</a></center>
+<font face="courier">
+
+</font>         <style>.data{ font-family: Arial }</style>
+<h2 align="center">Beta-barrel transmembrane (98 proteins)</h2>
+<table width="100%" cellspacing="0" cellpadding="0" class="data">
+<thead>
+<tr>
+<th><a href="?sort=family&amp;order=ASC&amp;class=2">Family</a></th>
+<th><a href="?sort=protein&amp;order=ASC&amp;class=2">Protein Name</a></th>
+<th><a href="?sort=pdbid&amp;order=ASC&amp;class=2">PDB ID</a></th>
+<th><a href="?sort=species&amp;order=ASC&amp;class=2">Species</a></th>
+<th><a href="?sort=membrane&amp;order=ASC&amp;class=2">Localization</a></th>
+<th><a href="?sort=subunits&amp;order=ASC&amp;class=2">Num. Subunits</a></th>
+<th><a href="?sort=secstructs&amp;order=ASC&amp;class=2">Num. TM Sec. Structs.</a></th>
+<th><a href="?sort=thickness&amp;order=ASC&amp;class=2">Hydrophobic Thickness or Depth (&Aring)</a></th>
+<th><a href="?sort=tilt&amp;order=ASC&amp;class=2">Tilt Angle (&deg;)</a></th>
+<th><a href="?sort=gibbs&amp;order=ASC&amp;class=2">&Delta;G<sub>transfer</sub> (kcal/mol)</a></th>
+</tr>
+</thead>
+<tbody>
+   <tr class="row1">
+            <td><a href="families.php?family=35">1.3.01.01.</a></td>
+            <td><a href="protein.php?pdbid=1qjp" onmouseover="stm(Text[0],Style[0])" onmouseout="htm()">Outer membrane protein A (OMPA)</a></td>
+            <td><a href="protein.php?pdbid=1qjp" onmouseover="stm(Text[0],Style[0])" onmouseout="htm()">1qjp</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>25.4 &plusmn; 1.5</td>
+            <td>11 &plusmn; 1</td>
+            <td>-29.5</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=35">1.3.01.01.</a></td>
+            <td><a href="protein.php?pdbid=2jmm" onmouseover="stm(Text[1],Style[0])" onmouseout="htm()">Transmembrane beta-barrel platform protein</a></td>
+            <td><a href="protein.php?pdbid=2jmm" onmouseover="stm(Text[1],Style[0])" onmouseout="htm()">2jmm</a></td>
+            <td><i><a href="species.php?species=Designed proteins">Designed proteins</a></i></td>
+            <td><a href="localization.php?localization=Undefined">Undefined</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>23.9 &plusmn; 1.3</td>
+            <td>4 &plusmn; 4</td>
+            <td>-32.3</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=35">1.3.01.01.</a></td>
+            <td><a href="protein.php?pdbid=2k0l" onmouseover="stm(Text[2],Style[0])" onmouseout="htm()">Outer membrane protein A from Klebsiella</a></td>
+            <td><a href="protein.php?pdbid=2k0l" onmouseover="stm(Text[2],Style[0])" onmouseout="htm()">2k0l</a></td>
+            <td><i><a href="species.php?species=Klebsiella pneumoniae">Klebsiella pneumoniae</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>24.3 &plusmn; 2.3</td>
+            <td>18 &plusmn; 6</td>
+            <td>-26.8</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=390">1.3.01.02.</a></td>
+            <td><a href="protein.php?pdbid=3qra" onmouseover="stm(Text[3],Style[0])" onmouseout="htm()">Attachment invasion locus protein</a></td>
+            <td><a href="protein.php?pdbid=3qra" onmouseover="stm(Text[3],Style[0])" onmouseout="htm()">3qra</a></td>
+            <td><i><a href="species.php?species=Yersinia pestis">Yersinia pestis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>25.2 &plusmn; 1.4</td>
+            <td>14 &plusmn; 7</td>
+            <td>-32.2</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=390">1.3.01.02.</a></td>
+            <td><a href="protein.php?pdbid=1qj8" onmouseover="stm(Text[4],Style[0])" onmouseout="htm()">Outer membrane protein X (OMPX)</a></td>
+            <td><a href="protein.php?pdbid=1qj8" onmouseover="stm(Text[4],Style[0])" onmouseout="htm()">1qj8</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>23.6 &plusmn; 2.8</td>
+            <td>12 &plusmn; 5</td>
+            <td>-30.7</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=390">1.3.01.02.</a></td>
+            <td><a href="protein.php?pdbid=3qrc" onmouseover="stm(Text[5],Style[0])" onmouseout="htm()">Attachment invasion locus protein, complex with the heparin analogue</a></td>
+            <td><a href="protein.php?pdbid=3qrc" onmouseover="stm(Text[5],Style[0])" onmouseout="htm()">3qrc</a></td>
+            <td><i><a href="species.php?species=Yersinia pestis">Yersinia pestis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>24.6 &plusmn; 1.2</td>
+            <td>7 &plusmn; 5</td>
+            <td>-31.6</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=363">1.3.02.01.</a></td>
+            <td><a href="protein.php?pdbid=1p4t" onmouseover="stm(Text[6],Style[0])" onmouseout="htm()">Outer membrane protein NspA</a></td>
+            <td><a href="protein.php?pdbid=1p4t" onmouseover="stm(Text[6],Style[0])" onmouseout="htm()">1p4t</a></td>
+            <td><i><a href="species.php?species=Neisseria meningitidis">Neisseria meningitidis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>24.9 &plusmn; 2.4</td>
+            <td>22 &plusmn; 3</td>
+            <td>-42.9</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=363">1.3.02.01.</a></td>
+            <td><a href="protein.php?pdbid=2lhf" onmouseover="stm(Text[7],Style[0])" onmouseout="htm()">Outer membrane protein H (OprH)</a></td>
+            <td><a href="protein.php?pdbid=2lhf" onmouseover="stm(Text[7],Style[0])" onmouseout="htm()">2lhf</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>20.6 &plusmn; 0.6</td>
+            <td>15 &plusmn; 3</td>
+            <td>-16.4</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=364">1.3.03.01.</a></td>
+            <td><a href="protein.php?pdbid=2x27" onmouseover="stm(Text[8],Style[0])" onmouseout="htm()">Outer membrane protein OprG</a></td>
+            <td><a href="protein.php?pdbid=2x27" onmouseover="stm(Text[8],Style[0])" onmouseout="htm()">2x27</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>23.9 &plusmn; 1.7</td>
+            <td>7 &plusmn; 3</td>
+            <td>-39.6</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=364">1.3.03.01.</a></td>
+            <td><a href="protein.php?pdbid=2f1v" onmouseover="stm(Text[9],Style[0])" onmouseout="htm()">Outer membrane protein W</a></td>
+            <td><a href="protein.php?pdbid=2f1v" onmouseover="stm(Text[9],Style[0])" onmouseout="htm()">2f1v</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>25.4 &plusmn; 1.4</td>
+            <td>10 &plusmn; 3</td>
+            <td>-38.3</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=36">1.3.04.03.</a></td>
+            <td><a href="protein.php?pdbid=3gp6" onmouseover="stm(Text[10],Style[0])" onmouseout="htm()">Lipid A acylase PagP</a></td>
+            <td><a href="protein.php?pdbid=3gp6" onmouseover="stm(Text[10],Style[0])" onmouseout="htm()">3gp6</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>24.7 &plusmn; 1.5</td>
+            <td>40 &plusmn; 1</td>
+            <td>-32.5</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=391">1.3.05.01.</a></td>
+            <td><a href="protein.php?pdbid=2erv" onmouseover="stm(Text[11],Style[0])" onmouseout="htm()">Lipid A deacylase PagL</a></td>
+            <td><a href="protein.php?pdbid=2erv" onmouseover="stm(Text[11],Style[0])" onmouseout="htm()">2erv</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>24.7 &plusmn; 1.8</td>
+            <td>20 &plusmn; 2</td>
+            <td>-41.1</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=296">1.3.06.01.</a></td>
+            <td><a href="protein.php?pdbid=3dzm" onmouseover="stm(Text[12],Style[0])" onmouseout="htm()">Major outer membrane protein from Thermus thermophilus</a></td>
+            <td><a href="protein.php?pdbid=3dzm" onmouseover="stm(Text[12],Style[0])" onmouseout="htm()">3dzm</a></td>
+            <td><i><a href="species.php?species=Thermus thermophilus">Thermus thermophilus</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>8</td>
+            <td>28.5 &plusmn; 2.6</td>
+            <td>6 &plusmn; 10</td>
+            <td>-50.3</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=37">1.3.07.01.</a></td>
+            <td><a href="protein.php?pdbid=1i78" onmouseover="stm(Text[13],Style[0])" onmouseout="htm()">Outer membrane protease OmpT</a></td>
+            <td><a href="protein.php?pdbid=1i78" onmouseover="stm(Text[13],Style[0])" onmouseout="htm()">1i78</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>10</td>
+            <td>26.5 &plusmn; 1.6</td>
+            <td>5 &plusmn; 6</td>
+            <td>-46.9</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=37">1.3.07.01.</a></td>
+            <td><a href="protein.php?pdbid=2x55" onmouseover="stm(Text[14],Style[0])" onmouseout="htm()">Plasminogen activator PLA (coagulase/fibrinolysin)</a></td>
+            <td><a href="protein.php?pdbid=2x55" onmouseover="stm(Text[14],Style[0])" onmouseout="htm()">2x55</a></td>
+            <td><i><a href="species.php?species=Yersinia pestis">Yersinia pestis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>10</td>
+            <td>25.6 &plusmn; 1.9</td>
+            <td>4 &plusmn; 5</td>
+            <td>-43.9</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=38">1.3.08.01.</a></td>
+            <td><a href="protein.php?pdbid=1k24" onmouseover="stm(Text[15],Style[0])" onmouseout="htm()">Outer membrane adhesin/invasin OpcA</a></td>
+            <td><a href="protein.php?pdbid=1k24" onmouseover="stm(Text[15],Style[0])" onmouseout="htm()">1k24</a></td>
+            <td><i><a href="species.php?species=Neisseria meningitidis">Neisseria meningitidis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>10</td>
+            <td>25.4 &plusmn; 1.3</td>
+            <td>10 &plusmn; 11</td>
+            <td>-41.7</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=297">1.3.09.01.</a></td>
+            <td><a href="protein.php?pdbid=3fid" onmouseover="stm(Text[16],Style[0])" onmouseout="htm()">Lipid A deacylase LpxR</a></td>
+            <td><a href="protein.php?pdbid=3fid" onmouseover="stm(Text[16],Style[0])" onmouseout="htm()">3fid</a></td>
+            <td><i><a href="species.php?species=Salmonella enterica">Salmonella enterica</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>25.6 &plusmn; 2.0</td>
+            <td>24 &plusmn; 0</td>
+            <td>-58.6</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=323">1.3.10.01.</a></td>
+            <td><a href="protein.php?pdbid=2wjr" onmouseover="stm(Text[17],Style[0])" onmouseout="htm()">Acidic sugar-specific porin NanC</a></td>
+            <td><a href="protein.php?pdbid=2wjr" onmouseover="stm(Text[17],Style[0])" onmouseout="htm()">2wjr</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>23.3 &plusmn; 1.5</td>
+            <td>4 &plusmn; 4</td>
+            <td>-47.5</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=39">1.3.11.01.</a></td>
+            <td><a href="protein.php?pdbid=1uyo" onmouseover="stm(Text[18],Style[0])" onmouseout="htm()">Autotransporter NalP, different conformation</a></td>
+            <td><a href="protein.php?pdbid=1uyo" onmouseover="stm(Text[18],Style[0])" onmouseout="htm()">1uyo</a></td>
+            <td><i><a href="species.php?species=Neisseria meningitidis">Neisseria meningitidis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>23.6 &plusmn; 1.4</td>
+            <td>8 &plusmn; 0</td>
+            <td>-42.7</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=39">1.3.11.01.</a></td>
+            <td><a href="protein.php?pdbid=2qom" onmouseover="stm(Text[19],Style[0])" onmouseout="htm()">Serine protease EspP, post-cleavage structure</a></td>
+            <td><a href="protein.php?pdbid=2qom" onmouseover="stm(Text[19],Style[0])" onmouseout="htm()">2qom</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>25.1 &plusmn; 1.6</td>
+            <td>6 &plusmn; 7</td>
+            <td>-55.9</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=39">1.3.11.01.</a></td>
+            <td><a href="protein.php?pdbid=3kvn" onmouseover="stm(Text[20],Style[0])" onmouseout="htm()">Esterase EstA</a></td>
+            <td><a href="protein.php?pdbid=3kvn" onmouseover="stm(Text[20],Style[0])" onmouseout="htm()">3kvn</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>24.4 &plusmn; 1.5</td>
+            <td>4 &plusmn; 2</td>
+            <td>-48.7</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=39">1.3.11.01.</a></td>
+            <td><a href="protein.php?pdbid=3qq2" onmouseover="stm(Text[21],Style[0])" onmouseout="htm()">Autotransporter BrkA</a></td>
+            <td><a href="protein.php?pdbid=3qq2" onmouseover="stm(Text[21],Style[0])" onmouseout="htm()">3qq2</a></td>
+            <td><i><a href="species.php?species=Bordetella pertussis">Bordetella pertussis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>24.6 &plusmn; 1.5</td>
+            <td>4 &plusmn; 1</td>
+            <td>-44.1</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=39">1.3.11.01.</a></td>
+            <td><a href="protein.php?pdbid=1uyn" onmouseover="stm(Text[22],Style[0])" onmouseout="htm()">Autotransporter  NalP</a></td>
+            <td><a href="protein.php?pdbid=1uyn" onmouseover="stm(Text[22],Style[0])" onmouseout="htm()">1uyn</a></td>
+            <td><i><a href="species.php?species=Neisseria meningitidis">Neisseria meningitidis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>25.3 &plusmn; 1.3</td>
+            <td>8 &plusmn; 8</td>
+            <td>-47.6</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=39">1.3.11.01.</a></td>
+            <td><a href="protein.php?pdbid=3aeh" onmouseover="stm(Text[23],Style[0])" onmouseout="htm()">Hemoglobin-binding protease Hbp autotransporter</a></td>
+            <td><a href="protein.php?pdbid=3aeh" onmouseover="stm(Text[23],Style[0])" onmouseout="htm()">3aeh</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>25.2 &plusmn; 1.1</td>
+            <td>4 &plusmn; 0</td>
+            <td>-41.9</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=39">1.3.11.01.</a></td>
+            <td><a href="protein.php?pdbid=3slj" onmouseover="stm(Text[24],Style[0])" onmouseout="htm()">Serine protease EspP, pre-clevage structure </a></td>
+            <td><a href="protein.php?pdbid=3slj" onmouseover="stm(Text[24],Style[0])" onmouseout="htm()">3slj</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>25.4 &plusmn; 1.2</td>
+            <td>6 &plusmn; 1</td>
+            <td>-53.1</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=40">1.3.12.01.</a></td>
+            <td><a href="protein.php?pdbid=1qd6" onmouseover="stm(Text[25],Style[0])" onmouseout="htm()">Outer membrane phospholipase A</a></td>
+            <td><a href="protein.php?pdbid=1qd6" onmouseover="stm(Text[25],Style[0])" onmouseout="htm()">1qd6</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>23.9 &plusmn; 1.0</td>
+            <td>0 &plusmn; 0</td>
+            <td>-77.2</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=40">1.3.12.01.</a></td>
+            <td><a href="protein.php?pdbid=1qd5" onmouseover="stm(Text[26],Style[0])" onmouseout="htm()">Outer membrane phospholipase A, monomer</a></td>
+            <td><a href="protein.php?pdbid=1qd5" onmouseover="stm(Text[26],Style[0])" onmouseout="htm()">1qd5</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>24.6 &plusmn; 1.2</td>
+            <td>6 &plusmn; 0</td>
+            <td>-52.6</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=41">1.3.13.01.</a></td>
+            <td><a href="protein.php?pdbid=1tly" onmouseover="stm(Text[27],Style[0])" onmouseout="htm()">Bacterial Nucleoside Transporter Ts</a></td>
+            <td><a href="protein.php?pdbid=1tly" onmouseover="stm(Text[27],Style[0])" onmouseout="htm()">1tly</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>12</td>
+            <td>23.4 &plusmn; 1.5</td>
+            <td>8 &plusmn; 0</td>
+            <td>-48.1</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=42">1.3.14.01.</a></td>
+            <td><a href="protein.php?pdbid=1t16" onmouseover="stm(Text[28],Style[0])" onmouseout="htm()">Fatty Acid Transporter FadL</a></td>
+            <td><a href="protein.php?pdbid=1t16" onmouseover="stm(Text[28],Style[0])" onmouseout="htm()">1t16</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>14</td>
+            <td>25.4 &plusmn; 1.3</td>
+            <td>6 &plusmn; 7</td>
+            <td>-58.0</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=42">1.3.14.01.</a></td>
+            <td><a href="protein.php?pdbid=3dwo" onmouseover="stm(Text[29],Style[0])" onmouseout="htm()">FadL homologue</a></td>
+            <td><a href="protein.php?pdbid=3dwo" onmouseover="stm(Text[29],Style[0])" onmouseout="htm()">3dwo</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>14</td>
+            <td>24.8 &plusmn; 1.6</td>
+            <td>6 &plusmn; 3</td>
+            <td>-54.7</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=42">1.3.14.01.</a></td>
+            <td><a href="protein.php?pdbid=3bry" onmouseover="stm(Text[30],Style[0])" onmouseout="htm()">Toluene transporter TbuX</a></td>
+            <td><a href="protein.php?pdbid=3bry" onmouseover="stm(Text[30],Style[0])" onmouseout="htm()">3bry</a></td>
+            <td><i><a href="species.php?species=Ralstonia pickettii">Ralstonia pickettii</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>14</td>
+            <td>25.4 &plusmn; 1.5</td>
+            <td>1 &plusmn; 2</td>
+            <td>-57.7</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=42">1.3.14.01.</a></td>
+            <td><a href="protein.php?pdbid=3bs0" onmouseover="stm(Text[31],Style[0])" onmouseout="htm()">Toluene transporter TodX</a></td>
+            <td><a href="protein.php?pdbid=3bs0" onmouseover="stm(Text[31],Style[0])" onmouseout="htm()">3bs0</a></td>
+            <td><i><a href="species.php?species=Pseudomonas putida">Pseudomonas putida</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>14</td>
+            <td>14</td>
+            <td>23.4 &plusmn; 1.4</td>
+            <td>7 &plusmn; 7</td>
+            <td>-61.3</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=254">1.3.15.01.</a></td>
+            <td><a href="protein.php?pdbid=2iwv" onmouseover="stm(Text[32],Style[0])" onmouseout="htm()">Outer membrane protein G (OMPG), open state</a></td>
+            <td><a href="protein.php?pdbid=2iwv" onmouseover="stm(Text[32],Style[0])" onmouseout="htm()">2iwv</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>14</td>
+            <td>25.3 &plusmn; 1.4</td>
+            <td>3 &plusmn; 5</td>
+            <td>-61.3</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=254">1.3.15.01.</a></td>
+            <td><a href="protein.php?pdbid=2x9k" onmouseover="stm(Text[33],Style[0])" onmouseout="htm()">Outer membrane protein G (OMPG), more complete loops</a></td>
+            <td><a href="protein.php?pdbid=2x9k" onmouseover="stm(Text[33],Style[0])" onmouseout="htm()">2x9k</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>14</td>
+            <td>24.7 &plusmn; 1.2</td>
+            <td>5 &plusmn; 2</td>
+            <td>-62.7</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=254">1.3.15.01.</a></td>
+            <td><a href="protein.php?pdbid=2iww" onmouseover="stm(Text[34],Style[0])" onmouseout="htm()">Outer membrane protein G (OMPG), closed state</a></td>
+            <td><a href="protein.php?pdbid=2iww" onmouseover="stm(Text[34],Style[0])" onmouseout="htm()">2iww</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>14</td>
+            <td>24.7 &plusmn; 1.4</td>
+            <td>6 &plusmn; 4</td>
+            <td>-63.3</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=254">1.3.15.01.</a></td>
+            <td><a href="protein.php?pdbid=2f1c" onmouseover="stm(Text[35],Style[0])" onmouseout="htm()">Outer membrane protein G (OMPG)</a></td>
+            <td><a href="protein.php?pdbid=2f1c" onmouseover="stm(Text[35],Style[0])" onmouseout="htm()">2f1c</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>14</td>
+            <td>23.8 &plusmn; 1.4</td>
+            <td>1 &plusmn; 4</td>
+            <td>-56.7</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=1hxx" onmouseover="stm(Text[36],Style[0])" onmouseout="htm()">Porin OmpF</a></td>
+            <td><a href="protein.php?pdbid=1hxx" onmouseover="stm(Text[36],Style[0])" onmouseout="htm()">1hxx</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>25.1 &plusmn; 1.0</td>
+            <td>0 &plusmn; 0</td>
+            <td>-139.8</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=1osm" onmouseover="stm(Text[37],Style[0])" onmouseout="htm()">Porin</a></td>
+            <td><a href="protein.php?pdbid=1osm" onmouseover="stm(Text[37],Style[0])" onmouseout="htm()">1osm</a></td>
+            <td><i><a href="species.php?species=Klebsiella pneumoniae">Klebsiella pneumoniae</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>24.0 &plusmn; 1.1</td>
+            <td>0 &plusmn; 0</td>
+            <td>-136.6</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=2j1n" onmouseover="stm(Text[38],Style[0])" onmouseout="htm()">Osmoporin OMPC</a></td>
+            <td><a href="protein.php?pdbid=2j1n" onmouseover="stm(Text[38],Style[0])" onmouseout="htm()">2j1n</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>25.1 &plusmn; 1.2</td>
+            <td>0 &plusmn; 2</td>
+            <td>-126.2</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=1e54" onmouseover="stm(Text[39],Style[0])" onmouseout="htm()">Anion-selective porin</a></td>
+            <td><a href="protein.php?pdbid=1e54" onmouseover="stm(Text[39],Style[0])" onmouseout="htm()">1e54</a></td>
+            <td><i><a href="species.php?species=Comamonas acidovorans">Comamonas acidovorans</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>25.4 &plusmn; 0.5</td>
+            <td>0 &plusmn; 0</td>
+            <td>-138.8</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=1pho" onmouseover="stm(Text[40],Style[0])" onmouseout="htm()">Phosphoporin (PhoE)</a></td>
+            <td><a href="protein.php?pdbid=1pho" onmouseover="stm(Text[40],Style[0])" onmouseout="htm()">1pho</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>24.1 &plusmn; 1.2</td>
+            <td>0 &plusmn; 0</td>
+            <td>-134.1</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=3a2s" onmouseover="stm(Text[41],Style[0])" onmouseout="htm()">Porin B (PorB)</a></td>
+            <td><a href="protein.php?pdbid=3a2s" onmouseover="stm(Text[41],Style[0])" onmouseout="htm()">3a2s</a></td>
+            <td><i><a href="species.php?species=Neisseria meningitidis">Neisseria meningitidis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>24.4 &plusmn; 1.0</td>
+            <td>0 &plusmn; 0</td>
+            <td>-102.1</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=2ixx" onmouseover="stm(Text[42],Style[0])" onmouseout="htm()">Osmoporin OMPC,  isoform 1</a></td>
+            <td><a href="protein.php?pdbid=2ixx" onmouseover="stm(Text[42],Style[0])" onmouseout="htm()">2ixx</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>26.2 &plusmn; 1.3</td>
+            <td>0 &plusmn; 1</td>
+            <td>-142.5</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=3nsg" onmouseover="stm(Text[43],Style[0])" onmouseout="htm()">Porin OmpF</a></td>
+            <td><a href="protein.php?pdbid=3nsg" onmouseover="stm(Text[43],Style[0])" onmouseout="htm()">3nsg</a></td>
+            <td><i><a href="species.php?species=Salmonella enterica">Salmonella enterica</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>23.6 &plusmn; 0.8</td>
+            <td>0 &plusmn; 0</td>
+            <td>-123.4</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=43">1.3.16.01.</a></td>
+            <td><a href="protein.php?pdbid=2ixw" onmouseover="stm(Text[44],Style[0])" onmouseout="htm()">Osmoporin OMPC, isoform 2</a></td>
+            <td><a href="protein.php?pdbid=2ixw" onmouseover="stm(Text[44],Style[0])" onmouseout="htm()">2ixw</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>24.5 &plusmn; 1.0</td>
+            <td>0 &plusmn; 0</td>
+            <td>-121.0</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=88">1.3.16.02.</a></td>
+            <td><a href="protein.php?pdbid=2por" onmouseover="stm(Text[45],Style[0])" onmouseout="htm()">Porin</a></td>
+            <td><a href="protein.php?pdbid=2por" onmouseover="stm(Text[45],Style[0])" onmouseout="htm()">2por</a></td>
+            <td><i><a href="species.php?species=Rhodobacter capsulatus">Rhodobacter capsulatus</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>23.4 &plusmn; 0.6</td>
+            <td>0 &plusmn; 0</td>
+            <td>-114.8</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=88">1.3.16.02.</a></td>
+            <td><a href="protein.php?pdbid=3prn" onmouseover="stm(Text[46],Style[0])" onmouseout="htm()">Porin</a></td>
+            <td><a href="protein.php?pdbid=3prn" onmouseover="stm(Text[46],Style[0])" onmouseout="htm()">3prn</a></td>
+            <td><i><a href="species.php?species=Rhodopseudomonas blastica">Rhodopseudomonas blastica</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>23.2 &plusmn; 0.5</td>
+            <td>0 &plusmn; 0</td>
+            <td>-127.6</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=273">1.3.16.03.</a></td>
+            <td><a href="protein.php?pdbid=2o4v" onmouseover="stm(Text[47],Style[0])" onmouseout="htm()">Porin OprP</a></td>
+            <td><a href="protein.php?pdbid=2o4v" onmouseover="stm(Text[47],Style[0])" onmouseout="htm()">2o4v</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>48</td>
+            <td>23.9 &plusmn; 1.1</td>
+            <td>0 &plusmn; 0</td>
+            <td>-129.6</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=279">1.3.17.01.</a></td>
+            <td><a href="protein.php?pdbid=2qdz" onmouseover="stm(Text[48],Style[0])" onmouseout="htm()">Filamentous hemagglutinin transporter FhaC</a></td>
+            <td><a href="protein.php?pdbid=2qdz" onmouseover="stm(Text[48],Style[0])" onmouseout="htm()">2qdz</a></td>
+            <td><i><a href="species.php?species=Bordetella pertussis">Bordetella pertussis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>16</td>
+            <td>24.4 &plusmn; 1.1</td>
+            <td>7 &plusmn; 7</td>
+            <td>-69.1</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=44">1.3.18.01.</a></td>
+            <td><a href="protein.php?pdbid=1a0s" onmouseover="stm(Text[49],Style[0])" onmouseout="htm()">Sucrose-specific porin</a></td>
+            <td><a href="protein.php?pdbid=1a0s" onmouseover="stm(Text[49],Style[0])" onmouseout="htm()">1a0s</a></td>
+            <td><i><a href="species.php?species=Salmonella enterica">Salmonella enterica</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>54</td>
+            <td>23.8 &plusmn; 1.1</td>
+            <td>0 &plusmn; 0</td>
+            <td>-103.5</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=44">1.3.18.01.</a></td>
+            <td><a href="protein.php?pdbid=1af6" onmouseover="stm(Text[50],Style[0])" onmouseout="htm()">Maltoporin</a></td>
+            <td><a href="protein.php?pdbid=1af6" onmouseover="stm(Text[50],Style[0])" onmouseout="htm()">1af6</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>54</td>
+            <td>25.1 &plusmn; 0.7</td>
+            <td>0 &plusmn; 0</td>
+            <td>-117.9</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=44">1.3.18.01.</a></td>
+            <td><a href="protein.php?pdbid=2mpr" onmouseover="stm(Text[51],Style[0])" onmouseout="htm()">Maltoporin</a></td>
+            <td><a href="protein.php?pdbid=2mpr" onmouseover="stm(Text[51],Style[0])" onmouseout="htm()">2mpr</a></td>
+            <td><i><a href="species.php?species=Salmonella enterica">Salmonella enterica</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>54</td>
+            <td>24.5 &plusmn; 1.0</td>
+            <td>0 &plusmn; 0</td>
+            <td>-109.7</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=282">1.3.19.01.</a></td>
+            <td><a href="protein.php?pdbid=3jty" onmouseover="stm(Text[52],Style[0])" onmouseout="htm()">BenF-like porin</a></td>
+            <td><a href="protein.php?pdbid=3jty" onmouseover="stm(Text[52],Style[0])" onmouseout="htm()">3jty</a></td>
+            <td><i><a href="species.php?species=Pseudomonas fluorescens">Pseudomonas fluorescens</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>18</td>
+            <td>24.2 &plusmn; 1.2</td>
+            <td>1 &plusmn; 0</td>
+            <td>-59.8</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=282">1.3.19.01.</a></td>
+            <td><a href="protein.php?pdbid=2odj" onmouseover="stm(Text[53],Style[0])" onmouseout="htm()">Outer membrane porin OprD</a></td>
+            <td><a href="protein.php?pdbid=2odj" onmouseover="stm(Text[53],Style[0])" onmouseout="htm()">2odj</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>18</td>
+            <td>23.0 &plusmn; 0.8</td>
+            <td>8 &plusmn; 0</td>
+            <td>-63.1</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=282">1.3.19.01.</a></td>
+            <td><a href="protein.php?pdbid=2y0h" onmouseover="stm(Text[54],Style[0])" onmouseout="htm()">Outer membrane porin OpdL</a></td>
+            <td><a href="protein.php?pdbid=2y0h" onmouseover="stm(Text[54],Style[0])" onmouseout="htm()">2y0h</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>18</td>
+            <td>23.0 &plusmn; 1.0</td>
+            <td>3 &plusmn; 0</td>
+            <td>-55.7</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=282">1.3.19.01.</a></td>
+            <td><a href="protein.php?pdbid=2y0k" onmouseover="stm(Text[55],Style[0])" onmouseout="htm()">Pyroglutatmate porin OpdO</a></td>
+            <td><a href="protein.php?pdbid=2y0k" onmouseover="stm(Text[55],Style[0])" onmouseout="htm()">2y0k</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>18</td>
+            <td>23.8 &plusmn; 1.2</td>
+            <td>1 &plusmn; 0</td>
+            <td>-55.8</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=282">1.3.19.01.</a></td>
+            <td><a href="protein.php?pdbid=2y0l" onmouseover="stm(Text[56],Style[0])" onmouseout="htm()">Cis-aconitate porin OpdH</a></td>
+            <td><a href="protein.php?pdbid=2y0l" onmouseover="stm(Text[56],Style[0])" onmouseout="htm()">2y0l</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>18</td>
+            <td>21.4 &plusmn; 1.5</td>
+            <td>6 &plusmn; 1</td>
+            <td>-57.2</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=282">1.3.19.01.</a></td>
+            <td><a href="protein.php?pdbid=2qtk" onmouseover="stm(Text[57],Style[0])" onmouseout="htm()">Protein OpdK</a></td>
+            <td><a href="protein.php?pdbid=2qtk" onmouseover="stm(Text[57],Style[0])" onmouseout="htm()">2qtk</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>18</td>
+            <td>23.3 &plusmn; 1.0</td>
+            <td>3 &plusmn; 0</td>
+            <td>-62.4</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=403">1.3.19.02.</a></td>
+            <td><a href="protein.php?pdbid=3rbh" onmouseover="stm(Text[58],Style[0])" onmouseout="htm()">Alginate export protein</a></td>
+            <td><a href="protein.php?pdbid=3rbh" onmouseover="stm(Text[58],Style[0])" onmouseout="htm()">3rbh</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>18</td>
+            <td>23.4 &plusmn; 1.2</td>
+            <td>4 &plusmn; 0</td>
+            <td>-72.0</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=1kmp" onmouseover="stm(Text[59],Style[0])" onmouseout="htm()">Outer membrane transporter FecA, different conformation</a></td>
+            <td><a href="protein.php?pdbid=1kmp" onmouseover="stm(Text[59],Style[0])" onmouseout="htm()">1kmp</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.9 &plusmn; 0.9</td>
+            <td>4 &plusmn; 0</td>
+            <td>-74.0</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=1qfg" onmouseover="stm(Text[60],Style[0])" onmouseout="htm()">Ferric hydroxamate uptake receptor FhuA</a></td>
+            <td><a href="protein.php?pdbid=1qfg" onmouseover="stm(Text[60],Style[0])" onmouseout="htm()">1qfg</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.7 &plusmn; 1.0</td>
+            <td>5 &plusmn; 1</td>
+            <td>-81.3</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=2ysu" onmouseover="stm(Text[61],Style[0])" onmouseout="htm()">Outer membrane cobalamin transporter BtuB, complex with colicin E2 R-domain</a></td>
+            <td><a href="protein.php?pdbid=2ysu" onmouseover="stm(Text[61],Style[0])" onmouseout="htm()">2ysu</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.2 &plusmn; 1.0</td>
+            <td>5 &plusmn; 0</td>
+            <td>-75.2</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=1fep" onmouseover="stm(Text[62],Style[0])" onmouseout="htm()">Ferric enterobactin receptor FepA</a></td>
+            <td><a href="protein.php?pdbid=1fep" onmouseover="stm(Text[62],Style[0])" onmouseout="htm()">1fep</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.3 &plusmn; 1.1</td>
+            <td>1 &plusmn; 0</td>
+            <td>-77.2</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=1ujw" onmouseover="stm(Text[63],Style[0])" onmouseout="htm()">Outer membrane cobalamin transporter BtuB, complex with colicin E3 R-domain</a></td>
+            <td><a href="protein.php?pdbid=1ujw" onmouseover="stm(Text[63],Style[0])" onmouseout="htm()">1ujw</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>23.6 &plusmn; 1.1</td>
+            <td>5 &plusmn; 0</td>
+            <td>-71.5</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=3qlb" onmouseover="stm(Text[64],Style[0])" onmouseout="htm()">Enantio-pyochelin receptor fetA</a></td>
+            <td><a href="protein.php?pdbid=3qlb" onmouseover="stm(Text[64],Style[0])" onmouseout="htm()">3qlb</a></td>
+            <td><i><a href="species.php?species=Pseudomonas fluorescens">Pseudomonas fluorescens</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>22</td>
+            <td>1</td>
+            <td>23.4 &plusmn; 0.8</td>
+            <td>7 &plusmn; 0</td>
+            <td>-75.3</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=1kmo" onmouseover="stm(Text[65],Style[0])" onmouseout="htm()">Outer membrane transporter FecA</a></td>
+            <td><a href="protein.php?pdbid=1kmo" onmouseover="stm(Text[65],Style[0])" onmouseout="htm()">1kmo</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.5 &plusmn; 1.2</td>
+            <td>3 &plusmn; 0</td>
+            <td>-69.6</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=1xkw" onmouseover="stm(Text[66],Style[0])" onmouseout="htm()">Fe(III)-pyochelin receptor FptA</a></td>
+            <td><a href="protein.php?pdbid=1xkw" onmouseover="stm(Text[66],Style[0])" onmouseout="htm()">1xkw</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.8 &plusmn; 1.0</td>
+            <td>5 &plusmn; 4</td>
+            <td>-84.3</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=2guf" onmouseover="stm(Text[67],Style[0])" onmouseout="htm()">Outer membrane cobalamin transporter BtuB, meso form</a></td>
+            <td><a href="protein.php?pdbid=2guf" onmouseover="stm(Text[67],Style[0])" onmouseout="htm()">2guf</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>22</td>
+            <td>22</td>
+            <td>23.4 &plusmn; 0.9</td>
+            <td>6 &plusmn; 7</td>
+            <td>-69.3</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=3csl" onmouseover="stm(Text[68],Style[0])" onmouseout="htm()">Hemophore receptor HasR</a></td>
+            <td><a href="protein.php?pdbid=3csl" onmouseover="stm(Text[68],Style[0])" onmouseout="htm()">3csl</a></td>
+            <td><i><a href="species.php?species=Serratia marcescens">Serratia marcescens</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>25.4 &plusmn; 1.3</td>
+            <td>4 &plusmn; 5</td>
+            <td>-72.2</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=1nqe" onmouseover="stm(Text[69],Style[0])" onmouseout="htm()">Outer membrane cobalamin transporter BtuB</a></td>
+            <td><a href="protein.php?pdbid=1nqe" onmouseover="stm(Text[69],Style[0])" onmouseout="htm()">1nqe</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>23.4 &plusmn; 1.0</td>
+            <td>5 &plusmn; 0</td>
+            <td>-68.8</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=2hdi" onmouseover="stm(Text[70],Style[0])" onmouseout="htm()">Colicin I receptor complex with binding domain of Colicin Ia</a></td>
+            <td><a href="protein.php?pdbid=2hdi" onmouseover="stm(Text[70],Style[0])" onmouseout="htm()">2hdi</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>23.4 &plusmn; 0.9</td>
+            <td>3 &plusmn; 3</td>
+            <td>-72.7</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=2iah" onmouseover="stm(Text[71],Style[0])" onmouseout="htm()">Pyoverdine Outer Membrane Receptor FpvA</a></td>
+            <td><a href="protein.php?pdbid=2iah" onmouseover="stm(Text[71],Style[0])" onmouseout="htm()">2iah</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.0 &plusmn; 0.5</td>
+            <td>8 &plusmn; 0</td>
+            <td>-79.7</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=2grx" onmouseover="stm(Text[72],Style[0])" onmouseout="htm()">Ferric hydroxamate uptake receptor FhuA, complex with TonB</a></td>
+            <td><a href="protein.php?pdbid=2grx" onmouseover="stm(Text[72],Style[0])" onmouseout="htm()">2grx</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.6 &plusmn; 1.1</td>
+            <td>3 &plusmn; 0</td>
+            <td>-77.2</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=2hdf" onmouseover="stm(Text[73],Style[0])" onmouseout="htm()">Colicin I receptor</a></td>
+            <td><a href="protein.php?pdbid=2hdf" onmouseover="stm(Text[73],Style[0])" onmouseout="htm()">2hdf</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>23.4 &plusmn; 0.9</td>
+            <td>4 &plusmn; 0</td>
+            <td>-70.9</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=3efm" onmouseover="stm(Text[74],Style[0])" onmouseout="htm()">Outer membrane receptor FauA</a></td>
+            <td><a href="protein.php?pdbid=3efm" onmouseover="stm(Text[74],Style[0])" onmouseout="htm()">3efm</a></td>
+            <td><i><a href="species.php?species=Bordetella pertussis">Bordetella pertussis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.7 &plusmn; 0.6</td>
+            <td>11 &plusmn; 0</td>
+            <td>-77.5</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=2gsk" onmouseover="stm(Text[75],Style[0])" onmouseout="htm()">Outer membrane cobalamin transporter BtuB, complex with TonB</a></td>
+            <td><a href="protein.php?pdbid=2gsk" onmouseover="stm(Text[75],Style[0])" onmouseout="htm()">2gsk</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>23.4 &plusmn; 0.7</td>
+            <td>5 &plusmn; 0</td>
+            <td>-77.5</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=3fhh" onmouseover="stm(Text[76],Style[0])" onmouseout="htm()">Outer membrane heme transporter ShuA</a></td>
+            <td><a href="protein.php?pdbid=3fhh" onmouseover="stm(Text[76],Style[0])" onmouseout="htm()">3fhh</a></td>
+            <td><i><a href="species.php?species=Shigella  dysenteriae">Shigella  dysenteriae</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>24.6 &plusmn; 0.9</td>
+            <td>5 &plusmn; 0</td>
+            <td>-70.7</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=89">1.3.20.01.</a></td>
+            <td><a href="protein.php?pdbid=3m8d" onmouseover="stm(Text[77],Style[0])" onmouseout="htm()">Outer membrane cobalamin transporter BtuB, with cyanocobalamin</a></td>
+            <td><a href="protein.php?pdbid=3m8d" onmouseover="stm(Text[77],Style[0])" onmouseout="htm()">3m8d</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>22</td>
+            <td>23.3 &plusmn; 0.8</td>
+            <td>6 &plusmn; 1</td>
+            <td>-70.5</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=289">1.3.21.01.</a></td>
+            <td><a href="protein.php?pdbid=2vqi" onmouseover="stm(Text[78],Style[0])" onmouseout="htm()">P pilus usher PapC translocation domain</a></td>
+            <td><a href="protein.php?pdbid=2vqi" onmouseover="stm(Text[78],Style[0])" onmouseout="htm()">2vqi</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>24</td>
+            <td>23.1 &plusmn; 1.0</td>
+            <td>3 &plusmn; 0</td>
+            <td>-61.0</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=289">1.3.21.01.</a></td>
+            <td><a href="protein.php?pdbid=3ohn" onmouseover="stm(Text[79],Style[0])" onmouseout="htm()">Outer membrane usher protein FimD</a></td>
+            <td><a href="protein.php?pdbid=3ohn" onmouseover="stm(Text[79],Style[0])" onmouseout="htm()">3ohn</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>1</td>
+            <td>24</td>
+            <td>21.2 &plusmn; 1.1</td>
+            <td>5 &plusmn; 0</td>
+            <td>-45.4</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=289">1.3.21.01.</a></td>
+            <td><a href="protein.php?pdbid=3rfz" onmouseover="stm(Text[80],Style[0])" onmouseout="htm()">Outer membrane usher protein FimD, complex with FimC-FimH</a></td>
+            <td><a href="protein.php?pdbid=3rfz" onmouseover="stm(Text[80],Style[0])" onmouseout="htm()">3rfz</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>24</td>
+            <td>23.8 &plusmn; 0.8</td>
+            <td>5 &plusmn; 0</td>
+            <td>-65.1</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=292">1.3.22.01.</a></td>
+            <td><a href="protein.php?pdbid=3emn" onmouseover="stm(Text[81],Style[0])" onmouseout="htm()">VDAC-1 channel</a></td>
+            <td><a href="protein.php?pdbid=3emn" onmouseover="stm(Text[81],Style[0])" onmouseout="htm()">3emn</a></td>
+            <td><i><a href="species.php?species=Mus musculus">Mus musculus</a></i></td>
+            <td><a href="localization.php?localization=Mitochondrial outer membrane">Mitochon. outer</a></td>
+            <td>1</td>
+            <td>19</td>
+            <td>23.4 &plusmn; 1.1</td>
+            <td>5 &plusmn; 1</td>
+            <td>-52.5</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=292">1.3.22.01.</a></td>
+            <td><a href="protein.php?pdbid=2k4t" onmouseover="stm(Text[82],Style[0])" onmouseout="htm()">VDAC-1 channel</a></td>
+            <td><a href="protein.php?pdbid=2k4t" onmouseover="stm(Text[82],Style[0])" onmouseout="htm()">2k4t</a></td>
+            <td><i><a href="species.php?species=Homo sapiens">Homo sapiens</a></i></td>
+            <td><a href="localization.php?localization=Mitochondrial outer membrane">Mitochon. outer</a></td>
+            <td>1</td>
+            <td>19</td>
+            <td>22.0 &plusmn; 1.5</td>
+            <td>1 &plusmn; 1</td>
+            <td>-34.8</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=292">1.3.22.01.</a></td>
+            <td><a href="protein.php?pdbid=2jk4" onmouseover="stm(Text[83],Style[0])" onmouseout="htm()">VDAC-1 channel</a></td>
+            <td><a href="protein.php?pdbid=2jk4" onmouseover="stm(Text[83],Style[0])" onmouseout="htm()">2jk4</a></td>
+            <td><i><a href="species.php?species=Homo sapiens">Homo sapiens</a></i></td>
+            <td><a href="localization.php?localization=Mitochondrial outer membrane">Mitochon. outer</a></td>
+            <td>1</td>
+            <td>19</td>
+            <td>23.4 &plusmn; 2.3</td>
+            <td>0 &plusmn; 1</td>
+            <td>-40.0</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=252">1.3.23.01.</a></td>
+            <td><a href="protein.php?pdbid=2gr7" onmouseover="stm(Text[84],Style[0])" onmouseout="htm()">Autotransporter Hia</a></td>
+            <td><a href="protein.php?pdbid=2gr7" onmouseover="stm(Text[84],Style[0])" onmouseout="htm()">2gr7</a></td>
+            <td><i><a href="species.php?species=Haemophilus influenzae">Haemophilus influenzae</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>15</td>
+            <td>22.7 &plusmn; 2.0</td>
+            <td>0 &plusmn; 1</td>
+            <td>-43.5</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=252">1.3.23.01.</a></td>
+            <td><a href="protein.php?pdbid=3emo" onmouseover="stm(Text[85],Style[0])" onmouseout="htm()">Autotransporter Hia, a different conformation</a></td>
+            <td><a href="protein.php?pdbid=3emo" onmouseover="stm(Text[85],Style[0])" onmouseout="htm()">3emo</a></td>
+            <td><i><a href="species.php?species=Haemophilus influenzae">Haemophilus influenzae</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>12</td>
+            <td>22.8 &plusmn; 1.9</td>
+            <td>4 &plusmn; 0</td>
+            <td>-40.1</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=46">1.3.24.01.</a></td>
+            <td><a href="protein.php?pdbid=1wp1" onmouseover="stm(Text[86],Style[0])" onmouseout="htm()">Drug-Discharge Outer Membrane Protein, OprM</a></td>
+            <td><a href="protein.php?pdbid=1wp1" onmouseover="stm(Text[86],Style[0])" onmouseout="htm()">1wp1</a></td>
+            <td><i><a href="species.php?species=Pseudomonas aeruginosa">Pseudomonas aeruginosa</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>12</td>
+            <td>24.7 &plusmn; 1.2</td>
+            <td>0 &plusmn; 0</td>
+            <td>-64.0</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=46">1.3.24.01.</a></td>
+            <td><a href="protein.php?pdbid=3pik" onmouseover="stm(Text[87],Style[0])" onmouseout="htm()">Cation efflux system protein CusC</a></td>
+            <td><a href="protein.php?pdbid=3pik" onmouseover="stm(Text[87],Style[0])" onmouseout="htm()">3pik</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>12</td>
+            <td>24.3 &plusmn; 1.2</td>
+            <td>1 &plusmn; 0</td>
+            <td>-33.8</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=46">1.3.24.01.</a></td>
+            <td><a href="protein.php?pdbid=1ek9" onmouseover="stm(Text[88],Style[0])" onmouseout="htm()">Outer membrane protein TolC</a></td>
+            <td><a href="protein.php?pdbid=1ek9" onmouseover="stm(Text[88],Style[0])" onmouseout="htm()">1ek9</a></td>
+            <td><i><a href="species.php?species=Escherichia coli">Escherichia coli</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>12</td>
+            <td>24.6 &plusmn; 1.4</td>
+            <td>0 &plusmn; 2</td>
+            <td>-56.1</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=46">1.3.24.01.</a></td>
+            <td><a href="protein.php?pdbid=1yc9" onmouseover="stm(Text[89],Style[0])" onmouseout="htm()">Multidrug Resistance (VceC) protein</a></td>
+            <td><a href="protein.php?pdbid=1yc9" onmouseover="stm(Text[89],Style[0])" onmouseout="htm()">1yc9</a></td>
+            <td><i><a href="species.php?species=Vibrio cholerae">Vibrio cholerae</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-negative outer membrane">Bact. gram-neg outer</a></td>
+            <td>3</td>
+            <td>12</td>
+            <td>24.6 &plusmn; 1.0</td>
+            <td>0 &plusmn; 0</td>
+            <td>-62.2</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=47">1.3.25.01.</a></td>
+            <td><a href="protein.php?pdbid=1pvl" onmouseover="stm(Text[90],Style[0])" onmouseout="htm()">Leukocidin F</a></td>
+            <td><a href="protein.php?pdbid=1pvl" onmouseover="stm(Text[90],Style[0])" onmouseout="htm()">1pvl</a></td>
+            <td><i><a href="species.php?species=Staphylococcus aureus">Staphylococcus aureus</a></i></td>
+            <td><a href="localization.php?localization=Secreted">Secreted</a></td>
+            <td>1</td>
+            <td>0</td>
+            <td>4.0 &plusmn; 3.2</td>
+            <td>47 &plusmn; 10</td>
+            <td>-3.7</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=47">1.3.25.01.</a></td>
+            <td><a href="protein.php?pdbid=7ahl" onmouseover="stm(Text[91],Style[0])" onmouseout="htm()">Alpha-hemolysin</a></td>
+            <td><a href="protein.php?pdbid=7ahl" onmouseover="stm(Text[91],Style[0])" onmouseout="htm()">7ahl</a></td>
+            <td><i><a href="species.php?species=Staphylococcus aureus">Staphylococcus aureus</a></i></td>
+            <td><a href="localization.php?localization=Secreted">Secreted</a></td>
+            <td>7</td>
+            <td>14</td>
+            <td>23.5 &plusmn; 0.9</td>
+            <td>0 &plusmn; 1</td>
+            <td>-49.3</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=47">1.3.25.01.</a></td>
+            <td><a href="protein.php?pdbid=3b07" onmouseover="stm(Text[92],Style[0])" onmouseout="htm()">Gamma-hemolysin, complete channel, hetero-octamer</a></td>
+            <td><a href="protein.php?pdbid=3b07" onmouseover="stm(Text[92],Style[0])" onmouseout="htm()">3b07</a></td>
+            <td><i><a href="species.php?species=Staphylococcus aureus">Staphylococcus aureus</a></i></td>
+            <td><a href="localization.php?localization=Secreted">Secreted</a></td>
+            <td>8</td>
+            <td>16</td>
+            <td>21.4 &plusmn; 1.0</td>
+            <td>0 &plusmn; 0</td>
+            <td>-32.8</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=47">1.3.25.01.</a></td>
+            <td><a href="protein.php?pdbid=2qk7" onmouseover="stm(Text[93],Style[0])" onmouseout="htm()">Gamma-hemolysin, heterodimer of components A and B</a></td>
+            <td><a href="protein.php?pdbid=2qk7" onmouseover="stm(Text[93],Style[0])" onmouseout="htm()">2qk7</a></td>
+            <td><i><a href="species.php?species=Staphylococcus aureus">Staphylococcus aureus</a></i></td>
+            <td><a href="localization.php?localization=Secreted">Secreted</a></td>
+            <td>2</td>
+            <td>0</td>
+            <td>2.9 &plusmn; 2.0</td>
+            <td>83 &plusmn; 11</td>
+            <td>-5.7</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=47">1.3.25.01.</a></td>
+            <td><a href="protein.php?pdbid=3lkf" onmouseover="stm(Text[94],Style[0])" onmouseout="htm()">Gamma-hemolysin, component B</a></td>
+            <td><a href="protein.php?pdbid=3lkf" onmouseover="stm(Text[94],Style[0])" onmouseout="htm()">3lkf</a></td>
+            <td><i><a href="species.php?species=Staphylococcus aureus">Staphylococcus aureus</a></i></td>
+            <td><a href="localization.php?localization=Secreted">Secreted</a></td>
+            <td>1</td>
+            <td>0</td>
+            <td>1.7 &plusmn; 2.5</td>
+            <td>51 &plusmn; 11</td>
+            <td>-4.5</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=436">1.3.25.02.</a></td>
+            <td><a href="protein.php?pdbid=3o44" onmouseover="stm(Text[95],Style[0])" onmouseout="htm()">Cytolysin and hemolysin HlyA Pore-forming toxin</a></td>
+            <td><a href="protein.php?pdbid=3o44" onmouseover="stm(Text[95],Style[0])" onmouseout="htm()">3o44</a></td>
+            <td><i><a href="species.php?species=Vibrio cholerae">Vibrio cholerae</a></i></td>
+            <td><a href="localization.php?localization=Secreted">Secreted</a></td>
+            <td>7</td>
+            <td>14</td>
+            <td>24.6 &plusmn; 0.0</td>
+            <td>0 &plusmn; 0</td>
+            <td>-33.1</td>
+         </tr>
+   <tr class="row1">
+            <td><a href="families.php?family=436">1.3.25.02.</a></td>
+            <td><a href="protein.php?pdbid=1xez" onmouseover="stm(Text[96],Style[0])" onmouseout="htm()">Hemolysin</a></td>
+            <td><a href="protein.php?pdbid=1xez" onmouseover="stm(Text[96],Style[0])" onmouseout="htm()">1xez</a></td>
+            <td><i><a href="species.php?species=Vibrio cholerae">Vibrio cholerae</a></i></td>
+            <td><a href="localization.php?localization=Secreted">Secreted</a></td>
+            <td>1</td>
+            <td>0</td>
+            <td>8.2 &plusmn; 2.3</td>
+            <td>19 &plusmn; 6</td>
+            <td>-6.0</td>
+         </tr>
+   <tr class="row2">
+            <td><a href="families.php?family=48">1.3.26.01.</a></td>
+            <td><a href="protein.php?pdbid=1uun" onmouseover="stm(Text[97],Style[0])" onmouseout="htm()">Porin MspA</a></td>
+            <td><a href="protein.php?pdbid=1uun" onmouseover="stm(Text[97],Style[0])" onmouseout="htm()">1uun</a></td>
+            <td><i><a href="species.php?species=Mycobacterium smegmatis">Mycobacterium smegmatis</a></i></td>
+            <td><a href="localization.php?localization=Bacterial gram-positive acid-fast cell wall">Bact. gram-pos cell wall</a></td>
+            <td>8</td>
+            <td>16</td>
+            <td>40.7 &plusmn; 2.1</td>
+            <td>0 &plusmn; 0</td>
+            <td>-71.0</td>
+         </tr>
+</tbody>
+</table>                              
+</div> <!-- end body -->
+
+<!-- foot section -->
+<div id="foot">
+   Copyright &copy; 2005-2011 <a href="mailto:almz@umich.edu">Andrei Lomize</a>, <a href="mailto:mlomize@umich.edu">Mikhail Lomize</a> and <a href="mailto:irinap@umich.edu">Irina Pogozheva</a>
+<br />University of Michigan, Ann Arbor, MI 48109 USA
+<br /><a href="http://validator.w3.org/check?uri=http://opm.phar.umich.edu/superfamilies.php" target="_blank" class="nounderline"><img src="images/xhtml_valid.gif" alt="Valid XHTML" border="0" /></a> <a href="http://jigsaw.w3.org/css-validator/validator?uri=http://opm.phar.umich.edu/superfamilies.php" target="_blank" class="nounderline"><img src="images/css_valid.gif" alt="Valid CSS" border="0" /></a>
+</div> <!-- end foot -->
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+<!--
+var sc_project=1097665;
+var sc_invisible=1;
+var sc_partition=9;
+var sc_security="87ee5d63";
+var sc_text=2;
+//-->
+</script>
+
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter_xhtml.js"></script><noscript><div class="statcounter"><a class="statcounter" href="http://www.statcounter.com/"><img class="statcounter" src="http://c10.statcounter.com/counter.php?sc_project=1097665&amp;java=0&amp;security=87ee5d63&amp;invisible=0" alt="website hit counter" /></a></div></noscript>
+<!-- End of StatCounter Code -->
+
+</body>
+</html>

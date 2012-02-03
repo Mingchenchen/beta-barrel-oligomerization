@@ -4,6 +4,7 @@ from sundries import CIDict
 import csv
 from Bio import AlignIO
 from Bio import SeqIO
+from Bio.Align import MultipleSeqAlignment
 
 # Uses CIDict
 def retrieve_matrix(csvfile):
@@ -56,22 +57,27 @@ def compare(seq1, seq2, matrix):
 
     return distance(seq1, seq2, matrix) / count
 
-# Load matrices.
-matrices = []    
-for matrix in ('hamming.csv', 'bbTMall40.csv'):
-    with open('matrices/' + matrix, 'rb') as f:
-        freader = csv.reader(f)
-        matrices.append(retrieve_matrix(freader))
-
-hamming = matrices[0]
-bbtm = matrices[1]
+# Load matrix.
+with open('identity.csv', 'rb') as f:
+    freader = csv.reader(f)
+    identity = (retrieve_matrix(freader))
 
 # Load multiple sequence alignment.
-ompla_msa = AlignIO.read('test data/1qd6.clu', 'clustal')
+ompla_msa = AlignIO.read('OMP.12.6.1.clu', 'clustal')
 ompla_pdb = ompla_msa[5]
 
+# I don't know what the first five entries in the multiple seq alignment
+# represent, but I don't think they're actual protein sequences
+ompla_msa = ompla_msa[5:]
 
-sorted_seqs = sorted(ompla_msa[4:],
-                     key=lambda seq: compare(ompla_pdb, seq, hamming))[::-1]
+# Create sorted list of alignments, with nearest to pdb sequence on
+# top and furthest on bottom.
+sorted_seqs = sorted(ompla_msa,
+                     key=lambda seq: compare(ompla_pdb,
+                                             seq, identity))[::-1]
 
-                     
+# Create sorted multiple sequence alignment from list.  
+sorted_msa = MultipleSeqAlignment(sorted_seqs)
+
+# Write the sorted alignment to a file.
+AlignIO.write(sorted_msa,'sorted 12.6.1.clu','clustal')
