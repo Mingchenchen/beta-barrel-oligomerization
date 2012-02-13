@@ -1,4 +1,5 @@
 import os
+import re
 
 class CIDict(dict):
     def __init__(self, raw = dict()):
