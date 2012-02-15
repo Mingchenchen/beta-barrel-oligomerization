@@ -9,8 +9,13 @@ from sundries import file_dict
 from Bio.PDB import PDBParser
 import warnings
 import os
+import matrices
+import math
 
 class MissingPDBSequence(Exception):
+    pass
+
+class MultiplePDBSequences(Exception):
     pass
 
 class AlignmentOracle(object):
@@ -27,11 +32,14 @@ class AlignmentOracle(object):
         self.pdb_index = None
         for index, record in enumerate(self.data):
             if pdb_name in record.id:
-                self.pdb_index = index
-                break
+                if self.pdb_index is None:
+                    self.pdb_index = index
+                else:
+                    raise MultiplePDBSequences('More than one sequence had '+\
+                                               pdb_name + ' in its title')
         if self.pdb_index == None:
             raise MissingPDBSequence('None of the sequences had '+\
-            pdb_name + ' in their title')
+                                     pdb_name + ' in their title')
         self._pdb_sequence = self.data[self.pdb_index].seq
 
     def pdb_sequence(self, selection = None):
@@ -44,6 +52,16 @@ class AlignmentOracle(object):
                 if selection is None or pos in selection:
                     yield letter.upper()
                 pos += 1
+
+    def get_alignment(self):
+        return self.data
+
+    def get_pdb_index(self):
+        return self.pdb_index
+
+    def get_pdb_seq_record(self):
+        return self.data[self.pdb_index]
+       
 
 def load_centers(iterable):  
     dict_ = CIDict()
@@ -71,10 +89,11 @@ def moment(structure, selection, center, mag_function, res_retrieve):
         # If the structures have complex residue ids, then I need different
         # selection files.
         if residue.get_id()[0] != ' ':
-            if residue.get_id()[0] != 'W' and residue.get_id()[1] in selection:
-                print('Residue with id {0} in structure {1} was in selection'\
-                       .format(residue.get_id(), structure) + \
-                       ' but was ignored')
+            if residue.get_id()[0] != 'W' and \
+               residue.get_id()[1] in selection:
+                print('Residue with id {0} in structure {1}'\
+                      .format(residue.get_id(), structure) + \
+                      'was in selection but was ignored')
             continue
         
         try:
@@ -87,9 +106,6 @@ def moment(structure, selection, center, mag_function, res_retrieve):
         if residue.get_id()[1] not in selection:
             continue
 
-
-
-
         # Vector points from center to Ca
         coordinates = residue.child_dict['CA'].get_coord()
         vector = coordinates - center
@@ -99,7 +115,7 @@ def moment(structure, selection, center, mag_function, res_retrieve):
         normalized = vector / np.linalg.norm(vector)        
         # Give it a magnitude determined by the 'function' argument        
         try:
-            complete = normalized * mag_function(residue)
+            complete = normalized * mag_function(residue, resn)
         except zenergy.NoParameters:
             # For now, for the purposes of replicating old data:
             complete = normalized * .5
@@ -107,10 +123,10 @@ def moment(structure, selection, center, mag_function, res_retrieve):
 
     return sum_
 
-def calculator_adapter(calc, residue):
+def calculator_adapter(calc, residue, resn):
     # The moment function uses a function of a residue
     # The ez_beta calculator is a function of a residue type and depth
-    return calc.calculate(residue.get_resname(),
+    return calc.calculate(resn,
                           residue.child_dict['CA'].get_coord()[2])
 
 # Load selections:
@@ -131,6 +147,11 @@ with open('published params.csv', 'rb') as f:
     calc = zenergy.Calculator(reader, normalize = True)
 print('Calculator created... ' + repr(type(calc)))
 
+with open('identity.csv', 'rb') as f:
+    reader = csv.reader(f)
+    identity = matrices.retrieve_matrix(reader)
+print('Identity matrix loaded... ' + repr(type(identity)))
+
 # The slow part, open the structures:
 structure_files = file_dict('structures with 1qd5',
                             ['aligned_(1QD6).pdb',
@@ -143,6 +164,9 @@ with warnings.catch_warnings():
     warnings.simplefilter('ignore')
     structures = [parser.get_structure(id_, path) \
                   for id_, path in structure_files.items()]
+    structure_dict = CIDict([(structure.get_id(), structure)
+                             for structure in structures])
+    # Yes this is stupid, next time I'll just use a dictionary, no list
 print('Structured parsed...' + repr(structures))
 
 # Open the multiple sequence alignments:
@@ -151,18 +175,49 @@ alignments = dict([(name, Bio.AlignIO.read(filename, 'clustal')) \
               file_dict(os.getcwd(), ['(.*) with pdb.aln']).items()])
 # Remake the alignment dictionary with the pdbids that are being used
 # everywhere else in this script, instead of protein names:
-pdbnames ={'1A0S': alignments['ScrY'],
-           '1QD6': alignments['OMPLA'],
-           '1QJP': alignments['OmpA']}
+alignments ={'1A0S': alignments['ScrY'],
+             '1QD6': alignments['OMPLA'],
+             '1QJP': alignments['OmpA']}
 # Make an oracle for each alignment:
 oracles = CIDict([(pdbid, AlignmentOracle(alignment, pdb_name = 'chaina'))\
-                  for pdbid, alignment in pdbnames.items()])
+                  for pdbid, alignment in alignments.items()])
 print('Alignments loaded... ' + repr(oracles))
 
-moments = CIDict([(structure.get_id(),
+pdb_moments = CIDict([(structure.get_id(),
                    moment(structure, resi_lists[structure.get_id()],
                           centers[structure.get_id()],
                           partial(calculator_adapter, calc),
                           oracles[structure.get_id()].pdb_sequence()))
            for structure in structures])
-print('Moments calculated! ' + repr(moments))
+print('pdb moments calculated! ' + repr(pdb_moments))
+
+family_moments = CIDict((pdbid, list()) for pdbid in alignments.keys())
+
+for pdbid in family_moments.keys():
+    for seq_index in range(len(oracles[pdbid].get_alignment())):
+        family_moment = moment(structure_dict[pdbid], resi_lists[pdbid],
+                               centers[pdbid],
+                               partial(calculator_adapter, calc),
+                               oracles[pdbid].sequence(seq_index))
+
+        pdb_sequence = oracles[pdbid].get_pdb_seq_record().seq
+        sequence = oracles[pdbid].get_alignment()[seq_index].seq
+        normalized_distance = matrices.compare(pdb_sequence, sequence,
+                                               identity)
+
+        seq_id = oracles[pdbid].get_alignment()[seq_index].id
+
+        family_moments[pdbid].append((seq_id, normalized_distance,
+                                      family_moment))
+print('family moments calculated! ' + str(type(family_moments)))
+
+for pdbid in family_moments.keys():
+    with open('prelim test {}.csv'.format(pdbid), 'wb') as f:
+        writer = csv.writer(f)
+        # Sort moments by distance from pdb sequence, descending:
+        sorted_moments = sorted(family_moments[pdbid],
+                                key = lambda x: x[1])[::-1]
+        for seq_id, normalized_distance, family_moment in sorted_moments:
+            writer.writerow([seq_id, normalized_distance,
+                            np.linalg.norm(family_moment),
+                            math.atan2(family_moment[1],family_moment[0])])
