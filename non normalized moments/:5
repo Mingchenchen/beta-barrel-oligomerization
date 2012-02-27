@@ -1,0 +1,44 @@
+import csv
+import numpy as np
+from sundries import CIDict
+from math import atan2
+
+def direction(vector):
+    return atan2(vector[1], vector[0])
+
+moment_dicts = list()
+for filename in ('exclusive_moment.csv',
+                 'non normalized exclusive_moment.csv'):
+    with open(filename, 'rb') as f:
+        reader = csv.reader(f)
+        moment_dict = CIDict()
+        for line in reader:
+            pdbid = line[0]
+            moment = np.array([float(line[1]), float(line[2])])
+            moment_dict.update([(pdbid, moment)])
+       moment_dicts.append(moment_dict) 
+
+normalized = moment_dicts[0]
+non_normalized = moment_dicts[1]
+
+differences = list()
+
+for pdbid in normalized.keys():
+    angle_diff = abs(direction(normalized[pdbid]) \
+                    - direction(non_normalized[pdbid]))
+    normalized_magnitude = np.linalg.norm(normalied[pdbid])
+    non_normalized_magnitude = np.linalg.norm(non_normalized[pdbid])
+    magnitude_diff = normalized_magnitude - non_normalized_magnitude
+    differences.append([pdbid, angle_diff, normalized_magnitude,
+                        non_normalized_magnitude, magnitude_diff,
+                        magnitude_diff/normalized_magnitude])
+
+with open('moments compare.csv', 'wb') as f:
+    writer = csv.writer(f)
+    writer.writerow(['PDBID', 'Angle between moments',
+                    'Mag with normalization', 'Mag without normalization',
+                    'Difference in magnitudes',
+                    'Difference over normalized magnitude'])
+    writer.writerows(differences)
+
+
