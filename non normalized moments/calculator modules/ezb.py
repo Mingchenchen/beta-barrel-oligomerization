@@ -217,7 +217,7 @@ def moment(structure, selection, center, calculator,
         except NoParameters:
             if paramless_option == '.5':
                 ezb = .5
-            if paramless_option == '0':
+            elif paramless_option == '0':
                 ezb = 0
             else:
                 raise
