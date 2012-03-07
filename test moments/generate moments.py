@@ -130,27 +130,38 @@ def calculator_adapter(calc, residue, resn):
                           residue.child_dict['CA'].get_coord()[2])
 
 # Load selections:
-with open('cored 1 selections with 1qd5.csv', 'rb') as f:
+selections_file = 'exc selections.csv'
+with open(selections_file, 'rb') as f:
     reader = csv.reader(f)
     resi_lists = selections.selections_by_resi(reader)
-print('Selections retrieved... ' + repr(type(resi_lists)))
+print('Retrieved selections from {}... '.format(selections_file) \
+      + repr(type(resi_lists)))
 
 # Load centers:
-with open('cored 1 centers with 1qd5.csv', 'rb') as f:
+centers_file = 'exc centers.csv'
+with open(centers_file, 'rb') as f:
     reader = csv.reader(f)
     centers = load_centers(reader)
-print('Centers retrieved... ' + repr(type(centers)))    
+print('Retrieved centers from {}... '.format(centers_file) \
+      + repr(type(centers)))    
 
 # Initialize a calculator:
-with open('published params.csv', 'rb') as f:
+normalize = False
+params_file = published params.csv
+with open(params_file, 'rb') as f:
     reader = csv.reader(f)
-    calc = zenergy.Calculator(reader, normalize = True)
-print('Calculator created... ' + repr(type(calc)))
+    calc = zenergy.Calculator(reader, normalize = normalize)
+print('Calculator created with normalize set to {}, '
+      + 'and parameters from {}... '.format(normalize, params_file) \
+      + repr(type(calc)))
 
-with open('identity.csv', 'rb') as f:
+# Load matrix:
+matrix_file = identity.csv
+with open(matrix_file, 'rb') as f:
     reader = csv.reader(f)
     identity = matrices.retrieve_matrix(reader)
-print('Identity matrix loaded... ' + repr(type(identity)))
+print('Retrieved matrix from {}... '.format(matrix_file) \
+      + repr(type(identity)))
 
 # The slow part, open the structures:
 structure_files = file_dict('structures with 1qd5',
@@ -167,7 +178,7 @@ with warnings.catch_warnings():
     structure_dict = CIDict([(structure.get_id(), structure)
                              for structure in structures])
     # Yes this is stupid, next time I'll just use a dictionary, no list
-print('Structured parsed...' + repr(structures))
+print('Structured parsed... ' + repr(structures))
 
 # Open the multiple sequence alignments:
 alignments = dict([(name, Bio.AlignIO.read(filename, 'clustal')) \
@@ -212,7 +223,7 @@ for pdbid in family_moments.keys():
 print('family moments calculated! ' + str(type(family_moments)))
 
 for pdbid in family_moments.keys():
-    with open('prelim test {}.csv'.format(pdbid), 'wb') as f:
+    with open('exc test {}.csv'.format(pdbid), 'wb') as f:
         writer = csv.writer(f)
         # Sort moments by distance from pdb sequence, descending:
         sorted_moments = sorted(family_moments[pdbid],
