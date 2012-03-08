@@ -117,8 +117,9 @@ def moment(structure, selection, center, mag_function, res_retrieve):
         try:
             complete = normalized * mag_function(residue, resn)
         except zenergy.NoParameters:
-            # For now, for the purposes of replicating old data:
-            complete = normalized * .5
+            # To match "non normalized moments/
+            #     non normalized exclusive_moment.csv":
+            complete = normalized * 0
         sum_ += complete 
 
     return sum_
@@ -147,7 +148,7 @@ print('Retrieved centers from {}... '.format(centers_file) \
 
 # Initialize a calculator:
 normalize = False
-params_file = published params.csv
+params_file = 'published params.csv'
 with open(params_file, 'rb') as f:
     reader = csv.reader(f)
     calc = zenergy.Calculator(reader, normalize = normalize)
@@ -156,7 +157,7 @@ print('Calculator created with normalize set to {}, '
       + repr(type(calc)))
 
 # Load matrix:
-matrix_file = identity.csv
+matrix_file = 'identity.csv'
 with open(matrix_file, 'rb') as f:
     reader = csv.reader(f)
     identity = matrices.retrieve_matrix(reader)
@@ -225,10 +226,15 @@ print('family moments calculated! ' + str(type(family_moments)))
 for pdbid in family_moments.keys():
     with open('exc test {}.csv'.format(pdbid), 'wb') as f:
         writer = csv.writer(f)
+        writer.writerow(['pdbid', '%id w/ pdb seq',
+                         'mag', 'dir', 'x','y'])
         # Sort moments by distance from pdb sequence, descending:
         sorted_moments = sorted(family_moments[pdbid],
                                 key = lambda x: x[1])[::-1]
         for seq_id, normalized_distance, family_moment in sorted_moments:
             writer.writerow([seq_id, normalized_distance,
                             np.linalg.norm(family_moment),
-                            math.atan2(family_moment[1],family_moment[0])])
+                            (180/math.pi) * math.atan2(family_moment[1],
+                                                       family_moment[0]),
+                            family_moment[0],
+                            family_moment[1]])
