@@ -96,12 +96,17 @@ def moment(structure, selection, center, mag_function, res_retrieve):
                       'was in selection but was ignored')
             continue
         
-        try:
-            resn = res_retrieve.next()
-        except StopIteration:
-            raise Exception('Oracle ran out of letters on residue ' +\
-                            repr(residue.get_id()))
-        #resn = one_letter[residue.get_resname()]
+        # Not always going to give a sequence with a moment
+        if res_retrieve is not None:
+            try:
+                resn = res_retrieve.next()
+            except StopIteration:
+                raise Exception('Oracle ran out of letters on residue ' +\
+                                repr(residue.get_id()))
+            #resn = one_letter[residue.get_resname()]
+
+        else:
+            resn = None
         
         if residue.get_id()[1] not in selection:
             continue
@@ -128,6 +133,15 @@ def calculator_adapter(calc, residue, resn):
     # The moment function uses a function of a residue
     # The ez_beta calculator is a function of a residue type and depth
     return calc.calculate(resn,
+                          residue.child_dict['CA'].get_coord()[2])
+
+def no_seq_calculator_adapter(calc, residue, resn):
+    # Like calculator_adapter, but ignores the sequence being used
+    # Instead, uses resids taken from the PDB structure
+    # This is used as a double-check. If everything is functioning as it
+    # should, then when calculating the moment for the pdb sequence,
+    # using this should be no different than using calculator_adapter.
+    return calc.calculate(residue.get_resname(),
                           residue.child_dict['CA'].get_coord()[2])
 
 # Load selections:
@@ -195,6 +209,7 @@ oracles = CIDict([(pdbid, AlignmentOracle(alignment, pdb_name = 'chaina'))\
                   for pdbid, alignment in alignments.items()])
 print('Alignments loaded... ' + repr(oracles))
 
+# Calculate the moments for the pdb sequences
 pdb_moments = CIDict([(structure.get_id(),
                    moment(structure, resi_lists[structure.get_id()],
                           centers[structure.get_id()],
@@ -203,15 +218,19 @@ pdb_moments = CIDict([(structure.get_id(),
            for structure in structures])
 print('pdb moments calculated! ' + repr(pdb_moments))
 
+# Calculate the family moments, that is, the moments for all 
+# sequences in the alignments
 family_moments = CIDict((pdbid, list()) for pdbid in alignments.keys())
 
 for pdbid in family_moments.keys():
     for seq_index in range(len(oracles[pdbid].get_alignment())):
+        # Calculate the moment
         family_moment = moment(structure_dict[pdbid], resi_lists[pdbid],
                                centers[pdbid],
                                partial(calculator_adapter, calc),
                                oracles[pdbid].sequence(seq_index))
 
+        # Calculate the %identity with the pdb sequence
         pdb_sequence = oracles[pdbid].get_pdb_seq_record().seq
         sequence = oracles[pdbid].get_alignment()[seq_index].seq
         normalized_distance = matrices.compare(pdb_sequence, sequence,
@@ -221,12 +240,28 @@ for pdbid in family_moments.keys():
 
         family_moments[pdbid].append((seq_id, normalized_distance,
                                       family_moment))
+        
+        # If this is the pdb sequence, then calculating the moment using
+        # only structural information, without using the MSA, should give
+        # the same result. If it doesn't, something went wrong!
+        if 'chaina' in seq_id:
+            no_seq_moment = moment(structure_dict[pdbid], resi_lists[pdbid],
+                                   centers[pdbid],
+                                   partial(no_seq_calculator_adapter, calc),
+                                   None)
+            assert (no_seq_moment == family_moment).all(), \
+                   "when calculating moment using pdb sequence of "+pdbid \
+                   + ", using pdb sequence moment was " \
+                   + str(family_moment)\
+                   + ", but using structure, moment was " \
+                   + str(no_seq_moment)
+
 print('family moments calculated! ' + str(type(family_moments)))
 
 for pdbid in family_moments.keys():
     with open('exc test {}.csv'.format(pdbid), 'wb') as f:
         writer = csv.writer(f)
-        writer.writerow(['pdbid', '%id w/ pdb seq',
+        writer.writerow(['name', '%id w/ pdb seq',
                          'mag', 'dir', 'x','y'])
         # Sort moments by distance from pdb sequence, descending:
         sorted_moments = sorted(family_moments[pdbid],
