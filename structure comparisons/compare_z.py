@@ -68,6 +68,10 @@ for known_structure in ('1A0S', '1AF6'):
         unknown_structure = '1A0S'
     if known_structure == '1A0S':
         unknown_structure = '1AF6'
+
+    print('---')
+    print('Known: ' + known_structure)
+    print('Unknown: ' + unknown_structure)
     
     z_diff = list()
 
@@ -76,12 +80,14 @@ for known_structure in ('1A0S', '1AF6'):
 
     for known_seq_letter, unknown_seq_letter \
         in zip(sequences[known_structure], sequences[unknown_structure]):
+        print('')
+        print('Pair: '+known_seq_letter+unknown_seq_letter)
         if known_seq_letter == '-':
             # There is no position in the known structure corresponding to
             # this residue in the sequence of the protein of unknown structure.
             # Ignore that residue.
             iter_unknown_z.next()
-        if unknown_seq_letter == '-':
+        elif unknown_seq_letter == '-':
             # A position in the known structure corresponds to a
             # gap. Ignore that position.
             iter_known_z.next()
@@ -89,10 +95,15 @@ for known_structure in ('1A0S', '1AF6'):
             # Predicted position minus real position corresponding to
             # this sequence position
             try:
-                z_diff.append(iter_known_z.next() - iter_unknown_z.next())
+                predicted = iter_known_z.next() 
+                real = iter_unknown_z.next()
+                z_diff.append(predicted-real)
+                print('predicted {} - real {} = {}'\
+                      .format(predicted, real, z_diff[-1]))
+                
             except StopIteration:
                 continue
-    
+        
     z_diff_when_known_is.update({known_structure: z_diff})
 
 print(sum([abs(x) for x in z_diff_when_known_is['1A0S']])/len(z_diff_when_known_is['1A0S']))

@@ -1,0 +1,2531 @@
+---
+Known: 1A0S
+Unknown: 1AF6
+
+Pair: S-
+
+Pair: G-
+
+Pair: F-
+
+Pair: E-
+
+Pair: F-
+
+Pair: H-
+
+Pair: G-
+
+Pair: YV
+predicted -3.265 - real -11.69 = 8.425
+
+Pair: AD
+predicted -1.321 - real -11.108 = 9.787
+
+Pair: RF
+predicted 0.672 - real -8.532 = 9.204
+
+Pair: SH
+predicted 2.449 - real -7.043 = 9.492
+
+Pair: GG
+predicted 3.7 - real -3.783 = 7.483
+
+Pair: VY
+predicted 6.55 - real -1.825 = 8.375
+
+Pair: IA
+predicted 8.874 - real 0.129 = 8.745
+
+Pair: MR
+predicted 11.349 - real 1.94 = 9.409
+
+Pair: NS
+predicted 13.449 - real 3.652 = 9.797
+
+Pair: DG
+predicted 13.362 - real 4.694 = 8.668
+
+Pair: SI
+predicted 15.681 - real 7.174 = 8.507
+
+Pair: GG
+predicted 13.463 - real 9.206 = 4.257
+
+Pair: AW
+predicted 15.801 - real 11.954 = 3.847
+
+Pair: ST
+predicted 15.772 - real 14.594 = 1.178
+
+Pair: TG
+predicted 16.002 - real 14.791 = 1.211
+
+Pair: KS
+predicted 15.794 - real 18.584 = -2.79
+
+Pair: SG
+predicted 12.442 - real 18.39 = -5.948
+
+Pair: GG
+predicted 10.988 - real 17.786 = -6.798
+
+Pair: AE
+predicted 9.224 - real 14.984 = -5.76
+
+Pair: YQ
+predicted 12.488 - real 13.063 = -0.575
+
+Pair: IQ
+predicted 15.193 - real 15.08 = 0.113
+
+Pair: TC
+predicted 16.579 - real 13.546 = 3.033
+
+Pair: PF
+predicted 19.353 - real 14.407 = 4.946
+
+Pair: AQ
+predicted 16.663 - real 14.881 = 1.782
+
+Pair: GT
+predicted 14.865 - real 16.771 = -1.906
+
+Pair: ET
+predicted 17.241 - real 19.876 = -2.635
+
+Pair: TG
+predicted 15.843 - real 18.908 = -3.065
+
+Pair: GA
+predicted 12.224 - real 15.127 = -2.903
+
+Pair: GQ
+predicted 12.237 - real 13.271 = -1.034
+
+Pair: AS
+predicted 9.619 - real 10.71 = -1.091
+
+Pair: IK
+predicted 8.469 - real 10.112 = -1.643
+
+Pair: GY
+predicted 5.578 - real 7.038 = -1.46
+
+Pair: RR
+predicted 4.916 - real 5.782 = -0.866
+
+Pair: LL
+predicted 2.953 - real 3.611 = -0.658
+
+Pair: GG
+predicted 4.772 - real 5.555 = -0.783
+
+Pair: NN
+predicted 7.546 - real 8.537 = -0.991
+
+Pair: QE
+predicted 7.14 - real 8.224 = -1.084
+
+Pair: AC
+predicted 8.304 - real 10.782 = -2.478
+
+Pair: DE
+predicted 8.009 - real 9.735 = -1.726
+
+Pair: TT
+predicted 5.298 - real 6.842 = -1.544
+
+Pair: YY
+predicted 4.28 - real 5.626 = -1.346
+
+Pair: VA
+predicted 1.459 - real 2.728 = -1.269
+
+Pair: EE
+predicted -0.281 - real 1.103 = -1.384
+
+Pair: ML
+predicted -2.661 - real -1.213 = -1.448
+
+Pair: NK
+predicted -4.934 - real -3.487 = -1.447
+
+Pair: LL
+predicted -6.863 - real -5.666 = -1.197
+
+Pair: EG
+predicted -9.38 - real -7.894 = -1.486
+
+Pair: HQ
+predicted -11.698 - real -11.013 = -0.685
+
+Pair: KE
+predicted -14.355 - real -13.57 = -0.785
+
+Pair: QV
+predicted -17.084 - real -13.104 = -3.98
+
+Pair: TW
+predicted -19.949 - real -15.654 = -4.295
+
+Pair: LK
+predicted -21.594 - real -18.61 = -2.984
+
+Pair: DE
+predicted -25.268 - real -21.28 = -3.988
+
+Pair: NG
+predicted -24.383 - real -23.576 = -0.806999
+
+Pair: GD
+predicted -22.741 - real -21.368 = -1.373
+
+Pair: AK
+predicted -19.209 - real -18.237 = -0.972
+
+Pair: TS
+predicted -16.921 - real -15.761 = -1.16
+
+Pair: TF
+predicted -13.909 - real -12.236 = -1.673
+
+Pair: RY
+predicted -11.342 - real -10.593 = -0.749
+
+Pair: FF
+predicted -8.236 - real -7.4 = -0.836
+
+Pair: KD
+predicted -6.106 - real -5.266 = -0.84
+
+Pair: VT
+predicted -2.844 - real -2.045 = -0.799
+
+Pair: MN
+predicted -0.895 - real 0.231 = -1.126
+
+Pair: VV
+predicted 1.502 - real 2.97 = -1.468
+
+Pair: AA
+predicted 3.523 - real 4.889 = -1.366
+
+Pair: DY
+predicted 6.098 - real 6.926 = -0.828
+
+Pair: GS
+predicted 7.831 - real 9.283 = -1.452
+
+Pair: QV
+predicted 9.782 - real 10.927 = -1.145
+
+Pair: TA
+predicted 11.62 - real 12.872 = -1.252
+
+Pair: SQ
+predicted 11.801 - real 10.295 = 1.506
+
+Pair: YQ
+predicted 9.262 - real 13.016 = -3.754
+
+Pair: NN
+predicted 9.483 - real 12.135 = -2.652
+
+Pair: DD
+predicted 6.681 - real 9.404 = -2.723
+
+Pair: WW
+predicted 8.805 - real 10.994 = -2.189
+
+Pair: TE
+predicted 10.809 - real 12.065 = -1.256
+
+Pair: AA
+predicted 11.631 - real 12.876 = -1.245
+
+Pair: ST
+predicted 15.335 - real 12.743 = 2.592
+
+Pair: TD
+predicted 14.583 - real 12.468 = 2.115
+
+Pair: SP
+predicted 11.188 - real 8.906 = 2.282
+
+Pair: DA
+predicted 10.452 - real 8.546 = 1.906
+
+Pair: LF
+predicted 7.209 - real 6.08 = 1.129
+
+Pair: NR
+predicted 6.78 - real 4.797 = 1.983
+
+Pair: VE
+predicted 4.188 - real 1.443 = 2.745
+
+Pair: RA
+predicted 3.842 - real -0.029 = 3.871
+
+Pair: QN
+predicted 0.895 - real -2.354 = 3.249
+
+Pair: AV
+predicted -0.96 - real -5.681 = 4.721
+
+Pair: FQ
+predicted -3.343 - real -8.059 = 4.716
+
+Pair: VG
+predicted -6.585 - real -10.639 = 4.054
+
+Pair: EK
+predicted -9.142 - real -13.45 = 4.308
+
+Pair: LN
+predicted -11.834 - real -15.974 = 4.14
+
+Pair: GL
+predicted -14.401 - real -14.626 = 0.225
+
+Pair: NI
+predicted -17.542 - real -14.268 = -3.274
+
+Pair: LE
+predicted -17.299 - real -17.73 = 0.431
+
+Pair: PW
+predicted -20.431 - real -16.553 = -3.878
+
+Pair: TL
+predicted -18.202 - real -14.831 = -3.371
+
+Pair: FP
+predicted -16.587 - real -17.453 = 0.865999
+
+Pair: AG
+predicted -18.404 - real -16.288 = -2.116
+
+Pair: GS
+predicted -17.909 - real -12.606 = -5.303
+
+Pair: PT
+predicted -15.128 - real -10.276 = -4.852
+
+Pair: FI
+predicted -14.384 - real -7.591 = -6.793
+
+Pair: KW
+predicted -17.901 - real -4.891 = -13.01
+
+Pair: GA
+predicted -17.257 - real -1.515 = -15.742
+
+Pair: -G
+
+Pair: -K
+
+Pair: -R
+
+Pair: -F
+
+Pair: -Y
+
+Pair: -Q
+
+Pair: -R
+
+Pair: -H
+
+Pair: SD
+predicted -13.521 - real 1.044 = -14.565
+
+Pair: TV
+predicted -11.606 - real 0.953 = -12.559
+
+Pair: LH
+predicted -8.742 - real -0.008 = -8.734
+
+Pair: WM
+predicted -5.907 - real 1.595 = -7.502
+
+Pair: AI
+predicted -2.724 - real 5.117 = -7.841
+
+Pair: GD
+predicted -0.223 - real 4.548 = -4.771
+
+Pair: KF
+predicted 1.918 - real 5.749 = -3.831
+
+Pair: RY
+predicted 0.1 - real 4.776 = -4.676
+
+Pair: FY
+predicted 0.215 - real 5.083 = -4.868
+
+Pair: DW
+predicted -1.573 - real 3.545 = -5.118
+
+Pair: RD
+predicted -5.165 - real 4.228 = -9.393
+
+Pair: DI
+predicted -4.772 - real 5.108 = -9.88
+
+Pair: NS
+predicted -1.712 - real 4.161 = -5.873
+
+Pair: FG
+predicted -2.463 - real 5.802 = -8.265
+
+Pair: DP
+predicted -0.647 - real 5.346 = -5.993
+
+Pair: IG
+predicted -0.147 - real 3.123 = -3.27
+
+Pair: HA
+predicted -0.896 - real 0.026 = -0.922
+
+Pair: WG
+predicted 0.414 - real -2.436 = 2.85
+
+Pair: IL
+predicted 3.878 - real -5.888 = 9.766
+
+Pair: DE
+predicted 3.902 - real -7.482 = 11.384
+
+Pair: SN
+predicted 4.649 - real -10.385 = 15.034
+
+Pair: DI
+predicted 2.85 - real -11.303 = 14.153
+
+Pair: VD
+predicted 2.542 - real -14.35 = 16.892
+
+Pair: VV
+predicted 3.042 - real -13.354 = 16.396
+
+Pair: FG
+predicted 3.672 - real -16.381 = 20.053
+
+Pair: LF
+predicted 3.491 - real -14.767 = 18.258
+
+Pair: AG
+predicted 3.914 - real -12.584 = 16.498
+
+Pair: GK
+predicted 5.426 - real -10.972 = 16.398
+
+Pair: TL
+predicted 4.266 - real -7.943 = 12.209
+
+Pair: GS
+predicted 2.478 - real -5.533 = 8.011
+
+Pair: GL
+predicted -0.997 - real -2.541 = 1.544
+
+Pair: GA
+predicted -3.359 - real 0.07 = -3.429
+
+Pair: IA
+predicted -6.807 - real 3.562 = -10.369
+
+Pair: YT
+predicted -8.636 - real 5.542 = -14.178
+
+Pair: DR
+predicted -11.363 - real 9.074 = -20.437
+
+Pair: VS
+predicted -11.45 - real 11.882 = -23.332
+
+Pair: KS
+predicted -14.065 - real 15.55 = -29.615
+
+Pair: WE
+predicted -13.781 - real 18.793 = -32.574
+
+Pair: NA
+predicted -16.552 - real 21.136 = -37.688
+
+Pair: DG
+predicted -17.947 - real 23.981 = -41.928
+
+Pair: GG
+predicted -15.749 - real 24.866 = -40.615
+
+Pair: LS
+predicted -12.189 - real 25.344 = -37.533
+
+Pair: RS
+predicted -11.155 - real 28.481 = -39.636
+
+Pair: SS
+predicted -7.806 - real 28.539 = -36.345
+
+Pair: NF
+predicted -5.681 - real 31.617 = -37.298
+
+Pair: FA
+predicted -3.06 - real 33.002 = -36.062
+
+Pair: SS
+predicted -0.503 - real 34.853 = -35.356
+
+Pair: LN
+predicted 2.787 - real 35.971 = -33.184
+
+Pair: YN
+predicted 4.553 - real 36.212 = -31.659
+
+Pair: GI
+predicted 7.783 - real 33.066 = -25.283
+
+Pair: RY
+predicted 10.417 - real 33.757 = -23.34
+
+Pair: ND
+predicted 13.947 - real 32.678 = -18.731
+
+Pair: FY
+predicted 17.273 - real 29.109 = -11.836
+
+Pair: GT
+predicted 20.061 - real 27.686 = -7.625
+
+Pair: DN
+predicted 20.304 - real 24.914 = -4.61
+
+Pair: IE
+predicted 17.692 - real 21.368 = -3.676
+
+Pair: DT
+predicted 19.941 - real 19.583 = 0.358
+
+Pair: DA
+predicted 23.024 - real 15.865 = 7.159
+
+Pair: SN
+predicted 22.38 - real 14.078 = 8.302
+
+Pair: SD
+predicted 25.199 - real 10.659 = 14.54
+
+Pair: NV
+predicted 23.899 - real 8.043 = 15.856
+
+Pair: SF
+predicted 20.19 - real 5.163 = 15.027
+
+Pair: VD
+predicted 18.119 - real 2.405 = 15.714
+
+Pair: QV
+predicted 14.398 - real -0.606 = 15.004
+
+Pair: NR
+predicted 12.948 - real -3.038 = 15.986
+
+Pair: YL
+predicted 9.742 - real -6.191 = 15.933
+
+Pair: IA
+predicted 7.323 - real -8.214 = 15.537
+
+Pair: LQ
+predicted 4.603 - real -11.546 = 16.149
+
+Pair: TM
+predicted 2.153 - real -11.77 = 13.923
+
+Pair: ME
+predicted -1.004 - real -14.307 = 13.303
+
+Pair: NI
+predicted -2.987 - real -12.639 = 9.652
+
+Pair: HN
+predicted -5.671 - real -14.393 = 8.722
+
+Pair: FP
+predicted -8.414 - real -17.071 = 8.657
+
+Pair: AG
+predicted -10.643 - real -15.885 = 5.242
+
+Pair: GG
+predicted -12.73 - real -12.563 = -0.167
+
+Pair: PT
+predicted -10.433 - real -10.995 = 0.562
+
+Pair: LL
+predicted -7.469 - real -7.831 = 0.362
+
+Pair: QE
+predicted -4.985 - real -5.59 = 0.605
+
+Pair: ML
+predicted -2.141 - real -2.735 = 0.594
+
+Pair: MG
+predicted 0.102 - real -0.06 = 0.162
+
+Pair: VV
+predicted 2.919 - real 2.972 = -0.053
+
+Pair: SD
+predicted 5.274 - real 5.621 = -0.347
+
+Pair: GY
+predicted 8.229 - real 8.376 = -0.147
+
+Pair: LG
+predicted 10.75 - real 11.025 = -0.275
+
+Pair: RR
+predicted 13.479 - real 14.139 = -0.66
+
+Pair: AA
+predicted 15.91 - real 16.907 = -0.997
+
+Pair: KN
+predicted 18.213 - real 16.24 = 1.973
+
+Pair: DL
+predicted 21.925 - real 19.539 = 2.386
+
+Pair: NR
+predicted 21.389 - real 20.157 = 1.232
+
+Pair: DD
+predicted 24.771 - real 21.577 = 3.194
+
+Pair: EN
+predicted 26.47 - real 25.191 = 1.279
+
+Pair: RY
+predicted 25.597 - real 25.203 = 0.394001
+
+Pair: KR
+predicted 28.729 - real 26.104 = 2.625
+
+Pair: DL
+predicted 28.871 - real 25.671 = 3.2
+
+Pair: SV
+predicted 30.005 - real 28.61 = 1.395
+
+Pair: ND
+predicted 33.694 - real 29.499 = 4.195
+
+Pair: GG
+predicted 33.533 - real 27.214 = 6.319
+
+Pair: NA
+predicted 33.475 - real 24.482 = 8.993
+
+Pair: LS
+predicted 30.691 - real 21.075 = 9.616
+
+Pair: AK
+predicted 28.201 - real 19.461 = 8.74
+
+Pair: KD
+predicted 27.704 - real 15.91 = 11.794
+
+Pair: GG
+predicted 28.73 - real 13.764 = 14.966
+
+Pair: DW
+predicted 27.09 - real 10.24 = 16.85
+
+Pair: AL
+predicted 23.66 - real 7.99 = 15.67
+
+Pair: AF
+predicted 20.702 - real 5.04 = 15.662
+
+Pair: NT
+predicted 18.977 - real 2.366 = 16.611
+
+Pair: TA
+predicted 15.827 - real -0.556 = 16.383
+
+Pair: GE
+predicted 13.658 - real -2.824 = 16.482
+
+Pair: VH
+predicted 10.537 - real -5.801 = 16.338
+
+Pair: HT
+predicted 8.076 - real -8.191 = 16.267
+
+Pair: AQ
+predicted 5.082 - real -10.594 = 15.676
+
+Pair: LS
+predicted 2.473 - real -13.463 = 15.936
+
+Pair: LV
+predicted 0.023 - real -13.257 = 13.28
+
+Pair: GL
+predicted -2.581 - real -14.387 = 11.806
+
+Pair: LK
+predicted -5.546 - real -15.603 = 10.057
+
+Pair: HG
+predicted -8.142 - real -12.219 = 4.077
+
+Pair: NF
+predicted -10.496 - real -9.909 = -0.587
+
+Pair: DN
+predicted -13.65 - real -6.928 = -6.722
+
+Pair: SK
+predicted -13.05 - real -4.519 = -8.531
+
+Pair: FF
+predicted -10.241 - real -2.257 = -7.984
+
+Pair: YV
+predicted -8.276 - real 0.471 = -8.747
+
+Pair: GV
+predicted -11.483 - real 3.152 = -14.635
+
+Pair: LQ
+predicted -12.112 - real 5.603 = -17.715
+
+Pair: RY
+predicted -13.576 - real 8.598 = -22.174
+
+Pair: DA
+predicted -15.274 - real 11.054 = -26.328
+
+Pair: GT
+predicted -13.025 - real 14.067 = -27.092
+
+Pair: SD
+predicted -10.701 - real 17.255 = -27.956
+
+Pair: SS
+predicted -7.279 - real 16.637 = -23.916
+
+Pair: KM
+predicted -4.87 - real 13.397 = -18.267
+
+Pair: TT
+predicted -1.947 - real 14.955 = -16.902
+
+Pair: AS
+predicted 0.439 - real 16.777 = -16.338
+
+Pair: LQ
+predicted 3.442 - real 13.79 = -10.348
+
+Pair: LG
+predicted 5.883 - real 11.488 = -5.605
+
+Pair: YK
+predicted 8.748 - real 8.101 = 0.647
+
+Pair: GG
+predicted 11.206 - real 7.764 = 3.442
+
+Pair: HL
+predicted 14.417 - real 10.423 = 3.994
+
+Pair: GS
+predicted 16.855 - real 13.467 = 3.388
+
+Pair: LQ
+predicted 15.354 - real 17.109 = -1.755
+
+Pair: GG
+predicted 12.218 - real 18.914 = -6.696
+
+Pair: AS
+predicted 14.135 - real 22.237 = -8.102
+
+Pair: EG
+predicted 12.875 - real 23.483 = -10.608
+
+Pair: VV
+predicted 9.386 - real 25.568 = -16.182
+
+Pair: KA
+predicted 7.625 - real 25.49 = -17.865
+
+Pair: GF
+predicted 8.661 - real 27.449 = -18.788
+
+Pair: ID
+predicted 8.559 - real 29.078 = -20.519
+
+Pair: GN
+predicted 11.276 - real 28.999 = -17.723
+
+Pair: SE
+predicted 12.519 - real 32.089 = -19.57
+
+Pair: DK
+predicted 15.959 - real 30.403 = -14.444
+
+Pair: GF
+predicted 18.563 - real 32.558 = -13.995
+
+Pair: AA
+predicted 21.476 - real 30.643 = -9.167
+
+Pair: LY
+predicted 20.085 - real 30.498 = -10.413
+
+Pair: RN
+predicted 22.271 - real 28.85 = -6.579
+
+Pair: PI
+predicted 20.995 - real 25.623 = -4.628
+
+Pair: GN
+predicted 20.902 - real 24.702 = -3.8
+
+Pair: AN
+predicted 19.12 - real 21.206 = -2.086
+
+Pair: DN
+predicted 16.388 - real 21.238 = -4.85
+
+Pair: TG
+predicted 13.7 - real 19.387 = -5.687
+
+Pair: WH
+predicted 10.763 - real 15.852 = -5.089
+
+Pair: RM
+predicted 8.521 - real 13.53 = -5.009
+
+Pair: IL
+predicted 5.476 - real 10.757 = -5.281
+
+Pair: AR
+predicted 3.005 - real 8.276 = -5.271
+
+Pair: SI
+predicted 0.019 - real 5.529 = -5.51
+
+Pair: YL
+predicted -2.378 - real 3.281 = -5.659
+
+Pair: GD
+predicted -5.848 - real 0.091 = -5.939
+
+Pair: TH
+predicted -8.392 - real -1.524 = -6.868
+
+Pair: TG
+predicted -10.859 - real -4.961 = -5.898
+
+Pair: PA
+predicted -12.924 - real -7.133 = -5.791
+
+Pair: LI
+predicted -12.24 - real -9.975 = -2.265
+
+Pair: SS
+predicted -15.387 - real -12.561 = -2.826
+
+Pair: EM
+predicted -17.444 - real -13.282 = -4.162
+
+Pair: NG
+predicted -14.489 - real -16.596 = 2.107
+
+Pair: WD
+predicted -11.276 - real -17.223 = 5.947
+
+Pair: SN
+predicted -9.924 - real -14.204 = 4.28
+
+Pair: VW
+predicted -6.743 - real -11.249 = 4.506
+
+Pair: AD
+predicted -4.671 - real -9.619 = 4.948
+
+Pair: PM
+predicted -1.714 - real -6.281 = 4.567
+
+Pair: AM
+predicted 0.712 - real -3.86 = 4.572
+
+Pair: MY
+predicted 3.729 - real -1.237 = 4.966
+
+Pair: LV
+predicted 6.36 - real 1.555 = 4.805
+
+Pair: AG
+predicted 9.273 - real 3.829 = 5.444
+
+Pair: QM
+predicted 11.782 - real 6.278 = 5.504
+
+Pair: RY
+predicted 14.74 - real 9.218 = 5.522
+
+Pair: SQ
+predicted 16.906 - real 11.391 = 5.515
+
+Pair: KD
+predicted 20.066 - real 14.402 = 5.664
+
+Pair: DI
+predicted 22.782 - real 16.666 = 6.116
+
+Pair: RN
+predicted 20.913 - real 19.209 = 1.704
+
+Pair: YW
+predicted 23.65 - real 21.82 = 1.83
+
+Pair: AD
+predicted 26.748 - real 24.584 = 2.164
+
+Pair: DN
+predicted 27.583 - real 27.143 = 0.440001
+
+Pair: GD
+predicted 26.883 - real 26.078 = 0.805
+
+Pair: DN
+predicted 25.065 - real 25.201 = -0.136
+
+Pair: SG
+predicted 21.98 - real 21.46 = 0.52
+
+Pair: YT
+predicted 19.318 - real 19.347 = -0.0289993
+
+Pair: QK
+predicted 16.755 - real 16.781 = -0.026001
+
+Pair: WW
+predicted 14.356 - real 14.235 = 0.121
+
+Pair: AW
+predicted 10.914 - real 11.451 = -0.537001
+
+Pair: TT
+predicted 8.757 - real 9.001 = -0.244
+
+Pair: FV
+predicted 5.78 - real 5.931 = -0.151
+
+Pair: NG
+predicted 3.569 - real 3.881 = -0.312
+
+Pair: LI
+predicted 0.571 - real 0.468 = 0.103
+
+Pair: RR
+predicted -1.81 - real -1.368 = -0.442
+
+Pair: LP
+predicted -4.541 - real -4.379 = -0.162
+
+Pair: IM
+predicted -7.229 - real -6.682 = -0.547
+
+Pair: QY
+predicted -9.412 - real -8.98 = -0.432
+
+Pair: AK
+predicted -12.431 - real -11.896 = -0.535
+
+Pair: IW
+predicted -13.24 - real -12.832 = -0.408
+
+Pair: NT
+predicted -15.567 - real -15.132 = -0.435
+
+Pair: QP
+predicted -17.2 - real -16.131 = -1.069
+
+Pair: NI
+predicted -14.122 - real -13.301 = -0.821
+
+Pair: FM
+predicted -11.348 - real -10.799 = -0.549
+
+Pair: AS
+predicted -9.33 - real -8.655 = -0.675
+
+Pair: LT
+predicted -6.137 - real -5.58 = -0.557
+
+Pair: AV
+predicted -3.955 - real -3.334 = -0.621
+
+Pair: YM
+predicted -1.093 - real -0.353 = -0.74
+
+Pair: EE
+predicted 1.585 - real 2.099 = -0.514
+
+Pair: GI
+predicted 4.156 - real 4.552 = -0.396
+
+Pair: SG
+predicted 6.894 - real 6.939 = -0.0450001
+
+Pair: YY
+predicted 9.36 - real 9.807 = -0.447001
+
+Pair: QD
+predicted 11.915 - real 12.442 = -0.527
+
+Pair: YN
+predicted 14.656 - real 15.102 = -0.446
+
+Pair: MV
+predicted 17.344 - real 17.511 = -0.167
+
+Pair: DE
+predicted 20.387 - real 20.218 = 0.168999
+
+Pair: LS
+predicted 22.094 - real 23.062 = -0.968
+
+Pair: KQ
+predicted 25.214 - real 23.483 = 1.731
+
+Pair: PR
+predicted 26.043 - real 27.176 = -1.133
+
+Pair: ET
+predicted 29.455 - real 28.238 = 1.217
+
+Pair: GG
+predicted 31.047 - real 25.354 = 5.693
+
+Pair: YD
+predicted 28.375 - real 25.071 = 3.304
+
+Pair: NK
+predicted 28.171 - real 21.699 = 6.472
+
+Pair: DN
+predicted 30.507 - real 20.311 = 10.196
+
+Pair: RN
+predicted 27.781 - real 17.192 = 10.589
+
+Pair: QQ
+predicted 28.908 - real 15.009 = 13.899
+
+Pair: AY
+predicted 27.167 - real 11.744 = 15.423
+
+Pair: VK
+predicted 24.851 - real 9.813 = 15.038
+
+Pair: NI
+predicted 22.138 - real 7.008 = 15.13
+
+Pair: GT
+predicted 19.823 - real 4.771 = 15.052
+
+Pair: SL
+predicted 16.405 - real 1.948 = 14.457
+
+Pair: FA
+predicted 14.573 - real -0.275 = 14.848
+
+Pair: YQ
+predicted 11.717 - real -3.319 = 15.036
+
+Pair: KQ
+predicted 9.184 - real -5.282 = 14.466
+
+Pair: LW
+predicted 6.408 - real -8.121 = 14.529
+
+Pair: TQ
+predicted 4.126 - real -9.44 = 13.566
+
+Pair: FA
+predicted 1.215 - real -12.264 = 13.479
+
+Pair: AG
+predicted -0.925 - real -14.396 = 13.471
+
+Pair: PD
+predicted -3.902 - real -14.253 = 10.351
+
+Pair: TS
+predicted -5.923 - real -12.075 = 6.152
+
+Pair: FI
+predicted -8.703 - real -8.343 = -0.36
+
+Pair: KW
+predicted -11.113 - real -8.475 = -2.638
+
+Pair: VS
+predicted -14.709 - real -10.12 = -4.589
+
+Pair: GR
+predicted -15.169 - real -8.154 = -7.015
+
+Pair: SP
+predicted -15.642 - real -7.236 = -8.406
+
+Pair: IA
+predicted -12.996 - real -5.706 = -7.29
+
+Pair: GI
+predicted -13.29 - real -3.867 = -9.423
+
+Pair: DR
+predicted -12.475 - real -1.519 = -10.956
+
+Pair: FV
+predicted -8.699 - real 0.458 = -9.157
+
+Pair: FF
+predicted -9.251 - real 2.951 = -12.202
+
+Pair: SA
+predicted -11.473 - real 5.91 = -17.383
+
+Pair: RT
+predicted -8.878 - real 8.148 = -17.026
+
+Pair: PY
+predicted -9.223 - real 10.703 = -19.926
+
+Pair: EA
+predicted -7.262 - real 13.096 = -20.358
+
+Pair: IK
+predicted -4.901 - real 15.793 = -20.694
+
+Pair: RW
+predicted -2.55 - real 18.115 = -20.665
+
+Pair: FD
+predicted -0.264 - real 21.087 = -21.351
+
+Pair: YE
+predicted 2.287 - real 23.006 = -20.719
+
+Pair: TK
+predicted 5.301 - real 25.835 = -20.534
+
+Pair: SW
+predicted 7.547 - real 26.361 = -18.814
+
+Pair: WG
+predicted 10.346 - real 26.231 = -15.885
+
+Pair: MY
+predicted 12.817 - real 27.043 = -14.226
+
+Pair: DD
+predicted 15.713 - real 30.551 = -14.838
+
+Pair: WY
+predicted 17.797 - real 30.177 = -12.38
+
+Pair: ST
+predicted 20.78 - real 33.566 = -12.786
+
+Pair: KG
+predicted 23.924 - real 36.024 = -12.1
+
+Pair: KN
+predicted 25.449 - real 34.604 = -9.155
+
+Pair: LA
+predicted 22.961 - real 34.118 = -11.157
+
+Pair: ND
+predicted 24.801 - real 37.546 = -12.745
+
+Pair: NN
+predicted 27.669 - real 39.486 = -11.817
+
+Pair: -N
+
+Pair: -A
+
+Pair: -N
+
+Pair: -F
+
+Pair: -G
+
+Pair: -K
+
+Pair: -A
+
+Pair: YV
+predicted 25.688 - real 30.248 = -4.56
+
+Pair: AP
+predicted 26.575 - real 30.403 = -3.828
+
+Pair: SA
+predicted 28.271 - real 29.885 = -1.614
+
+Pair: DD
+predicted 25.92 - real 33.563 = -7.643
+
+Pair: DF
+predicted 22.945 - real 35.164 = -12.219
+
+Pair: AN
+predicted 20.418 - real 38.759 = -18.341
+
+Pair: LG
+predicted 21.173 - real 38.411 = -17.238
+
+Pair: GG
+predicted 24.415 - real 35.571 = -11.156
+
+Pair: SS
+predicted 24.619 - real 31.946 = -7.327
+
+Pair: DF
+predicted 25.239 - real 29.267 = -4.028
+
+Pair: GG
+predicted 22.575 - real 25.511 = -2.936
+
+Pair: FR
+predicted 20.875 - real 23.834 = -2.959
+
+Pair: NG
+predicted 23.155 - real 25.379 = -2.224
+
+Pair: SD
+predicted 22.137 - real 23.57 = -1.433
+
+Pair: GS
+predicted 19.745 - real 21.429 = -1.684
+
+Pair: GD
+predicted 16.515 - real 18.237 = -1.722
+
+Pair: EE
+predicted 15.349 - real 16.328 = -0.978999
+
+Pair: WW
+predicted 12.256 - real 12.985 = -0.729
+
+Pair: ST
+predicted 10.259 - real 11.179 = -0.92
+
+Pair: FF
+predicted 7.229 - real 7.982 = -0.753
+
+Pair: GG
+predicted 5.08 - real 5.949 = -0.869
+
+Pair: VA
+predicted 1.85 - real 2.839 = -0.989
+
+Pair: QQ
+predicted 0.785 - real 1.866 = -1.081
+
+Pair: MM
+predicted -2.221 - real -1.004 = -1.217
+
+Pair: EE
+predicted -2.965 - real -1.649 = -1.316
+
+Pair: TI
+predicted -5.83 - real -4.319 = -1.511
+
+Pair: WW
+predicted -6.937 - real -5.488 = -1.449
+
+Pair: FW
+predicted -10.073 - real -8.435 = -1.638
+---
+Known: 1AF6
+Unknown: 1A0S
+
+Pair: -S
+
+Pair: -G
+
+Pair: -F
+
+Pair: -E
+
+Pair: -F
+
+Pair: -H
+
+Pair: -G
+
+Pair: VY
+predicted -11.69 - real -3.265 = -8.425
+
+Pair: DA
+predicted -11.108 - real -1.321 = -9.787
+
+Pair: FR
+predicted -8.532 - real 0.672 = -9.204
+
+Pair: HS
+predicted -7.043 - real 2.449 = -9.492
+
+Pair: GG
+predicted -3.783 - real 3.7 = -7.483
+
+Pair: YV
+predicted -1.825 - real 6.55 = -8.375
+
+Pair: AI
+predicted 0.129 - real 8.874 = -8.745
+
+Pair: RM
+predicted 1.94 - real 11.349 = -9.409
+
+Pair: SN
+predicted 3.652 - real 13.449 = -9.797
+
+Pair: GD
+predicted 4.694 - real 13.362 = -8.668
+
+Pair: IS
+predicted 7.174 - real 15.681 = -8.507
+
+Pair: GG
+predicted 9.206 - real 13.463 = -4.257
+
+Pair: WA
+predicted 11.954 - real 15.801 = -3.847
+
+Pair: TS
+predicted 14.594 - real 15.772 = -1.178
+
+Pair: GT
+predicted 14.791 - real 16.002 = -1.211
+
+Pair: SK
+predicted 18.584 - real 15.794 = 2.79
+
+Pair: GS
+predicted 18.39 - real 12.442 = 5.948
+
+Pair: GG
+predicted 17.786 - real 10.988 = 6.798
+
+Pair: EA
+predicted 14.984 - real 9.224 = 5.76
+
+Pair: QY
+predicted 13.063 - real 12.488 = 0.575
+
+Pair: QI
+predicted 15.08 - real 15.193 = -0.113
+
+Pair: CT
+predicted 13.546 - real 16.579 = -3.033
+
+Pair: FP
+predicted 14.407 - real 19.353 = -4.946
+
+Pair: QA
+predicted 14.881 - real 16.663 = -1.782
+
+Pair: TG
+predicted 16.771 - real 14.865 = 1.906
+
+Pair: TE
+predicted 19.876 - real 17.241 = 2.635
+
+Pair: GT
+predicted 18.908 - real 15.843 = 3.065
+
+Pair: AG
+predicted 15.127 - real 12.224 = 2.903
+
+Pair: QG
+predicted 13.271 - real 12.237 = 1.034
+
+Pair: SA
+predicted 10.71 - real 9.619 = 1.091
+
+Pair: KI
+predicted 10.112 - real 8.469 = 1.643
+
+Pair: YG
+predicted 7.038 - real 5.578 = 1.46
+
+Pair: RR
+predicted 5.782 - real 4.916 = 0.866
+
+Pair: LL
+predicted 3.611 - real 2.953 = 0.658
+
+Pair: GG
+predicted 5.555 - real 4.772 = 0.783
+
+Pair: NN
+predicted 8.537 - real 7.546 = 0.991
+
+Pair: EQ
+predicted 8.224 - real 7.14 = 1.084
+
+Pair: CA
+predicted 10.782 - real 8.304 = 2.478
+
+Pair: ED
+predicted 9.735 - real 8.009 = 1.726
+
+Pair: TT
+predicted 6.842 - real 5.298 = 1.544
+
+Pair: YY
+predicted 5.626 - real 4.28 = 1.346
+
+Pair: AV
+predicted 2.728 - real 1.459 = 1.269
+
+Pair: EE
+predicted 1.103 - real -0.281 = 1.384
+
+Pair: LM
+predicted -1.213 - real -2.661 = 1.448
+
+Pair: KN
+predicted -3.487 - real -4.934 = 1.447
+
+Pair: LL
+predicted -5.666 - real -6.863 = 1.197
+
+Pair: GE
+predicted -7.894 - real -9.38 = 1.486
+
+Pair: QH
+predicted -11.013 - real -11.698 = 0.685
+
+Pair: EK
+predicted -13.57 - real -14.355 = 0.785
+
+Pair: VQ
+predicted -13.104 - real -17.084 = 3.98
+
+Pair: WT
+predicted -15.654 - real -19.949 = 4.295
+
+Pair: KL
+predicted -18.61 - real -21.594 = 2.984
+
+Pair: ED
+predicted -21.28 - real -25.268 = 3.988
+
+Pair: GN
+predicted -23.576 - real -24.383 = 0.806999
+
+Pair: DG
+predicted -21.368 - real -22.741 = 1.373
+
+Pair: KA
+predicted -18.237 - real -19.209 = 0.972
+
+Pair: ST
+predicted -15.761 - real -16.921 = 1.16
+
+Pair: FT
+predicted -12.236 - real -13.909 = 1.673
+
+Pair: YR
+predicted -10.593 - real -11.342 = 0.749
+
+Pair: FF
+predicted -7.4 - real -8.236 = 0.836
+
+Pair: DK
+predicted -5.266 - real -6.106 = 0.84
+
+Pair: TV
+predicted -2.045 - real -2.844 = 0.799
+
+Pair: NM
+predicted 0.231 - real -0.895 = 1.126
+
+Pair: VV
+predicted 2.97 - real 1.502 = 1.468
+
+Pair: AA
+predicted 4.889 - real 3.523 = 1.366
+
+Pair: YD
+predicted 6.926 - real 6.098 = 0.828
+
+Pair: SG
+predicted 9.283 - real 7.831 = 1.452
+
+Pair: VQ
+predicted 10.927 - real 9.782 = 1.145
+
+Pair: AT
+predicted 12.872 - real 11.62 = 1.252
+
+Pair: QS
+predicted 10.295 - real 11.801 = -1.506
+
+Pair: QY
+predicted 13.016 - real 9.262 = 3.754
+
+Pair: NN
+predicted 12.135 - real 9.483 = 2.652
+
+Pair: DD
+predicted 9.404 - real 6.681 = 2.723
+
+Pair: WW
+predicted 10.994 - real 8.805 = 2.189
+
+Pair: ET
+predicted 12.065 - real 10.809 = 1.256
+
+Pair: AA
+predicted 12.876 - real 11.631 = 1.245
+
+Pair: TS
+predicted 12.743 - real 15.335 = -2.592
+
+Pair: DT
+predicted 12.468 - real 14.583 = -2.115
+
+Pair: PS
+predicted 8.906 - real 11.188 = -2.282
+
+Pair: AD
+predicted 8.546 - real 10.452 = -1.906
+
+Pair: FL
+predicted 6.08 - real 7.209 = -1.129
+
+Pair: RN
+predicted 4.797 - real 6.78 = -1.983
+
+Pair: EV
+predicted 1.443 - real 4.188 = -2.745
+
+Pair: AR
+predicted -0.029 - real 3.842 = -3.871
+
+Pair: NQ
+predicted -2.354 - real 0.895 = -3.249
+
+Pair: VA
+predicted -5.681 - real -0.96 = -4.721
+
+Pair: QF
+predicted -8.059 - real -3.343 = -4.716
+
+Pair: GV
+predicted -10.639 - real -6.585 = -4.054
+
+Pair: KE
+predicted -13.45 - real -9.142 = -4.308
+
+Pair: NL
+predicted -15.974 - real -11.834 = -4.14
+
+Pair: LG
+predicted -14.626 - real -14.401 = -0.225
+
+Pair: IN
+predicted -14.268 - real -17.542 = 3.274
+
+Pair: EL
+predicted -17.73 - real -17.299 = -0.431
+
+Pair: WP
+predicted -16.553 - real -20.431 = 3.878
+
+Pair: LT
+predicted -14.831 - real -18.202 = 3.371
+
+Pair: PF
+predicted -17.453 - real -16.587 = -0.865999
+
+Pair: GA
+predicted -16.288 - real -18.404 = 2.116
+
+Pair: SG
+predicted -12.606 - real -17.909 = 5.303
+
+Pair: TP
+predicted -10.276 - real -15.128 = 4.852
+
+Pair: IF
+predicted -7.591 - real -14.384 = 6.793
+
+Pair: WK
+predicted -4.891 - real -17.901 = 13.01
+
+Pair: AG
+predicted -1.515 - real -17.257 = 15.742
+
+Pair: G-
+
+Pair: K-
+
+Pair: R-
+
+Pair: F-
+
+Pair: Y-
+
+Pair: Q-
+
+Pair: R-
+
+Pair: H-
+
+Pair: DS
+predicted 1.044 - real -13.521 = 14.565
+
+Pair: VT
+predicted 0.953 - real -11.606 = 12.559
+
+Pair: HL
+predicted -0.008 - real -8.742 = 8.734
+
+Pair: MW
+predicted 1.595 - real -5.907 = 7.502
+
+Pair: IA
+predicted 5.117 - real -2.724 = 7.841
+
+Pair: DG
+predicted 4.548 - real -0.223 = 4.771
+
+Pair: FK
+predicted 5.749 - real 1.918 = 3.831
+
+Pair: YR
+predicted 4.776 - real 0.1 = 4.676
+
+Pair: YF
+predicted 5.083 - real 0.215 = 4.868
+
+Pair: WD
+predicted 3.545 - real -1.573 = 5.118
+
+Pair: DR
+predicted 4.228 - real -5.165 = 9.393
+
+Pair: ID
+predicted 5.108 - real -4.772 = 9.88
+
+Pair: SN
+predicted 4.161 - real -1.712 = 5.873
+
+Pair: GF
+predicted 5.802 - real -2.463 = 8.265
+
+Pair: PD
+predicted 5.346 - real -0.647 = 5.993
+
+Pair: GI
+predicted 3.123 - real -0.147 = 3.27
+
+Pair: AH
+predicted 0.026 - real -0.896 = 0.922
+
+Pair: GW
+predicted -2.436 - real 0.414 = -2.85
+
+Pair: LI
+predicted -5.888 - real 3.878 = -9.766
+
+Pair: ED
+predicted -7.482 - real 3.902 = -11.384
+
+Pair: NS
+predicted -10.385 - real 4.649 = -15.034
+
+Pair: ID
+predicted -11.303 - real 2.85 = -14.153
+
+Pair: DV
+predicted -14.35 - real 2.542 = -16.892
+
+Pair: VV
+predicted -13.354 - real 3.042 = -16.396
+
+Pair: GF
+predicted -16.381 - real 3.672 = -20.053
+
+Pair: FL
+predicted -14.767 - real 3.491 = -18.258
+
+Pair: GA
+predicted -12.584 - real 3.914 = -16.498
+
+Pair: KG
+predicted -10.972 - real 5.426 = -16.398
+
+Pair: LT
+predicted -7.943 - real 4.266 = -12.209
+
+Pair: SG
+predicted -5.533 - real 2.478 = -8.011
+
+Pair: LG
+predicted -2.541 - real -0.997 = -1.544
+
+Pair: AG
+predicted 0.07 - real -3.359 = 3.429
+
+Pair: AI
+predicted 3.562 - real -6.807 = 10.369
+
+Pair: TY
+predicted 5.542 - real -8.636 = 14.178
+
+Pair: RD
+predicted 9.074 - real -11.363 = 20.437
+
+Pair: SV
+predicted 11.882 - real -11.45 = 23.332
+
+Pair: SK
+predicted 15.55 - real -14.065 = 29.615
+
+Pair: EW
+predicted 18.793 - real -13.781 = 32.574
+
+Pair: AN
+predicted 21.136 - real -16.552 = 37.688
+
+Pair: GD
+predicted 23.981 - real -17.947 = 41.928
+
+Pair: GG
+predicted 24.866 - real -15.749 = 40.615
+
+Pair: SL
+predicted 25.344 - real -12.189 = 37.533
+
+Pair: SR
+predicted 28.481 - real -11.155 = 39.636
+
+Pair: SS
+predicted 28.539 - real -7.806 = 36.345
+
+Pair: FN
+predicted 31.617 - real -5.681 = 37.298
+
+Pair: AF
+predicted 33.002 - real -3.06 = 36.062
+
+Pair: SS
+predicted 34.853 - real -0.503 = 35.356
+
+Pair: NL
+predicted 35.971 - real 2.787 = 33.184
+
+Pair: NY
+predicted 36.212 - real 4.553 = 31.659
+
+Pair: IG
+predicted 33.066 - real 7.783 = 25.283
+
+Pair: YR
+predicted 33.757 - real 10.417 = 23.34
+
+Pair: DN
+predicted 32.678 - real 13.947 = 18.731
+
+Pair: YF
+predicted 29.109 - real 17.273 = 11.836
+
+Pair: TG
+predicted 27.686 - real 20.061 = 7.625
+
+Pair: ND
+predicted 24.914 - real 20.304 = 4.61
+
+Pair: EI
+predicted 21.368 - real 17.692 = 3.676
+
+Pair: TD
+predicted 19.583 - real 19.941 = -0.358
+
+Pair: AD
+predicted 15.865 - real 23.024 = -7.159
+
+Pair: NS
+predicted 14.078 - real 22.38 = -8.302
+
+Pair: DS
+predicted 10.659 - real 25.199 = -14.54
+
+Pair: VN
+predicted 8.043 - real 23.899 = -15.856
+
+Pair: FS
+predicted 5.163 - real 20.19 = -15.027
+
+Pair: DV
+predicted 2.405 - real 18.119 = -15.714
+
+Pair: VQ
+predicted -0.606 - real 14.398 = -15.004
+
+Pair: RN
+predicted -3.038 - real 12.948 = -15.986
+
+Pair: LY
+predicted -6.191 - real 9.742 = -15.933
+
+Pair: AI
+predicted -8.214 - real 7.323 = -15.537
+
+Pair: QL
+predicted -11.546 - real 4.603 = -16.149
+
+Pair: MT
+predicted -11.77 - real 2.153 = -13.923
+
+Pair: EM
+predicted -14.307 - real -1.004 = -13.303
+
+Pair: IN
+predicted -12.639 - real -2.987 = -9.652
+
+Pair: NH
+predicted -14.393 - real -5.671 = -8.722
+
+Pair: PF
+predicted -17.071 - real -8.414 = -8.657
+
+Pair: GA
+predicted -15.885 - real -10.643 = -5.242
+
+Pair: GG
+predicted -12.563 - real -12.73 = 0.167
+
+Pair: TP
+predicted -10.995 - real -10.433 = -0.562
+
+Pair: LL
+predicted -7.831 - real -7.469 = -0.362
+
+Pair: EQ
+predicted -5.59 - real -4.985 = -0.605
+
+Pair: LM
+predicted -2.735 - real -2.141 = -0.594
+
+Pair: GM
+predicted -0.06 - real 0.102 = -0.162
+
+Pair: VV
+predicted 2.972 - real 2.919 = 0.053
+
+Pair: DS
+predicted 5.621 - real 5.274 = 0.347
+
+Pair: YG
+predicted 8.376 - real 8.229 = 0.147
+
+Pair: GL
+predicted 11.025 - real 10.75 = 0.275
+
+Pair: RR
+predicted 14.139 - real 13.479 = 0.66
+
+Pair: AA
+predicted 16.907 - real 15.91 = 0.997
+
+Pair: NK
+predicted 16.24 - real 18.213 = -1.973
+
+Pair: LD
+predicted 19.539 - real 21.925 = -2.386
+
+Pair: RN
+predicted 20.157 - real 21.389 = -1.232
+
+Pair: DD
+predicted 21.577 - real 24.771 = -3.194
+
+Pair: NE
+predicted 25.191 - real 26.47 = -1.279
+
+Pair: YR
+predicted 25.203 - real 25.597 = -0.394001
+
+Pair: RK
+predicted 26.104 - real 28.729 = -2.625
+
+Pair: LD
+predicted 25.671 - real 28.871 = -3.2
+
+Pair: VS
+predicted 28.61 - real 30.005 = -1.395
+
+Pair: DN
+predicted 29.499 - real 33.694 = -4.195
+
+Pair: GG
+predicted 27.214 - real 33.533 = -6.319
+
+Pair: AN
+predicted 24.482 - real 33.475 = -8.993
+
+Pair: SL
+predicted 21.075 - real 30.691 = -9.616
+
+Pair: KA
+predicted 19.461 - real 28.201 = -8.74
+
+Pair: DK
+predicted 15.91 - real 27.704 = -11.794
+
+Pair: GG
+predicted 13.764 - real 28.73 = -14.966
+
+Pair: WD
+predicted 10.24 - real 27.09 = -16.85
+
+Pair: LA
+predicted 7.99 - real 23.66 = -15.67
+
+Pair: FA
+predicted 5.04 - real 20.702 = -15.662
+
+Pair: TN
+predicted 2.366 - real 18.977 = -16.611
+
+Pair: AT
+predicted -0.556 - real 15.827 = -16.383
+
+Pair: EG
+predicted -2.824 - real 13.658 = -16.482
+
+Pair: HV
+predicted -5.801 - real 10.537 = -16.338
+
+Pair: TH
+predicted -8.191 - real 8.076 = -16.267
+
+Pair: QA
+predicted -10.594 - real 5.082 = -15.676
+
+Pair: SL
+predicted -13.463 - real 2.473 = -15.936
+
+Pair: VL
+predicted -13.257 - real 0.023 = -13.28
+
+Pair: LG
+predicted -14.387 - real -2.581 = -11.806
+
+Pair: KL
+predicted -15.603 - real -5.546 = -10.057
+
+Pair: GH
+predicted -12.219 - real -8.142 = -4.077
+
+Pair: FN
+predicted -9.909 - real -10.496 = 0.587
+
+Pair: ND
+predicted -6.928 - real -13.65 = 6.722
+
+Pair: KS
+predicted -4.519 - real -13.05 = 8.531
+
+Pair: FF
+predicted -2.257 - real -10.241 = 7.984
+
+Pair: VY
+predicted 0.471 - real -8.276 = 8.747
+
+Pair: VG
+predicted 3.152 - real -11.483 = 14.635
+
+Pair: QL
+predicted 5.603 - real -12.112 = 17.715
+
+Pair: YR
+predicted 8.598 - real -13.576 = 22.174
+
+Pair: AD
+predicted 11.054 - real -15.274 = 26.328
+
+Pair: TG
+predicted 14.067 - real -13.025 = 27.092
+
+Pair: DS
+predicted 17.255 - real -10.701 = 27.956
+
+Pair: SS
+predicted 16.637 - real -7.279 = 23.916
+
+Pair: MK
+predicted 13.397 - real -4.87 = 18.267
+
+Pair: TT
+predicted 14.955 - real -1.947 = 16.902
+
+Pair: SA
+predicted 16.777 - real 0.439 = 16.338
+
+Pair: QL
+predicted 13.79 - real 3.442 = 10.348
+
+Pair: GL
+predicted 11.488 - real 5.883 = 5.605
+
+Pair: KY
+predicted 8.101 - real 8.748 = -0.647
+
+Pair: GG
+predicted 7.764 - real 11.206 = -3.442
+
+Pair: LH
+predicted 10.423 - real 14.417 = -3.994
+
+Pair: SG
+predicted 13.467 - real 16.855 = -3.388
+
+Pair: QL
+predicted 17.109 - real 15.354 = 1.755
+
+Pair: GG
+predicted 18.914 - real 12.218 = 6.696
+
+Pair: SA
+predicted 22.237 - real 14.135 = 8.102
+
+Pair: GE
+predicted 23.483 - real 12.875 = 10.608
+
+Pair: VV
+predicted 25.568 - real 9.386 = 16.182
+
+Pair: AK
+predicted 25.49 - real 7.625 = 17.865
+
+Pair: FG
+predicted 27.449 - real 8.661 = 18.788
+
+Pair: DI
+predicted 29.078 - real 8.559 = 20.519
+
+Pair: NG
+predicted 28.999 - real 11.276 = 17.723
+
+Pair: ES
+predicted 32.089 - real 12.519 = 19.57
+
+Pair: KD
+predicted 30.403 - real 15.959 = 14.444
+
+Pair: FG
+predicted 32.558 - real 18.563 = 13.995
+
+Pair: AA
+predicted 30.643 - real 21.476 = 9.167
+
+Pair: YL
+predicted 30.498 - real 20.085 = 10.413
+
+Pair: NR
+predicted 28.85 - real 22.271 = 6.579
+
+Pair: IP
+predicted 25.623 - real 20.995 = 4.628
+
+Pair: NG
+predicted 24.702 - real 20.902 = 3.8
+
+Pair: NA
+predicted 21.206 - real 19.12 = 2.086
+
+Pair: ND
+predicted 21.238 - real 16.388 = 4.85
+
+Pair: GT
+predicted 19.387 - real 13.7 = 5.687
+
+Pair: HW
+predicted 15.852 - real 10.763 = 5.089
+
+Pair: MR
+predicted 13.53 - real 8.521 = 5.009
+
+Pair: LI
+predicted 10.757 - real 5.476 = 5.281
+
+Pair: RA
+predicted 8.276 - real 3.005 = 5.271
+
+Pair: IS
+predicted 5.529 - real 0.019 = 5.51
+
+Pair: LY
+predicted 3.281 - real -2.378 = 5.659
+
+Pair: DG
+predicted 0.091 - real -5.848 = 5.939
+
+Pair: HT
+predicted -1.524 - real -8.392 = 6.868
+
+Pair: GT
+predicted -4.961 - real -10.859 = 5.898
+
+Pair: AP
+predicted -7.133 - real -12.924 = 5.791
+
+Pair: IL
+predicted -9.975 - real -12.24 = 2.265
+
+Pair: SS
+predicted -12.561 - real -15.387 = 2.826
+
+Pair: ME
+predicted -13.282 - real -17.444 = 4.162
+
+Pair: GN
+predicted -16.596 - real -14.489 = -2.107
+
+Pair: DW
+predicted -17.223 - real -11.276 = -5.947
+
+Pair: NS
+predicted -14.204 - real -9.924 = -4.28
+
+Pair: WV
+predicted -11.249 - real -6.743 = -4.506
+
+Pair: DA
+predicted -9.619 - real -4.671 = -4.948
+
+Pair: MP
+predicted -6.281 - real -1.714 = -4.567
+
+Pair: MA
+predicted -3.86 - real 0.712 = -4.572
+
+Pair: YM
+predicted -1.237 - real 3.729 = -4.966
+
+Pair: VL
+predicted 1.555 - real 6.36 = -4.805
+
+Pair: GA
+predicted 3.829 - real 9.273 = -5.444
+
+Pair: MQ
+predicted 6.278 - real 11.782 = -5.504
+
+Pair: YR
+predicted 9.218 - real 14.74 = -5.522
+
+Pair: QS
+predicted 11.391 - real 16.906 = -5.515
+
+Pair: DK
+predicted 14.402 - real 20.066 = -5.664
+
+Pair: ID
+predicted 16.666 - real 22.782 = -6.116
+
+Pair: NR
+predicted 19.209 - real 20.913 = -1.704
+
+Pair: WY
+predicted 21.82 - real 23.65 = -1.83
+
+Pair: DA
+predicted 24.584 - real 26.748 = -2.164
+
+Pair: ND
+predicted 27.143 - real 27.583 = -0.440001
+
+Pair: DG
+predicted 26.078 - real 26.883 = -0.805
+
+Pair: ND
+predicted 25.201 - real 25.065 = 0.136
+
+Pair: GS
+predicted 21.46 - real 21.98 = -0.52
+
+Pair: TY
+predicted 19.347 - real 19.318 = 0.0289993
+
+Pair: KQ
+predicted 16.781 - real 16.755 = 0.026001
+
+Pair: WW
+predicted 14.235 - real 14.356 = -0.121
+
+Pair: WA
+predicted 11.451 - real 10.914 = 0.537001
+
+Pair: TT
+predicted 9.001 - real 8.757 = 0.244
+
+Pair: VF
+predicted 5.931 - real 5.78 = 0.151
+
+Pair: GN
+predicted 3.881 - real 3.569 = 0.312
+
+Pair: IL
+predicted 0.468 - real 0.571 = -0.103
+
+Pair: RR
+predicted -1.368 - real -1.81 = 0.442
+
+Pair: PL
+predicted -4.379 - real -4.541 = 0.162
+
+Pair: MI
+predicted -6.682 - real -7.229 = 0.547
+
+Pair: YQ
+predicted -8.98 - real -9.412 = 0.432
+
+Pair: KA
+predicted -11.896 - real -12.431 = 0.535
+
+Pair: WI
+predicted -12.832 - real -13.24 = 0.408
+
+Pair: TN
+predicted -15.132 - real -15.567 = 0.435
+
+Pair: PQ
+predicted -16.131 - real -17.2 = 1.069
+
+Pair: IN
+predicted -13.301 - real -14.122 = 0.821
+
+Pair: MF
+predicted -10.799 - real -11.348 = 0.549
+
+Pair: SA
+predicted -8.655 - real -9.33 = 0.675
+
+Pair: TL
+predicted -5.58 - real -6.137 = 0.557
+
+Pair: VA
+predicted -3.334 - real -3.955 = 0.621
+
+Pair: MY
+predicted -0.353 - real -1.093 = 0.74
+
+Pair: EE
+predicted 2.099 - real 1.585 = 0.514
+
+Pair: IG
+predicted 4.552 - real 4.156 = 0.396
+
+Pair: GS
+predicted 6.939 - real 6.894 = 0.0450001
+
+Pair: YY
+predicted 9.807 - real 9.36 = 0.447001
+
+Pair: DQ
+predicted 12.442 - real 11.915 = 0.527
+
+Pair: NY
+predicted 15.102 - real 14.656 = 0.446
+
+Pair: VM
+predicted 17.511 - real 17.344 = 0.167
+
+Pair: ED
+predicted 20.218 - real 20.387 = -0.168999
+
+Pair: SL
+predicted 23.062 - real 22.094 = 0.968
+
+Pair: QK
+predicted 23.483 - real 25.214 = -1.731
+
+Pair: RP
+predicted 27.176 - real 26.043 = 1.133
+
+Pair: TE
+predicted 28.238 - real 29.455 = -1.217
+
+Pair: GG
+predicted 25.354 - real 31.047 = -5.693
+
+Pair: DY
+predicted 25.071 - real 28.375 = -3.304
+
+Pair: KN
+predicted 21.699 - real 28.171 = -6.472
+
+Pair: ND
+predicted 20.311 - real 30.507 = -10.196
+
+Pair: NR
+predicted 17.192 - real 27.781 = -10.589
+
+Pair: QQ
+predicted 15.009 - real 28.908 = -13.899
+
+Pair: YA
+predicted 11.744 - real 27.167 = -15.423
+
+Pair: KV
+predicted 9.813 - real 24.851 = -15.038
+
+Pair: IN
+predicted 7.008 - real 22.138 = -15.13
+
+Pair: TG
+predicted 4.771 - real 19.823 = -15.052
+
+Pair: LS
+predicted 1.948 - real 16.405 = -14.457
+
+Pair: AF
+predicted -0.275 - real 14.573 = -14.848
+
+Pair: QY
+predicted -3.319 - real 11.717 = -15.036
+
+Pair: QK
+predicted -5.282 - real 9.184 = -14.466
+
+Pair: WL
+predicted -8.121 - real 6.408 = -14.529
+
+Pair: QT
+predicted -9.44 - real 4.126 = -13.566
+
+Pair: AF
+predicted -12.264 - real 1.215 = -13.479
+
+Pair: GA
+predicted -14.396 - real -0.925 = -13.471
+
+Pair: DP
+predicted -14.253 - real -3.902 = -10.351
+
+Pair: ST
+predicted -12.075 - real -5.923 = -6.152
+
+Pair: IF
+predicted -8.343 - real -8.703 = 0.36
+
+Pair: WK
+predicted -8.475 - real -11.113 = 2.638
+
+Pair: SV
+predicted -10.12 - real -14.709 = 4.589
+
+Pair: RG
+predicted -8.154 - real -15.169 = 7.015
+
+Pair: PS
+predicted -7.236 - real -15.642 = 8.406
+
+Pair: AI
+predicted -5.706 - real -12.996 = 7.29
+
+Pair: IG
+predicted -3.867 - real -13.29 = 9.423
+
+Pair: RD
+predicted -1.519 - real -12.475 = 10.956
+
+Pair: VF
+predicted 0.458 - real -8.699 = 9.157
+
+Pair: FF
+predicted 2.951 - real -9.251 = 12.202
+
+Pair: AS
+predicted 5.91 - real -11.473 = 17.383
+
+Pair: TR
+predicted 8.148 - real -8.878 = 17.026
+
+Pair: YP
+predicted 10.703 - real -9.223 = 19.926
+
+Pair: AE
+predicted 13.096 - real -7.262 = 20.358
+
+Pair: KI
+predicted 15.793 - real -4.901 = 20.694
+
+Pair: WR
+predicted 18.115 - real -2.55 = 20.665
+
+Pair: DF
+predicted 21.087 - real -0.264 = 21.351
+
+Pair: EY
+predicted 23.006 - real 2.287 = 20.719
+
+Pair: KT
+predicted 25.835 - real 5.301 = 20.534
+
+Pair: WS
+predicted 26.361 - real 7.547 = 18.814
+
+Pair: GW
+predicted 26.231 - real 10.346 = 15.885
+
+Pair: YM
+predicted 27.043 - real 12.817 = 14.226
+
+Pair: DD
+predicted 30.551 - real 15.713 = 14.838
+
+Pair: YW
+predicted 30.177 - real 17.797 = 12.38
+
+Pair: TS
+predicted 33.566 - real 20.78 = 12.786
+
+Pair: GK
+predicted 36.024 - real 23.924 = 12.1
+
+Pair: NK
+predicted 34.604 - real 25.449 = 9.155
+
+Pair: AL
+predicted 34.118 - real 22.961 = 11.157
+
+Pair: DN
+predicted 37.546 - real 24.801 = 12.745
+
+Pair: NN
+predicted 39.486 - real 27.669 = 11.817
+
+Pair: N-
+
+Pair: A-
+
+Pair: N-
+
+Pair: F-
+
+Pair: G-
+
+Pair: K-
+
+Pair: A-
+
+Pair: VY
+predicted 30.248 - real 25.688 = 4.56
+
+Pair: PA
+predicted 30.403 - real 26.575 = 3.828
+
+Pair: AS
+predicted 29.885 - real 28.271 = 1.614
+
+Pair: DD
+predicted 33.563 - real 25.92 = 7.643
+
+Pair: FD
+predicted 35.164 - real 22.945 = 12.219
+
+Pair: NA
+predicted 38.759 - real 20.418 = 18.341
+
+Pair: GL
+predicted 38.411 - real 21.173 = 17.238
+
+Pair: GG
+predicted 35.571 - real 24.415 = 11.156
+
+Pair: SS
+predicted 31.946 - real 24.619 = 7.327
+
+Pair: FD
+predicted 29.267 - real 25.239 = 4.028
+
+Pair: GG
+predicted 25.511 - real 22.575 = 2.936
+
+Pair: RF
+predicted 23.834 - real 20.875 = 2.959
+
+Pair: GN
+predicted 25.379 - real 23.155 = 2.224
+
+Pair: DS
+predicted 23.57 - real 22.137 = 1.433
+
+Pair: SG
+predicted 21.429 - real 19.745 = 1.684
+
+Pair: DG
+predicted 18.237 - real 16.515 = 1.722
+
+Pair: EE
+predicted 16.328 - real 15.349 = 0.978999
+
+Pair: WW
+predicted 12.985 - real 12.256 = 0.729
+
+Pair: TS
+predicted 11.179 - real 10.259 = 0.92
+
+Pair: FF
+predicted 7.982 - real 7.229 = 0.753
+
+Pair: GG
+predicted 5.949 - real 5.08 = 0.869
+
+Pair: AV
+predicted 2.839 - real 1.85 = 0.989
+
+Pair: QQ
+predicted 1.866 - real 0.785 = 1.081
+
+Pair: MM
+predicted -1.004 - real -2.221 = 1.217
+
+Pair: EE
+predicted -1.649 - real -2.965 = 1.316
+
+Pair: IT
+predicted -4.319 - real -5.83 = 1.511
+
+Pair: WW
+predicted -5.488 - real -6.937 = 1.449
+
+Pair: WF
+predicted -8.435 - real -10.073 = 1.638
+7.80335216408
