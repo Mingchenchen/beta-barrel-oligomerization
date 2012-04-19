@@ -4,18 +4,34 @@ from sundries import CIDict
 from sundries import one_letter
 from Bio.PDB import PDBParser
 import warnings
+import csv
 
 # Retrieve the sequences from the BBTMOUT alignment, including -'s for gaps
-bbtm_align = list(AlignIO.read('1a0s 1af6 pairwise bbtmout align.clu',
+bbtm_align= list(AlignIO.read('extracted 1a0s 1af6 from cluster73 bbtm.aln',
                           'clustal'))
 # Assuming the first is 1A0S, the second is 1AF6:
-sequences = CIDict((('1A0S',str(bbtm_align[0].seq)),
-                    ('1AF6',str(bbtm_align[1].seq))))
+sequences = CIDict((('1A0S',str(bbtm_align[1].seq)),
+                    ('1AF6',str(bbtm_align[0].seq))))
 
-# Check that I'm right about the first being 1A0S, the second being 1AF6
-assert sequences['1A0S'][:8] == 'SGFEFHGY' \
-       and sequences['1AF6'][7:11] == 'VDFH',\
-       'wrong aligned sequences in "sequences" dictionary'
+# Check that I'm right about the first being 1AF6, the second being 1A0S
+firstfive_of = CIDict()
+for pdbid, sequence in sequences.items():
+    firstfive_of.update({pdbid: ''})
+    for letter in sequence:
+        if letter != '-':
+            firstfive_of[pdbid] += letter
+        if len(firstfive_of[pdbid]) == 5:
+            break
+
+assertion_error_message = 'wrong aligned sequences in sequences dictionary'
+assertion_error_message += ": 1a0s's first five are {},"\
+                           .format(firstfive_of['1a0s'])\
+                           +" and 1af6's first five are {}"\
+                           .format(firstfive_of['1af6'])
+
+assert firstfive_of['1a0s'] == 'SGFEF' \
+       and firstfive_of['1af6'] == 'VDFHG',\
+       assertion_error_message
 
 # Retrieve Daniel's aligned structures
 structures = CIDict()
@@ -68,11 +84,11 @@ for known_structure in ('1A0S', '1AF6'):
         unknown_structure = '1A0S'
     if known_structure == '1A0S':
         unknown_structure = '1AF6'
-
+    
     print('---')
     print('Known: ' + known_structure)
     print('Unknown: ' + unknown_structure)
-    
+
     z_diff = list()
 
     iter_known_z = iter(z_coords[known_structure])
@@ -105,5 +121,10 @@ for known_structure in ('1A0S', '1AF6'):
                 continue
         
     z_diff_when_known_is.update({known_structure: z_diff})
+    with open('known {}, unknown {} z_diff, msa.csv'\
+              .format(known_structure, unknown_structure), 'wb') as f:
+        fwriter = csv.writer(f)
+        fwriter.writerows([[i] for i in \
+                           z_diff_when_known_is[known_structure]])
+    
 
-print(sum([abs(x) for x in z_diff_when_known_is['1A0S']])/len(z_diff_when_known_is['1A0S']))
