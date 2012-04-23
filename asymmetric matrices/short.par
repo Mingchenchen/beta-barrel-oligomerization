@@ -1,0 +1,14 @@
+clustalw \
+-infile=C:/cygwin/home/alex/beta barrels/asymmetric matrices/short.fasta \
+-type=protein \
+-pwgapopen=0.00 \
+-pwgapext=0.00 \
+-gapopen=10.00 \
+-gapext=0.20 \
+-maxdiv=30 \
+-endgaps \
+-novgap \
+-hgapresidues=GPSNDQEKR \
+-gapdist=4 \
+-outorder=aligned \
+-interactive
