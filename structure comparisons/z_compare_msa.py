@@ -7,11 +7,11 @@ import warnings
 import csv
 
 # Retrieve the sequences from the BBTMOUT alignment, including -'s for gaps
-bbtm_align= list(AlignIO.read('extracted 1a0s 1af6 from cluster73 bbtm.aln',
+bbtm_align= list(AlignIO.read('Swiss-PDB structural alignment.aln',
                           'clustal'))
 # Assuming the first is 1A0S, the second is 1AF6:
-sequences = CIDict((('1A0S',str(bbtm_align[1].seq)),
-                    ('1AF6',str(bbtm_align[0].seq))))
+sequences = CIDict((('1A0S',str(bbtm_align[0].seq)),
+                    ('1AF6',str(bbtm_align[1].seq))))
 
 # Check that I'm right about the first being 1AF6, the second being 1A0S
 firstfive_of = CIDict()
@@ -121,7 +121,7 @@ for known_structure in ('1A0S', '1AF6'):
                 continue
         
     z_diff_when_known_is.update({known_structure: z_diff})
-    with open('known {}, unknown {} z_diff, msa.csv'\
+    with open('known {}, unknown {} z_diff, swiss pdb structure alignment.csv'\
               .format(known_structure, unknown_structure), 'wb') as f:
         fwriter = csv.writer(f)
         fwriter.writerows([[i] for i in \
