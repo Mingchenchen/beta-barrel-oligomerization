@@ -1,3 +1,5 @@
+from __future__ import division
+
 class MissingPDBSequence(Exception):
     pass
 
@@ -33,3 +35,31 @@ class AlignmentOracle(object):
                     yield letter.upper()
                 pos += 1
 
+
+def pairwise_identity(seq1, seq2):
+    '''Return % sequence id between two sequences, disregarding columns
+    where both have gaps'''
+    if len(seq1) != len(seq2):
+        raise Exception('pairwise_identity function '\
+                        + 'only for aligned sequences')
+    total = 0
+    same = 0
+    for pos1, pos2 in zip(seq1, seq2):
+        if pos1 == '-' and pos2 == '-':
+            continue
+        total += 1
+        if pos1 == pos2:
+            same += 1
+    return same/total
+
+
+def identity(reference_seq, msa):
+    '''Returns % sequence id between a given sequence and each sequence
+    in an MSA. The subroutine calculating pairwise identity disregards
+    columns where both have gaps.'''
+    output = list()
+    for aligned_seq in msa:
+        output.append((aligned_seq.id,
+                       pairwise_identity(aligned_seq, reference_seq)))
+    output = sorted(output, key=lambda x: x[1])
+    return output
