@@ -1,7 +1,7 @@
 from __future__ import division
 
 class Count(object):
-    self.data = None
+    data = None
     def __set__(self, obj, value):
         self.data = value
         none_are_none = True
@@ -17,7 +17,7 @@ class Count(object):
             obj.aromatics = sum(aromatic_counts)
             obj.aromatic_freq = obj.aromatics / obj.residues
 
-     def __get__(self, obj, type=None):
+    def __get__(self, obj, type=None):
         return self.data
 
 
@@ -34,3 +34,17 @@ class FrequencyReport(object):
         self.residues = None
         self.aromatic_freq = None
 
+def incrementation_function(resn, z):
+    if abs(z) < 15:
+        if resn in ('TYR', 'TRP','PHE'):
+            stored.aromatics += 1
+        stored.all += 1
+       
+   
+def count_aromatic(selection):
+    stored.aromatics = 0
+    stored.all = 0
+   
+    cmd.iterate_state(1, '*.molecule & *.exp_sheets & n. ca & ' + selection, 'incrementation_function(resn, z)')
+   
+    return stored.aromatics/stored.all
