@@ -1,0 +1,1208 @@
+
+<html>
+  <head>
+    <title>
+      HHomp - Homology detection of OMPs by HMM-HMM comparison
+    </title>
+    
+    <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon">
+    
+    <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+    <meta http-equiv="Pragma" content="no-cache" />
+    <meta content="no-cache" http-equiv="no-cache" />
+    <meta http-equiv="Expires" content="-1" />
+    <meta http-equiv="Cache-Control" content="no-cache" />
+    <meta name="author" content="Michael Remmert">
+    
+    
+    
+      <link href="/stylesheets/styles_tuebingen.css?1309963666" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/navisection_tuebingen.css?1219319307" media="all" rel="stylesheet" type="text/css" />
+      
+        <link href="/stylesheets/widescreen_tuebingen.css?1219319307" media="all" rel="stylesheet" type="text/css" />
+      
+      
+    
+    <link href="/stylesheets/tabsection.css?1219319307" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/form.css?1250775431" media="all" rel="stylesheet" type="text/css" />
+<link href="/stylesheets/genomes.css?1219319307" media="all" rel="stylesheet" type="text/css" />
+    
+    
+    
+    
+    
+    <script src="/javascripts/toolkit.js?1306339814" type="text/javascript"></script>
+<script src="/javascripts/browser_sniffer.js?1219319306" type="text/javascript"></script>
+<script src="/javascripts/overlib.js?1219319306" type="text/javascript"></script>
+<script src="/javascripts/overlib_cssstyle.js?1219319306" type="text/javascript"></script>
+    <script src="/javascripts/prototype.js?1259238362" type="text/javascript"></script>
+<script src="/javascripts/effects.js?1259238362" type="text/javascript"></script>
+<script src="/javascripts/dragdrop.js?1259238362" type="text/javascript"></script>
+<script src="/javascripts/controls.js?1259238362" type="text/javascript"></script>
+<script src="/javascripts/application.js?1219319307" type="text/javascript"></script>    
+    <script src="/javascripts/scriptaculous.js?1260894703" type="text/javascript"></script>
+
+    <script src="/javascripts/hhomp.js?1219319306" type="text/javascript"></script>    	
+    
+        
+  </head>
+  
+  <body onload="show_sitereq();">
+    <div id="overDiv" style="position:absolute; visibility:hidden; z-index:1000;"></div>
+    <div id="container"> 
+      <div id="header">
+	
+	<a href="http://www.mpg.de" id="minerva"><img src="/images/minerva_logo.gif" alt="Minerva"/></a>
+	<a href="/"><img id="mpilogo" src="/images/mpi_logo.gif" alt="Toolkit" /></a>
+	
+	<select id="quickstart" name="quickstart" onchange="window.location = this.value;">
+	  <option value="">Quickfinder</option>
+	  
+
+	
+		<option value="/sixframe">
+			6FrameTranslation
+		</option>
+	
+
+
+
+	
+		<option value="/ancescon">
+			ANCESCON
+		</option>
+	
+
+
+
+	
+		<option value="/ali2d">
+			Ali2D
+		</option>
+	
+
+
+
+	
+		<option value="/alnviz">
+			AlignmentViewer
+		</option>
+	
+
+
+
+	
+		<option value="/aln2plot">
+			Aln2Plot
+		</option>
+	
+
+
+
+	
+		<option value="/blastclust">
+			BLASTclust
+		</option>
+	
+
+
+
+	
+		<option value="/backtrans">
+			Backtranslator
+		</option>
+	
+
+
+
+	
+		<option value="/blammer">
+			Blammer
+		</option>
+	
+
+
+
+	
+		<option value="/clans">
+			CLANS
+		</option>
+	
+
+
+
+	
+		<option value="/pcoils">
+			COILS/PCOILS
+		</option>
+	
+
+
+
+	
+		<option value="/cs_blast">
+			CS-BLAST
+		</option>
+	
+
+
+
+	
+		<option value="/clubsubp">
+			ClubSub-P
+		</option>
+	
+
+
+
+	
+		<option value="/clustalw">
+			ClustalW
+		</option>
+	
+
+
+
+	
+
+
+
+	
+		<option value="/seq2gi">
+			Extract GIs
+		</option>
+	
+
+
+
+	
+		<option value="/frpred">
+			FRpred
+		</option>
+	
+
+
+
+	
+		<option value="/gcview">
+			GCView
+		</option>
+	
+
+
+
+	
+		<option value="/gi2pro">
+			GI2Promoter
+		</option>
+	
+
+
+
+	
+
+
+
+	
+		<option value="/hhalign">
+			HHalign
+		</option>
+	
+
+
+
+	
+		<option value="/hhblits">
+			HHblits
+		</option>
+	
+
+
+
+	
+		<option value="/hhcluster">
+			HHcluster
+		</option>
+	
+
+
+
+	
+		<option value="/hhfilter">
+			HHfilter
+		</option>
+	
+
+
+
+	
+		<option value="/hhfrag">
+			HHfrag
+		</option>
+	
+
+
+
+	
+		<option value="/hhomp">
+			HHomp
+		</option>
+	
+
+
+
+	
+		<option value="/hhpred">
+			HHpred
+		</option>
+	
+
+
+
+	
+		<option value="/hhrep">
+			HHrep
+		</option>
+	
+
+
+
+	
+		<option value="/hhrepid">
+			HHrepID
+		</option>
+	
+
+
+
+	
+		<option value="/hhsenser">
+			HHsenser
+		</option>
+	
+
+
+
+	
+		<option value="/hmmer3">
+			HMMER3
+		</option>
+	
+
+
+
+	
+		<option value="/kalign">
+			Kalign
+		</option>
+	
+
+
+
+	
+		<option value="/mafft">
+			MAFFT
+		</option>
+	
+
+
+
+	
+		<option value="/marcoil">
+			MARCOIL
+		</option>
+	
+
+
+
+	
+		<option value="/muscle">
+			MUSCLE
+		</option>
+	
+
+
+
+	
+		<option value="/modeller">
+			Modeller
+		</option>
+	
+
+
+
+	
+		<option value="/phylip">
+			PHYLIP-NEIGHBOR
+		</option>
+	
+
+
+
+	
+		<option value="/psi_blast">
+			PSI-BLAST
+		</option>
+	
+
+
+
+	
+		<option value="/patsearch">
+			PatternSearch
+		</option>
+	
+
+
+
+	
+
+
+
+	
+		<option value="/probcons">
+			ProbCons
+		</option>
+	
+
+
+
+	
+		<option value="/prot_blast">
+			ProtBLAST
+		</option>
+	
+
+
+
+	
+		<option value="/quick2_d">
+			Quick2D
+		</option>
+	
+
+
+
+	
+		<option value="/repper">
+			REPPER
+		</option>
+	
+
+
+
+	
+		<option value="/reformat">
+			Reformat
+		</option>
+	
+
+
+
+	
+		<option value="/gi2seq">
+			RetrieveSeq
+		</option>
+	
+
+
+
+	
+		<option value="/samcc">
+			SamCC
+		</option>
+	
+
+
+
+	
+		<option value="/simshift">
+			SimShiftDB
+		</option>
+	
+
+
+
+	
+		<option value="/t_coffee">
+			TCoffee
+		</option>
+	
+
+
+
+	
+		<option value="/tprpred">
+			TPRpred
+		</option>
+	
+
+
+
+	
+		<option value="/bfit">
+			bFit
+		</option>
+	
+
+
+
+	
+		<option value="/dataa">
+			daTAA
+		</option>
+	
+
+
+
+	</select>
+	
+	<div id="sitereq">This website is optimized for <a target="_blank" href="http://www.mozilla.org">Mozilla</a>, <a target="_blank" href="http://channels.netscape.com/ns/browsers/default.jsp">Netscape 8</a> and <a target="_blank" href="http://www.opera.com">Opera 8</a>.</div>
+	
+	<ul id="metanav">
+	  <li><a href="#" onClick="openHelpWindow('/common/helpindex');">Help</a></li>
+	  
+	  <li  ><a target="_blank" href="/common/disclaimer_tuebingen">Disclaimer</a></li>
+          <li  ><a target="_blank" href="http://www.eb.tuebingen.mpg.de/impressum/index.html">Imprint</a></li>
+	  
+	  
+	  
+	  <li  ><a href="/common/contact">Contact</a></li> 
+	  <li  ><a href="/userdb/admin_userdbs">Personal Databases</a></li> 
+	  <li  ><a href="/pdbalert">PDBalert</a></li>
+	  
+	  <li  ><a href="/user/login">Login</a></li> 
+	  
+	  
+	  <li id="home"  ><a href="/">Home</a></li>
+	  
+	</ul>
+	<ul id="tabsection">
+	  	  <li id="ocker"  ><a href="/sections/search">Search</a></li>
+	  	  <li id="orange"  ><a href="/sections/alignment">Alignment</a></li>
+	  	  <li id="green"  ><a href="/sections/seqanal">Sequence Analysis</a></li>
+	  	  <li id="blue"  class="current" ><a href="/sections/secstruct">2ary Structure</a></li>
+	  	  <li id="violett"  ><a href="/sections/tertstruct">3ary Structure</a></li>
+	  	  <li id="red"  ><a href="/sections/classification">Classification</a></li>
+	  	  <li id="darkred"  ><a href="/sections/utils">Utils</a></li>
+	  	</ul>
+      </div>
+      
+      <div id="navisection" class="blue">
+	<ul>
+	   
+	  
+	  <li  ><a href="/ali2d">Ali2D</a></li>
+	  
+	  <li  class="current" ><a href="/hhomp">HHomp</a></li>
+	  
+	  <li  ><a href="/quick2_d">Quick2D</a></li>
+	  
+	</ul>
+      </div>
+      
+      <div id="sidebar">
+  
+    <div style="background-color: #7CA6A6; color: #FFFFFF; font-size: 12px; font-weight: bold; padding: 1px 2px 2px 2px;">
+  
+    Show results of job:
+  </div>
+  <div class="section">
+    <form action="/hhomp/check" method="post">
+    
+    <input id="jobid" name="jobid" style="width: 100%;" type="text" value="" />
+    <input class="checkbutton" name="showres" type="submit" value="Show results" style="width: 100%;" />
+  </form>
+  </div>
+  
+    <div style="background-color: #7CA6A6; color: #FFFFFF; font-size: 12px; font-weight: bold; padding: 1px 2px 2px 2px; margin-bottom: 5px; margin-top: 15px;">
+  
+    Recent jobs:
+  </div>
+  <form action="/hhomp/clear" id="clearrecentjobs" method="post" name="clearrecentjobs">
+  <table id="jobtable">
+    
+      </table>
+
+  <div class="section">
+    <input type="hidden" id="clear_checkboxes" value="0">
+    <a href="#" onclick="selectjobs();">Select all</a>&nbsp;&nbsp;&nbsp;<a href="#" onclick="deselectjobs();">Deselect all</a>
+    <input class="stopbutton" name="clearjobs" type="submit" style="float: none; width: 100%; margin-top: 5px;" value="Clear sel. Jobs" style="width: 100%;" />
+    <br/>
+    <input class="stopbutton" name="removejobs" type="submit" style="float: none; width: 100%; margin-top: 5px;" value="Delete sel. Jobs" style="width: 100%;" onClick="setAction('clearrecentjobs', '/common/removeJobs');" />
+  </div>
+
+  </form>
+  
+  <table id="jobtable">
+    <tr>
+      <td class="q"></td>
+      <td style="width: auto; border-right-width: 0px;">queued</td>
+    </tr>
+    <tr>
+      <td class="r"></td>
+      <td style="width: auto; border-right-width: 0px;">running</td>
+    </tr>
+    <tr>
+      <td class="d"></td>
+      <td style="width: auto; border-right-width: 0px;">done</td>
+    </tr>
+    <tr>
+      <td class="e"></td>
+      <td style="width: auto; border-right-width: 0px;">error</td>
+    </tr>
+  </table>
+</div> 	
+
+      
+      
+      <div id="content">
+	
+
+<h2>HHomp <span style="font-size: 15px; font-weight: bold;"> - Homology detection of OMPs by HMM-HMM comparison</span></h2>
+
+<div id="jobsection">
+	<ul>
+		<li >
+			<a href="/hhomp" onmouseout="return nd();" onmouseover="return overlib('Search Protein against the HHomp database');">Search database</a>
+		</li>
+		<li class="current">
+			<a href="/hhomp/browse" onmouseout="return nd();" onmouseover="return overlib('Browse the HHomp database');">Browse database</a>
+		</li>
+	</ul>
+</div>
+
+
+
+<div class="row">
+
+
+
+
+
+
+<h3 class="secstruct">HHomp database (version 1.0 - Jan 25, 2007)</h3>
+ 
+<div class="row">
+<a href="/hhomp/browse">View clustermap with each cluster linked</a>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+<a href="/hhomp/browse?page=bigmap">View clustermap with each protein linked (large)</a>
+<br/>
+<div class="hr">&nbsp;</div>
+<center>
+<table width="350px" border = "1">
+<tr><th width="250px">Protein class</th><th width="100px">HMMs</th></tr>
+<tr><td>OMP with 8 strands</td><td><select id="OMP8" name="OMP8" onchange="loadPage('OMP8','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.8.1.1" >OMP.8.1.1</option>
+<option value="OMP.8.1.2" >OMP.8.1.2</option>
+<option value="OMP.8.1.3" >OMP.8.1.3</option>
+<option value="OMP.8.1.4" >OMP.8.1.4</option>
+<option value="OMP.8.1.5" >OMP.8.1.5</option>
+<option value="OMP.8.1.6" >OMP.8.1.6</option>
+<option value="OMP.8.1.7" >OMP.8.1.7</option>
+<option value="OMP.8.1.9" >OMP.8.1.9</option>
+<option value="OMP.8.2.1" >OMP.8.2.1</option>
+<option value="OMP.8.2.2" >OMP.8.2.2</option>
+<option value="OMP.8.3.1" >OMP.8.3.1</option>
+<option value="OMP.8.4.1" >OMP.8.4.1</option>
+<option value="OMP.8.5.1" >OMP.8.5.1</option>
+<option value="OMP.8.6.1" >OMP.8.6.1</option>
+<option value="OMP.8.6.2" >OMP.8.6.2</option>
+<option value="OMP.8.6.3" >OMP.8.6.3</option>
+<option value="OMP.8.6.4" >OMP.8.6.4</option>
+<option value="OMP.8.6.5" >OMP.8.6.5</option>
+<option value="OMP.8.6.6" >OMP.8.6.6</option>
+<option value="OMP.8.7.1" >OMP.8.7.1</option>
+<option value="OMP.8.7.2" >OMP.8.7.2</option>
+<option value="OMP.8.7.3" >OMP.8.7.3</option>
+<option value="OMP.8.7.4" >OMP.8.7.4</option>
+<option value="OMP.8.8.1" >OMP.8.8.1</option>
+<option value="OMP.8.9.1" >OMP.8.9.1</option>
+</select></td></tr>
+<tr><td>OMP with 10 strands</td><td><select id="OMP10" name="OMP10" onchange="loadPage('OMP10','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.10.1.1" >OMP.10.1.1</option>
+<option value="OMP.10.2.1" >OMP.10.2.1</option>
+</select></td></tr>
+<tr><td>OMP with 12 strands</td><td><select id="OMP12" name="OMP12" onchange="loadPage('OMP12','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.12.1.1" >OMP.12.1.1</option>
+<option value="OMP.12.1.2" >OMP.12.1.2</option>
+<option value="OMP.12.1.3" >OMP.12.1.3</option>
+<option value="OMP.12.1.4" >OMP.12.1.4</option>
+<option value="OMP.12.1.5" >OMP.12.1.5</option>
+<option value="OMP.12.1.6" >OMP.12.1.6</option>
+<option value="OMP.12.1.7" >OMP.12.1.7</option>
+<option value="OMP.12.2.1" >OMP.12.2.1</option>
+<option value="OMP.12.2.2" >OMP.12.2.2</option>
+<option value="OMP.12.2.3" >OMP.12.2.3</option>
+<option value="OMP.12.2.4" >OMP.12.2.4</option>
+<option value="OMP.12.2.5" >OMP.12.2.5</option>
+<option value="OMP.12.2.6" >OMP.12.2.6</option>
+<option value="OMP.12.2.7" >OMP.12.2.7</option>
+<option value="OMP.12.2.8" >OMP.12.2.8</option>
+<option value="OMP.12.3.1" >OMP.12.3.1</option>
+<option value="OMP.12.3.2" >OMP.12.3.2</option>
+<option value="OMP.12.4.1" >OMP.12.4.1</option>
+<option value="OMP.12.5.1" >OMP.12.5.1</option>
+<option value="OMP.12.5.2" >OMP.12.5.2</option>
+<option value="OMP.12.5.3" >OMP.12.5.3</option>
+<option value="OMP.12.5.4" >OMP.12.5.4</option>
+<option value="OMP.12.6.1" >OMP.12.6.1</option>
+</select></td></tr>
+<tr><td>OMP with 14 strands</td><td><select id="OMP14" name="OMP14" onchange="loadPage('OMP14','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.14.1.1" >OMP.14.1.1</option>
+<option value="OMP.14.1.10" >OMP.14.1.10</option>
+<option value="OMP.14.1.2" >OMP.14.1.2</option>
+<option value="OMP.14.1.3" >OMP.14.1.3</option>
+<option value="OMP.14.1.4" >OMP.14.1.4</option>
+<option value="OMP.14.1.5" >OMP.14.1.5</option>
+<option value="OMP.14.1.6" >OMP.14.1.6</option>
+<option value="OMP.14.1.7" >OMP.14.1.7</option>
+<option value="OMP.14.1.8" >OMP.14.1.8</option>
+<option value="OMP.14.1.9" >OMP.14.1.9</option>
+<option value="OMP.14.2.1" >OMP.14.2.1</option>
+</select></td></tr>
+<tr><td>OMP with 16 strands</td><td><select id="OMP16" name="OMP16" onchange="loadPage('OMP16','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.16.1.1" >OMP.16.1.1</option>
+<option value="OMP.16.1.2" >OMP.16.1.2</option>
+<option value="OMP.16.1.3" >OMP.16.1.3</option>
+<option value="OMP.16.2.1" >OMP.16.2.1</option>
+<option value="OMP.16.2.2" >OMP.16.2.2</option>
+<option value="OMP.16.2.3" >OMP.16.2.3</option>
+<option value="OMP.16.2.4" >OMP.16.2.4</option>
+<option value="OMP.16.2.5" >OMP.16.2.5</option>
+<option value="OMP.16.2.6" >OMP.16.2.6</option>
+<option value="OMP.16.2.7" >OMP.16.2.7</option>
+<option value="OMP.16.2.8" >OMP.16.2.8</option>
+<option value="OMP.16.2.9" >OMP.16.2.9</option>
+<option value="OMP.16.3.1" >OMP.16.3.1</option>
+<option value="OMP.16.3.2" >OMP.16.3.2</option>
+<option value="OMP.16.4.1" >OMP.16.4.1</option>
+<option value="OMP.16.4.2" >OMP.16.4.2</option>
+<option value="OMP.16.5.1" >OMP.16.5.1</option>
+<option value="OMP.16.6.1" >OMP.16.6.1</option>
+</select></td></tr>
+<tr><td>OMP with 18 strands</td><td><select id="OMP18" name="OMP18" onchange="loadPage('OMP18','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.18.1.1" >OMP.18.1.1</option>
+<option value="OMP.18.1.2" >OMP.18.1.2</option>
+<option value="OMP.18.1.3" >OMP.18.1.3</option>
+<option value="OMP.18.1.4" >OMP.18.1.4</option>
+</select></td></tr>
+<tr><td>OMP with 22 strands</td><td><select id="OMP22" name="OMP22" onchange="loadPage('OMP22','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.22.1.1" >OMP.22.1.1</option>
+<option value="OMP.22.1.2" >OMP.22.1.2</option>
+<option value="OMP.22.1.3" >OMP.22.1.3</option>
+<option value="OMP.22.1.4" >OMP.22.1.4</option>
+<option value="OMP.22.1.5" >OMP.22.1.5</option>
+<option value="OMP.22.1.6" >OMP.22.1.6</option>
+<option value="OMP.22.1.7" >OMP.22.1.7</option>
+<option value="OMP.22.10.1" >OMP.22.10.1</option>
+<option value="OMP.22.10.2" >OMP.22.10.2</option>
+<option value="OMP.22.10.3" >OMP.22.10.3</option>
+<option value="OMP.22.10.4" >OMP.22.10.4</option>
+<option value="OMP.22.10.5" >OMP.22.10.5</option>
+<option value="OMP.22.10.6" >OMP.22.10.6</option>
+<option value="OMP.22.11.1" >OMP.22.11.1</option>
+<option value="OMP.22.11.2" >OMP.22.11.2</option>
+<option value="OMP.22.11.3" >OMP.22.11.3</option>
+<option value="OMP.22.11.4" >OMP.22.11.4</option>
+<option value="OMP.22.12.1" >OMP.22.12.1</option>
+<option value="OMP.22.12.2" >OMP.22.12.2</option>
+<option value="OMP.22.12.3" >OMP.22.12.3</option>
+<option value="OMP.22.12.4" >OMP.22.12.4</option>
+<option value="OMP.22.12.5" >OMP.22.12.5</option>
+<option value="OMP.22.12.6" >OMP.22.12.6</option>
+<option value="OMP.22.12.7" >OMP.22.12.7</option>
+<option value="OMP.22.2.1" >OMP.22.2.1</option>
+<option value="OMP.22.2.2" >OMP.22.2.2</option>
+<option value="OMP.22.2.3" >OMP.22.2.3</option>
+<option value="OMP.22.2.4" >OMP.22.2.4</option>
+<option value="OMP.22.2.5" >OMP.22.2.5</option>
+<option value="OMP.22.2.6" >OMP.22.2.6</option>
+<option value="OMP.22.3.1" >OMP.22.3.1</option>
+<option value="OMP.22.3.2" >OMP.22.3.2</option>
+<option value="OMP.22.3.3" >OMP.22.3.3</option>
+<option value="OMP.22.3.4" >OMP.22.3.4</option>
+<option value="OMP.22.3.5" >OMP.22.3.5</option>
+<option value="OMP.22.3.6" >OMP.22.3.6</option>
+<option value="OMP.22.3.7" >OMP.22.3.7</option>
+<option value="OMP.22.4.1" >OMP.22.4.1</option>
+<option value="OMP.22.4.10" >OMP.22.4.10</option>
+<option value="OMP.22.4.2" >OMP.22.4.2</option>
+<option value="OMP.22.4.3" >OMP.22.4.3</option>
+<option value="OMP.22.4.4" >OMP.22.4.4</option>
+<option value="OMP.22.4.5" >OMP.22.4.5</option>
+<option value="OMP.22.4.6" >OMP.22.4.6</option>
+<option value="OMP.22.4.7" >OMP.22.4.7</option>
+<option value="OMP.22.4.8" >OMP.22.4.8</option>
+<option value="OMP.22.4.9" >OMP.22.4.9</option>
+<option value="OMP.22.5.1" >OMP.22.5.1</option>
+<option value="OMP.22.5.2" >OMP.22.5.2</option>
+<option value="OMP.22.6.1" >OMP.22.6.1</option>
+<option value="OMP.22.6.2" >OMP.22.6.2</option>
+<option value="OMP.22.6.3" >OMP.22.6.3</option>
+<option value="OMP.22.7.1" >OMP.22.7.1</option>
+<option value="OMP.22.7.2" >OMP.22.7.2</option>
+<option value="OMP.22.7.3" >OMP.22.7.3</option>
+<option value="OMP.22.7.4" >OMP.22.7.4</option>
+<option value="OMP.22.7.5" >OMP.22.7.5</option>
+<option value="OMP.22.8.1" >OMP.22.8.1</option>
+<option value="OMP.22.8.2" >OMP.22.8.2</option>
+<option value="OMP.22.8.3" >OMP.22.8.3</option>
+<option value="OMP.22.8.4" >OMP.22.8.4</option>
+<option value="OMP.22.8.5" >OMP.22.8.5</option>
+<option value="OMP.22.9.1" >OMP.22.9.1</option>
+<option value="OMP.22.9.2" >OMP.22.9.2</option>
+<option value="OMP.22.9.3" >OMP.22.9.3</option>
+<option value="OMP.22.9.4" >OMP.22.9.4</option>
+<option value="OMP.22.9.5" >OMP.22.9.5</option>
+</select></td></tr>
+<tr><td>OMP with 3x4 strands</td><td><select id="OMP34" name="OMP34" onchange="loadPage('OMP34','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.nn.8.1" >OMP.nn.8.1</option>
+</select></td></tr>
+<tr><td>OMP with 8x2 strands</td><td><select id="OMP82" name="OMP82" onchange="loadPage('OMP82','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.nn.1.1" >OMP.nn.1.1</option>
+<option value="OMP.nn.1.2" >OMP.nn.1.2</option>
+</select></td></tr>
+<tr><td>OMP with unknown number of strands</td><td><select id="OMPnn" name="OMPnn" onchange="loadPage('OMPnn','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.nn.10.1" >OMP.nn.10.1</option>
+<option value="OMP.nn.10.2" >OMP.nn.10.2</option>
+<option value="OMP.nn.10.3" >OMP.nn.10.3</option>
+<option value="OMP.nn.11.1" >OMP.nn.11.1</option>
+<option value="OMP.nn.11.2" >OMP.nn.11.2</option>
+<option value="OMP.nn.11.3" >OMP.nn.11.3</option>
+<option value="OMP.nn.12.1" >OMP.nn.12.1</option>
+<option value="OMP.nn.13.1" >OMP.nn.13.1</option>
+<option value="OMP.nn.13.2" >OMP.nn.13.2</option>
+<option value="OMP.nn.14.1" >OMP.nn.14.1</option>
+<option value="OMP.nn.14.2" >OMP.nn.14.2</option>
+<option value="OMP.nn.14.3" >OMP.nn.14.3</option>
+<option value="OMP.nn.14.4" >OMP.nn.14.4</option>
+<option value="OMP.nn.15.1" >OMP.nn.15.1</option>
+<option value="OMP.nn.16.1" >OMP.nn.16.1</option>
+<option value="OMP.nn.16.2" >OMP.nn.16.2</option>
+<option value="OMP.nn.16.3" >OMP.nn.16.3</option>
+<option value="OMP.nn.17.1" >OMP.nn.17.1</option>
+<option value="OMP.nn.17.2" >OMP.nn.17.2</option>
+<option value="OMP.nn.17.3" >OMP.nn.17.3</option>
+<option value="OMP.nn.18.1" >OMP.nn.18.1</option>
+<option value="OMP.nn.18.2" >OMP.nn.18.2</option>
+<option value="OMP.nn.18.3" >OMP.nn.18.3</option>
+<option value="OMP.nn.19.1" >OMP.nn.19.1</option>
+<option value="OMP.nn.19.2" >OMP.nn.19.2</option>
+<option value="OMP.nn.2.1" >OMP.nn.2.1</option>
+<option value="OMP.nn.2.2" >OMP.nn.2.2</option>
+<option value="OMP.nn.2.3" >OMP.nn.2.3</option>
+<option value="OMP.nn.20.1" >OMP.nn.20.1</option>
+<option value="OMP.nn.20.2" >OMP.nn.20.2</option>
+<option value="OMP.nn.21.1" >OMP.nn.21.1</option>
+<option value="OMP.nn.22.1" >OMP.nn.22.1</option>
+<option value="OMP.nn.23.1" >OMP.nn.23.1</option>
+<option value="OMP.nn.24.1" >OMP.nn.24.1</option>
+<option value="OMP.nn.25.1" >OMP.nn.25.1</option>
+<option value="OMP.nn.26.1" >OMP.nn.26.1</option>
+<option value="OMP.nn.26.2" >OMP.nn.26.2</option>
+<option value="OMP.nn.27.1" >OMP.nn.27.1</option>
+<option value="OMP.nn.27.2" >OMP.nn.27.2</option>
+<option value="OMP.nn.28.1" >OMP.nn.28.1</option>
+<option value="OMP.nn.28.2" >OMP.nn.28.2</option>
+<option value="OMP.nn.29.1" >OMP.nn.29.1</option>
+<option value="OMP.nn.29.2" >OMP.nn.29.2</option>
+<option value="OMP.nn.29.3" >OMP.nn.29.3</option>
+<option value="OMP.nn.3.1" >OMP.nn.3.1</option>
+<option value="OMP.nn.3.2" >OMP.nn.3.2</option>
+<option value="OMP.nn.3.3" >OMP.nn.3.3</option>
+<option value="OMP.nn.3.4" >OMP.nn.3.4</option>
+<option value="OMP.nn.3.5" >OMP.nn.3.5</option>
+<option value="OMP.nn.3.6" >OMP.nn.3.6</option>
+<option value="OMP.nn.3.7" >OMP.nn.3.7</option>
+<option value="OMP.nn.3.8" >OMP.nn.3.8</option>
+<option value="OMP.nn.30.1" >OMP.nn.30.1</option>
+<option value="OMP.nn.30.2" >OMP.nn.30.2</option>
+<option value="OMP.nn.31.1" >OMP.nn.31.1</option>
+<option value="OMP.nn.32.1" >OMP.nn.32.1</option>
+<option value="OMP.nn.33.1" >OMP.nn.33.1</option>
+<option value="OMP.nn.34.1" >OMP.nn.34.1</option>
+<option value="OMP.nn.35.1" >OMP.nn.35.1</option>
+<option value="OMP.nn.36.1" >OMP.nn.36.1</option>
+<option value="OMP.nn.37.1" >OMP.nn.37.1</option>
+<option value="OMP.nn.38.1" >OMP.nn.38.1</option>
+<option value="OMP.nn.39.1" >OMP.nn.39.1</option>
+<option value="OMP.nn.4.1" >OMP.nn.4.1</option>
+<option value="OMP.nn.4.2" >OMP.nn.4.2</option>
+<option value="OMP.nn.4.3" >OMP.nn.4.3</option>
+<option value="OMP.nn.40.1" >OMP.nn.40.1</option>
+<option value="OMP.nn.41.1" >OMP.nn.41.1</option>
+<option value="OMP.nn.42.1" >OMP.nn.42.1</option>
+<option value="OMP.nn.43.1" >OMP.nn.43.1</option>
+<option value="OMP.nn.44.1" >OMP.nn.44.1</option>
+<option value="OMP.nn.45.1" >OMP.nn.45.1</option>
+<option value="OMP.nn.46.1" >OMP.nn.46.1</option>
+<option value="OMP.nn.47.1" >OMP.nn.47.1</option>
+<option value="OMP.nn.48.1" >OMP.nn.48.1</option>
+<option value="OMP.nn.49.1" >OMP.nn.49.1</option>
+<option value="OMP.nn.5.1" >OMP.nn.5.1</option>
+<option value="OMP.nn.5.2" >OMP.nn.5.2</option>
+<option value="OMP.nn.5.3" >OMP.nn.5.3</option>
+<option value="OMP.nn.5.4" >OMP.nn.5.4</option>
+<option value="OMP.nn.5.5" >OMP.nn.5.5</option>
+<option value="OMP.nn.50.1" >OMP.nn.50.1</option>
+<option value="OMP.nn.51.1" >OMP.nn.51.1</option>
+<option value="OMP.nn.52.1" >OMP.nn.52.1</option>
+<option value="OMP.nn.53.1" >OMP.nn.53.1</option>
+<option value="OMP.nn.54.1" >OMP.nn.54.1</option>
+<option value="OMP.nn.55.1" >OMP.nn.55.1</option>
+<option value="OMP.nn.56.1" >OMP.nn.56.1</option>
+<option value="OMP.nn.57.1" >OMP.nn.57.1</option>
+<option value="OMP.nn.58.1" >OMP.nn.58.1</option>
+<option value="OMP.nn.59.1" >OMP.nn.59.1</option>
+<option value="OMP.nn.6.1" >OMP.nn.6.1</option>
+<option value="OMP.nn.60.1" >OMP.nn.60.1</option>
+<option value="OMP.nn.61.1" >OMP.nn.61.1</option>
+<option value="OMP.nn.63.1" >OMP.nn.63.1</option>
+<option value="OMP.nn.64.1" >OMP.nn.64.1</option>
+<option value="OMP.nn.65.1" >OMP.nn.65.1</option>
+<option value="OMP.nn.66.1" >OMP.nn.66.1</option>
+<option value="OMP.nn.67.1" >OMP.nn.67.1</option>
+<option value="OMP.nn.68.1" >OMP.nn.68.1</option>
+<option value="OMP.nn.69.1" >OMP.nn.69.1</option>
+<option value="OMP.nn.7.1" >OMP.nn.7.1</option>
+<option value="OMP.nn.7.2" >OMP.nn.7.2</option>
+<option value="OMP.nn.7.3" >OMP.nn.7.3</option>
+<option value="OMP.nn.70.1" >OMP.nn.70.1</option>
+<option value="OMP.nn.71.1" >OMP.nn.71.1</option>
+<option value="OMP.nn.72.1" >OMP.nn.72.1</option>
+<option value="OMP.nn.73.1" >OMP.nn.73.1</option>
+<option value="OMP.nn.74.1" >OMP.nn.74.1</option>
+<option value="OMP.nn.75.1" >OMP.nn.75.1</option>
+<option value="OMP.nn.76.1" >OMP.nn.76.1</option>
+<option value="OMP.nn.77.1" >OMP.nn.77.1</option>
+<option value="OMP.nn.78.1" >OMP.nn.78.1</option>
+<option value="OMP.nn.79.1" >OMP.nn.79.1</option>
+<option value="OMP.nn.80.1" >OMP.nn.80.1</option>
+<option value="OMP.nn.81.1" >OMP.nn.81.1</option>
+<option value="OMP.nn.82.1" >OMP.nn.82.1</option>
+<option value="OMP.nn.83.1" >OMP.nn.83.1</option>
+<option value="OMP.nn.84.1" >OMP.nn.84.1</option>
+<option value="OMP.nn.85.1" >OMP.nn.85.1</option>
+<option value="OMP.nn.86.1" >OMP.nn.86.1</option>
+<option value="OMP.nn.87.1" >OMP.nn.87.1</option>
+<option value="OMP.nn.88.1" >OMP.nn.88.1</option>
+<option value="OMP.nn.89.1" >OMP.nn.89.1</option>
+<option value="OMP.nn.9.1" >OMP.nn.9.1</option>
+<option value="OMP.nn.90.1" >OMP.nn.90.1</option>
+<option value="OMP.nn.91.1" >OMP.nn.91.1</option>
+<option value="OMP.nn.92.1" >OMP.nn.92.1</option>
+<option value="OMP.nn.93.1" >OMP.nn.93.1</option>
+<option value="OMP.nn.94.1" >OMP.nn.94.1</option>
+<option value="OMP.nn.95.1" >OMP.nn.95.1</option>
+<option value="OMP.nn.96.1" >OMP.nn.96.1</option>
+<option value="OMP.nn.97.1" >OMP.nn.97.1</option>
+<option value="OMP.nn.98.1" >OMP.nn.98.1</option>
+</select></td></tr>
+<tr><td>not homologous OMP</td><td><select id="nothom" name="nothom" onchange="loadPage('nothom','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="NodT.1" >NodT.1</option>
+<option value="NodT.2" >NodT.2</option>
+<option value="NodT.3" >NodT.3</option>
+<option value="NodT.4" >NodT.4</option>
+<option value="NodT.5" >NodT.5</option>
+<option value="NodT.6" >NodT.6</option>
+<option value="NodT.7" >NodT.7</option>
+<option value="NodT.8" >NodT.8</option>
+<option value="TolC.1" >TolC.1</option>
+<option value="TolC.2" >TolC.2</option>
+<option value="TolC.3" >TolC.3</option>
+<option value="TolC.4" >TolC.4</option>
+<option value="TolC.5" >TolC.5</option>
+<option value="TolC.6" >TolC.6</option>
+<option value="TolC.7" >TolC.7</option>
+<option value="TolC.8" >TolC.8</option>
+<option value="Wza.1" >Wza.1</option>
+<option value="Wza.2" >Wza.2</option>
+<option value="Wza.3" >Wza.3</option>
+</select></td></tr>
+<tr><td>hypothetical OMP</td><td><select id="hypo" name="hypo" onchange="loadPage('hypo','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="OMP.hypo.1.1" >OMP.hypo.1.1</option>
+<option value="OMP.hypo.1.2" >OMP.hypo.1.2</option>
+<option value="OMP.hypo.2.1" >OMP.hypo.2.1</option>
+<option value="OMP.hypo.3.1" >OMP.hypo.3.1</option>
+<option value="OMP.hypo.3.2" >OMP.hypo.3.2</option>
+<option value="OMP.hypo.4.1" >OMP.hypo.4.1</option>
+</select></td></tr>
+<tr><td>cluster of two or more HMMs</td><td><select id="cluster" name="cluster" onchange="loadPage('cluster','/hhomp/browse/');" size="1"><option value="Please select HMM" >Please select HMM</option>
+<option value="cluster0" >cluster0</option>
+<option value="cluster1" >cluster1</option>
+<option value="cluster10" >cluster10</option>
+<option value="cluster100" >cluster100</option>
+<option value="cluster101" >cluster101</option>
+<option value="cluster102" >cluster102</option>
+<option value="cluster103" >cluster103</option>
+<option value="cluster104" >cluster104</option>
+<option value="cluster105" >cluster105</option>
+<option value="cluster106" >cluster106</option>
+<option value="cluster107" >cluster107</option>
+<option value="cluster108" >cluster108</option>
+<option value="cluster109" >cluster109</option>
+<option value="cluster11" >cluster11</option>
+<option value="cluster110" >cluster110</option>
+<option value="cluster111" >cluster111</option>
+<option value="cluster112" >cluster112</option>
+<option value="cluster113" >cluster113</option>
+<option value="cluster114" >cluster114</option>
+<option value="cluster115" >cluster115</option>
+<option value="cluster116" >cluster116</option>
+<option value="cluster117" >cluster117</option>
+<option value="cluster118" >cluster118</option>
+<option value="cluster119" >cluster119</option>
+<option value="cluster12" >cluster12</option>
+<option value="cluster120" >cluster120</option>
+<option value="cluster121" >cluster121</option>
+<option value="cluster122" >cluster122</option>
+<option value="cluster123" >cluster123</option>
+<option value="cluster124" >cluster124</option>
+<option value="cluster125" >cluster125</option>
+<option value="cluster126" >cluster126</option>
+<option value="cluster127" >cluster127</option>
+<option value="cluster128" >cluster128</option>
+<option value="cluster129" >cluster129</option>
+<option value="cluster13" >cluster13</option>
+<option value="cluster130" >cluster130</option>
+<option value="cluster131" >cluster131</option>
+<option value="cluster132" >cluster132</option>
+<option value="cluster133" >cluster133</option>
+<option value="cluster134" >cluster134</option>
+<option value="cluster135" >cluster135</option>
+<option value="cluster136" >cluster136</option>
+<option value="cluster137" >cluster137</option>
+<option value="cluster138" >cluster138</option>
+<option value="cluster139" >cluster139</option>
+<option value="cluster14" >cluster14</option>
+<option value="cluster140" >cluster140</option>
+<option value="cluster141" >cluster141</option>
+<option value="cluster142" >cluster142</option>
+<option value="cluster143" >cluster143</option>
+<option value="cluster144" >cluster144</option>
+<option value="cluster145" >cluster145</option>
+<option value="cluster146" >cluster146</option>
+<option value="cluster147" >cluster147</option>
+<option value="cluster148" >cluster148</option>
+<option value="cluster149" >cluster149</option>
+<option value="cluster15" >cluster15</option>
+<option value="cluster150" >cluster150</option>
+<option value="cluster151" >cluster151</option>
+<option value="cluster152" >cluster152</option>
+<option value="cluster153" >cluster153</option>
+<option value="cluster154" >cluster154</option>
+<option value="cluster155" >cluster155</option>
+<option value="cluster156" >cluster156</option>
+<option value="cluster157" >cluster157</option>
+<option value="cluster158" >cluster158</option>
+<option value="cluster159" >cluster159</option>
+<option value="cluster16" >cluster16</option>
+<option value="cluster160" >cluster160</option>
+<option value="cluster161" >cluster161</option>
+<option value="cluster162" >cluster162</option>
+<option value="cluster163" >cluster163</option>
+<option value="cluster164" >cluster164</option>
+<option value="cluster165" >cluster165</option>
+<option value="cluster166" >cluster166</option>
+<option value="cluster167" >cluster167</option>
+<option value="cluster168" >cluster168</option>
+<option value="cluster169" >cluster169</option>
+<option value="cluster17" >cluster17</option>
+<option value="cluster170" >cluster170</option>
+<option value="cluster171" >cluster171</option>
+<option value="cluster172" >cluster172</option>
+<option value="cluster173" >cluster173</option>
+<option value="cluster18" >cluster18</option>
+<option value="cluster19" >cluster19</option>
+<option value="cluster2" >cluster2</option>
+<option value="cluster20" >cluster20</option>
+<option value="cluster21" >cluster21</option>
+<option value="cluster22" >cluster22</option>
+<option value="cluster23" >cluster23</option>
+<option value="cluster24" >cluster24</option>
+<option value="cluster25" >cluster25</option>
+<option value="cluster26" >cluster26</option>
+<option value="cluster27" >cluster27</option>
+<option value="cluster28" >cluster28</option>
+<option value="cluster29" >cluster29</option>
+<option value="cluster3" >cluster3</option>
+<option value="cluster30" >cluster30</option>
+<option value="cluster31" >cluster31</option>
+<option value="cluster32" >cluster32</option>
+<option value="cluster33" >cluster33</option>
+<option value="cluster34" >cluster34</option>
+<option value="cluster35" >cluster35</option>
+<option value="cluster36" >cluster36</option>
+<option value="cluster37" >cluster37</option>
+<option value="cluster38" >cluster38</option>
+<option value="cluster39" >cluster39</option>
+<option value="cluster4" >cluster4</option>
+<option value="cluster40" >cluster40</option>
+<option value="cluster41" >cluster41</option>
+<option value="cluster42" >cluster42</option>
+<option value="cluster43" >cluster43</option>
+<option value="cluster44" >cluster44</option>
+<option value="cluster45" >cluster45</option>
+<option value="cluster46" >cluster46</option>
+<option value="cluster47" >cluster47</option>
+<option value="cluster48" >cluster48</option>
+<option value="cluster49" >cluster49</option>
+<option value="cluster5" >cluster5</option>
+<option value="cluster50" >cluster50</option>
+<option value="cluster51" >cluster51</option>
+<option value="cluster52" >cluster52</option>
+<option value="cluster53" >cluster53</option>
+<option value="cluster54" >cluster54</option>
+<option value="cluster55" >cluster55</option>
+<option value="cluster56" >cluster56</option>
+<option value="cluster57" >cluster57</option>
+<option value="cluster58" >cluster58</option>
+<option value="cluster59" >cluster59</option>
+<option value="cluster6" >cluster6</option>
+<option value="cluster60" >cluster60</option>
+<option value="cluster61" >cluster61</option>
+<option value="cluster62" >cluster62</option>
+<option value="cluster63" >cluster63</option>
+<option value="cluster64" >cluster64</option>
+<option value="cluster65" >cluster65</option>
+<option value="cluster66" >cluster66</option>
+<option value="cluster67" >cluster67</option>
+<option value="cluster68" >cluster68</option>
+<option value="cluster69" >cluster69</option>
+<option value="cluster7" >cluster7</option>
+<option value="cluster70" >cluster70</option>
+<option value="cluster71" >cluster71</option>
+<option value="cluster72" >cluster72</option>
+<option value="cluster73" >cluster73</option>
+<option value="cluster74" >cluster74</option>
+<option value="cluster75" >cluster75</option>
+<option value="cluster76" >cluster76</option>
+<option value="cluster77" >cluster77</option>
+<option value="cluster78" >cluster78</option>
+<option value="cluster79" >cluster79</option>
+<option value="cluster8" >cluster8</option>
+<option value="cluster80" >cluster80</option>
+<option value="cluster81" >cluster81</option>
+<option value="cluster82" >cluster82</option>
+<option value="cluster83" >cluster83</option>
+<option value="cluster84" >cluster84</option>
+<option value="cluster85" >cluster85</option>
+<option value="cluster86" >cluster86</option>
+<option value="cluster87" >cluster87</option>
+<option value="cluster88" >cluster88</option>
+<option value="cluster89" >cluster89</option>
+<option value="cluster9" >cluster9</option>
+<option value="cluster90" >cluster90</option>
+<option value="cluster91" >cluster91</option>
+<option value="cluster92" >cluster92</option>
+<option value="cluster93" >cluster93</option>
+<option value="cluster94" >cluster94</option>
+<option value="cluster95" >cluster95</option>
+<option value="cluster96" >cluster96</option>
+<option value="cluster97" >cluster97</option>
+<option value="cluster98" >cluster98</option>
+<option value="cluster99" >cluster99</option>
+</select></td></tr>
+</table>
+</center>
+
+</div>
+
+
+
+
+
+<div class="hr">&nbsp;</div>
+
+<ul class="arrow-marker">
+  <li><a href="#" title="About HHomp" onclick="openHelpWindow('/hhomp/help_ov');">About HHomp</a></li>
+  <li><a target="_blank" href="ftp://toolkit.lmb.uni-muenchen.de/HHomp/" title="Download HHomp"><B>Download HHomp</B></a>
+  <li><a target="_blank" href="ftp://toolkit.lmb.uni-muenchen.de/HHomp/db" title="Download HHompDB"><B>Download HHomp database</B></a>
+  <li><a target="_blank" href="http://www.lmb.uni-muenchen.de/soeding/index.htm">S&ouml;ding group at Gene Center in Munich</a></li>
+</ul>
+
+</div>
+	
+      </div>
+      
+      <script src="http://www.google-analytics.com/urchin.js" type="text/javascript">
+      </script>
+      <script type="text/javascript">
+	_uacct = "UA-783534-1";
+	urchinTracker();
+      </script>
+      
+      <!--		
+			<div id="footer">
+			  <span style="float: right; margin-right: 3px;">Release-0.0.1 (Rails)</span>
+			  &#169; 2005, <a href="http://www.eb.tuebingen.mpg.de/dept1/home.html">Dep. of Protein Evolution at the Max-Planck Institute for Developmental Biology</a>, T&#252;bingen 	
+			</div>
+			-->
+    
+    <script>
+      
+
+      var th3=0; // Height of the Table
+      var th=0; // Height of the body
+      var th2=0; // Height of the Window
+      
+      //document.write(navigator.appName);
+      
+      // The Routine for Firefox and Mozilla
+      if (navigator.appCodeName == "Mozilla")
+      {
+      
+      //  th=document.all.content.offsetHeight;
+      th = $('content').offsetHeight;
+      
+      th2=window.innerHeight;
+      th3= th2-th-150;
+      
+      }
+      if (navigator.appName == "Opera") // If check has to be fixed
+      {
+      //The Routine for Opera
+      //  th=document.all.content.offsetHeight;
+      th=$('content').offsetHeight;
+      th2=window.innerHeight;
+      th3= th2-th-160;
+      } 
+      if (navigator.appName == "Microsoft Internet Explorer") // If check has to be fixed
+      {
+      
+      //The Routine for The Internet Explorer
+      //  th=document.all.content.offsetHeight;
+      th = $('content').offsetHeight;
+      th2=document.body.clientHeight;
+      
+      th3= th2-th-150;
+      }
+      
+      
+      // Writing of the table and Div of the Footer
+      if (th < th2) {
+	       document.write('<table width="750px"');
+	       document.write('height="');
+	       document.write(th3);
+	       document.write('px">');
+	       
+	       document.write('<tr valign="bottom"><td align="center" height="');
+	       document.write(th3-30);
+	       document.write('px"></td></tr>');
+	       }
+	       else
+	       {
+	       document.write('<table width="730px">');
+	       }
+	       
+	       
+	       document.write('<tr top-border="1px" valign="bottom"><td valign="bottom"><div id="footer"><span style="float: right; margin-right: 3px;">Release-2.17.0</span>&#169; 2008, <a href="http://www.eb.tuebingen.mpg.de/departments/1-protein-evolution">Dept. of Protein Evolution at the Max Planck Institute for Developmental Biology</a>, T&#252;bingen</div></td></tr>');
+	       
+	       document.write('</table>');
+	       
+	       
+	       </script>
+  </div>
+</body>
+</html>

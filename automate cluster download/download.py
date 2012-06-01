@@ -16,10 +16,12 @@ try:
             continue
         elif re.match('cluster\d+', line[0]) is not None:
             files.append(line[0] + '.clu')
-        elif re.match('\d+\.\d+\.\d+', line[0]) is not None:
+        elif re.match('OMP\..+?\.\d+\.\d+', line[0]) is not None\
+             or re.match('NodT\.\d', line[0]) is not None\
+             or re.match('TolC\.\d', line[0]) is not None:
+            files.append(line[0] + '.clu')            
+        elif re.match('.+?\.\d+\.\d+', line[0]) is not None:
             files.append('OMP.' + line[0] + '.clu')
-        elif re.match('OMP\.\d+\.\d+\.\d+', line[0]) is not None:
-            files.append(line[0] + '.clu')
         else:
             raise UnrecognizedClusterName(line[0])
 finally:
