@@ -1,8 +1,8 @@
 "weights",
 "resi","ResIndex"
 "resn","1-Code"
-"ss","SecondaryS"
+"ss","SecondaryStructure"
 "%sasa","%SASA"
 "vect_proj","vectProj"
-"pdbid","pdbid"
+"pdbid","pdbID"
 "chain","Chain"

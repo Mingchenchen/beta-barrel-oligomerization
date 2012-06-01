@@ -189,6 +189,7 @@ class Spreadsheet(object):
     to the columns.
     If no phrasebook is given, the column titles must be used to refer to the
     columns.
+    get_column: given a single column title, retrieve that column
     get_columns: given a list of column titles, retrieves
         those columns
     get_titles: retrieves mapping between titles and column numbers, good for
@@ -237,6 +238,15 @@ class Spreadsheet(object):
             output.append(tuple(to_be_appended_list))
         return output
         
+    def get_column(self, title_wanted):
+        """ Retrieves a single column from the spreadsheet.
+        ARGUMENT:
+        A column title
+        RETURNS:
+        List of elements in that column"""
+        list_of_tuples = self.get_columns([title_wanted])
+        return [x[0] for x in list_of_tuples]
+
     def replace_titles(self, phrasebook):
         """Replaces old titles with titles given in a phrasebook.
         A phrasebook is a dictionary that maps the column names to be used

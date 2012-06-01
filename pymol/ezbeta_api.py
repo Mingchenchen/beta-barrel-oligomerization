@@ -216,6 +216,11 @@ def create_session(workingdir, load = True):
     cmd.hide('lines','*')
     cmd.show('cartoon','*')
     
+    # Wrote all this before CIDict, so as a hack:
+    groupdict = CIDict(groupdict)
+    oligomers = CIDict(oligomers)
+    monomers = CIDict(monomers)
+    
     return (groupdict, oligomers, monomers)
 
 try:
