@@ -63,7 +63,7 @@ try:
         group.non_ppi = weights[pdbid]
 
 
-    # This colorizing script is REALLY SLOW
+    # Make selection
     for pdbid, selection in selections.items():
         cmd.select(pdbid.upper() + '.non_ppi', 'none')
         for resi in selection:
@@ -73,10 +73,3 @@ try:
 
 finally:
     os.chdir(previous_wd)
-
-def ss(group, target_resi):
-    '''ss(group,resi)
-    retrieves secondary structure using non ppi dataset spreadsheet'''
-    for resi, ss in group.non_ppi.get_columns(['resi','ss']):
-        if resi != '' and int(resi)==int(target_resi):
-            return ss
