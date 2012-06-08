@@ -21,6 +21,11 @@ def reduce_sheet(source, target):
         # Find which column contains the residue identifiers:
         title_line = reader.next()
         resi_col = title_line.index('ResIndex')
+
+        # Copy the first line
+        writer.writerow(title_line)
+        
+        # Copy each line until a repeat resi is encountered
         last_resi = 0
         for line in reader:
             resi = int(line[resi_col])

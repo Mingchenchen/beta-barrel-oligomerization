@@ -54,11 +54,12 @@ weights_phrasebook = phrasebooks['weights']
 for group in groupdict.values():
     csv_name = group.name.upper() + '.csv'
     if csv_name in os.listdir('non ppi residues'):
-        group.non_ppi_data = biodata.Spreadsheet('non ppi residues/' \
+        group.non_ppi_data=biodata.Spreadsheet('non ppi residues/'\
                                                  + csv_name,
                                         phrasebook = weights_phrasebook)
     if csv_name in os.listdir('ppi residues'):
-        group.ppi_data = biodata.Spreadsheet('ppi residues/' + csv_name,
+        group.ppi_data = biodata.Spreadsheet('ppi residues/'\
+                                             +csv_name,
                                         phrasebook = weights_phrasebook)
 
 print('loading spreadsheets took ' + str(time.time() - afterstructures))
@@ -83,16 +84,16 @@ def selection_file_line(group, selection):
 
 
 # Selection of residues in the non_ppi portion of the asymmetric dataset:
-# This is SUPERSLOW.
 def in_non_ppi_dataset(group, residue):
-    ppi_resis = set()
-    for entry in group.non_ppi_data.get_column('resi'):
-        if entry != '':
-            ppi_resis.add(int(entry))
-    return residue.get_id()[1] in ppi_resis
+    return residue.get_id()[1] in group.non_ppi_resis
 
 making_selections_start= time.time()
 for group in groupdict.values():
+    group.non_ppi_resis = set()
+    for entry in group.non_ppi_data.get_column('resi'):
+        if entry != '':
+            group.non_ppi_resis.add(int(entry))
+    
     group.non_ppi_res = group.selection(in_non_ppi_dataset)
 
 print('making selections took ' + str(time.time() - making_selections_start))
