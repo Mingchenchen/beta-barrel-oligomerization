@@ -80,10 +80,13 @@ def selection_file_line(group, selection):
 # The attributes of residue objects I'm gonna need are:
 # residue.get_id()[1] is resi, as an integer
 # residue.get_resname() is resn, as a 3-letter string
+# residue.child_dict['CA'].get_coord()[2] is the z coordinate
+ 
 # Other information will come from the spreadsheet
 
 
 # Selection of residues in the non_ppi portion of the asymmetric dataset:
+# note three phases. Define predicate. Make selection. Write to file.
 def in_non_ppi_dataset(group, residue):
     return residue.get_id()[1] in group.non_ppi_resis
 
@@ -96,10 +99,62 @@ for group in groupdict.values():
     
     group.non_ppi_res = group.selection(in_non_ppi_dataset)
 
-print('making selections took ' + str(time.time() - making_selections_start))
+print('making non_ppi selections took '\
+      + str(time.time() - making_selections_start))
 
 
 with open('selections/non ppi.csv', 'wb') as f:
     csv.writer(f).writerows([selection_file_line(group, group.non_ppi_res)\
                              for group in groupdict.values()])
 
+
+# Selection of residues above and below z=0
+def on_ec_side(group, residue):
+    try:
+        output = residue.child_dict['CA'].get_coord()[2] > 0
+    except KeyError:
+        output = False
+    return output
+
+
+def on_pp_side(group, residue):
+    try:
+        output = residue.child_dict['CA'].get_coord()[2] < 0
+    except KeyError:
+        output = False
+    return output
+
+for group in groupdict.values():
+    group.ec_half_res = group.selection(on_ec_side)
+    group.pp_half_res = group.selection(on_pp_side)
+
+with open('selections/ec half.csv', 'wb') as ec,\
+     open('selections/pp half.csv', 'wb') as pp:
+    for group in groupdict.values():
+        csv.writer(ec).writerow([group.name] + [residue.get_id()[1]\
+                                 for residue in group.ec_half_res])
+        csv.writer(pp).writerow([group.name] + [residue.get_id()[1]\
+                                 for residue in group.pp_half_res])
+
+
+# Selection of residues in the |z| in [6,15] range, where Daniel's
+# asymmetric EzB charts show peaks of aromatic residue frequency
+
+def in_aromatic_peak(group, residue):
+    try:
+        z = residue.child_dict['CA'].get_coord()[2]
+    except KeyError:
+        return False
+    return abs(z) > 6 and abs(z) < 18
+
+for group in groupdict.values():
+    group.aro_peak_res = group.selection(in_aromatic_peak)
+
+with open('selections/aromatic peak.csv', 'wb') as f:
+    
+    for group in groupdict.values():
+        row_to_write = list()
+        row_to_write.append(group.name)
+        row_to_write += [residue.get_id()[1] \
+                         for residue in group.aro_peak_res]
+        csv.writer(f).writerow(row_to_write)

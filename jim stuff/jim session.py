@@ -85,6 +85,14 @@ def groups_from_folder(path, filename_templates, groupname_template = "(*)", loa
     
 # CREATE_SESSION HELPER FUNCTIONS:
     
+def cs_make_selections(groupdict):
+    path = 'selections'
+    for filename in os.listdir(path):
+        sele_name = re.match('(.*)\.csv', filename).group(1)
+        with open(path + '/' + filename, 'rb') as f:
+            reader = csv.reader(f)
+            selectors.from_file(sele_name, 'molecule', reader)
+
 def create_session(workingdir, load = True):
     # Load structures:
     groupdict = CIDict(groups_from_folder(workingdir + '/structures',
