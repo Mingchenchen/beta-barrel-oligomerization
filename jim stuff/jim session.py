@@ -113,7 +113,7 @@ def create_session(workingdir, load = True):
     # In case something goes wrong, so you can look at the work in progress:
     stored.groupdict = groupdict
     
-    
+    cs_make_selections(groupdict)    
     
     # Change from line to cartoon representation
     cmd.hide('lines','*')
