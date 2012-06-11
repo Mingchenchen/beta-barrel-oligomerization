@@ -36,7 +36,7 @@ real_matches = filter(lambda x: x is not None, matches)
 pdbids = [x.group(1) for x in real_matches]
 
 # Uncomment this line to speed things up for testing:
-pdbids = ['1QD6']
+# pdbids = ['1QD6']
 
 # Make group objects. I'm going to be associating a lot of stuff with
 # each protein, it's easiest to just group them together.
@@ -216,9 +216,31 @@ class Histogram(list):
                                     for i, count in enumerate(self))
            
 def histogram(groupdict, binsize, resns, sele_names):
+    '''Function to produce Histogram objects from a groupdict
+    (a dictionary mapping strings to groups). Will return a histogram
+    with frequency of a specified group of residues within a specified
+    selection on the x axis, and frequency of proteins in the groupdict
+    that have that frequency of residues on the y axis.
+
+    groupdict: the groupdict containing groups with attributes that
+        are sets of residues ('selections')
+    binsize: size of the bins
+    resns: List of names of residues to count. Can be uppercase or
+        lowercase, one-letter or three-letter convention.
+    sele_names: names of the selections counted residues must be a member
+        of. Entering three selections, for example, the function will
+        count the specified residues in the INTERSECTION of the three
+        selections given.
+
+    Remember, a residue is counted if it is ONE of the types in the 
+    "resns" container, and in ALL of the selections in the sele_names
+    container.'''
 
     # Change resns to standard format biopython uses
     # (three letters, uppercase)
+    # First, change to list since resns must be a mutable object for this
+    
+    resns = list(resns)
 
     for i, resn in enumerate(resns):
         if len(resn) == 1:
@@ -227,33 +249,49 @@ def histogram(groupdict, binsize, resns, sele_names):
     for i, resn in enumerate(resns):
         resns[i] = resn.upper()
 
-
+    # Create the histogram object that will be returned
     output = Histogram(binsize)
+
+    # For each protein, count the number of residues in the intersection
+    # of the given selections that are of one of the given types.
     for group in groupdict.values():
         protein_count = 0
-
+        
+        # Create a set of residue objects corresponding to the set
+        # of given selections
         selections = [group.__getattribute__(x) for x in sele_names]
         intersection = set.intersection(*selections)
-
+        
+        # Check if it is one of the given types
         for residue in intersection:
             if residue.get_resname() in resns:
                 protein_count += 1
 
+        # Increment the appropriate bin of the histogram
         output.add_data(protein_count)
 
     return output
+for binsize in (1, 2, 3):
+    s_hist = functools.partial(histogram, groupdict, binsize)
+    resn_combos = (['y'], ['y', 'w'], ['y', 'f'], ['y', 'w', 'f'])
+    sele_combos = (['non_ppi_res'],
+                   ['non_ppi_res', 'ec_half_res'],
+                   ['non_ppi_res', 'pp_half_res'],
+                   ['non_ppi_res', 'ec_half_res', 'aro_peak_res'],
+                   ['non_ppi_res', 'pp_half_res', 'aro_peak_res'])
 
-s_hist = functools.partial(histogram, groupdict, 3)
-resn_combos = [['y'], ['y', 'w'], ['y', 'f'], ['y', 'w', 'f']]
-sele_combos = [['non_ppi_res'],
-               ['non_ppi_res', 'ec_half_res'],
-               ['non_ppi_res', 'pp_half_res'],
-               ['non_ppi_res', 'ec_half_res', 'aro_peak_res'],
-               ['non_ppi_res', 'pp_half_res', 'aro_peak_res']]
-
-for resn_combo, sele_combo in itertools.product(resn_combos, sele_combos):
-    filename = 'structure histograms/' + ''.join(resn_combo) + ' ' \
-               + ' '.join(sele_combo) + '.csv'
-    s_hist(resn_combo, sele_combo).save(filename)
+    # itertools.product is Cartesian product. The effect is the same as that
+    # of nested for loops, the outer over the members of resn_combos and the
+    # inner over the members of sele_combos: an operation gets carried out
+    # on every pair of a member of resn_combos and a member of sele_combos.
+    for resn_combo, sele_combo in itertools.product(resn_combos, sele_combos):
+        # Produces a filenamen of the same kind as
+        # "yw non_ppi_res pp_half_res aro_peak_res.csv"
+        filename = 'structure histograms binsize ' + str(binsize) + '/' \
+                   + ''.join(resn_combo) + ' ' \
+                   + ' '.join(sele_combo) + '.csv'
+        # Create a histogram, then call its save method to save it to that
+        # filename:
+        s_hist(resn_combo, sele_combo).save(filename)
 
 print('done')
