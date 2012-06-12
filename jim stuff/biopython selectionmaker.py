@@ -347,12 +347,10 @@ def histogram(groupdict, binsize, resns, sele_names):
 
     return output
 
-for binsize in (.1, .2, .3):
+for binsize in (.08, .10, .12, .15, .20, .25, .30):
     s_hist = functools.partial(histogram, groupdict, binsize)
     resn_combos = (['y'], ['y', 'w'], ['y', 'f'], ['y', 'w', 'f'])
     sele_combos = (['not_removed_res', 'non_ppi_res'],
-                   ['not_removed_res', 'non_ppi_res', 'ec_half_res'],
-                   ['not_removed_res', 'non_ppi_res', 'pp_half_res'],
                    ['not_removed_res', 'non_ppi_res', 'ec_half_res',
                     'below_18_res'],
                    ['not_removed_res', 'non_ppi_res', 'pp_half_res',
@@ -365,10 +363,17 @@ for binsize in (.1, .2, .3):
     for resn_combo, sele_combo \
         in itertools.product(resn_combos, sele_combos):
         # Produces a filenamen of the same kind as
-        # "yw non_ppi_res pp_half_res aro_peak_res.csv"
+        # "yw non_ppi_res pp_half_res below_18_res.csv"
+
+        # For the filename, I don't need to say "not_removed" and 
+        # non_ppi, because all of them have that. And the "res" after
+        # everything is redundant; it helps distinguish which attributes
+        # of the groups are selections, but it's pointless for a filename.
+        seles_for_filename = [name[:-4] for name in sele_combo[2:]]
+
         filename = 'structure histograms binsize ' + str(binsize) + '/' \
                    + ''.join(resn_combo) + ' ' \
-                   + ' '.join(sele_combo) + '.csv'
+                   + ' '.join(seles_for_filename) + '.csv'
         # Create a histogram, then call its save method to save it to that
         # filename:
         output = s_hist(resn_combo, sele_combo)
