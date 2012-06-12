@@ -113,6 +113,10 @@ def create_session(workingdir, load = True):
     # In case something goes wrong, so you can look at the work in progress:
     stored.groupdict = groupdict
     
+    # Delete 1E54, since its interface is included in the non_ppi dataset
+    cmd.delete('1E54')
+    del groupdict['1E54']
+    
     cs_make_selections(groupdict)    
     
     # Change from line to cartoon representation

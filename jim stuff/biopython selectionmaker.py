@@ -38,7 +38,12 @@ real_matches = filter(lambda x: x is not None, matches)
 pdbids = [x.group(1) for x in real_matches]
 
 # Uncomment this line to speed things up for testing:
-pdbids = ['1QD6']
+# pdbids = ['3CSL']
+
+# Remove 1E54, since its interface is included in the non_ppi dataset
+# This will throw an exception if 1E54 isn't in the list, so don't
+# worry about case
+pdbids.remove('1E54')
 
 # Make group objects. I'm going to be associating a lot of stuff with
 # each protein, it's easiest to just group them together.
@@ -179,14 +184,16 @@ with open('selections/below 18.csv', 'wb') as f:
 # Very subjective, but a lot of stuff that definitely needs to be removed
 # was.
 
-manually_removed = dict()
+manually_removed = CIDict()
 with open('removed.csv', 'rb') as f:
     for row in csv.reader(f):
         pdbid = row[0]
         resis = (int(i) for i in row[1:])
+        manually_removed.update({pdbid: resis})
     
 for group in groupdict.values():
-    group.manually_removed = set(resis)
+    group.manually_removed = set(manually_removed[group.name])
+
     
 def not_removed(group, residue):
     return residue.get_id()[1] not in group.manually_removed
@@ -232,6 +239,10 @@ class Histogram(list):
 
     def __init__(self, binsize):
         self.binsize = binsize
+        self.total = 0
+        self.mean = None
+        self.min = None
+        self.max = None
 
     def extend_to(self, i):
         '''x.extend(i): extend so that highest index is i
@@ -253,6 +264,21 @@ class Histogram(list):
     
     def add_data(self, value):
         self[int(value / self.binsize)] += 1
+
+        self.total += 1
+
+        if self.total == 1:
+            self.mean = value
+            self.min = value
+            self.max = value
+
+        else:
+            self.mean = (self.mean*(self.total-1) + value) / self.total
+            if value < self.min:
+                self.min = value
+            if value > self.max:
+                self.max = value
+             
 
     def save(self, filename):
         with open(filename, 'wb') as f:
@@ -317,7 +343,7 @@ def histogram(groupdict, binsize, resns, sele_names):
         # Divide by non interface strand count
         normalized_count = protein_count/group.ni_str_count
         # Increment the appropriate bin of the histogram
-        output.add_data(protein_count)
+        output.add_data(normalized_count)
 
     return output
 
@@ -345,6 +371,13 @@ for binsize in (.1, .2, .3):
                    + ' '.join(sele_combo) + '.csv'
         # Create a histogram, then call its save method to save it to that
         # filename:
-        s_hist(resn_combo, sele_combo).save(filename)
+        output = s_hist(resn_combo, sele_combo)
+        output.save(filename)
+
+        print(filename)
+        print('min: ' + str(output.min))
+        print('max: ' + str(output.max))
+        print('mean: ' + str(output.mean))
+
 
 print('done')
