@@ -5,8 +5,10 @@ annoying that the attributes of the group objects are created as the
 script goes along. What if you want to know what type they are?
 Or get a list of them?
 I don't know exactly what to change but that's definitely something
-to avoid in code derived from this script. Histogram class is a keeper.'''
+to avoid in code derived from this script. Histogram class is a keeper.
+The lack of a function for saving the selections is ridiculous.'''
 
+from __future__ import division
 import re
 from Bio.PDB import PDBParser
 from sundries import CIDict
@@ -36,7 +38,7 @@ real_matches = filter(lambda x: x is not None, matches)
 pdbids = [x.group(1) for x in real_matches]
 
 # Uncomment this line to speed things up for testing:
-# pdbids = ['1QD6']
+pdbids = ['1QD6']
 
 # Make group objects. I'm going to be associating a lot of stuff with
 # each protein, it's easiest to just group them together.
@@ -148,27 +150,69 @@ with open('selections/ec half.csv', 'wb') as ec,\
                                  for residue in group.pp_half_res])
 
 
-# Selection of residues in the |z| in [6,15] range, where Daniel's
-# asymmetric EzB charts show peaks of aromatic residue frequency
+# Selection of residues such that |z|<18, to exclude the tall extracellular
+# parts of tall proteins
 
-def in_aromatic_peak(group, residue):
+def below_18(group, residue):
     try:
         z = residue.child_dict['CA'].get_coord()[2]
     except KeyError:
         return False
-    return abs(z) > 6 and abs(z) < 18
+    return abs(z) < 18
 
 for group in groupdict.values():
-    group.aro_peak_res = group.selection(in_aromatic_peak)
+    group.below_18_res = group.selection(below_18)
 
-with open('selections/aromatic peak.csv', 'wb') as f:
+with open('selections/below 18.csv', 'wb') as f:
     
     for group in groupdict.values():
         row_to_write = list()
         row_to_write.append(group.name)
         row_to_write += [residue.get_id()[1] \
-                         for residue in group.aro_peak_res]
+                         for residue in group.below_18_res]
         csv.writer(f).writerow(row_to_write)
+
+
+# Selection of residues that were not removed manually. Manually 
+# removed residues look like they are on the inside of the protein, or
+# on the water-facing rather than lipid-facing part of their surface.
+# Very subjective, but a lot of stuff that definitely needs to be removed
+# was.
+
+manually_removed = dict()
+with open('removed.csv', 'rb') as f:
+    for row in csv.reader(f):
+        pdbid = row[0]
+        resis = (int(i) for i in row[1:])
+    
+for group in groupdict.values():
+    group.manually_removed = set(resis)
+    
+def not_removed(group, residue):
+    return residue.get_id()[1] not in group.manually_removed
+
+for group in groupdict.values():
+    group.not_removed_res = group.selection(not_removed)
+
+with open('selections/not removed.csv', 'wb') as f:
+    for group in groupdict.values():
+        row_to_write = list()
+        row_to_write.append(group.name)
+        row_to_write += [residue.get_id()[1] \
+                         for residue in group.not_removed_res]
+        csv.writer(f).writerow(row_to_write)
+
+
+# Load non-interface strand counts. These will be used to normalize
+# the the residue counts.
+with open('strand counts olig minus.csv', 'rb') as f:
+    ni_str_counts = CIDict((pdbid, int(count)) \
+                            for pdbid, count in csv.reader(f))
+
+for group in groupdict.values():
+    group.ni_str_count = ni_str_counts[group.name]
+
+
 
 
 class Histogram(list):
@@ -208,7 +252,7 @@ class Histogram(list):
         return list.__setitem__(self, i, y)
     
     def add_data(self, value):
-        self[value // self.binsize] += 1
+        self[int(value / self.binsize)] += 1
 
     def save(self, filename):
         with open(filename, 'wb') as f:
@@ -221,6 +265,9 @@ def histogram(groupdict, binsize, resns, sele_names):
     with frequency of a specified group of residues within a specified
     selection on the x axis, and frequency of proteins in the groupdict
     that have that frequency of residues on the y axis.
+
+    Automatically divides its counts by the number of non-interface
+    strands, group.ni_str_count
 
     groupdict: the groupdict containing groups with attributes that
         are sets of residues ('selections')
@@ -266,25 +313,31 @@ def histogram(groupdict, binsize, resns, sele_names):
         for residue in intersection:
             if residue.get_resname() in resns:
                 protein_count += 1
-
+        
+        # Divide by non interface strand count
+        normalized_count = protein_count/group.ni_str_count
         # Increment the appropriate bin of the histogram
         output.add_data(protein_count)
 
     return output
-for binsize in (1, 2, 3):
+
+for binsize in (.1, .2, .3):
     s_hist = functools.partial(histogram, groupdict, binsize)
     resn_combos = (['y'], ['y', 'w'], ['y', 'f'], ['y', 'w', 'f'])
-    sele_combos = (['non_ppi_res'],
-                   ['non_ppi_res', 'ec_half_res'],
-                   ['non_ppi_res', 'pp_half_res'],
-                   ['non_ppi_res', 'ec_half_res', 'aro_peak_res'],
-                   ['non_ppi_res', 'pp_half_res', 'aro_peak_res'])
+    sele_combos = (['not_removed_res', 'non_ppi_res'],
+                   ['not_removed_res', 'non_ppi_res', 'ec_half_res'],
+                   ['not_removed_res', 'non_ppi_res', 'pp_half_res'],
+                   ['not_removed_res', 'non_ppi_res', 'ec_half_res',
+                    'below_18_res'],
+                   ['not_removed_res', 'non_ppi_res', 'pp_half_res',
+                    'below_18_res'])
 
     # itertools.product is Cartesian product. The effect is the same as that
     # of nested for loops, the outer over the members of resn_combos and the
     # inner over the members of sele_combos: an operation gets carried out
     # on every pair of a member of resn_combos and a member of sele_combos.
-    for resn_combo, sele_combo in itertools.product(resn_combos, sele_combos):
+    for resn_combo, sele_combo \
+        in itertools.product(resn_combos, sele_combos):
         # Produces a filenamen of the same kind as
         # "yw non_ppi_res pp_half_res aro_peak_res.csv"
         filename = 'structure histograms binsize ' + str(binsize) + '/' \
