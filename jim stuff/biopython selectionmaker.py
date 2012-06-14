@@ -38,12 +38,19 @@ real_matches = filter(lambda x: x is not None, matches)
 pdbids = [x.group(1) for x in real_matches]
 
 # Uncomment this line to speed things up for testing:
-# pdbids = ['3CSL']
+# pdbids = ['3CSL', '1E54']
 
 # Remove 1E54, since its interface is included in the non_ppi dataset
 # This will throw an exception if 1E54 isn't in the list, so don't
 # worry about case
 pdbids.remove('1E54')
+
+# Actually, I don't want any of the oligomers, the strand count
+# difficulty is too much weighing on my mind
+pdbids.remove('1A0S')
+pdbids.remove('1QD6')
+pdbids.remove('2J1N')
+pdbids.remove('2O4V')
 
 # Make group objects. I'm going to be associating a lot of stuff with
 # each protein, it's easiest to just group them together.
@@ -347,14 +354,20 @@ def histogram(groupdict, binsize, resns, sele_names):
 
     return output
 
-for binsize in (.08, .10, .12, .15, .20, .25, .30):
+for binsize in (.10, .15, .20):
     s_hist = functools.partial(histogram, groupdict, binsize)
     resn_combos = (['y'], ['y', 'w'], ['y', 'f'], ['y', 'w', 'f'])
     sele_combos = (['not_removed_res', 'non_ppi_res'],
+                   ['not_removed_res', 'non_ppi_res', 'below_18_res'],
                    ['not_removed_res', 'non_ppi_res', 'ec_half_res',
                     'below_18_res'],
                    ['not_removed_res', 'non_ppi_res', 'pp_half_res',
                     'below_18_res'])
+
+    # Create a directory descriptive of the binsize
+    directory = 'structure histograms binsize ' + str(binsize)
+
+    os.mkdir(directory)
 
     # itertools.product is Cartesian product. The effect is the same as that
     # of nested for loops, the outer over the members of resn_combos and the
@@ -362,6 +375,7 @@ for binsize in (.08, .10, .12, .15, .20, .25, .30):
     # on every pair of a member of resn_combos and a member of sele_combos.
     for resn_combo, sele_combo \
         in itertools.product(resn_combos, sele_combos):
+
         # Produces a filenamen of the same kind as
         # "yw non_ppi_res pp_half_res below_18_res.csv"
 
@@ -371,7 +385,7 @@ for binsize in (.08, .10, .12, .15, .20, .25, .30):
         # of the groups are selections, but it's pointless for a filename.
         seles_for_filename = [name[:-4] for name in sele_combo[2:]]
 
-        filename = 'structure histograms binsize ' + str(binsize) + '/' \
+        filename = directory + '/' \
                    + ''.join(resn_combo) + ' ' \
                    + ' '.join(seles_for_filename) + '.csv'
         # Create a histogram, then call its save method to save it to that
@@ -385,4 +399,14 @@ for binsize in (.08, .10, .12, .15, .20, .25, .30):
         print('mean: ' + str(output.mean))
 
 
+# Find average residues per strand
+with open('included residues per strand.csv', 'wb') as f:
+    for group in groupdict.values():
+        residues = len(group.non_ppi_res.intersection(group.not_removed_res,
+                                                      group.below_18_res))
+        strands = group.ni_str_count
+        csv.writer(f).writerow((group.name, residues/strands))
+
+
+    
 print('done')

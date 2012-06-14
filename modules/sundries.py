@@ -12,6 +12,12 @@ class CIDict(dict):
     def __getitem__(self, key):
         return dict.__getitem__(self,key.lower())
 
+    def __setitem__(self, key, value):
+        return dict.__setitem__(self, key.lower(), value)
+
+    def __delitem__(self, key):
+        return dict.__delitem__(self, key.lower())
+
     def update(self, iterable):
         given = dict(iterable)
         for key, value in given.items():

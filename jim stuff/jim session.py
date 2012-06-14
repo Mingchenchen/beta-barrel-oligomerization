@@ -93,6 +93,16 @@ def cs_make_selections(groupdict):
             reader = csv.reader(f)
             selectors.from_file(sele_name, 'molecule', reader)
 
+# Strand counts used for generating histograms
+def cs_load_strand_counts(groupdict):
+
+    with open('strand counts olig minus.csv', 'rb') as f:
+        ni_str_counts = CIDict((pdbid, int(count)) \
+                                for pdbid, count in csv.reader(f))
+    
+    for group in groupdict.values():
+        group.ni_str_count = ni_str_counts[group.name]
+    
 def create_session(workingdir, load = True):
     # Load structures:
     groupdict = CIDict(groups_from_folder(workingdir + '/structures',
