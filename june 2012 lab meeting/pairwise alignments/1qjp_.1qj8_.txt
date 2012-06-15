@@ -1,0 +1,22 @@
+Align 1qjp_.pdb 137 with 1qj8_.pdb 148
+Twists 0 ini-len 120 ini-rmsd 2.98 opt-equ 126 opt-rmsd 2.38 chain-rmsd 2.98 Score 254.40 align-len 153 gaps 27 (17.65%)
+P-value 5.69e-10 Afp-num 9434 Identity 13.07% Similarity 24.18%
+Block  0 afp 15 score 254.40 rmsd  2.98 gap 22 (0.15%)
+
+                  .    :    .    :    .    :    .    :    .    :    .    :    .    :
+Chain 1:    5 NTWYTGAKLGWSQ----HENKLGAGAFGGYQV-NPYVGFEMGYDWLGRMPY-------AYKAQGVQLTAK
+              1111111111111    111111111111111 11111111111111111        111111111111
+Chain 2:    1 ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKNQYYGITAGPA
+
+                  .    :    .    :    .    :    .    :    .    :    .    :    .    :
+Chain 1:   83 LGYPITDDLDIYTRLGGMVWRADTYSNV---YGKNHDTGVSPVFAGGVEYAITPEIATRLEYQWTN----
+              1111   11111111111 111111111   11111111111111 11111111111111111111    
+Chain 2:   71 YRIN---DWASIYGVVGV-GYGKFQTTEYPTYKNDTSDYGFSYGA-GLQFNPMENVALDFSYEQSRIRSV
+
+                  .    :
+Chain 1:  160 --GMLSLGVSYRF
+                11111111111
+Chain 2:  136 DVGTWIAGVGYRF
+
+Note: positions are from PDB; the numbers between alignments are block index
+
