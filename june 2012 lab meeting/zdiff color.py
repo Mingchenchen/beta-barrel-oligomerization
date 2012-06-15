@@ -1,13 +1,14 @@
-def color_b(target, blist):
-    cmd.select('on_blist', 'none')
-    for resi, b in blist:
-        cmd.alter(target + ' & resi ' + resi,
-                  'b = ' + str(b))
-        cmd.select('on_blist', 'on_blist | resi ' + resi)
+import csv
 
-def color_by_z_diff(target, alignment_path, z_diff_path,
-                    alignment_format = 'clustal'):
-    blist = z_diff_blist(target, alignment_path, z_diff_path,
-                         alignment_format = alignment_format)
-    color_b(target, blist)
-    return len(blist)
+def set_b(filename):
+    cmd.select('on_blist', 'none')
+    with open(filename, 'rb') as f:
+        for resi, b in csv.reader(f):
+            b = abs(float(b))
+            cmd.select('on_blist', 'on_blist | resi ' + resi)           
+            cmd.alter('resi ' + resi,
+                      'b = ' + str(b))
+
+def color_b(n=2):
+    cmd.spectrum('b','blue_white_red', minimum=0, maximum=n)
+    cmd.color('black', '!on_blist')

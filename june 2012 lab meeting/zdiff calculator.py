@@ -1,8 +1,10 @@
 from sundries import CIDict
+from sundries import one_letter
 from Bio.PDB import PDBParser
 import warnings
 import re
 import os
+import csv
 
 def z(residue):
     '''Returns the z coordinate of a residue object's Calpha.'''
@@ -26,7 +28,10 @@ class Position(object):
             return z(template_res) - z(unknown_res)
     
     def resi(self, stru_id):
-        return self.residues[stru_id].get_id()[1]
+        if type(self.residues[stru_id]) is Gap:
+            return None
+        else:
+            return self.residues[stru_id].get_id()[1]
         
 class NotFoundError(Exception):
     pass
@@ -34,7 +39,7 @@ class NotFoundError(Exception):
 class Zdiff(object):
     def __init__(self, *stru_seq_pairlist):
         pos_inputs = list()
-        for structure, sequence in stru_seq_pairlist:
+        for structure, sequence, beginning in stru_seq_pairlist:
             residues = structure.get_residues()
             pairs_for_pos = list()
 
@@ -43,6 +48,13 @@ class Zdiff(object):
                     seq_unit = Gap()
                 else:
                     seq_unit = residues.next()
+                    while 'CA' not in seq_unit.child_dict.keys():
+                        seq_unit = residues.next()
+                    while int(seq_unit.get_id()[1]) < beginning:
+                        seq_unit = residues.next()
+                    assert one_letter[seq_unit.get_resname()] == letter, \
+                           str(seq_unit.get_id())+ str(seq_unit.child_dict)\
+                           + structure.id
 
                 pairs_for_pos.append((structure.get_id(), seq_unit))
 
@@ -65,7 +77,11 @@ class Zdiff(object):
         return filter(lambda x: x is not None, output)
 
 
-zdiff_list = list()
+    def resi_report(self, template_id, unknown_id):
+        output = ((pos.resi(template_id),
+                   pos.zdiff(template_id, unknown_id)) \
+                  for pos in self.positions)
+        return filter(lambda x: x[1] is not None, output)
 
 
 linerec = re.compile('Chain (\d): +(\d+) ([A-Z\-]+)')
@@ -106,4 +122,24 @@ for alignment_filename in os.listdir('pairwise alignments'):
                              .get_structure(id2,
                                            'aligned structures/' \
                                            + filename)
-    zdiff_list.append(Zdiff((structure1, seq1), (structure2, seq2))) 
+    ''' 
+    for structure, beginning in ((structure1, beginning1),
+                                 (structure2, beginning2)):
+        for model in structure.get_iterator():
+            for chain in model.get_iterator():
+                kill_list = list()
+                print('beginning is ' + str(beginning))
+                for full_id, residue in chain.child_dict.items():
+                    if int(residue.get_id()[1]) < beginning:
+                        kill_list.append(full_id)
+                    elif 'CA' not in residue.child_dict.keys():
+                        kill_list.append(full_id)
+                for key in kill_list:
+                    del chain.child_dict[key]
+                    print('eliminated ' + str(key))
+                    assert key not in chain.child_dict.keys()
+    '''
+    output = Zdiff((structure1, seq1, beginning1), (structure2, seq2, beginning2))
+    write_filename = id1 + ' mapped on ' + id2 + '.csv'
+    with open('zdiffs/' + write_filename, 'wb') as f:
+        csv.writer(f).writerows(output.resi_report(id2, id1))
