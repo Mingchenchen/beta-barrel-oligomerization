@@ -60,7 +60,7 @@ def color_by_z_diff(target, alignment_path, z_diff_path,
 
 def auto(name, rainbow='cyan_white_magenta',excluded_color='black'):
     output = color_by_z_diff('aligned_1A0S', auto_list[name][0], auto_list[name][1], alignment_format = auto_list[name][2])
-    cmd.spectrum('b',rainbow,'on_blist',0,7)
+    cmd.spectrum('b',rainbow,'on_blist',0,6)
     cmd.color(excluded_color,'!on_blist')
     return output
 
