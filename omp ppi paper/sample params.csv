@@ -1,0 +1,8 @@
+,,A,L,I,V,D,E,K,N,P,Q,R,H,S,F,W,Y,G
+curve,,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,sigmoidal,gaussian,gaussian,gaussian,gaussian
+E0+,Emin+,-0.8,-2,-1,-1.5,1.3,1.1,1.3,0.7,0.8,0.7,1.4,1.2,0.9,-3,-2.1,-1.3,0.7
+zmid+,zmin+,6,17,15,15,15,15,14,13,11,11,12,8,17,9.5,11,9.3,9.9
+n+,sigma+,7.1,2.9,18,23,7.2,8,3.7,29,8.8,7.7,1.7,14,3.6,10,6.2,3.6,2.9
+E0+,Emin-,-0.8,-2,-1,-1.5,1.3,1.1,1.3,0.7,0.8,0.7,1.4,1.2,0.9,-3,-2.1,-1.3,0.7
+zmid-,zmin-,6,17,15,15,15,15,14,13,11,11,12,8,17,9.5,11,9.3,9.9
+n-,sigma-,7.1,2.9,18,23,7.2,8,3.7,29,8.8,7.7,1.7,14,3.6,10,6.2,3.6,2.9
