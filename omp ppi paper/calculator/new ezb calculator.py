@@ -70,7 +70,7 @@ class Calculator(object):
             emin = trend.param('emin', sign)
             zmin = trend.param('zmin', sign)
             sigma = trend.param('sigma', sign)
-            return math.exp(-1*(abs(z)-zmin)**2 \
+            return math.exp(-1*(abs(z)-abs(zmin))**2 \
                             / (2*sigma**2))
 
         if trend.curve == 'sigmoidal':
@@ -78,5 +78,5 @@ class Calculator(object):
             zmid = trend.param('zmid', sign)
             n = trend.param('n', sign)
             return e0 \
-                   / ((1 + abs(z/zmid))**n)
+                   / (1 + (abs(z)/abs(zmid))**n)
 
