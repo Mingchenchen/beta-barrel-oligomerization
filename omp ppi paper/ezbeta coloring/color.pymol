@@ -1,0 +1,5 @@
+resi_z = dict()
+iterate_state 1, n. ca & !resn cys, resi_z.update({resi: float(z)})
+alter polymer & !resn cys, b = bbtmout_calc.calculate(resn, resi_z[resi])
+spectrum b, blue_white_red, !resn cys
+color black, resn cys
