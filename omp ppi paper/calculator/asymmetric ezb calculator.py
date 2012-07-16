@@ -1,5 +1,9 @@
-import math
+# So I can run on my stupid home computer:
+import sys
+sys.path.append('/home/davis/work stuff/beta-barrel-oligomerization/modules')
+
 import matplotlib.pyplot as plt
+import math
 import csv
 from sundries import one_letter
 from sundries import CIDict
@@ -159,13 +163,15 @@ class Calculator(object):
         plt.show()
 
 def color(function, selection, params = 'bbtm_out', zero_is_white = True):
-    # Beware: when using normalized dEz, "zero_is_white" actually means
-    # ".5 is white". In a future version maybe I'll change this to
-    # "neutral is white" or something.
+    '''Do not try to color more than one protein at once. It'll
+    come out wrong.
+    Beware: when using normalized dEz, "zero_is_white" actually means
+    ".5 is white". In a future version maybe I'll change this to
+    "neutral is white" or something.
+    '''
 
     if params == 'bbtm_out':
-        param_path = r'C:\cygwin\home\alex\beta barrels' \
-          + r'\omp ppi paper\calculator/asymmetric params, bbtmout.csv'
+        param_path = 'asymmetric params, bbtmout.csv'
         # Residues not included in these params, to be excluded:
         excl = ['cys']
         # Threonine's flat distribution leads to arbitrary energies if
@@ -174,7 +180,7 @@ def color(function, selection, params = 'bbtm_out', zero_is_white = True):
             excl.append('thr')
 
     if params == 'symmetric':
-        param_path = r"C:\cygwin\home\alex\beta barrels\omp ppi paper\calculator\published params, asymmetric format.csv"
+        param_path = "published params, asymmetric format.csv"
         excl = ('cys', 'met', 'thr')
 
     stored.calc = Calculator(param_path)
@@ -183,7 +189,7 @@ def color(function, selection, params = 'bbtm_out', zero_is_white = True):
                       'stored.resi_z.update({resi: float(z)})')
     stored.assigned_vals = list()
     cmd.alter(selection + ' & polymer & !resn ' + '+'.join(excl),
-              'b = stored.calc.{}(resn, stored.resi_z[resi])' \
+              'b = stored.calc.{0}(resn, stored.resi_z[resi])' \
               .format(function) + ';stored.assigned_vals.append(b)')
 
     # I want the spectrum to be of a range inclusive of whatever
