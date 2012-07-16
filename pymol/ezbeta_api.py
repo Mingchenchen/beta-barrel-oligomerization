@@ -1,4 +1,5 @@
-workingdir = r'C:\cygwin\home\alex\beta barrels\pymol'
+#workingdir = r'C:\cygwin\home\alex\beta barrels\pymol'
+workingdir = r'/home/davis/work stuff/beta-barrel-oligomerization/pymol' 
 
 import biodata
 import selectors
@@ -195,21 +196,26 @@ def cs_fetch_oligomers(oligomers, load):
     
 def create_session(workingdir, load = True):
     # Load structures:
+    print('loading structures...')
     groupdict, oligomers, monomers = cs_load_structures(workingdir, load)
 
     # In case something goes wrong, so you can look at the work in progress:
     stored.groupdict = groupdict
     
     # Load centers:
+    print('loading centers...')
     cs_load_centers(workingdir, groupdict)
     
     # Load spreadsheets:
+    print('loading spreadsheets...')
     cs_load_spreadsheets(workingdir, groupdict)
     
     # Make selections:
+    print('making selections...')
     cs_make_selections(groupdict)
     
     # Fetch pdbs for oligomers:
+    print('fetching pdbs for oligomers...')
     cs_fetch_oligomers(oligomers, load)
     
     # Change from line to cartoon representation
