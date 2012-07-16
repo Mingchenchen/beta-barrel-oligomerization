@@ -1,6 +1,6 @@
 # So I can run on my stupid home computer:
-import sys
-sys.path.append('/home/davis/work stuff/beta-barrel-oligomerization/modules')
+#import sys
+#sys.path.append('/home/davis/work stuff/beta-barrel-oligomerization/modules')
 
 import matplotlib.pyplot as plt
 import math

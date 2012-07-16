@@ -1,5 +1,5 @@
-#workingdir = r'C:\cygwin\home\alex\beta barrels\pymol'
-workingdir = r'/home/davis/work stuff/beta-barrel-oligomerization/pymol' 
+workingdir = r'C:\cygwin\home\alex\beta barrels\pymol'
+#workingdir = r'/home/davis/work stuff/beta-barrel-oligomerization/pymol' 
 
 import biodata
 import selectors
