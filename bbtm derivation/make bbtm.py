@@ -2,6 +2,8 @@ import scipy.linalg
 import math
 import numpy as np
 import itertools
+import copy
+from scipy.stats import gmean
 
 published_ordering= ['S', 'T', 'N', 'Q', 'D', 'E', 'R', 'K', 'H', 'C',
                      'P', 'G', 'W', 'Y', 'F', 'V', 'I', 'L', 'A', 'M']
@@ -44,8 +46,10 @@ def parse(mat_filename):
                 output[row_name][col_name] = float(rate)
         
     return output
-    
-def to_mat(m, order = None):
+
+published_ordering= ['S', 'T', 'N', 'Q', 'D', 'E', 'R', 'K', 'H', 'C',
+                     'P', 'G', 'W', 'Y', 'F', 'V', 'I', 'L', 'A', 'M']    
+def to_mat(m, order = published_ordering):
     # The parser returns a dictionary. This function turns one of
     # those dictionaries into a matrix, with the elements in the
     # specified order. "order" should be a list of one-letter
@@ -81,6 +85,33 @@ def get_params(p, b, two = 'T', one = 'S'):
 
     return (l, pi)
 
+def get_avg_l(p, b, two = 'T', one = 'S'):
+    # Like get_params, but calculates l in all possible ways and 
+    # averages them, in an attempt to make up for the terrible
+    # inaccuracy in the calculation
+    ells = list()
+    for t1, t2 in itertools.product(p.keys(), p.keys()):
+        try: 
+            ells.append(math.log(p[t1][t1]/p[t2][t1]) \
+                        /(b[t1][t1] - b[t2][t1]))
+        except ZeroDivisionError:
+            continue
+
+        # assert ells[-1] >= 0, str(ells[-1])
+
+    l = sum(ells) / len(ells)
+
+    
+    # Make an arbitrary ordering of one-letter residue names
+    ordering = p.keys()
+
+    pi = dict()
+
+    for resn in ordering:
+        pi.update({resn: p[one][resn]*math.exp(-1 * l * b[one][resn])})
+
+    return (l, pi)
+
 def transition_probability_matrix(q,t):
     resns = q.keys()
     mat = to_mat(q)
@@ -98,7 +129,36 @@ def transition_probability_matrix(q,t):
 
 b = parse('matrices/bbtmout.txt')
 q = parse('matrices/qout.txt')
-p = transition_probability_matrix(q, 10**-4 * 40)
 
-l1, pi1 = get_params(p, q)
-l2, pi2 = get_params(p, q, two = 'L', one = 'A')
+# Create a matrix whose rows sum to zero
+q_fixed = copy.deepcopy(q)
+for row in q_fixed.keys():
+    rowsum = sum(q_fixed[row][col] for col in q_fixed.keys())
+    q_fixed[row][row] -= rowsum
+    y = q[row][row]
+
+# Do some sanity checks on the derived parameters assuming b = exp(q*t)
+# Returns lambda derived in two different ways (should be the same),
+# and the sum of the residue frequencies derived in two different ways
+# (should both be 1)
+def test(t, q = q):
+    p = transition_probability_matrix(q, t)
+
+    l1, pi1 = get_params(p, q)
+    l2, pi2 = get_params(p, q, two = 'L', one = 'A')
+    print(l1)
+    print(l2)
+    print(sum(pi1.values()))
+    print(sum(pi2.values()))
+
+# Similar thing, but using get_avg_l instead of get_params. So,
+# checking for consistency in l is meaningless.
+def test2(t, q = q):
+    p = transition_probability_matrix(q, t)
+
+    l1, pi1 = get_avg_l(p, q)
+    l2, pi2 = get_avg_l(p, q, two = 'L', one = 'A')
+    print(l1)
+    print(l2)
+    print(sum(pi1.values()))
+    

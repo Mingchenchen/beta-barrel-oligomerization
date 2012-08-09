@@ -93,7 +93,7 @@ def test2(power, subject):
 def test3(power, subject, q=20):
     return rowsums(scipy.linalg.expm3(subject*10**power, q=q))
 
-with open('parser test.txt', 'r') as f:
+with open('matrices/qout.txt', 'r') as f:
     r_dict = parse(f)
 
 published_ordering= ['S', 'T', 'N', 'Q', 'D', 'E', 'R', 'K', 'H', 'C',
@@ -108,3 +108,14 @@ for rownum in range(20):
     for colnum in range(20):
         rowsum += r_fixed[rownum, colnum]
     r_fixed[rownum, rownum] -= rowsum
+
+
+# Make a list of the elements of e^(r * 40)
+elem_list = [scipy.linalg.expm(r*40)[i, j] \
+             for i, j in itertools.product(range(20), range(20))]
+print(max([i - .05 for i in elem_list]))
+
+# Same thing for r_fixed:
+elem_list = [scipy.linalg.expm(r_fixed*40)[i, j] \
+             for i, j in itertools.product(range(20), range(20))]
+print(max([i - .05 for i in elem_list]))
