@@ -5,16 +5,47 @@ import math
 import numpy as np
 import itertools
 import os
+import copy
+
+
+# The guts
 
 class MatrixMapping(dict):
     def __rmul__(self, other):
-        output = dict()
-        for i in self.keys():
-            inner_dict = dict()
-            for j in self.keys():
-                inner_dict.update({j: self[i][j] * other})
-            output.update({i: inner_dict})
-        return MatrixMapping(output)
+        output = copy.deepcopy(self)
+        for key in output.keys():
+            output[key] *= other
+        return output
+    
+    def __lmul__(self, other):
+        return self.__rmul__(self, other)
+
+# Background frequencies, e-mailed to me by David Jimenez-Morales
+# on August 20. I consider it a birthday present
+pi_all = {'A': 0.090686, 'C': 0.000344, 'E': 0.037944, 'D': 0.029356,
+          'G': 0.109694, 'F': 0.06036, 'I': 0.041904, 'H': 0.014036,
+          'K': 0.02891, 'M': 0.018884, 'L': 0.104019, 'N': 0.037032,
+          'Q': 0.043966, 'P': 0.012709, 'S': 0.066126, 'R': 0.04019,
+          'T': 0.067868, 'W': 0.031041, 'V': 0.071151, 'Y': 0.09384}
+
+pi_in = {'A': 0.078272, 'C': 0.000478, 'E': 0.072977, 'D': 0.047942,
+         'G': 0.1498, 'F': 0.028562, 'I': 0.018918, 'H': 0.011209,
+         'K': 0.049208, 'M': 0.019776, 'L': 0.037144, 'N': 0.057714,
+         'Q': 0.065387, 'P': 0.006456, 'S': 0.107541, 'R': 0.069281,
+         'T': 0.086192, 'W': 0.015694, 'V': 0.026265, 'Y': 0.05133}
+
+pi_out = {'A': 0.103414, 'C': 0.000253, 'E': 0.003965, 'D': 0.010899,
+          'G': 0.071558, 'F': 0.088656, 'I': 0.064497, 'H': 0.016882,
+          'K': 0.009315, 'M': 0.018249, 'L': 0.168981, 'N': 0.016985,
+          'Q': 0.023042, 'P': 0.018898, 'S': 0.025996, 'R': 0.012083,
+          'T': 0.050352, 'W': 0.045422, 'V': 0.115135, 'Y': 0.135606}
+
+# Q matrices, taken from figure S3 in Jimenez-Morales, Liang PLoS One 2011
+# These are the rate matrices. They have to be multipled by 10**-4 to be
+# usable though.
+qall = 10**-4 * parse('qall.txt')
+qin = 10**-4 * parse('qin.txt')
+qout = 10**-4 * parse('qout.txt')
 
 def parse(mat_filename):
     '''Take filename of a file in the format in which matrices are presented
@@ -43,17 +74,17 @@ def parse(mat_filename):
                         raise
 
                 # Make the matrix that will be returned
-                output = dict([(resn, None) for resn in col_names])
-                for key, value in output.items():
-                    output[key] = dict([(resn, None) for resn in col_names])
+                output = MatrixMapping((tuple_, None)\
+                                       for tuple_ in itertools.product(\
+                                                   col_names,col_names))
                 continue
 
             row = line.split()
             row_name = line[0]
             for rate, col_name in zip(row[1:], col_names):
-                output[row_name][col_name] = float(rate)
+                output[row_name,col_name] = float(rate)
         
-    return MatrixMapping(output)
+    return output
 
 published_q_ordering = ['S', 'T', 'N', 'Q', 'D', 'E', 'R', 'K', 'H', 'C',
                      'P', 'G', 'W', 'Y', 'F', 'V', 'I', 'L', 'A', 'M']
@@ -66,107 +97,108 @@ def to_mat(m, order):
     those dictionaries into a matrix, with the elements in the
     specified order. "order" should be a list of one-letter
     residue names.'''
-    if order is None:
-        resns = m.keys()
-    else:
-        resns = order
+
+    # I know more about manipulating lists than matrices,
+    # so the output is constructed as a list, then converted into a
+    # matrix right before the return statement
 
     mat_as_list = list()
-    for row_name in resns:
-        mat_as_list.append([m[row_name][col_name] for col_name in resns])
+    for row_name in order:
+        # Append a row:
+        mat_as_list.append([m[row_name,col_name] for col_name in order])
     mat = scipy.matrix(mat_as_list)
     return mat
-   
-def transition_probability_matrix(q,t):
+  
+
+def transition_probability_matrix(q,t, resns = published_q_ordering):
     '''Take a matrix in dictionary form, whose elements are instantaneous
     transition rates, and return a transition probability matrix for a given
     time.'''
-    resns = published_q_ordering
-    mat = to_mat(q, order = resns)
-    p_as_mat = scipy.linalg.expm(t*mat)
-    output = dict((resn, None) for resn in resns)
-    for key in output.keys():
-        output[key] = dict((resn, None) for resn in resns)
 
+    # resns is a list of entry names (probably the 20 amino acids).
+    # I think the order is arbitrary.
+    # Made into a keyword argument so that I can test this function on
+    # small matrices.
+
+    # Convert q to a matrix
+    mat = to_mat(q, order = resns)
+
+    # Create P(t) = exp(q * t)
+    p_as_mat = scipy.linalg.expm(t*mat)
+
+    # Make a dictionary mapping tuples of resns to elements of P(t)
+    # Create the empty dictionary
+    output = MatrixMapping((respair, None) \
+                  for respair in itertools.product(resns, resns))
+
+    # Fill it up with the values from the matrix
     numrows, numcols = p_as_mat.shape
     for i, j in itertools.product(range(numrows), range(numcols)):
-        output[resns[i]][resns[j]] = p_as_mat[i,j]
+        output[resns[i],resns[j]] = p_as_mat[i,j]
 
-    return MatrixMapping(output)
+    return output
 
 
-def scoring_matrix(p, lam, pi):
+
+def scoring_matrix(p, pi, lam = 1/math.log(16)):
     '''p(A, G) becomes (1/lam) * log(p(A,G)/pi(G))'''
-    b = dict()
-    for x in p.keys():
-        b.update({x: dict((x, None) for y in p.keys())})
+
+    b = MatrixMapping()
     for from_, to in itertools.product(p.keys(), p.keys()):
-        b[from_][to] = (1/lam) * math.log(p[from_][to] / pi[to])
-    return MatrixMapping(b)
+        b.update({(from_, to): (1/lam) * math.log(p[from_,to] / pi[to])})
 
-def expected_changes(mat, pi):
-    return sum((1 - mat[i][i])*pi[i] for i in pi.keys())
+    return b
 
-def avg_rate(q, pi):
-    return -1 * sum(q[i][i] *pi[i] for i in pi.keys())
+# The API
+def bbtm(dataset, t):
+    '''Return a BBTM matrix from the given dataset ("all", "out" or "in")
+    and at the given number of evolutionary time units (defined as the
+    time it takes for one out of a hundred residues to change, on average).
+    '''
+    if dataset == 'all':
+        pi = pi_all
+        q = qall
+    elif dataset == 'out':
+        pi = pi_out
+        q = qout
+    elif dataset == 'in':
+        pi = pi_in
+        q = qin
+    else:
+        raise ValueError('the only datasets are "all", "out" and "in"')
 
-
-pi_all = {'A': 0.090686, 'C': 0.000344, 'E': 0.037944, 'D': 0.029356,
-          'G': 0.109694, 'F': 0.06036, 'I': 0.041904, 'H': 0.014036,
-          'K': 0.02891, 'M': 0.018884, 'L': 0.104019, 'N': 0.037032,
-          'Q': 0.043966, 'P': 0.012709, 'S': 0.066126, 'R': 0.04019,
-          'T': 0.067868, 'W': 0.031041, 'V': 0.071151, 'Y': 0.09384}
-
-pi_in = {'A': 0.078272, 'C': 0.000478, 'E': 0.072977, 'D': 0.047942,
-         'G': 0.1498, 'F': 0.028562, 'I': 0.018918, 'H': 0.011209,
-         'K': 0.049208, 'M': 0.019776, 'L': 0.037144, 'N': 0.057714,
-         'Q': 0.065387, 'P': 0.006456, 'S': 0.107541, 'R': 0.069281,
-         'T': 0.086192, 'W': 0.015694, 'V': 0.026265, 'Y': 0.05133}
-
-pi_out = {'A': 0.103414, 'C': 0.000253, 'E': 0.003965, 'D': 0.010899,
-          'G': 0.071558, 'F': 0.088656, 'I': 0.064497, 'H': 0.016882,
-          'K': 0.009315, 'M': 0.018249, 'L': 0.168981, 'N': 0.016985,
-          'Q': 0.023042, 'P': 0.018898, 'S': 0.025996, 'R': 0.012083,
-          'T': 0.050352, 'W': 0.045422, 'V': 0.115135, 'Y': 0.135606}
-
-os.chdir(r'C:\cygwin\home\alex\beta barrels\bbtm derivation\matrices')
-
-qall = parse('qall.txt')
-qin = parse('qin.txt')
-qout = parse('qout.txt')
-
-# Normalize by from
-#for i, j in itertools.product(pi_out.keys(), pi_out.keys()):
-#    qout[i][j] /= pi_out[i]
+    p = transition_probability_matrix(q, t)
+    output = scoring_matrix(p, pi)
     
-mult = 10**-4
-pout = transition_probability_matrix(qout, 40 * mult)
-bout = scoring_matrix(pout, 1/2.798, pi_out)
-to_mat(bout, published_bbtm_ordering)
-print(expected_changes(pout, pi_out))
-print(avg_rate(mult * qout, pi_out))
+    return output
 
-bbtmout = parse('bbtmout.txt')
+def write_bbtm(dataset, t, output_filename, comments = None):
+    '''Write a file containing, in what I think is BLAST format, a BBTM
+    matrix from the given dataset("all", "out" or "in") and at the given
+    number of evolutionary time units (defined as the time it takes for
+    one out of a hundred residues to change, on average)
+    String in keyword argument 'comments' will also be written'''
+    with open(output_filename, 'w') as o:
+        # Write the first comment line, containing the dataset and t
+        o.write('# bbTM{} at t={}\n'.format(dataset, t)
+        
+        # Add comments
+        if comments != None:
+            for line in comments.split('\n'):
+                o.write('# ' + line + '\n')
+        
+        # Create the bbTM matrix
+        matrix = bbtm(dataset, t)
 
-wrongones = dict()
-for i, j in itertools.product(pi_out.keys(), pi_out.keys()):
-    display = bbtmout[i][j] - bout[i][j]
-    if abs(display) > 3:
-        print(i + j + ': ' + str(display))
-        if j not in wrongones.keys():
-            wrongones.update({j: 1})
-        else:
-            wrongones[j] += 1
-print(wrongones)
+        # Write the row names
+        o.write(' '*3 + ' '*3.join(published_bbtm_ordering))
 
-'''
-for i, j in itertools.product(pi_out.keys(), pi_out.keys()):
-    print(i + j + ' ' + str(bbtmout[i][j] / bout[j][i]) + ', ' + str(bout[j][i]))
-'''
+        # Write the actual entries in the matrix, rounded to the nearest
+        # integer
+        for row in published_bbtm_ordering:
+            o.write(row)
+            for col in published_bbtm_ordering:
+                # Create a string that is the integer entry, rounded down,
+                # padded with spaces so that it takes up four characters
 
-print(sum((bbtmout[i][j] / bout[i][j]) for i, j in \
-          itertools.product(pi_out.keys(), pi_out.keys()))/400)
 
-#print(np.array(\
-#               to_mat(bout, published_bbtm_ordering),
-#               dtype = 'int32'))
