@@ -1,0 +1,146 @@
+CLUSTAL
+
+
+ss_pred            CCC--CHHHHHHHHHHHH---HHHHHHHHHCCCCCCCCCCEEEEEE-EEEEECEEEEEECCCCCCCEEECCCCCCCCCCCCCEEEEEEEEEEECCCEEEE
+ss_conf            973--1345566788768---8763013331676610031332114-55421005655215764335873566767565541012000688506834786
+bb_pred            III--IIIIIIIIIIIII---IIIIIIIIIIIIIIIIIIIIIIIII-IIIIIIIIIIIIIIIIIIIUUUUUUUUUUOOOOOOODDDDDDDDDDIIUUUUU
+bb_conf            999--9999999999999---9999999999999977111111111-13311111111111111113353533331135531115555555313515555
+OMP.nn.66.1        MKR--KGWLKCCFLTAAL---SGLIAPAAAAEPLPARFSGEVYASD-YTVGQADAMFPLDGDAQHNLYVDPALGYGTDNAGHGDVGLGYRWIQNDAAIVG
+gi|94493002|ref|ZP -----MQWIKCIFLSFPL---LLCIAPLQAREPL-LRFSAEAYTGV-YTVGRADLMVSLDGDGQHNLYVDPQGGYGTDQAWYGDVGLGYRWISNDAAIVG
+gi|94492908|ref|ZP MSRkrQGWLFSSLLVAGL---SGLMNPAYGAFPLPPRLSGLVLASD-YTVGQADAMFPLSGDMSRNLYVDPALSYGTDNQNQFDVGLGYRWITNQAAIVG
+gi|94493001|ref|ZP ---------MCFF-----------IAPLQAREPL-LRFSAEAYTGV-YTVGRADLMVSLDGDGQHNLYVDPQGGYGTDQAWYGDVGLGYRWISNDAAIVG
+gi|94492911|ref|ZP MSRkrQGWLFSSLLVAGL---SGLMNPAYGAFPLPPRLSGLVLASD-YTVGQADAMFPLSGDMSRNLYVDPALSYGTDNQNQFDVGLGYRWITNQAAIVG
+gi|94493476|ref|ZP MKS--KGINKCCFITLAIgfsSILLKANAEVLPIPARFSGNVYGSTkYVVGQADAMLPLVGDAQHNFYIDPALTSGSNWEGHGDLGLGYRWIQNGSAILG
+
+ss_pred            EEEEEEEEEEECCCEEEEECCCHHHCCCEEEEEEEEEEEECCCCCCCC-----CCCCCE--ECCHHHHHHH----HHHHHHCCCCCCEEEEEEECCCCCH
+ss_conf            555410235434610588567612004411003556887078542123-----455100--2151788788----7666530786323440454279853
+bb_pred            UUUUUOOOOOOOOODDDDDDDDDDDDDIIUUUUUUUUUUUUOOOOOOO-----OOOOOO--OOOOOOOOOO----OOOOOOODDDDDDDDDDDDDIIUUU
+bb_conf            555531135777511577999999753353357999995511335577-----777777--7777555533----3333111115555555555135335
+OMP.nn.66.1        GYFFGGYSRVDNNARFWIANPGIEAFGSRWDAHLNAYIPMADRSDDAG-----TADLEF--FTGHSEFGNV----FDEHQNVGNGADAKAGYQLFPGSPL
+gi|94493002|ref|ZP WYVFAGHSRVENSSGFWITNPGVEVMGSRWDARVNAYIPVAGRSDDLGgiestTAGPSF--FTGHSELRTVsftaFNEVQQVGNGADARVGYQLFSGVPL
+gi|94492908|ref|ZP GYFFGGYSRVDNNARLWIANPGIEAFGSRWDAHLNAYIPMGDRHYTAG-----TEIVHF--FTGHSEFGRV----FLMHQYAGSGADIKAGYQLFPHSSL
+gi|94493001|ref|ZP WYVFAGHSRVENSSGFWITNPGVEVMGSRWDARVNAYIPVAGRSDDLGgiestTAGPSF--FTGHSELRTVsftaFNEVQQVGNGADARVGYQLFSGVPL
+gi|94492911|ref|ZP GYFFGGYSRVDNNARLWIANPGIEAFGSRWDAHLNAYIPMGDRHYTAG-----TEIVHF--FTGHSEFGRV----FLMHQYAGSGADIKAGYQLFPHSSL
+gi|94493476|ref|ZP GYLFGEYNRMDNNVRIWTMNPGIEALGSRWDAHLNGYFVMDNRSKVVG------TDLEFvrFRGHSAVYNL----FDVTQNVGNGGDVKLGYQLFPKTPL
+
+ss_pred            HHEEEEEECCCCCCCCCCCCCCEEEEEECCCEEEEEEECCCCCEEEEEEEEEEEEECCEE-EEECCCCHHHHCCCHHHHHHHHHCCCCCCCCCCCCCEEE
+ss_conf            110000022763313210120000000048648999814100013468888656644335-550586545430464688998615766675000441278
+bb_pred            UUUUUUUUUOOOOOOODDDDDDDDDDDDDIIUUUUUUUUUUOOOOODDDDDDDDDDDIII-IIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIIII
+bb_conf            555555531379775157999999999759999999997515577311335553311113-311111111111111111111111111111111111111
+OMP.nn.66.1        KAFVGSYFFSPAETENVLGGAAGLEYWADDGVKVFASYNYDNLHHSQGAFGLGIEFGGLR-AHRADPSLEERLTDPVERHIAELGGGSAIPSQLKAKLIR
+gi|94493002|ref|ZP KAVVGAYFFEIPHAENVRGGGAGVDYWFDDYVRVFARYNYDNRQHSQVVGGLGISFGGVRnGHWADPSLSERLTDPVERYIANLGHGSGIPSQ----TIR
+gi|94492908|ref|ZP KGYLGSYYFSPAETNNVWGGAAGLEYWLTQGVKLIGSYSYDNLHHSTYAFGIGLEWGGLR-AHRADPELEERLTDPVERHVAELGRGSTIPTRLKAKPLL
+gi|94493001|ref|ZP KAVVGAYFFEIPHAENVRGGGAGVDYWFDDYVRVFARYNYDNRQHSQVVGGLGISFGGVRnGHWADPSLSERLTDPVERYIANLGHGSGIPSQ----TIR
+gi|94492911|ref|ZP KGYLGSYYFSPAETNNVWGGAAGLEYWLTQGVKLIGSYSYDNLHHSTYAFGIGLEWGGLR-AHRADPELEERLTDPVERHVAELGRGSTIPTRLKAKPLI
+gi|94493476|ref|ZP KAFVGSYFFSPAETKNILGGAVGLEYWANRNVKVFASYTYDKLRRSVGSLGLGVELGGTH-VHRSDPSIEERITDPLERNLAELGGSAAFPSQMKRKLVR
+
+ss_pred            -EECCCC------------CEEEEECC-----CCEEEECCCCCCCCC-CEEEEECCCCCCCCCCCCCCHHHHHHHHHHCC--CCEEEECCCCEECC-CCC
+ss_conf            -830798------------43788517-----500101167977774-10166112226888853100345565553068--73478847524415-788
+bb_pred            -IIUUUU------------UUUUUUOO-----OOOOOOOOOOOODDD-DDDDDDDIIUUUUUUUUUUOOOOOOOOOOOOO--OOOODDDDDDDDDD-DII
+bb_conf            -111133------------33331111-----335555533311111-33333111111111311111133355555533--31111111113111-111
+OMP.nn.66.1        -IGDGGD------------GEIEVIND-----NIAFFSQTGGPNNGG-VGLTLANCTFENPCGPTDFSQAAVNTLNGLLP--NTRMYFNGGTYTAL-VPG
+gi|94493002|ref|ZP -YGRGSG------------SRIEVLQD-----NIAFFSQTGGPDNGG-TNLTLADCTFENPCGPTDFSQAAVNTLNTLLP--NTRMYFNGGGYTAGeEGG
+gi|94492908|ref|ZP -V---PR------------GGMLVIDDiplrsNIAFFSQTGQPNDANvVNLTLGSCTFENPCGPADFTQANVTTLNDLIP--NTQFYFNGGTYTT-----
+gi|94493001|ref|ZP -YGRGSG------------SRIEVLQD-----NIAFFSQTGGPDNGG-TNLTLADCTFENPCGPTDFSQAGVNTLNTLLP--NTRMYFNGGNYAA--INP
+gi|94492911|ref|ZP -TGDQPT------------GVIILLGN-----NIAFFSEAGGPNNGG-VGLSLANCTFENPCGPTDFSQASVNTLGELLPlpNTRFYFNGGNYTSN----
+gi|94493476|ref|ZP tIGDGGDgdggdgdnggpgGEIPGINA--------FFSQTGTPNNGG-VGLTLGNCTYENPCGPTDLTNEATQTLSGYLP--NTKMYFLGGTYTALdVPG
+
+ss_pred            CCCEEEECCCCCEEEECCCCCCCCCCCCHHH-CCCEEEEEECCCHHEEE----------------EECCCCCCCCEEEEC---CCEEEECCCCCCCCCCE
+ss_conf            8655785078612210022345788872010-02407995277310034----------------520547885348833---85277211136777867
+bb_pred            UUUUUUUUUUUUOOOOOOOOOOOOOOOOOOO-OOOOOOOOOOOOOODDD----------------DDDDDDDDIIUUUUU---UUUUUOOOOOOOOOOOO
+bb_conf            1111111111111111111111113333311-13333333333311111----------------111111111111311---11111113333333333
+OMP.nn.66.1        GSNPVTLNAGQSLHSRTADYSALATGTARST-FSGALTLEGNNHLENII----------------LFLGPTPDTGVGIEG---GNNLINGSEIGSAEAPY
+gi|94493002|ref|ZP GSTPLRLNNGQSVHSRTADYSAPATGTERST-FAGAFTLTGNNHLENIIli--------------PIVGRFPDTGVTLES---GNNQITGSSIGTANNRY
+gi|94492908|ref|ZP -ASSVNLFPGQSVQSRTADYSQLATDPARSTlILPTISLQGNNTLENII----------------LLSNQPTDSSVIVTG---GNNIIRGSDIGNSSGPG
+gi|94493001|ref|ZP GINPLTLNNGQSVHSRTADYSAPATGTERST-FGGAFTLTGNNHLENIIli--------------PFLGVVPDTGVRIEG---SNNVITGSSIGTVSNRY
+gi|94492911|ref|ZP -GQSISLVPGQSLQGRTVDYSQLATGSARSTlFIPSLTFQGNNTLENMIvggsieqgnnslenltLVGGFINEVHVRVQG---NNNVIKGSQIGLPGDIV
+gi|94493476|ref|ZP GSNPVTIRAGQSLTSY--------PGTPIST-LSGGLIMEGNNSVNNMK------------------LAPTPSTPIGISGapnGNVLINGSEIGSAEAPY
+
+ss_pred            E---EEEEECCCCCCEEEEEEE------EEE-CCEEECCCEEEEEECCEEEEEECC-----CCCCEEEEECCCEEEEE-CC------------CCEECCC
+ss_conf            9---999860776415420011------210-132771402367850045677547-----63210577157347874-56------------3100257
+bb_pred            O---OOOOOOOOOOOOOOOOOO------OOO-OOOOOOOOOOOOOOOODDDDDDDD-----DDDIIUUUUUUUUUUUU-OO------------OOOOOOO
+bb_conf            3---311111111111111111------111-111111133333333111133333-----33111111333333111-33------------3533311
+OMP.nn.66.1        V---FAVENTGDANTLIDKSKL------FGS-TGVRFSEASNLIIQNSEINVLNVE-----GTVDGIEATGSGGIILT-NQ------------SSINVTG
+gi|94493002|ref|ZP L---FAIENFGD-NTRVDASTI------FSNiLGVVTTD-SNFTMQNSTLDLLNVEn----VGVDGILAVGGSISIID---------------SRIRVAG
+gi|94492908|ref|ZP Lnr-VAVFDLGATNTLIDNSVLna----LR--VGVTGRGSSNLVIQNSEINVANNEf----NSIDGVRFENTSGSIVN-TDifle--------NDSAAGG
+gi|94493001|ref|ZP A---FSVQNVGI-GTYIDNTFF------FAAqMGIITYG-SNLIVLKSTVDVELVG------GGTGIEIMNNNAFVID---------------SAIRLTG
+gi|94492911|ref|ZP VgdgVSVFNESDNNLLIDSSSLlieknnLGSvFGFYGSVFTNTTIQNSKIKVLTTPvlfppETVFPLGAYADEGAILTlNNvylqvvssivdiRETKHPG
+gi|94493476|ref|ZP V---TGVELTGSAQTTLDKSKV------FGS-TGVRFSEATSLISNASEIN----------GTVSGIESTGSGLINLT-NQ------------SSVNVTG
+
+ss_pred            CCC---EEEEEECCCCCE--EEEEEEEEEECCCCCCCEEEEECCCCEEEEEECCE-EEEECCCCCC----C--CC-CEEEECCEEEEECCCEEECC----
+ss_conf            654---036541478511--33220245304444552378862887079984236-8970588734----3--56-43420541899877254149----
+bb_pred            OOO---OOOOOOOOOOOO--OOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO-OOOOOOOOOO----O--OO-OOOODDDDDDDDDDDDDIII----
+bb_conf            111---111111111111--11111111133111111111111111111111111-1335555555----3--33-31111111331311111779----
+OMP.nn.66.1        ESA---LVGVSTSGEGIV--AVTNSGISSINVDATGAAVGLSNGGGGAVNFLGGS-INVDGTGPAI----A--DG-AVVAFDGTICKVNGAIVACA----
+gi|94493002|ref|ZP SSAnaaAVGIRTSSNSDV--AVTHSEIAVSNDT--GAAVVLENNSG-TINVLESD-LNVDGTNPFI----A--TGlPVNIGAGTVCVVNGAVVACP----
+gi|94492908|ref|ZP SSN-----GVFANGGSIV--DITNSLISVNNIPSASAIGIQTNGAGTAVTMTGRE-IVLNSGGSNAitfrS--DG-STVTFDGVICSINGGSVVCS----
+gi|94493001|ref|ZP TGAfp-FTGIETSSNTNAstSIINSSIDIIHENVNGNAVALHNGRGSSMTVLDSS-LSVEGAHVAI----A--RG-AVTVNDGTTCRVNGAITACA----
+gi|94492911|ref|ZP ASA-----GLGTAGGTIN--ATNTNIFLSGAGEETEGILTANFDVPSSIKLVGGT-INVIGPNPHIfgfhG--KSpTSLATTGVKCLINGANVLC-----
+gi|94493476|ref|ZP EDG---LVGVSSTGEG----EVTVSGASSINVDATGSAVGYSSGGSGAVNFSGGSaINVKSTGGQAigihTltSSvAPVMLDETQIKVDGQTSPIGvlte
+
+ss_pred            ----------------------------------------------------------------------------------------------------
+ss_conf            ----------------------------------------------------------------------------------------------------
+bb_pred            ----------------------------------------------------------------------------------------------------
+bb_conf            ----------------------------------------------------------------------------------------------------
+OMP.nn.66.1        ----------------------------------------------------------------------------------------------------
+gi|94493002|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492908|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493001|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492911|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493476|ref|ZP gegsytarnpkieviggasaqgvlssgsgaikteagtitvdgngqaaatgfsttstssgnvelkgtkinvsggdrtrgldvggsgpieltgqssvnvtge
+
+ss_pred            ----------------------------------------------------------------------------------------------------
+ss_conf            ----------------------------------------------------------------------------------------------------
+bb_pred            ----------------------------------------------------------------------------------------------------
+bb_conf            ----------------------------------------------------------------------------------------------------
+OMP.nn.66.1        ----------------------------------------------------------------------------------------------------
+gi|94493002|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492908|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493001|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492911|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493476|ref|ZP dglvgvsstgegevtvsgassinvdatgsavgyssggsgavnfsggsainvkstggqaigihtltssvapvmldetqikvdgqtnpigvltegegsytar
+
+ss_pred            ----------------------------------------------------------------------------------------------------
+ss_conf            ----------------------------------------------------------------------------------------------------
+bb_pred            ----------------------------------------------------------------------------------------------------
+bb_conf            ----------------------------------------------------------------------------------------------------
+OMP.nn.66.1        ----------------------------------------------------------------------------------------------------
+gi|94493002|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492908|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493001|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492911|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493476|ref|ZP npkieviggtsaqgvlssgsgaikteagtitvdgngqaaatgfsttstssgnvelkgtkinvsggnrtrgldvggsgpieltgagsitvnavgssgilgi
+
+ss_pred            ----------------------------------------------------------------------------------------------------
+ss_conf            ----------------------------------------------------------------------------------------------------
+bb_pred            ----------------------------------------------------------------------------------------------------
+bb_conf            ----------------------------------------------------------------------------------------------------
+OMP.nn.66.1        ----------------------------------------------------------------------------------------------------
+gi|94493002|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492908|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493001|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492911|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493476|ref|ZP srnsgstsditladnfsvdaiggegtigisdegtgtftlgdeniisamgdtnitafsktsagevnigssklmanapagqalglsadgpavikmngtqiqv
+
+ss_pred            ----------------------------------------------------------------------------------------------------
+ss_conf            ----------------------------------------------------------------------------------------------------
+bb_pred            ----------------------------------------------------------------------------------------------------
+bb_conf            ----------------------------------------------------------------------------------------------------
+OMP.nn.66.1        ----------------------------------------------------------------------------------------------------
+gi|94493002|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492908|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493001|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94492911|ref|ZP ----------------------------------------------------------------------------------------------------
+gi|94493476|ref|ZP esgggrgawfkqtskgeltntiitapnralevqdrsqvtvtgghftvgnnrasaiisgpgtstinisgtridvtgpgippnaelngiaknragsgavrak
+
+ss_pred            -------------------------------------------------------------------------
+ss_conf            -------------------------------------------------------------------------
+bb_pred            -------------------------------------------------------------------------
+bb_conf            -------------------------------------------------------------------------
+OMP.nn.66.1        -------------------------------------------------------------------------
+gi|94493002|ref|ZP -------------------------------------------------------------------------
+gi|94492908|ref|ZP -------------------------------------------------------------------------
+gi|94493001|ref|ZP -------------------------------------------------------------------------
+gi|94492911|ref|ZP -------------------------------------------------------------------------
+gi|94493476|ref|ZP dliinvsspttgtsrgatttertsgvftiegskinvkggnttsegrsgpvvprggpitstnntctlngrsvnc
+

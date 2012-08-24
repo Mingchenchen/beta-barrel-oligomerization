@@ -1,0 +1,7 @@
+CLUSTAL_SERIES
+
+0 20 test/bbtm.out20.txt
+20 40 test/bbtm.out40.txt
+40 60 test/bbtm.out60.txt
+60 80 test/bbtm.out80.txt
+80 100 test/bbtm.out100.txt
