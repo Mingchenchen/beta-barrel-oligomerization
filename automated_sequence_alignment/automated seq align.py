@@ -43,6 +43,9 @@ def sequence_retriever(pdb_paths):
             name = path
         else:
             name = match.group(0)
+        # I think ClustalX ignores everything after a space which is
+        # annoying, so replace the spaces with underscores
+        name = name.replace(" ", "_")
             
         # Load the structure. See what happens if you try to load one
         # of Daniel's aligned structures without hiding warnings. It's not
@@ -103,9 +106,12 @@ def bbtm_filename(t):
     # Make string of t padded with 0's:
     t_string = (3-len(str(t)))*'0' + str(t)
 
-    # Return filename of one of the matrices David Jimenez-Morales
+    # Create filename of one of the matrices David Jimenez-Morales
     # sent me
-    return os.getcwd() + r'\TMout\bbtmout\bbTMout'+t_string
+    filename = os.getcwd() + r'\TMout\bbtmout\bbTMout'+t_string
+
+    return filename
+
 
 def write_series(id_t_triplets, output_filename):
     # Information on the series file format can be found here:
@@ -116,7 +122,7 @@ def write_series(id_t_triplets, output_filename):
         o.write('CLUSTAL_SERIES\n')
         o.write('\n')
         for id_bottom, id_top, t in id_t_triplets:
-            o.write(' '.join([str(id_bottom), str(id_top),
+            o.write(' '.join(["MATRIX", str(id_bottom), str(id_top),
                               bbtm_filename(t)]))
             o.write('\n')
 

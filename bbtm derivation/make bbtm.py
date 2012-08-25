@@ -194,6 +194,10 @@ def write_bbtm(dataset, t, output_filename, comments = None):
     number of evolutionary time units (defined as the time it takes for
     one out of a hundred residues to change, on average)
     String in keyword argument 'comments' will also be written'''
+        
+    # Create the bbTM matrix
+    matrix = bbtm(dataset, t)
+
     with open(output_filename, 'w') as o:
         # Write the first comment line, containing the dataset and t
         o.write('# bbTM{0} at t={1}\n'.format(dataset, t))
@@ -202,9 +206,6 @@ def write_bbtm(dataset, t, output_filename, comments = None):
         if comments != None:
             for line in comments.split('\n'):
                 o.write('# ' + line + '\n')
-        
-        # Create the bbTM matrix
-        matrix = bbtm(dataset, t)
 
         # Write the row names
         o.write(' '*4 + (' '*3).join(published_bbtm_ordering) + '\n')

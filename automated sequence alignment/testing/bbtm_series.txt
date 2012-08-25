@@ -1,6 +1,0 @@
-CLUSTAL_SERIES
-
-0 40 C:\cygwin\home\alex\beta barrels\automated sequence alignment\TMout\bbtmout\bbTMout350
-41 60 C:\cygwin\home\alex\beta barrels\automated sequence alignment\TMout\bbtmout\bbTMout120
-61 80 C:\cygwin\home\alex\beta barrels\automated sequence alignment\TMout\bbtmout\bbTMout060
-81 100 C:\cygwin\home\alex\beta barrels\automated sequence alignment\TMout\bbtmout\bbTMout020

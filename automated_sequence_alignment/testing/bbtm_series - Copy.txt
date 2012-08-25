@@ -1,0 +1,6 @@
+CLUSTAL_SERIES
+
+MATRIX 0 40 C:\cygwin\home\alex\beta-barrel-oligomerization\automated_sequence_alignment\TMout\bbtmout\bbTMout101
+MATRIX 41 60 C:\cygwin\home\alex\beta-barrel-oligomerization\automated_sequence_alignment\TMout\bbtmout\bbTMout100
+MATRIX 61 80 C:\cygwin\home\alex\beta-barrel-oligomerization\automated_sequence_alignment\TMout\bbtmout\bbTMout060
+MATRI81 100 C:\cygwin\home\alex\beta-barrel-oligomerization\automated_sequence_alignment\TMout\bbtmout\bbTMout020
