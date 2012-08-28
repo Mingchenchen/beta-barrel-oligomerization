@@ -1,0 +1,32 @@
+CLUSTAL 2.1 multiple sequence alignment
+
+
+ezbeta_aligned_structures/alig      ------------------------QTANEFTVHTDLSSISSTRAFLKEKH
+gi|15676939|ref|NP                  MKKTVFTCAMIALTGTAAAAQ-ELQTANEFTVHTDLSSISSTRAFLKEKH
+gi|59801269|ref|YP                  MKKALLALTIAAISGTAMAQLPDFLGKGEYTVRTDISKQTLKNADLKEKH
+                                                               .*:**:**:*. : ..* *****
+
+ezbeta_aligned_structures/alig      KAAKHIGVRADIPFD-ANQGIRLEAGFGRSKKNIINLETDENKLGKTKNV
+gi|15676939|ref|NP                  KAAKHISVRADIPFD-ANQGIRLEAGFGRSKKNIINLETDENKLGKTKNV
+gi|59801269|ref|YP                  KVQKNIGFRADMPFDDIHHGMRFEVSHSRDKKDMYVVTESTTKP------
+                                    *. *:*..***:***  ::*:*:*....*.**::  :  . .*       
+
+ezbeta_aligned_structures/alig      KLPTGVPENRIDLYTGYTYTQTLSDSLNFRVGAGLGFESSKDSIKTTKHT
+gi|15676939|ref|NP                  KLPTGVPENRIDLYTGYTYTQTLSDSLNFRVGAGLGFESSKDSIKTTKHT
+gi|59801269|ref|YP                  -FGKDVEEKRTDVYAGYTYTQPISEATKLRAGLGLGYEKYKDAVANEKGT
+                                     : ..* *:* *:*:******.:*:: ::*.* ***:*. **:: . * *
+
+ezbeta_aligned_structures/alig      LHSSRQSWLAKVHADLLSQLGNGWYINPWSEVKFDLNSRYKLNTGVTNLK
+gi|15676939|ref|NP                  LHSSRQSWLAKVHADLLSQLGNGWYINPWSEVKFDLNSRYKLNTGVTNLK
+gi|59801269|ref|YP                  VSTEREAFYTKAHADLTSDLGGGWYLNPWAEVKVDLDAKLKHNATVAGVS
+                                    : :.*::: :*.**** *:**.***:***:***.**::: * *: *:.:.
+
+ezbeta_aligned_structures/alig      KDINQKTNGWGFGLGANIGKKLGESASIEAGPFYKQRTYKESGEFSVTTK
+gi|15676939|ref|NP                  KDINQKTNGWGFGLGANIGKKLGESASIEAGPFYKQRTYKESGEFSVTTK
+gi|59801269|ref|YP                  ADINAKTRGWGVGVGANIGKQITDTVGIEAGPFYKHRHFKASGSFVLDGG
+                                     *** **.***.*:******:: ::..********:* :* **.* :   
+
+ezbeta_aligned_structures/alig      SGDVSLTIPKTSIREYGLRVGIKF
+gi|15676939|ref|NP                  SGDVSLTIPKTSIREYGLRVGIKF
+gi|59801269|ref|YP                  N----IRVDPTKINEYGVRVGVKF
+                                    .    : :  *.*.***:***:**

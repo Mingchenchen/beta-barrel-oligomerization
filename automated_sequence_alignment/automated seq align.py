@@ -8,6 +8,8 @@ from Bio.SeqRecord import SeqRecord
 import re
 import warnings
 import os
+import copy
+import csv
 
 from sundries import one_letter
 
@@ -21,7 +23,7 @@ def call_clustalw(seq_file, mat_file, output_file):
 def cluster_retriever(cluster_name):
     '''Returns a multiple sequence alignment corresponding to the given
     cluster name.'''
-    if cluster_name[:3].upper() == 'OMP':
+    if cluster_name[:3].upper() == 'OMP' or 'cluster' in cluster_name:
         path = 'clusters/{}.clu'.format(cluster_name)
     
     else:
@@ -98,7 +100,12 @@ def combine(output_filename, msa, seqs):
         # have it at the beginning of their id, so,
         # Filter for only those sequences whose id's begin with "gi"
         if record.id[:2] == 'gi':
-            output_seqs.append(record)
+            # Get rid of gaps
+            gapless_as_str = ''.join(filter(lambda x: x!= '-', record))
+            gapless_seq = Seq(gapless_as_str)
+            gapless_record = copy.deepcopy(record)
+            gapless_record.seq = gapless_seq
+            output_seqs.append(gapless_record)
     
     Bio.SeqIO.write(output_seqs, output_filename, 'fasta')
 
@@ -142,13 +149,13 @@ def align(output_name, cluster, matrix, *pdbpaths):
 
     # Set infile parameter
     infile_param = target_dir + '/seqs.fasta'
-    cluster = cluster_retriever(cluster)
+    cluster_msa = cluster_retriever(cluster)
     pdb_sequences = sequence_retriever(pdbpaths)
-    combine(infile_param, cluster, pdb_sequences)
+    combine(infile_param, cluster_msa, pdb_sequences)
     
     # Set matrix parameter
     # It could be a matrix built into clustal:
-    if matrix.lower() in ('blosum', 'pam', 'id'):
+    if matrix.lower() in ('blosum', 'pam', 'id', 'gonnet'):
         matrix_param = matrix
     # Or it could be BBTM:
     elif matrix.lower() == 'bbtm':
@@ -164,12 +171,45 @@ def align(output_name, cluster, matrix, *pdbpaths):
         matrix_param = os.getcwd() + '\\' + series_path
     # But otherwise I don't know what it is
     else:
-        raise UnrecognizedMatrix('Matrix "{0}" not'.format(matrix) \
+        raise UnrecognizedMatrix('Matrix "{0}" not '.format(matrix) \
                                  + 'recognized. Try BBTM,  PAM, '\
-                                 + 'GONNET or BLOSUM.'.format(matrix))
+                                 + 'GONNET, BLOSUM or ID.')
 
     return call_clustalw(infile_param, matrix_param, output_name)
 
-# A test!
-os.chdir(r'C:\cygwin\home\alex\beta barrels\automated sequence alignment')
-align('testing/test.clu', '8.1.1', "bbtm", "aligned structures/1qjp to daniel's 1qjp.pdb")
+
+def align_all(matrix, output_dir):
+    # Retrieve pdbids of structures in the dataset
+    # and their associated clusters, from the information in Daniel's
+    # thesis.
+    pdbid_clusterid = list()
+    with open('structure dataset and clusterguide.csv', 'rb') as f:
+        first = True
+        for row in csv.reader(f):
+            # Skip the first line
+            if first:
+                first = False
+                continue
+    
+            # Get the pdbid
+            if row[1] != '':
+                pdbid = row[1]
+            else:
+                continue
+    
+            # Get the clustername from the Cluster Name column
+            if row[2] != '':
+                cluster = row[2]
+            # But maybe this structure wasn't located to a supercluster
+            # In that case, get it from the subcluster column.
+            else:
+                cluster = row[3]
+    
+            pdbid_clusterid.append((pdbid, cluster))
+
+    # Make the alignments
+    for pdbid, cluster in pdbid_clusterid:
+        # align(output_name, cluster, matrix, *pdbpaths)
+        align('{}/{} with {}.clu'.format(output_dir, pdbid, cluster),
+              cluster, 'gonnet',
+              'ezbeta aligned structures/aligned_{}.pdb'.format(pdbid))
