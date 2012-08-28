@@ -1,0 +1,91 @@
+from __future__ import division
+from __future__ import print_function
+import scipy.linalg
+import math
+import numpy as np
+import itertools
+import os
+import copy
+
+class MatrixMapping(dict):
+    '''A dictionary such that if x is a MatrixMapping, (n*x)[key] == n*(x[key])
+    '''
+    def __rmul__(self, other):
+        output = copy.deepcopy(self)
+        for key in output.keys():
+            output[key] *= other
+        return output
+    
+    def __lmul__(self, other):
+        return self.__rmul__(self, other)
+
+def parse(mat_filename):
+    '''Take filename of a file in the format in which matrices are presented
+    in "Patterns of Amino Acid Substitutions..." Jimenez-Morales, Jie Liang
+    and return a dictionary that can be used like q['A']['T'] to find
+    the entry in row A, column T.'''
+    with open(mat_filename, 'r') as mat_file:
+        found_resns = False
+        for line in mat_file:
+            # Ignore comments
+            if line[0] == '#':
+                continue
+
+            # Find which resn corresponds to which column number
+            if not found_resns:
+                found_resns = True
+                col_names = line.split()
+                # Check to make sure they're all there
+                for resn in ['C', 'N', 'H', 'D', 'S', 'Q', 'K', 'M', 'P',
+                             'T', 'F', 'A', 'G', 'I', 'L', 'R', 'W', 'E',
+                             'Y', 'V']:
+                    try:
+                        assert resn in col_names, "missing " + resn
+                    except AssertionError:
+                        print(line)
+                        raise
+
+                # Make the matrix that will be returned
+                output = MatrixMapping((tuple_, None)\
+                                       for tuple_ in itertools.product(\
+                                                       col_names, col_names))
+                continue
+
+            row = line.split()
+            row_name = line[0]
+            for rate, col_name in zip(row[1:], col_names):
+                output[row_name,col_name] = float(rate)
+        
+    return output
+
+def scoring_matrix(p, pi, lam = 1/math.log(16)):
+    '''p(A, G) becomes (1/lam) * log(p(A,G)/pi(G))'''
+
+    b = MatrixMapping()
+    for from_, to in p.keys():
+        try:
+            b.update({(from_, to): (1/lam) * math.log(p[from_,to] / pi[to])})
+        except ValueError:
+            raise ValueError('p[from,to] is {}, pi[to] is {}, can\'t take\
+                              log of ratio'.format(p[from_,to], pi[to]))
+
+    return b
+
+def to_mat(m, order):
+    '''The parser returns a dictionary. This function turns one of
+    those dictionaries into a matrix, with the elements in the
+    specified order. "order" should be a list of one-letter
+    residue names.'''
+
+    # I know more about manipulating lists than matrices,
+    # so the output is constructed as a list, then converted into a
+    # matrix right before the return statement
+
+    mat_as_list = list()
+    for row_name in order:
+        # Append a row:
+        mat_as_list.append([m[row_name,col_name] for col_name in order])
+    mat = scipy.matrix(mat_as_list)
+    return mat
+ 
+qout = 10**-4 * parse('matrices/qout.txt')
