@@ -2,6 +2,8 @@ from sundries import CIDict
 from Bio.PDB import PDBParser
 import warnings
 from Bio import AlignIO
+import os
+import re
 
 # The guts that it runs on
 def z(residue):
@@ -84,7 +86,30 @@ class Zdiff(object):
         return filter(lambda x: x[1] is not None, output)
         
 
-# The API for making zdiff files
+
+def zdiff_align(matrix):
+    walk = list(os.walk('comparison structures'))
+    # Get the names of the clusters:
+    # [0][1] is the list of foldernames in the rootmost directory
+    clusters = walk[0][1]
+
+    for path, folder_list, file_list in walk[1:]:
+        # Establish what cluster we're talking about
+        for name in clusters:
+            if name in path:
+                cluster = name
+
+        for filename in file_list:
+            # Do something for each individual pairing
+            match = re.match("(....) aligned to daniel's (....)\.pdb",
+                             filename)
+            if match is None:
+                continue
+
+            hhomp_stru = 
+            # what am I even doing here
+
+            
 
 def calc(template_name, target_name, template_structure_filename,
          target_structure_filename, alignment_filename,
@@ -137,5 +162,4 @@ def calc(template_name, target_name, template_structure_filename,
         # it to support more than two, or if I was planning to, or what.
         for resi, zdiff in results.resi_report(template_name, target_name):
             o.write(str(resi) + ', ' + str(zdiff) + '\n')
-
 
