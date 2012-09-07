@@ -1,9 +1,11 @@
-from sundries import CIDict
 from Bio.PDB import PDBParser
 import warnings
 from Bio import AlignIO
 import os
 import re
+
+import alignments
+from sundries import CIDict
 
 # The guts that it runs on
 def z(residue):
@@ -87,7 +89,7 @@ class Zdiff(object):
         
 
 
-def zdiff_align(matrix):
+def zdiff_align(matrix, output_dir):
     walk = list(os.walk('comparison structures'))
     # Get the names of the clusters:
     # [0][1] is the list of foldernames in the rootmost directory
@@ -100,20 +102,44 @@ def zdiff_align(matrix):
                 cluster = name
 
         for filename in file_list:
-            # Do something for each individual pairing
+            # Align each pair of an HHOMP structure, and the structure in
+            # our dataset that was matched to the same cluster, with
+            # all the sequences of the cluster
             match = re.match("(....) aligned to daniel's (....)\.pdb",
                              filename)
             if match is None:
                 continue
 
-            hhomp_stru = 
-            # what am I even doing here
+            # Retrieve from the regex match the pdbid of the protein in
+            # HHOMP:
+            hhomp_pdbid = match.group(1)
+
+            # Retrieve from the regex match the pdbid of the protein in 
+            # our dataset that was mapped to this cluster:
+            our_pdbid = match.group(2)
+            
+            # Retrieve the path names of the PDB files representing both
+            hhomp_path = path + '/' + match.group(0)
+            our_path = path + '/aligned_{}.pdb'.format(our_pdbid)
+
+            # Make the alignment
+            output_path = output_dir + '{}, {} as target, {} as template'\
+                                        .format(cluster, hhomp_pdbid,
+                                               our_pdbid)
+            # This line is gonna throw an exception - I haven't made
+            # it so that the alignments module knows what directory
+            # it's in when it looks for the cluster... oops
+            # Figure that out, future Alex!
+            alignments.align(output_path, cluster, matrix,
+                             hhomp_path, our_path)
+
+                             
 
             
 
 def calc(template_name, target_name, template_structure_filename,
          target_structure_filename, alignment_filename,
-         write_to, comment, format_='clustal'):
+         write_to, comment, format_='fasta'):
 
     # Open relevant files
     with open(template_structure_filename, 'r') as template_structure_file,\
