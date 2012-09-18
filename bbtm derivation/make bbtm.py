@@ -25,7 +25,7 @@ class MatrixMapping(dict):
 def parse(mat_filename):
     '''Take filename of a file in the format in which matrices are presented
     in "Patterns of Amino Acid Substitutions..." Jimenez-Morales, Jie Liang
-    and return a dictionary that can be used like q['A']['T'] to find
+    and return a dictionary that can be used like q['A','T'] to find
     the entry in row A, column T.'''
     with open(mat_filename, 'r') as mat_file:
         found_resns = False
