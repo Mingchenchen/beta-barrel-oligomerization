@@ -1,6 +1,11 @@
 import numpy as np
 import scipy
+<<<<<<< HEAD
 import matrices
+=======
+import itertools
+import copy
+>>>>>>> b765eb524c9407563c8aa45467e5e47635c784a5
 
 class MatrixMapping(dict):
     '''A dictionary such that if x is a MatrixMapping, (n*x)[key] == n*(x[key])
@@ -48,8 +53,79 @@ pi_ver = dict({'A': 7.4e-2,
                'W': 1.3e-2,
                'Y': 3.3e-2,
                'V': 6.8e-2})
+<<<<<<< HEAD
 pam1 = 10**-4 * matrices.parse('pam1.txt')
 
+=======
+
+def expected_changes(mat, pi):
+    '''Expected fraction of positions different from original, after update
+    with mat, given original frequency distribution pi.
+    Very different from expected number of TRANSITIONS.'''
+    return sum((1 - mat[i,i])*pi[i] for i in pi.keys())
+
+def avg_rate(q, pi):
+    return -1 * sum(q[i,i] *pi[i] for i in pi.keys())
+
+def parse(mat_filename):
+    '''Take filename of a file in the format in which matrices are presented
+    in "Patterns of Amino Acid Substitutions..." Jimenez-Morales, Jie Liang
+    and return a dictionary that can be used like q['A','T'] to find
+    the entry in row A, column T.'''
+    with open(mat_filename, 'r') as mat_file:
+        found_resns = False
+        for line in mat_file:
+            # Ignore comments
+            if line[0] == '#':
+                continue
+
+            # Find which resn corresponds to which column number
+            if not found_resns:
+                found_resns = True
+                col_names = line.split()
+                # Check to make sure they're all there
+                for resn in ['C', 'N', 'H', 'D', 'S', 'Q', 'K', 'M', 'P',
+                             'T', 'F', 'A', 'G', 'I', 'L', 'R', 'W', 'E',
+                             'Y', 'V']:
+                    try:
+                        assert resn in col_names, "missing " + resn
+                    except AssertionError:
+                        print(line)
+                        raise
+
+                # Make the matrix that will be returned
+                output = MatrixMapping((tuple_, None)\
+                                       for tuple_ in itertools.product(\
+                                                       col_names, col_names))
+                continue
+
+            row = line.split()
+            row_name = line[0]
+            for rate, col_name in zip(row[1:], col_names):
+                output[row_name,col_name] = float(rate)
+        
+    return output
+
+pam1 = 10**-4 * parse('pam1.txt')
+
+def to_mat(m, order):
+    '''The parser returns a dictionary. This function turns one of
+    those dictionaries into a matrix, with the elements in the
+    specified order. "order" should be a list of one-letter
+    residue names.'''
+
+    # I know more about manipulating lists than matrices,
+    # so the output is constructed as a list, then converted into a
+    # matrix right before the return statement
+
+    mat_as_list = list()
+    for row_name in order:
+        # Append a row:
+        mat_as_list.append([m[row_name,col_name] for col_name in order])
+    mat = scipy.matrix(mat_as_list)
+    return mat
+        
+>>>>>>> b765eb524c9407563c8aa45467e5e47635c784a5
 def parse_david(path):
     '''Open the matlab format matrix files that David Jiminez-Morales
     sent me (in the "pout" folder)'''
@@ -61,6 +137,7 @@ def parse_david(path):
                 output.update({(row_resn, col_resn): float(entry)})
     return output
 
+<<<<<<< HEAD
 def p_retrieve(t):
     '''Return one of David Jimenez-Morales's transition probability
     matrices, corresponding to the given time t, from the matrices
@@ -81,3 +158,9 @@ def id_given_time(t, mat_name='bbtm'):
         bbtm_at_t = p_retrieve(t)
         return 1 - matrices.expected_changes(bbtm_at_t, pi_out)
         
+=======
+def david_changes(n):
+    return expected_changes(parse_david('TMout/pout/MTMout{0}.p'\
+                                        .format(n)), pi_out)
+
+>>>>>>> b765eb524c9407563c8aa45467e5e47635c784a5
