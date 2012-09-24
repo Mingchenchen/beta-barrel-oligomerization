@@ -17,8 +17,7 @@ from sundries import one_letter
 def call_clustalw(seq_file, mat_file, output_file):
     '''The function that actually produces the sequence alignment.'''
     cline = ClustalwCommandline('clustalw', infile=seq_file,
-                                matrix=mat_file, outfile = output_file,
-                                output = 'fasta')
+                                matrix=mat_file, outfile = output_file)
     
     return cline()
 
@@ -26,10 +25,12 @@ def cluster_retriever(cluster_name):
     '''Returns a multiple sequence alignment corresponding to the given
     cluster name.'''
     if cluster_name[:3].upper() == 'OMP' or 'cluster' in cluster_name:
-        path = 'clusters/{}.clu'.format(cluster_name)
+        path = os.path.dirname(__file__) \
+               + '/clusters/{0}.clu'.format(cluster_name)
     
     else:
-        path = 'clusters/OMP.{}.clu'.format(cluster_name)
+        path = os.path.dirname(__file__) \
+               + '/clusters/OMP.{0}.clu'.format(cluster_name)
 
     return Bio.AlignIO.read(path, 'clustal')
 
@@ -147,17 +148,19 @@ def align(output_name, cluster, matrix, *pdbpaths):
     object (which this function will eventually initialize) is that it's
     specialized for making alignments between PDB files and HHOMP clusters.
     '''
-    # Match a pathname, with a group that includes everything before the 
-    # last slash or backslash
-    dir_from_path = re.compile(r'^(.*)[/\\].*?$')
-    dir_match = re.match(dir_from_path, output_name) 
-    if dir_match is not None:
-        target_dir = dir_match.group(1)
-    else:
-        target_dir = ''
+    # Find the directory to write files to 
+    # (for example, the file of unaligned sequences that is created
+    # as an intermediate step. These files are not deleted, so the use of
+    # this function leaves some trash behind. I'll fix it someday maybe)
+    target_dir = os.path.dirname(output_name)
 
     # Set infile parameter
-    infile_param = target_dir + '/seqs.fasta'
+    if target_dir == '':
+        infile_param = 'seqs.fasta'
+    else:
+        # If you did this and target_dir was '', you'd end up trying
+        # to write to the root directory '/'
+        infile_param = target_dir + '/seqs.fasta'
     cluster_msa = cluster_retriever(cluster)
     pdb_sequences = sequence_retriever(pdbpaths)
     combine(infile_param, cluster_msa, pdb_sequences)

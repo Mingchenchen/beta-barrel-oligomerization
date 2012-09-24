@@ -1,5 +1,6 @@
 import numpy as np
 import scipy
+import matrices
 
 class MatrixMapping(dict):
     '''A dictionary such that if x is a MatrixMapping, (n*x)[key] == n*(x[key])
@@ -47,31 +48,8 @@ pi_ver = dict({'A': 7.4e-2,
                'W': 1.3e-2,
                'Y': 3.3e-2,
                'V': 6.8e-2})
-pam1 = 10**-4 * parse('pam1.txt')
+pam1 = 10**-4 * matrices.parse('pam1.txt')
 
-def expected_changes(mat, pi):
-    return sum((1 - mat[i,i])*pi[i] for i in pi.keys())
-
-def avg_rate(q, pi):
-    return -1 * sum(q[i,i] *pi[i] for i in pi.keys())
-
-def to_mat(m, order):
-    '''The parser returns a dictionary. This function turns one of
-    those dictionaries into a matrix, with the elements in the
-    specified order. "order" should be a list of one-letter
-    residue names.'''
-
-    # I know more about manipulating lists than matrices,
-    # so the output is constructed as a list, then converted into a
-    # matrix right before the return statement
-
-    mat_as_list = list()
-    for row_name in order:
-        # Append a row:
-        mat_as_list.append([m[row_name,col_name] for col_name in order])
-    mat = scipy.matrix(mat_as_list)
-    return mat
-        
 def parse_david(path):
     '''Open the matlab format matrix files that David Jiminez-Morales
     sent me (in the "pout" folder)'''
@@ -82,3 +60,24 @@ def parse_david(path):
                                        line.split()):
                 output.update({(row_resn, col_resn): float(entry)})
     return output
+
+def p_retrieve(t):
+    '''Return one of David Jimenez-Morales's transition probability
+    matrices, corresponding to the given time t, from the matrices
+    he sent me on August 23 2012.'''
+    return parse_david('TMout/pout/MTMout{0}.p'.format(t))
+
+def id_given_time(t, mat_name='bbtm'):
+    '''Given a time and the name of a matrix family (bbtm and pam
+    currently available) return the expected value of %identity between
+    a sequence and the same sequence after a time t has passed,
+    given that the amino acid frequencies in the original sequence
+    are equal to the background frequencies'''
+    if mat_name == 'pam':
+        pam_at_t = matrices.matrix_power(pam1, t)
+        return 1 - matrices.expected_changes(pam_at_t, pi_ver)
+    
+    if mat == 'bbtm':
+        bbtm_at_t = p_retrieve(t)
+        return 1 - matrices.expected_changes(bbtm_at_t, pi_out)
+        

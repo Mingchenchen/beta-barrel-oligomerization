@@ -73,7 +73,7 @@ class Zdiff(object):
             if pos.resi(unknown_id) == resi:
                 return pos.zdiff(template_id, unknown_id)
         
-        raise NotFoundError('resi {} of {} not found' \
+        raise NotFoundError('resi {0} of {1} not found' \
                             .format(resi, unknown_id))
     
     def report(self, template_id, unknown_id):
@@ -120,16 +120,23 @@ def zdiff_align(matrix, output_dir):
             
             # Retrieve the path names of the PDB files representing both
             hhomp_path = path + '/' + match.group(0)
-            our_path = path + '/aligned_{}.pdb'.format(our_pdbid)
+            our_path = path + '/aligned_{0}.pdb'.format(our_pdbid)
 
             # Make the alignment
-            output_path = output_dir + '{}, {} as target, {} as template'\
+            # Create the output directory if it does not already exist
+            try:
+                # This will not successfully make the directory if
+                # nested directories would have to be created
+                os.mkdir(output_dir)
+            except OSError:
+                # This is the error you'd get if the directory already
+                # exists
+                # So, our work is done, don't worry about it:
+                pass
+
+            output_path = output_dir + '/{}, {} as target, {} as template'\
                                         .format(cluster, hhomp_pdbid,
                                                our_pdbid)
-            # This line is gonna throw an exception - I haven't made
-            # it so that the alignments module knows what directory
-            # it's in when it looks for the cluster... oops
-            # Figure that out, future Alex!
             alignments.align(output_path, cluster, matrix,
                              hhomp_path, our_path)
 
@@ -142,9 +149,10 @@ def calc(template_name, target_name, template_structure_filename,
          write_to, comment, format_='fasta'):
 
     # Open relevant files
-    with open(template_structure_filename, 'r') as template_structure_file,\
-         open(target_structure_filename, 'r') as target_structure_file,\
-         open(alignment_filename, 'r') as alignment_file:
+    try:
+        template_structure_file = open(template_structure_filename, 'r')
+        target_structure_file = open(target_structure_filename, 'r')
+        alignment_file = open(alignment_filename, 'r') 
         # Load structures with Biopython's PDB file parser
         # Daniel's aligned structures are missing some inessential
         # information, and as a consequence the parser gives thousands
@@ -157,9 +165,13 @@ def calc(template_name, target_name, template_structure_filename,
             target_structure = PDBParser().\
                                get_structure(target_name,
                                              target_structure_file)
+    finally:
+        for i in (template_structure_file, target_structure_file,
+                  alignment_file):
+            i.close()
         
-        # Open alignment using Biopython's parser
-        alignment = AlignIO.read(alignment_filename, format_)
+    # Open alignment using Biopython's parser
+    alignment = AlignIO.read(alignment_filename, format_)
 
     # Find the template and target sequences in the alignment
     for seq_record in alignment:
