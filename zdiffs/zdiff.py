@@ -146,8 +146,20 @@ def zdiff_align(matrix, output_dir):
 
 def calc(template_name, target_name, template_structure_filename,
          target_structure_filename, alignment_filename,
-         write_to, comment, format_='fasta'):
-
+         write_to, comment, format_='clustal'):
+    '''Calculate zdiffs from an alignment and write them to a file.
+    template_name and target_name: the id's of the template and target
+        sequences in the alignment
+    template_structure_filename and target_structure_filename: where to
+        find the PDB-format structure files of the structures of the
+        template and target
+    alignment_filename: where to find an alignment containing both the
+        template and the target
+    write_to: where to put the resulting file of zdiffs
+    comment: a note to put in the comments of the zdiff files. Record
+        the scientific meaning of these zdiffs so they can still be useful
+        as your memories about them fade.
+    '''
     # Open relevant files
     try:
         template_structure_file = open(template_structure_filename, 'r')
@@ -165,6 +177,13 @@ def calc(template_name, target_name, template_structure_filename,
             target_structure = PDBParser().\
                                get_structure(target_name,
                                              target_structure_file)
+    except Exception:
+        print('problems opening template structure file ' \
+              + template_structure_filename)
+        print('and target structure file ' + target_structure_filename)
+        print('and alignment file ' + alignment_filename)
+        raise
+
     finally:
         for i in (template_structure_file, target_structure_file,
                   alignment_file):
@@ -192,12 +211,72 @@ def calc(template_name, target_name, template_structure_filename,
         o.write('# Target: ')
         o.write(target_name + ' (' + target_structure_filename + ')\n')
         o.write('# Alignment: ' + alignment_filename + '\n')
-        o.write('# ' + comment + '\n')
+        for line in comment.split('\n'):
+            o.write('# ' + line + '\n')
 
         # Write the actual data
         # Weird quirk of the zdiff objects - before giving a report, it
-        # requires the id's of the structures. I don't know if I wrote
-        # it to support more than two, or if I was planning to, or what.
+        # requires the id's of the structures. I was planning on making
+        # a zdiff object support more than two structures, so you give
+        # it the id's to tell it which pair you want, out of all those
+        # in the object. I may even have implemented this.
         for resi, zdiff in results.resi_report(template_name, target_name):
             o.write(str(resi) + ', ' + str(zdiff) + '\n')
+
+def calc_all(input_dir, output_dir, comment, format_='clustal'):
+    '''Calculate zdiffs for all alignments in a given folder. Add to 
+    each zdiff the given comment (multiline comments will still work).
+    
+    There are some harsh requirements on the names and contents
+    of the alignments. The names must be of the form
+    '{clustername}, {pdbid} as target, {pdbid} as template', followed by
+    whatever file extension. The format must be whatever is given in the
+    "format_" keyword argument (clustal by default). The sequence of the
+    target protein (the one of which a model is being made) must be
+    in the alignment with the id "target_{pdbid}", and the sequence
+    of the protein whose structure is to be used as a template must
+    be present with the id "template_{pdbid}".'''
+
+    # Make the directory output_dir
+    # Does nothing if it already exists
+    # Does nothing if more than one directory would have to be created,
+    # leading to errors downstream
+    # This is bad coding. You never want to catch an exception in a 
+    # way such taht two different errors get handled the same way,
+    # when there are two different appropriate responses. I may fix
+    # this later.
+    try:
+        os.mkdir(output_dir)
+    except OSError:
+        pass
+
+    for alignment_filename in os.listdir(input_dir):
+        # Check if it's a zdiff alignment, and if it is, retrieve the name
+        # of the cluster, the PDBID of the target to be modelled, and the
+        # PDBID of the template
+        match = re.match(r"(.*?), (....) as target, (....) as template",
+                         alignment_filename)
+        if match is None:
+            continue
+        else:
+            cluster = match.group(1)
+            target = match.group(2)
+            template = match.group(3)
+
+        # Find the pdb files. Need z values to calculate zdiffs.
+        target_path = "comparison structures/" \
+                      + "{}/{} aligned to daniel's {}.pdb".format(cluster,
+                                                                  target,
+                                                                  template)
+        template_path = "comparison structures/" \
+                        + "{}/aligned_{}.pdb".format(cluster, template)
+
+        # Construct the path and filename of the zdiff file to be created
+        zdiff_path = output_dir + '/' + match.group(0) + '.zdiff'
+
+        # Create the zdiffs
+        # Remember: "template" and "target" are PDBID's
+        calc('template_'+template, 'target_'+target, template_path,
+             target_path, input_dir + '/' + alignment_filename, zdiff_path,
+             comment, format_=format_)
 
