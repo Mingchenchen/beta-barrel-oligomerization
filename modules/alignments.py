@@ -23,7 +23,7 @@ def call_clustalw(seq_file, mat_file, output_file):
 
 def cluster_retriever(cluster_name):
     '''Returns a multiple sequence alignment corresponding to the given
-    cluster name.'''
+    HHOMP cluster name.'''
     if cluster_name[:3].upper() == 'OMP' or 'cluster' in cluster_name:
         path = os.path.dirname(__file__) \
                + '/clusters/{0}.clu'.format(cluster_name)
@@ -35,19 +35,30 @@ def cluster_retriever(cluster_name):
     return Bio.AlignIO.read(path, 'clustal')
 
 def sequence_retriever(pdb_paths):
-    # Match a pathname, with a group that includes the last slash or 
-    # backslash and everything after it
-    file_from_path = re.compile(r'^.*([/\\].*?)$')
+    '''Given an iterable of paths of PDB files, return a list of
+    SeqRecord objects containing their sequences.'''
 
     output = list()
 
     for path in pdb_paths:
         # Come up with a name to identify the sequence by
-        match = re.match(file_from_path, path)
-        if match is None:
-            name = path
+        # Has special routines for names of the format "aligned_{PDBID}.pdb"
+        # (one of Daniel's aligned structures, used as a template), and
+        # "{PDBID} aligned to daniel's {PDBID}.pdb", a structure to be
+        # modeled when deriving zdiff's
+        name = None
+        template_pattern = re.compile(r"aligned_(....)\.pdb")
+        target_pattern = re.compile(r"(....) aligned to daniel's ....\.pdb")
+        filename = os.path.basename(path)
+        template_match = re.match(template_pattern, filename)
+        target_match = re.match(target_pattern, filename)
+        if template_match is not None:
+            name = 'template_' + template_match.group(1)
+        elif target_match is not None:
+            name = 'target_' + target_match.group(1)
         else:
-            name = match.group(0)
+            name = filename
+
         # I think ClustalX ignores everything after a space which is
         # annoying, so replace the spaces with underscores
         name = name.replace(" ", "_")
@@ -94,6 +105,8 @@ def sequence_retriever(pdb_paths):
     return output
 
 def combine(output_filename, msa, seqs):
+    '''Write a file containing all the sequences in a given MSA and given
+    iterable object of sequences'''
     output_seqs = list(seqs)
 
     for record in msa:

@@ -109,7 +109,7 @@ def zdiff_align(matrix, output_dir):
                              filename)
             if match is None:
                 continue
-
+            
             # Retrieve from the regex match the pdbid of the protein in
             # HHOMP:
             hhomp_pdbid = match.group(1)
