@@ -56,8 +56,8 @@ def find_in_alignment(alignment, marker):
     return marked_seq
     
 def identities_with_template(alignment, template_identifier):
-    '''Return a list of sequence identities between the sequence of a
-    template structure and all the sequences aligned with it. The template
+    '''Return a list of each sequence identifier, along with its sequence
+    identity with the sequence of a template structure.  The template
     structure's sequence must be in the alignment, and must be the only
     sequence with the string given as the second argument contained within
     its name or id.
@@ -65,14 +65,14 @@ def identities_with_template(alignment, template_identifier):
     identified as a template, and a MeaninglessMarker exception of no
     sequences are.'''
     # Find the template sequence
-    template_seq = find_in_alignment(alignment, teplate_identifier)
+    template_seq = find_in_alignment(alignment, template_identifier)
 
     # Make a list of sequence identities with the template
     identities = list()
     for seq in alignment:
-        identities.append(identity(template_seq, seq))
+        identities.append((seq.id, identity(template_seq, seq)))
 
-    return sorted(identities)
+    return sorted(identities, key=lambda x: x[1])
     
 def identity_of_pair(alignment, marker1, marker2):
     '''Given an alignment, return the sequence identity of
