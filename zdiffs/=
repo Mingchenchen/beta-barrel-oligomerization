@@ -74,6 +74,7 @@ class Zdiff(object):
                           for id_res_pairlist in zip(*pos_inputs)]
         
     def get(self, template_id, unknown_id, resi, start=0):
+        '''Return the zdiff'''
         for pos in self.positions[start:]:
             if pos.resi(unknown_id) == resi:
                 return pos.zdiff(template_id, unknown_id)
