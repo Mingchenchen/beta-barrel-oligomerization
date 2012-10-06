@@ -1,0 +1,30 @@
+Examining cluster 18
+Identity between zdiff test protein 1BY5 and template 3EFM is 0.132639791938
+Number of sequences closer to the template than the protein for which zdiff was calculated: 338
+Total number of sequences in the cluster: 533
+Fractional coverage: 0.636022514071
+
+Examining cluster 71
+Identity between zdiff test protein 1T16 and template 3BS0 is 0.124210526316
+Number of sequences closer to the template than the protein for which zdiff was calculated: 108
+Total number of sequences in the cluster: 196
+Fractional coverage: 0.55612244898
+
+Examining cluster 73
+Identity between zdiff test protein 2MPR and template 1A0S is 0.190889370933
+Number of sequences closer to the template than the protein for which zdiff was calculated: 19
+Total number of sequences in the cluster: 53
+Fractional coverage: 0.377358490566
+
+Examining cluster 99
+Identity between zdiff test protein 1PHO and template 2J1N is 0.560224089636
+Number of sequences closer to the template than the protein for which zdiff was calculated: 18
+Total number of sequences in the cluster: 79
+Fractional coverage: 0.240506329114
+
+Examining cluster 99
+Identity between zdiff test protein 2OMF and template 2J1N is 0.556473829201
+Number of sequences closer to the template than the protein for which zdiff was calculated: 18
+Total number of sequences in the cluster: 79
+Fractional coverage: 0.240506329114
+
