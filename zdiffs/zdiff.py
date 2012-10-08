@@ -21,8 +21,12 @@ class Position(object):
         self.residues = CIDict(pairs)
 
     def zdiff(self, template_id, unknown_id):
+        '''Return the zdiff between the residues at this position for the
+        two structures requested. Returns None if one or both of the 
+        positions has a gap.'''
         template_res = self.residues[template_id]
         unknown_res = self.residues[unknown_id]
+
         if type(template_res) is Gap or type(unknown_res) is Gap:
             return None
 
@@ -84,7 +88,8 @@ class Zdiff(object):
     
     def report(self, template_id, unknown_id):
         '''Return a list of zdiffs; use resi_report for a list with
-        residue numbers included'''
+        residue numbers included. Sign of zdiff is positive if predicted
+        is too high'''
         output = (pos.zdiff(template_id, unknown_id) \
                   for pos in self.positions)
         return filter(lambda x: x is not None, output)
@@ -93,8 +98,8 @@ class Zdiff(object):
         '''Return a list of pairs, (resi, zdiff), where "resi" is
         a residue number in the sequence whose structure is being
         predicted. Residues that are gapped in either sequence are
-        not included.'''
-        output = ((pos.resi(target_id),
+        not included. Sign of zdiff is positive if predicted is too high'''
+        output = ((pos.resi(unknown_id),
                    pos.zdiff(template_id, unknown_id)) \
                   for pos in self.positions)
         return filter(lambda x: x[1] is not None, output)
