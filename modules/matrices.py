@@ -84,8 +84,14 @@ def compare(seq1, seq2, matrix):
 
 # Here's the functions that use the modern way I deal with matrices
 class MatrixMapping(dict):
-    '''A dictionary such that if x is a MatrixMapping, (n*x)[key] == n*(x[key])
+    '''A representation of a matrix as a dictionary. Supports scalar
+    multiplication and matrix exponentiation. If x is a MatrixMapping,
+    try 5*x, x*5, and x**5.
     '''
+    # The mathematical meaningfulness of matrix exponentiation with this
+    # object seems to depend upon self.keys() being a Caresian
+    # product (set of row names is same as set of column names).
+    # I haven't done the linear algebra to work that out yet, though
     def __rmul__(self, other):
         output = copy.deepcopy(self)
         for key in output.keys():
@@ -95,6 +101,21 @@ class MatrixMapping(dict):
     def __lmul__(self, other):
         return self.__rmul__(self, other)
 
+    def __pow__(self, other):
+        '''Matrix exponentiation.'''
+        # This is just a matrix_power call. However, since the order of the
+        # "resns" argument of matrix_power is supposedly arbitrary,
+        # why not just use self.keys()? Then, without that keyword argument,
+        # there's no reason matrix_power should exist as a separate
+        # function.
+        # Seems clear, but needs testing before I make changes.
+        if set(i[0] for i in self.keys()) != set(published_q_ordering):
+            raise Exception('Exponentiation is only supported for matrices'\
+                            + ' of the 20 standard amino acids at the'\
+                            + ' moment, and the keys must be the'\
+                            + ' one-letter codes.')
+
+        return matrix_power(self, other)
 
 def parse(mat_filename):
     '''Take filename of a file in the format in which matrices are presented
@@ -226,12 +247,52 @@ def scoring_matrix(p, pi, lam = 1/math.log(16)):
 
     return b
 
-def round_to_nearest_int(n):
-    '''int(n)+1 if n%1>=.5, int(n) if n%1 <.5'''
-    if n%1 >= .5:
-        return int(n) + 1
-    else:
-        return int(n)
-
 def expected_changes(mat, pi):
+    '''Expected number of changes after update with transition probability
+    matrix mat on frequency distribution pi'''
     return sum((1 - mat[i,i])*pi[i] for i in pi.keys())
+
+# Frequency distributions for use with expected_changes
+# Frequencies of amino acids in the dataset used to derive the PAM
+# matrices, from Dayhoff et. al 1978
+pam_freq = {'G': .089, 'R': .041,
+            'A': .087, 'N': .040,
+            'L': .085, 'F': .040,
+            'K': .081, 'Q': .038,
+            'S': .070, 'I': .037,
+            'V': .065, 'H': .034,
+            'T': .058, 'C': .033,
+            'P': .051, 'Y': .030,
+            'E': .050, 'M': .015,
+            'D': .047, 'W': .010}
+
+# Frequency distributions for the datasets in Jimenez-Morales et. all
+# 2011, unpublished:
+pi_all = {'A': 0.090686, 'C': 0.000344, 'E': 0.037944, 'D': 0.029356,
+          'G': 0.109694, 'F': 0.06036, 'I': 0.041904, 'H': 0.014036,
+          'K': 0.02891, 'M': 0.018884, 'L': 0.104019, 'N': 0.037032,
+          'Q': 0.043966, 'P': 0.012709, 'S': 0.066126, 'R': 0.04019,
+          'T': 0.067868, 'W': 0.031041, 'V': 0.071151, 'Y': 0.09384}
+pi_in = {'A': 0.078272, 'C': 0.000478, 'E': 0.072977, 'D': 0.047942,
+         'G': 0.1498, 'F': 0.028562, 'I': 0.018918, 'H': 0.011209,
+         'K': 0.049208, 'M': 0.019776, 'L': 0.037144, 'N': 0.057714,
+         'Q': 0.065387, 'P': 0.006456, 'S': 0.107541, 'R': 0.069281,
+         'T': 0.086192, 'W': 0.015694, 'V': 0.026265, 'Y': 0.05133}
+pi_out = {'A': 0.103414, 'C': 0.000253, 'E': 0.003965, 'D': 0.010899,
+          'G': 0.071558, 'F': 0.088656, 'I': 0.064497, 'H': 0.016882,
+          'K': 0.009315, 'M': 0.018249, 'L': 0.168981, 'N': 0.016985,
+          'Q': 0.023042, 'P': 0.018898, 'S': 0.025996, 'R': 0.012083,
+          'T': 0.050352, 'W': 0.045422, 'V': 0.115135, 'Y': 0.135606}
+
+
+def parse_david(path):
+    '''Open the matlab format matrix files that David Jiminez-Morales
+    sent me (in the "pout" folder)'''
+    with open(path, 'r') as f:
+        output = MatrixMapping()
+        for row_resn, line in zip(published_bbtm_ordering, f):
+            for col_resn, entry in zip(published_bbtm_ordering,
+                                       line.split()):
+                output.update({(row_resn, col_resn): float(entry)})
+    return output
+

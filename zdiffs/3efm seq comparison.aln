@@ -1,0 +1,50 @@
+CLUSTAL 2.1 multiple sequence alignment
+
+
+from.fasta      QEARTGNDIAQLPAISVTGREISDLTEGTNAYTTEAMSTATGLTLSPRETPQSVSVVTRQ
+from.pdb        --------------------EISDLTEGTNAYTTEAMSTATGLTLSPRETPQSVSVVTRQ
+                                    ****************************************
+
+from.fasta      QIEDQGLTDTGAILATAPGISVTRSDSNRYSFSARGFTIDNFQFDGLVSPILSQWNYGST
+from.pdb        QIEDQGLTDTGAILATAPGISVTRSDSNRYSFSARGFTIDNFQFDGLVSPILSQWNYGST
+                ************************************************************
+
+from.fasta      DMDAAIYDHVEIVRGATGLMTGSGNPSAAVNFVRKRPLREFAATFNASVGSWDYVRGDAD
+from.pdb        DMDAAIYDHVEIVRGATGLMTGSGNPSAAVNFVRKRPLREFAATFNASVGSWDYVRGDAD
+                ************************************************************
+
+from.fasta      ISVPITEDGRIRSRLVAAYSQGDSYVHFLDTRRRTFYGVVSADLTPDTVLTTSVEYQHNH
+from.pdb        ISVPITEDGRIRSRLVAAYSQGD-----LDTRRRTFYGVVSADLTPDTVLTTSVEYQHNH
+                ***********************     ********************************
+
+from.fasta      SNGFGSGFPLFYSDGSRTDFNRSVANNAPWARQDTEATTYFVDLTHRFTNDWKLRAAYSH
+from.pdb        SNG-------------------------PWARQDTEATTYFVDLTHRFTNDWKLRAAYSH
+                ***                         ********************************
+
+from.fasta      TDGRYLMKHVYRGGYPDRHTGIIAAPPAFSNYDGNLDRDDIHFSLSAPFEAFGLRHEVAL
+from.pdb        TDGRYLMKHV------------------FSNYDGNLDRDDIHFSLSAPFEAFGLRHEVAL
+                **********                  ********************************
+
+from.fasta      GWMSIDNHSDIQRYAMVGPAPAIGSFFDWRRAGSHHHHHHHIQEPSWADTLSPADDVRTK
+from.pdb        GWMSIDNHSDIQRYAM---------------------------------TLSPADDVRTK
+                ****************                                 ***********
+
+from.fasta      QTGAYLVGRFALAEPLHLIVGDRWSDWKTKQMYFGSRREYRIKNQFTPYAGLTYDINDTY
+from.pdb        QTGAYLVGRFALAEPLHLIVGDRWSDWKTKQMYFGSRREYRIKNQFTPYAGLTYDINDTY
+                ************************************************************
+
+from.fasta      TAYASYTEIFQPQNARDTSGGILPPIKSKSYELGLKAAYLEGRLNTSAALFQTRQDNLAQ
+from.pdb        TAYASYTEIFQPQNARDTSGGILPPIKSKSYELGLKAAYLEGRLNTSAALFQTRQDNLAQ
+                ************************************************************
+
+from.fasta      VIPGSSIPGFPNMQASRAASGAKVEGIDLEASGQILPDWNIGASYTHFTTKDASGNPINT
+from.pdb        VIPGSSIPGFPNMQASRAASGAKVEGIDLEASGQILPDWNIGASYTHFTTKDASGNPINT
+                ************************************************************
+
+from.fasta      NHPRSLFKLYTTYRLPGALHRLTVGGGVDWQSRMYQAAASPRGNVEVEQDSYALVSLMAR
+from.pdb        NHPRSLFKLYTTYRLPGALHRLTVGGGVDWQSRM--------------QDSYALVSLMAR
+                **********************************              ************
+
+from.fasta      FDFNKKLSATLNVNNLFDKKYYDQIGFYSQGWWGAPRNVMLNLRAQY
+from.pdb        FDFNKKLSATLNVNNL--------------------RNVMLNLRAQY
+                ****************                    ***********
