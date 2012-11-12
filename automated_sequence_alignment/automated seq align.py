@@ -1,7 +1,7 @@
 from alignments import *
 
 
-def align_all(matrix, output_dir):
+def align_all(output_dir):
     # Retrieve pdbids of structures in the dataset
     # and their associated clusters, from the information in Daniel's
     # thesis.
@@ -32,6 +32,7 @@ def align_all(matrix, output_dir):
 
     # Make the alignments
     for pdbid, cluster in pdbid_clusterid:
+        # General form of the align function:
         # align(output_name, cluster, matrix, *pdbpaths)
         align('{}/{} with {}.clu'.format(output_dir, pdbid, cluster),
               cluster, 'gonnet',

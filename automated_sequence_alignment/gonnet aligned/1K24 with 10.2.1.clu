@@ -1,32 +1,27 @@
 CLUSTAL 2.1 multiple sequence alignment
 
 
-ezbeta_aligned_structures/alig      ------------------------QTANEFTVHTDLSSISSTRAFLKEKH
-gi|15676939|ref|NP                  MKKTVFTCAMIALTGTAAAAQ-ELQTANEFTVHTDLSSISSTRAFLKEKH
-gi|59801269|ref|YP                  MKKALLALTIAAISGTAMAQLPDFLGKGEYTVRTDISKQTLKNADLKEKH
-                                                               .*:**:**:*. : ..* *****
+template_1K24           ------------------------QTANEFTVHTDLSSISSTRAFLKEKHKAAKHIGVRA
+gi|15676939|ref|NP      MKKTVFTCAMIALTGTAAAAQ-ELQTANEFTVHTDLSSISSTRAFLKEKHKAAKHISVRA
+gi|59801269|ref|YP      MKKALLALTIAAISGTAMAQLPDFLGKGEYTVRTDISKQTLKNADLKEKHKVQKNIGFRA
+                                                   .*:**:**:*. : ..* ******. *:*..**
 
-ezbeta_aligned_structures/alig      KAAKHIGVRADIPFD-ANQGIRLEAGFGRSKKNIINLETDENKLGKTKNV
-gi|15676939|ref|NP                  KAAKHISVRADIPFD-ANQGIRLEAGFGRSKKNIINLETDENKLGKTKNV
-gi|59801269|ref|YP                  KVQKNIGFRADMPFDDIHHGMRFEVSHSRDKKDMYVVTESTTKP------
-                                    *. *:*..***:***  ::*:*:*....*.**::  :  . .*       
+template_1K24           DIPFD-ANQGIRLEAGFGRSKKNIINLETDENKLGKTKNVKLPTGVPENRIDLYTGYTYT
+gi|15676939|ref|NP      DIPFD-ANQGIRLEAGFGRSKKNIINLETDENKLGKTKNVKLPTGVPENRIDLYTGYTYT
+gi|59801269|ref|YP      DMPFDDIHHGMRFEVSHSRDKKDMYVVTESTTKP-------FGKDVEEKRTDVYAGYTYT
+                        *:***  ::*:*:*....*.**::  :  . .*        : ..* *:* *:*:*****
 
-ezbeta_aligned_structures/alig      KLPTGVPENRIDLYTGYTYTQTLSDSLNFRVGAGLGFESSKDSIKTTKHT
-gi|15676939|ref|NP                  KLPTGVPENRIDLYTGYTYTQTLSDSLNFRVGAGLGFESSKDSIKTTKHT
-gi|59801269|ref|YP                  -FGKDVEEKRTDVYAGYTYTQPISEATKLRAGLGLGYEKYKDAVANEKGT
-                                     : ..* *:* *:*:******.:*:: ::*.* ***:*. **:: . * *
+template_1K24           QTLSDSLNFRVGAGLGFESSKDSIKTTKHTLHSSRQSWLAKVHADLLSQLGNGWYINPWS
+gi|15676939|ref|NP      QTLSDSLNFRVGAGLGFESSKDSIKTTKHTLHSSRQSWLAKVHADLLSQLGNGWYINPWS
+gi|59801269|ref|YP      QPISEATKLRAGLGLGYEKYKDAVANEKGTVSTEREAFYTKAHADLTSDLGGGWYLNPWA
+                        *.:*:: ::*.* ***:*. **:: . * *: :.*::: :*.**** *:**.***:***:
 
-ezbeta_aligned_structures/alig      LHSSRQSWLAKVHADLLSQLGNGWYINPWSEVKFDLNSRYKLNTGVTNLK
-gi|15676939|ref|NP                  LHSSRQSWLAKVHADLLSQLGNGWYINPWSEVKFDLNSRYKLNTGVTNLK
-gi|59801269|ref|YP                  VSTEREAFYTKAHADLTSDLGGGWYLNPWAEVKVDLDAKLKHNATVAGVS
-                                    : :.*::: :*.**** *:**.***:***:***.**::: * *: *:.:.
+template_1K24           EVKFDLNSRYKLNTGVTNLKKDINQKTNGWGFGLGANIGKKLGESASIEAGPFYKQRTYK
+gi|15676939|ref|NP      EVKFDLNSRYKLNTGVTNLKKDINQKTNGWGFGLGANIGKKLGESASIEAGPFYKQRTYK
+gi|59801269|ref|YP      EVKVDLDAKLKHNATVAGVSADINAKTRGWGVGVGANIGKQITDTVGIEAGPFYKHRHFK
+                        ***.**::: * *: *:.:. *** **.***.*:******:: ::..********:* :*
 
-ezbeta_aligned_structures/alig      KDINQKTNGWGFGLGANIGKKLGESASIEAGPFYKQRTYKESGEFSVTTK
-gi|15676939|ref|NP                  KDINQKTNGWGFGLGANIGKKLGESASIEAGPFYKQRTYKESGEFSVTTK
-gi|59801269|ref|YP                  ADINAKTRGWGVGVGANIGKQITDTVGIEAGPFYKHRHFKASGSFVLDGG
-                                     *** **.***.*:******:: ::..********:* :* **.* :   
-
-ezbeta_aligned_structures/alig      SGDVSLTIPKTSIREYGLRVGIKF
-gi|15676939|ref|NP                  SGDVSLTIPKTSIREYGLRVGIKF
-gi|59801269|ref|YP                  N----IRVDPTKINEYGVRVGVKF
-                                    .    : :  *.*.***:***:**
+template_1K24           ESGEFSVTTKSGDVSLTIPKTSIREYGLRVGIKF
+gi|15676939|ref|NP      ESGEFSVTTKSGDVSLTIPKTSIREYGLRVGIKF
+gi|59801269|ref|YP      ASGSFVLDGGN----IRVDPTKINEYGVRVGVKF
+                         **.* :   .    : :  *.*.***:***:**
