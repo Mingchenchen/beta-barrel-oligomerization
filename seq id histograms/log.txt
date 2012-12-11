@@ -1,0 +1,73 @@
+# IPython log file
+
+
+get_ipython().system(u'ls -F --color ')
+get_ipython().magic(u'edit distance.py')
+from Bio import AlignIO
+get_ipython().magic(u'pinfo identity_with_template')
+get_ipython().magic(u'pinfo identities_with_template')
+ompla_cluster = AlignIO.read('OMP.12.6.1.clu', 'clustal')
+len(ompla_cluster)
+90/20
+from __future__ import division
+90/10
+ids = identities_with_template(ompla_cluster, 'pdb')
+ids[:10]
+ompla_cluster[0]
+del ompla_cluster[0]
+ompla_cluster[1]
+ompla_cluster[2]
+ompla_clster[3]
+ompla_cluster[3]
+ompla_cluste[4]
+ompla_cluster[4]
+ompla_cluster[5]
+ompla_cluster_seqs_only = ompla_cluster[5:]
+ids = identities_with_template(ompla_cluster_seqs_only, 'pdb')
+ids[:5]
+ids[-5:]
+import csv
+'__init__ in dir(csv.writer)
+'__init__' in dir(csv.writer)
+'close' in dir(csv.writer)
+spectrum_file = open('spectrum.csv', 'wb')
+spectrum = csv.writer(spectrum_file)
+spectrum.writerows(ids)
+spectrum_file.close()
+histogram = dict((.1 * i, 0) for i in range(10))
+for name, fraction_identical in ids:
+    histogram[fraction_identical - fraction_identical%.1] += 1
+    
+histogram
+precise_histogram = dict((.05 * i, 0) for i in range(10))
+for name, fraction_identical in ds:
+    
+    
+    pass
+for name, fraction_identical in ids:
+    precise_histogram[fraction_indentical - fraction_identical%.05] += 1
+    
+for name, fraction_identical in ids:
+    precise_histogram[fraction_identical - fraction_identical%.05] += 1
+    
+precise_histogram
+precise_histogram = dict((.05 * i, 0) for i in range(20))
+for name, fraction_identical in ids:
+    precise_histogram[fraction_identical - fraction_identical%.05] += 1
+    
+precise_histogram
+f.close(0
+)
+spectrum_file.close()
+histogram_file = open('histogram.csv', 'wb')
+histogram_writer = csv.writer(histogram_file)
+histogram_list = sorted(precise_histogram.items(), key=lambda x: x[0])
+histogram_list
+histogram_writer.write_rows(histogram_list)
+histogram_writer.writerows(histogram_list)
+histogram_file.close()
+histogram_file = open('histogram.csv', 'wb')
+histogram_writer = csv.writer(histogram_file)
+histogram_writer.writerows(histogram_list)
+histogram_file.close()
+exit()
