@@ -1,3 +1,8 @@
+from __future__ import division
+
+# Go to the correct directory so that zdiff_report will work
+cmd.cd(r'C:\cygwin\home\alex\beta-barrel-oligomerization\zdiffs')
+
 def zdiff_blist(zdiff_path):
     '''Return a list of pairs (resi, abs(zdiff)); that is, identification
     numbers of residues in the protein whose structure was predicted,
@@ -108,4 +113,45 @@ def zdiff_report(target_pdbid, max_=3):
     cmd.load(template_path) 
 
 cmd.extend('zdiff_report', zdiff_report)
+
+def fraction_below(f, condition = lambda z, ss: z<=15 and ss=='S'):
+    '''Prints what fraction of predicted z values were within f of the
+    real z value, and for what fraction of residues there was a prediction.
+
+    By default, only checks beta strand residues within fifteen Angstroms
+    of the membrane center. You can change this by changing the "condition"
+    keyword argument. The "condition" argument is a function of z and
+    ss (the properties of atoms to which cmd.iterate_state has access).
+    For example, the default setting is lambda z,ss: z<=15 and ss='S'.'''
+    cmd.select('to_be_checked', 'none')
+    def check(z, ss, resi):
+        if condition(z, ss):
+            cmd.select('to_be_checked', 'to_be_checked | i. ' + resi)
+    stored.check = check
+    cmd.iterate_state(1, '*_aligned_to_*', 'stored.check(z, ss, resi)')
+
+    if cmd.count_atoms('to_be_checked') == 0:
+        raise ValueError('No c alphas match condition')
+
+    # Helper function for calculating conditional frequency of b<f
+    def p(property_, background):
+        return cmd.count_atoms(property_ + '&' + background)\
+               /cmd.count_atoms(background)
+    print('Fraction closer than {} Angstroms:'.format(f))
+    print(p('b<'+str(f), '*_aligned_to_* & n. ca & has_data & to_be_checked'))
+    print('Fraction for which no prediction was made:')
+    print(p('!has_data', '*_aligned_to_* & to_be_checked'))
+
+cmd.extend('fraction_below', fraction_below)
+
+
+def check_all_for_all():
+    for pdbid in ('1BY5', '1T16', '2MPR', '1PHO', '2OMF'):
+        cmd.reinitialize()
+        zdiff_report(pdbid)
+        for distance in (3, 6):
+            print((pdbid, distance))
+            # Check fraction below, with no condition (checking each calpha)
+            fraction_below(distance, condition = lambda z, ss: True)
+            print('')
 
