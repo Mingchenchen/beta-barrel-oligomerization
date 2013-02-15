@@ -5,17 +5,11 @@ from sundries import CIDict
 class NoParameters(Exception):
     pass
 
-class BeCareful(Exception):
-    pass
-
 class Calculator(object):
     '''
     Carries out ez-beta calculations using a set of parameters given to
     it at initialization.
     
-    Initializing:
-    The 'normalize' option must be set to True or False. Be careful!
-
     The set of parameters must be a spreadsheet represented as
     a list of lists, with the inner lists representing rows. The first row
     must contain the one-letter codes of each amino acid for which
@@ -30,12 +24,15 @@ class Calculator(object):
     Calculating pseudo-energies:
     calculate(self, resn, z): gives pseudoenergy given a one-letter or
     three-letter code for an amino acid, and a z coordinate
+
+    The "normalize" option is vestigial - I used to calculate what fraction
+    an energy is of the maximum possible energy that that kind of residue
+    can have. But, that doesn't really make much sense. It's still here
+    so that I can rerun my old scripts if I need to.
     '''
     
-    def __init__(self, iterable, normalize = None):
+    def __init__(self, iterable, normalize = False):
 
-        if normalize is None:
-            raise BeCareful("Should this calculator normalize results?")
         self.normalize = normalize
 
         self.ref = CIDict()
