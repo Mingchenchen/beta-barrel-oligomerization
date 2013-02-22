@@ -1,3 +1,4 @@
+from __future__ import division
 from sundries import one_letter
 import warnings
 from Bio.PDB import PDBParser
@@ -5,7 +6,64 @@ import Bio.AlignIO
 import DSSP_win
 import zenergy
 import csv
+import numpy as np
 #from pymol import cmd
+
+def draw_vector(name, vector, center):
+    """Create a distance with the length and direction of a given vector,
+    and then hide its label.
+    The center should have the same xy projection as the center you gave to
+    the moment function, but you might want to change the z value to make it
+    more visible.
+    
+    ARGUMENTS:
+    (name, vector_, center)
+    RETURNS:
+    Nothing."""
+    
+    cmd.pseudoatom('ps1', pos = tuple(center))
+    cmd.pseudoatom('ps2', pos = tuple(center + vector))
+    cmd.distance(name, 'ps1', 'ps2')
+    cmd.hide('labels', name)
+    cmd.delete('ps1 ps2')
+
+
+def geomed(starlist, quiet=True):
+    '''Calculate the geometric median aka Fermat point using Weiszfeld's
+    algorithm. You can learn more about this from the Wikipedia article
+    "Geometric Median"'''
+    # Throughout this function's comments, the metaphor is maintained
+    # that this function moves a spaceship from the origin to the
+    # geometric median of the surrounding stars by a series of smaller steps
+
+    # Start with the spaceship at the origin
+    ship = np.zeros(len(starlist[0]))
+
+    for i in range(1000):
+        # Create a matrix with the star positions as columns
+        pos_mat = np.array(starlist).transpose()
+    
+        # Create a vector where the nth entry is the reciprocal of the
+        # distance between the ship and the nth star
+        inverse_distances = np.array([np.linalg.norm(star - ship)**-1 \
+                                      for star in starlist])
+
+        # Find the next spot dictated by Weiszfeld's algorithm
+        destination = inverse_distances.sum()**-1 \
+                      * np.dot(pos_mat, inverse_distances)
+    
+        # Break the loop if we're moving a billionth of an angstrom at a
+        # time
+        if np.linalg.norm(ship - destination) < 1e-12:
+            break
+
+        # Move the ship to the next spot
+        ship = destination
+
+    if not quiet:
+        print(str(i) + ' iterations')
+
+    return ship
 
 def map_res_to_pos(residues, sequence):
     '''Given a list of residues from a Biopython structure and a sequence
@@ -102,7 +160,20 @@ class Family(object):
 class ResidueDossier(object):
     '''A class that compiles the information about a residue that I expect
     to use directly in moment calculations, so I don't have to remember
-    how to get each piece of information from the Structure object.'''
+    how to get each piece of information from the Structure object.
+
+    Attributes:
+        ca_coord: c alpha coordinate in three dimensions
+        rel_acc: relative accessibility from DSSP
+
+    Method:
+        ez_b(self, seq_id): calculate Ez-beta using a particular sequence
+                            in the family
+
+    Two more attributes for if you need other information for some reason:
+        residue: the Biopython residue object
+        family: the Family object that this residue came from'''
+
     def __init__(self, residue, family):
         
         self.residue = residue
@@ -132,36 +203,67 @@ class ResidueDossier(object):
         
         return self.family.calc.calculate(resn, z)
 
-class Selection(object):
+class Selection(list):
     def __init__(self, family, inclusion_condition):
-        self.family = family
 
         filing_cabinet = [ResidueDossier(res, family)\
                           for res in family.stru.get_residues()]
         
-        # It seems very wrong to have a list as an object. A selection
-        # is a container object, by nature. This code fails to represent
-        # that and must be repaired.
-        self.dossiers = [dos for dos in filing_cabinet \
-                         if inclusion_condition(dos)]
+        list.__init__(self, (dos for dos in filing_cabinet \
+                             if inclusion_condition(dos)))
+        
+        self.family = family
+
+        # Calculate the geometric median and save it right now, 
+        # so that it doesn't have to be recalculated
+        # every time the moment is calculated with a different sequence
+        xy_coords = [dos.ca_coord[:2] for dos in self]
+        self.geomed = geomed(xy_coords)
     
     def show(self):
         cmd.reinitialize()
         cmd.load(self.family.stru_path, self.family.stru_name)
         cmd.color('purple', '*')
-        for dos in self.dossiers:
+        for dos in self:
             cmd.color('green', 'resi ' + str(dos.resi))
-        
+
+    def moment(self, seq_id):
+        running_total = np.zeros(2)
+        for dos in self:
+            # Calculate ez-beta; skip this residue if this position is a gap
+            # or if there is no information on this kind of residue
+            try:
+                ez_b = dos.ez_b(seq_id)
+            except zenergy.NoParameters:
+                break
+            
+            # Calculate vector that points from the geometric median of the
+            # structure, to this residue's c-alpha, with magnitude
+            # equal to it's ez-beta
+            # Then, add it to the running total
+            running_total += ez_b * (dos.ca_coord[:2] - self.geomed)
+
+        return running_total
     
+    def show_moment(self, seq_id, normalize=False, name = None, z=0):
+        if name is None:
+            name = seq_id
 
+        mx, my = self.moment(seq_id)
+        if not normalize:
+            moment = np.array([mx, my, 0])
+        if normalize:
+            moment = (mx**2 + my**2 + z**2)**(-.5) * np.array([mx,my,z])
 
-
+        gx, gy = self.geomed
+        geomed = np.array([gx, gy, z])
+        draw_vector(name, moment, geomed)
         
-
-
 
 # Tests
 test_family = Family('1A0S', 'structures/aligned_1A0S.pdb',
               'gonnet aligned/1A0S with cluster73.clu', 'template_1A0S',
               'published params.csv')
 full_sele = Selection(test_family, lambda y: True)
+full_sele.show()
+full_sele.show_moment('template_1A0S')
