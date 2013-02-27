@@ -1,5 +1,6 @@
 from __future__ import division
 from sundries import one_letter
+from sundries import CIDict
 import warnings
 from Bio.PDB import PDBParser
 import Bio.AlignIO
@@ -7,6 +8,9 @@ import DSSP_win
 import zenergy
 import csv
 import numpy as np
+import re
+import glob
+import math
 #from pymol import cmd
 
 def draw_vector(name, vector, center):
@@ -265,9 +269,49 @@ class Selection(list):
         gx, gy = self.geomed
         geomed = np.array([gx, gy, z])
         draw_vector(name, moment, geomed)
-        
 
-# Tests
-real_family = Family('1A0S', 'structures/aligned_1A0S.pdb',
-              'gonnet aligned/1A0S with cluster73.clu', 'template_1A0S',
-              'published params.csv')
+    def spreadsheet(self, path):
+        with open(path, 'wb') as f:
+            csv.writer(f).writerow(['Seq id', 'X', 'Y', 'Direction',
+                                    'Magnitude'])
+            for seq_id in self.family.msa.keys():
+                moment = self.moment(seq_id)
+                direction = math.atan2(moment[1], moment[0]) * (180/math.pi)
+                magnitude = np.linalg.norm(moment)
+                csv.writer(f).writerow([seq_id, moment[0], moment[1],
+                                        direction, magnitude])
+
+def families(params='published params.csv', sanity_file=None):
+    # Map PDBIDs to paths of structures
+    stru_path_list = glob.glob('structures/aligned_*.pdb')
+    match_str = r'structures[/\\]aligned_(....)\.pdb'
+    pdbids = [re.match(match_str, path).group(1) \
+              for path in stru_path_list]
+    stru_path = CIDict(zip(pdbids, stru_path_list))
+    
+    # Map PDBIDS to paths of multiple sequence alignments
+    msa_path_list = glob.glob('gonnet aligned/* with *.clu')
+    match_str = r'gonnet aligned[/\\](....) with .*\.clu'
+    pdbids = [re.match(match_str, path).group(1) for path in msa_path_list]
+    msa_path = CIDict(zip(pdbids, msa_path_list))
+    
+    # Map PDBIDs to names of sequences of the structure
+    template_id = CIDict((pdbid, 'template_' + pdbid.upper())
+                          for pdbid in msa_path.keys())
+    
+    if sanity_file is not None:
+        with open(sanity_file, 'w') as f:
+            f.write(repr(stru_path))
+            f.write('\n')
+            f.write(repr(msa_path))
+            f.write('\n')
+            f.write(repr(template_id))
+    # Create the families
+    return CIDict((pdbid, Family(pdbid, stru_path[pdbid], msa_path[pdbid],
+                          template_id[pdbid], params))
+                   for pdbid in msa_path.keys())
+
+fams = families()
+scry_exposed = Selection(fams['1a0s'], lambda x: x.rel_acc > .2)
+scry_exposed.show()
+scry_exposed.spreadsheet('test.csv')
