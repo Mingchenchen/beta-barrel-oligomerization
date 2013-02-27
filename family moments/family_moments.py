@@ -181,9 +181,12 @@ class ResidueDossier(object):
 
         self.ca_coord = residue.child_dict['CA'].get_coord()
 
+        # Get relative accessibility and secondary structure from
+        # DSSP
         chain_id = residue.get_full_id()[2]
         extended_resi = residue.get_full_id()[3]
         self.rel_acc = family.dssp[(chain_id, extended_resi)][3]
+        self.ss = family.dssp[(chain_id, extended_resi)][1]
 
         self.resi = residue.get_id()[1]
 
@@ -268,6 +271,3 @@ class Selection(list):
 real_family = Family('1A0S', 'structures/aligned_1A0S.pdb',
               'gonnet aligned/1A0S with cluster73.clu', 'template_1A0S',
               'published params.csv')
-triangle = Family('triangle', 'triangle.pdb', 'triangle.clu', 'structure',
-                  'published params.csv')
-tri_sele = Selection(triangle, lambda x: True)
