@@ -2,6 +2,7 @@ import os
 import re
 
 class CIDict(dict):
+    '''Case insensitive dictionary. Case ignored in keys.'''
     def __init__(self, raw = dict()):
         raw = dict(raw)
         data_to_be = []

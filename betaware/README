@@ -1,0 +1,267 @@
+BETAWARE RELEASE NOTES
+======================
+
+BETAWARE version 1.0
+
+Copyright (C) 2012 Castrense Savojardo
+
+INTRODUCTION
+============
+
+BETAWARE is a software package designed for the analysis of trans-membrane 
+beta-barrel proteins. Basically, it offers two different functionalities:
+
+ - Detection of beta-barrel proteins
+ - Prediction of trans-membrane topology
+
+BETAWARE is based on machine-learning methods. The detection is performed 
+using a predictor based on N-to-1 Extreme Learning Machines (ELMs). See 
+ref [1] for more details about the method. Topology prediction is carried 
+out using Grammatical-Restrained Conditional Random Fields (GRHCRFs) (ref [2]).
+
+Proteins should be provided to BETAWARE in the form of sequence profiles. 
+Given a protein sequence of length L, a profile is a position specific Lx20 
+matrix whose component (i,a) represent the relative frequency of amino acid 
+type a at position i computed from a multiple sequence alignment (MSA). 
+The MSA is usually obtained from the protein homologous sequences found using 
+BLAST or PSI-BLAST against a non-redundant database of sequences. We recommend 
+using PSI-BLAST since this software has been adopted to generate sequence 
+profiles used to train BETAWARE.
+
+REQUIREMENTS
+============
+BETAWARE is entirely written in Python and designed to run on Unix/Linux 
+systems. BETAWARE assumes the following software packages are installed 
+in your system:
+
+ - python v2.6
+ - python argparse library 
+   (http://docs.python.org/library/argparse.html#module-argparse)
+   This library is used to parse command line options.
+ - python numpy and scipy libraries (http://numpy.scipy.org/)
+ 
+To install these packages under Linux debian/ubuntu (you need to be a 
+superuser):
+
+sudo apt-get install python-numpy python-scipy python-argparse
+
+BASIC USAGE
+===========
+
+As mentioned above, BETAWARE can be used to detect a beta-barrel protein
+and to predict its topology. You need to provide BETAWARE with the protein 
+sequence in FASTA format and the sequence profile.
+
+Once the program tarball has been downloaded and uncompressed the root 
+directory looks like the following:
+
+betaware/
+  bin/
+    betaware.py
+  data/
+    ...
+  example/
+    ...
+  modules/
+    ...
+  predBeta.sh
+  test.sh
+  LICENCE
+  README
+
+To use BETAWARE, from the package root, run:
+
+./predBeta.sh FASTA_FILE PROFILE_FILE
+
+This script runs BETAWARE with default options and prints the result in the 
+standard output. The example directory contains some examples files useful 
+to become familiar with the program. In the following example, BETAWARE runs
+on the example protein 1qj8_A:
+
+./predBeta.sh example/1qj8.fasta example/1qj8.prof
+
+The output would be:
+
+Sequence id     : 1QJ8:A|PDBID|CHAIN|SEQUENCE
+Sequence length : 148
+Predicted TMBB  : Yes
+Topology        : 2-9,23-29,35-46,60-69,78-87,103-114,120-131,135-145
+Seq : ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKN
+SS  : iTTTTTTTToooooooooooooTTTTTTTiiiiiTTTTTTTTTTTToooooooooooooT
+Prob: cbaaaaaaaaaaaaaaaaaaccaaaaaaacaaabccaaaaaaabbdaaaaaaaaaacdeb
+------------------------------------------------------------------
+Seq : QYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMEN
+SS  : TTTTTTTTTiiiiiiiiTTTTTTTTTToooooooooooooooTTTTTTTTTTTTiiiiiT
+Prob: aaaaaaaaabaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaadaaaaaaaaabdaaaaae
+------------------------------------------------------------------
+Seq : VALDFSYEQSRIRSVDVGTWIAGVGYRF
+SS  : TTTTTTTTTTToooTTTTTTTTTTTiii
+Prob: baaaaaaaaaaaaaaaaaaaaaaaabaa
+----------------------------------
+//
+
+where the row labeled with "Prob:" reports the posterior probability
+of the label at each position (from a="probability close to 1" to 
+j="probability close to 0").
+ 
+ADVANCED USAGE
+==============
+
+BETAWARE can be run with more advanced options other than the default ones.
+To do this you should refer the main Python script betaware.py which can be
+found into the bin/ directory.
+  
+In order to run betaware.py you first need to set the environment variable 
+BETAWARE_ROOT to point to the root directory of the package. This can be done 
+using the following command:
+
+export BETAWARE_ROOT=/path/to/betware/root/directory
+
+For example, if betaware has been uncompressed into /home/cas/betaware you
+should run:
+
+export BETAWARE_ROOT=/home/cas/betaware
+
+** IMPORTANT NOTICE **
+In principle the BETAWARE_ROOT variable should be exported EVERY TIME you open 
+a new terminal. To avoid this you simply need to cut and paste the command 
+above into a bash shell startup file such as ~/.profile.
+**
+
+Once BETAWARE_ROOT has been exported you would be able to run the program. 
+You may also want to add $BETAWARE_ROOT/bin into you PATH or put 
+$BETAWARE_ROOT/bin/betaware.py in some directory already listed in your PATH.
+
+The script test.sh run BETAWARE on the example data with different options.  
+In the first example, BETAWARE is used to detect a beta-barrel in the 
+protein 1qj8_A and predict its topology:
+
+betaware.py -f example/1qj8.fasta -p example/1qj8.prof
+
+The -f option is used to specify the path of the protein sequence in FASTA 
+format. The sequence profile file is provided to the program with the -p 
+option. The output of the command above will look like the following:
+
+Sequence id     : 1QJ8:A|PDBID|CHAIN|SEQUENCE
+Sequence length : 148
+Predicted TMBB  : Yes
+Topology        : 2-9,23-29,35-46,60-69,78-87,103-114,120-131,135-145
+Seq : ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKN
+SS  : iTTTTTTTToooooooooooooTTTTTTTiiiiiTTTTTTTTTTTToooooooooooooT
+Prob: cbaaaaaaaaaaaaaaaaaaccaaaaaaacaaabccaaaaaaabbdaaaaaaaaaacdeb
+------------------------------------------------------------------
+Seq : QYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMEN
+SS  : TTTTTTTTTiiiiiiiiTTTTTTTTTToooooooooooooooTTTTTTTTTTTTiiiiiT
+Prob: aaaaaaaaabaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaadaaaaaaaaabdaaaaae
+------------------------------------------------------------------
+Seq : VALDFSYEQSRIRSVDVGTWIAGVGYRF
+SS  : TTTTTTTTTTToooTTTTTTTTTTTiii
+Prob: baaaaaaaaaaaaaaaaaaaaaaaabaa
+----------------------------------
+//
+
+The topology prediction is performed and reported only if the protein is 
+predicted as trans-membrane beta-barrel (TMBB). However, you may want to 
+predict the topology also when the protein is not identified as TMBB. In the 
+following example the -t option tells the program to always report the 
+topology:
+
+betaware.py -t -f example/12ca.fasta -p example/12ca.prof
+
+The output would be:
+
+Sequence id     : 12CA:A|PDBID|CHAIN|SEQUENCE
+Sequence length : 260
+Predicted TMBB  : No
+TMB Strands     : 58-64,71-79,99-106,116-124
+Seq : MSHHWGYGKHNGPEHWHKDFPIAKGERQSPVDIDTHTAKYDPSLKPLSVSYDQATSLRIL
+SS  : iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiTTT
+Prob: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaabbcccccccbbc
+------------------------------------------------------------------
+Seq : NNGHAFNVEFDDSQDKAVLKGGPLDGTYRLIQFHFHWGSLDGQGSEHTVDKKKYAAELHL
+SS  : TTTTooooooTTTTTTTTTiiiiiiiiiiiiiiiiiiiTTTTTTTToooooooooTTTTT
+Prob: ccccaaaaaaedccccbbdcccccccabbaaaaaaaaaaaaaaaaaddbaabbcdbbaaa
+------------------------------------------------------------------
+Seq : AHWNTKYGDFGKAVQQPDGLAVLGIFLKVGSAKPGLQKVVDVLDSIKTKGKSADFTNFDP
+SS  : TTTTiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+Prob: accdbaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+------------------------------------------------------------------
+Seq : RGLLPESLDYWTYPGSLTTPPLLECVTWIVLKEPISVSSEQVLKFRKLNFNGEGEPEELM
+SS  : iiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii
+Prob: aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+------------------------------------------------------------------
+Seq : VDNWRPAQPLKNRQIKASFK
+SS  : iiiiiiiiiiiiiiiiiiii
+Prob: aaaaaaaaaaaaaaaaaaaa
+--------------------------
+//
+
+As you can see the protein 12ca_A is not predicted as TMBB. However its 
+topology has been predicted and reported.
+
+BETAWARE prints the output to stdout by default. You can change this behavior 
+using -o option:
+
+betaware.py -o example/1qj8.out -f example/1qj8.fasta -p example/1qj8.prof
+
+The -a option is used to specify the correspondence between amino acids 
+and columns in the sequence profile file. BETAWARE machine-learning algorithms
+have been trained using the following correspondence:
+
+VLIMFWYGAPSTCHRKQEND
+
+In your profile, columns may be arranged in a different way. With the 
+-a option you tell BETAWARE which column corresponds to which amino acid and 
+let the program rearrange the matrix properly. For instance, if your columns 
+are sorted in alphabetic order you would run:
+
+betaware.py -a ACDEFGHIKLMNPQRSTVWY -f example/1qj8.fasta -p example/1qj8ALPH.prof
+
+and the output would be:
+
+Sequence id     : 1QJ8:A|PDBID|CHAIN|SEQUENCE
+Sequence length : 148
+Predicted TMBB  : Yes
+Topology        : 2-9,23-29,35-46,60-69,78-87,103-114,120-131,135-145
+Seq : ATSTVTGGYAQSDAQGQMNKMGGFNLKYRYEEDNSPLGVIGSFTYTEKSRTASSGDYNKN
+SS  : iTTTTTTTToooooooooooooTTTTTTTiiiiiTTTTTTTTTTTToooooooooooooT
+Prob: cbaaaaaaaaaaaaaaaaaaccaaaaaaacaaabccaaaaaaabbdaaaaaaaaaacdeb
+------------------------------------------------------------------
+Seq : QYYGITAGPAYRINDWASIYGVVGVGYGKFQTTEYPTYKNDTSDYGFSYGAGLQFNPMEN
+SS  : TTTTTTTTTiiiiiiiiTTTTTTTTTToooooooooooooooTTTTTTTTTTTTiiiiiT
+Prob: aaaaaaaaabaaaaaabaaaaaaaaaaaaaaaaaaaaaaaaadaaaaaaaaabdaaaaae
+------------------------------------------------------------------
+Seq : VALDFSYEQSRIRSVDVGTWIAGVGYRF
+SS  : TTTTTTTTTTToooTTTTTTTTTTTiii
+Prob: baaaaaaaaaaaaaaaaaaaaaaaabaa
+----------------------------------
+//
+
+which is identical to the output of the first example.
+
+Finally, with the option -s it is possible to adjust the sensitivity of the 
+detection algorithm. The sensitivity can be specified through a float 
+value between 0 and 1. The higher is the sensitivity the smaller would be 
+the chance to obtain false negatives. However, a high sensitivity also 
+increases the probability of getting false positives. By default, this 
+parameter is set to 0.5. For instance, by reducing the sensitivity the 1qj8_A 
+protein will be predicted as non-TMBB:
+
+betaware.py -s 0.05 -f example/1qj8.fasta -p example/1qj8.prof
+
+while the 12ca_A can be predicted as TMBB by increasing the sensitivity:
+
+betaware.py -s 0.95 -f example/12ca.fasta -p example/12ca.prof
+
+If not set properly this parameter can seriously affect the performance of the
+detection algorithm. We recommend to maintain the sensitivity around 0.5.
+ 
+REFERENCES
+==========
+
+[1] Savojardo C., Fariselli P., Casadio R., Improving the detection 
+    of transmembrane beta-barrel chains with N-to-1 Extreme Learning Machines, 
+    Bioinformatics 27 (22): 3123-3128, 2011.
+[2] Fariselli P., Savojardo C., Martelli P.L., Casadio R., 
+    Grammatical-Restrained Hidden Conditional Random Fields for 
+    Bioinformatics Applications, AlMoB 4:13, 2009.

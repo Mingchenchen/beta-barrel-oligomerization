@@ -1,0 +1,13 @@
+
+ betaware.py: Discrimination and topology prediction of
+              trans-membrane beta-barrels with N-to-1 NNs and CRFs.
+ 
+   Copyright (C) 2012 Castrense Savojardo
+   Department of Computer Science
+   Bologna Biocomputing Group
+   University of Bologna, Italy.
+   savojard@biocomp.unibo.it
+
+Sequence id     : 1QJ8:A|PDBID|CHAIN|SEQUENCE
+Sequence length : 148
+Predicted TMBB  : Yes

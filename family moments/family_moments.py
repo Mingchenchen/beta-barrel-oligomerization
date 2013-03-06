@@ -211,6 +211,29 @@ class ResidueDossier(object):
         return self.family.calc.calculate(resn, z)
 
 class Selection(list):
+    '''Selections are the objects that calculate moments. They are a list
+    of residues created by choosing a Family, and an inclusion condition
+    for residues in the template structure for that family. The Selection
+    is a list of ResidueDossier objects, each corresponding to a residue
+    that meets the inclusion condition. The inclusion condition is a 
+    boolean function of a ResidueDossier object.
+
+    The Selection class has the following methods, related to calculating,
+    viewing and analyzing moments:
+
+    moment(self, seq_id): Returns the Ez-beta moment for the sequence in
+        the family with the given id.
+
+    spreadsheet(self, path): Create a CSV file with information on the
+        moments for each sequence in the family.
+
+    The following methods are meant to be run through PyMOL:
+    show(self): Display the template structure in PyMOL, with residues
+        included in the selection colored green and residues excluded from
+        the selection colored purple.
+
+    show_moment(self, seq_id, normalize=False, name=None, z=0): Display
+        the moment for the sequence of the family with the given id.'''
     def __init__(self, family, inclusion_condition):
 
         filing_cabinet = [ResidueDossier(res, family)\
@@ -271,6 +294,8 @@ class Selection(list):
         draw_vector(name, moment, geomed)
 
     def spreadsheet(self, path):
+        '''Write CSV file with information about the Ez-Beta moments in 
+        this family.'''
         with open(path, 'wb') as f:
             csv.writer(f).writerow(['Seq id', 'X', 'Y', 'Direction',
                                     'Magnitude'])
@@ -282,6 +307,7 @@ class Selection(list):
                                         direction, magnitude])
 
 def families(params='published params.csv', sanity_file=None):
+    '''Return a dictionary of all families in the dataset.'''
     # Map PDBIDs to paths of structures
     stru_path_list = glob.glob('structures/aligned_*.pdb')
     match_str = r'structures[/\\]aligned_(....)\.pdb'
@@ -311,7 +337,3 @@ def families(params='published params.csv', sanity_file=None):
                           template_id[pdbid], params))
                    for pdbid in msa_path.keys())
 
-fams = families()
-scry_exposed = Selection(fams['1a0s'], lambda x: x.rel_acc > .2)
-scry_exposed.show()
-scry_exposed.spreadsheet('test.csv')
