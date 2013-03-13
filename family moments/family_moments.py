@@ -336,4 +336,3 @@ def families(params='published params.csv', sanity_file=None):
     return CIDict((pdbid, Family(pdbid, stru_path[pdbid], msa_path[pdbid],
                           template_id[pdbid], params))
                    for pdbid in msa_path.keys())
-
