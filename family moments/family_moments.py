@@ -1,4 +1,5 @@
-from __future__ import division
+# from __future__ improt division seems to do nothing in PyMOL
+# Left out to avoid a false sense of security
 from sundries import one_letter
 from sundries import CIDict
 import warnings
@@ -169,6 +170,7 @@ class ResidueDossier(object):
     Attributes:
         ca_coord: c alpha coordinate in three dimensions
         rel_acc: relative accessibility from DSSP
+        resi: residue identification number
 
     Method:
         ez_b(self, seq_id): calculate Ez-beta using a particular sequence
@@ -210,13 +212,25 @@ class ResidueDossier(object):
         
         return self.family.calc.calculate(resn, z)
 
+    def avg_ez_b(self):
+        '''Calculate average Ez-beta insertion energy at this position,
+        averaged among all sequences in its family.'''
+        ezbs = list()
+        for seq_id in self.family.msa.keys():
+            try:
+                ezbs.append(self.ez_b(seq_id))
+            except zenergy.NoParameters:
+                pass
+        return float(sum(ezbs))/len(ezbs)
+
 class Selection(list):
     '''Selections are the objects that calculate moments. They are a list
     of residues created by choosing a Family, and an inclusion condition
     for residues in the template structure for that family. The Selection
     is a list of ResidueDossier objects, each corresponding to a residue
     that meets the inclusion condition. The inclusion condition is a 
-    boolean function of a ResidueDossier object.
+    boolean function of a ResidueDossier object. See the ResidueDossier
+    docstring to see what attributes a ResidueDossier has.
 
     The Selection class has the following methods, related to calculating,
     viewing and analyzing moments:
@@ -256,6 +270,16 @@ class Selection(list):
         cmd.color('purple', '*')
         for dos in self:
             cmd.color('green', 'resi ' + str(dos.resi))
+
+    def color_by_avg_ez_b(self):
+        self.show()
+        cmd.select('included', 'none')
+        for dos in self:
+            cmd.select('included', 'included | i. {}'.format(dos.resi))
+        stored.avg_ezbs = dict((dos.resi, dos.avg_ez_b()) for dos in self)
+        cmd.alter('included', 'b = stored.avg_ezbs[int(resi)]')
+        cmd.spectrum('b', 'blue_white_red', 'included', -2, 2)
+        cmd.color('black', 'not included')
 
     def moment(self, seq_id):
         running_total = np.zeros(2)
@@ -336,3 +360,8 @@ def families(params='published params.csv', sanity_file=None):
     return CIDict((pdbid, Family(pdbid, stru_path[pdbid], msa_path[pdbid],
                           template_id[pdbid], params))
                    for pdbid in msa_path.keys())
+
+# Temporary, for testing:
+x = families()['1A0S']
+y = Selection(x, lambda r: r.rel_acc > .2 and r.ss == 'E')
+y.color_by_avg_ez_b()
