@@ -330,6 +330,11 @@ class Selection(list):
                 csv.writer(f).writerow([seq_id, moment[0], moment[1],
                                         direction, magnitude])
 
+    def select_in_pymol(self, name):
+        cmd.select(name, 'none')
+        for dos in self:
+            cmd.select(name, '{} | i. {}'.format(name, dos.resi))
+        
 def families(params='published params.csv', sanity_file=None):
     '''Return a dictionary of all families in the dataset.'''
     # Map PDBIDs to paths of structures
@@ -363,5 +368,5 @@ def families(params='published params.csv', sanity_file=None):
 
 # Temporary, for testing:
 x = families()['1A0S']
-y = Selection(x, lambda r: r.rel_acc > .2 and r.ss == 'E')
-y.color_by_avg_ez_b()
+beta = Selection(x, lambda y: y.ss == 'E')
+exposed_beta = Selection(x, lambda y: y.ss == 'E' and y.rel_acc > .2)
