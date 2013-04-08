@@ -271,6 +271,23 @@ class Selection(list):
         for dos in self:
             cmd.color('green', 'resi ' + str(dos.resi))
 
+    def show_pdb_structure(self):
+        pdbid = self.family.stru_name
+        pdb_stru_name = self.family.stru_name+'_pdb'
+        cmd.fetch(pdbid, pdb_stru_name)
+        cmd.align(pdb_stru_name, pdbid)
+        cmd.disable(pdbid)
+
+    def show_with_symmetry_mates(self):
+        pdbid = self.family.stru_name
+        pdb_stru_name = self.family.stru_name+'_pdb'
+        cmd.fetch(pdbid, pdb_stru_name)
+        
+        cmd.alter(pdb_stru_name, 'segi="orig"')
+        cmd.symexp('sym', pdb_stru_name, pdb_stru_name, 5, 1)
+        cmd.extract('cluster', pdb_stru_name + '| sym*')
+        cmd.align('cluster & segi orig', pdbid)
+
     def color_by_avg_ez_b(self):
         self.show()
         cmd.select('included', 'none')
@@ -303,19 +320,28 @@ class Selection(list):
 
         return running_total
     
-    def show_moment(self, seq_id, normalize=False, name = None, z=0):
+    def show_moment(self, seq_id, length=None, name = None, z=0):
         if name is None:
             name = seq_id
 
         mx, my = self.moment(seq_id)
-        if not normalize:
+        if length is None:
             moment = np.array([mx, my, 0])
-        if normalize:
-            moment = (mx**2 + my**2 + z**2)**(-.5) * np.array([mx,my,z])
+        else:
+            unit_moment =(mx**2 + my**2 + z**2)**(-.5) * np.array([mx,my,z])
+            moment = length * unit_moment
 
         gx, gy = self.geomed
         geomed = np.array([gx, gy, z])
         draw_vector(name, moment, geomed)
+
+    def show_all_moments(self, length = None, z=0):
+        # This could be improved so that the moments are named after the
+        # accession numbers so you could view particular ones - if I ever
+        # needed to do that for some reason?
+        for i, m in enumerate(self.family.msa.keys()):
+            self.show_moment(m, length=length, name='moment_{}'.format(i),
+                             z=z)
 
     def spreadsheet(self, path):
         '''Write CSV file with information about the Ez-Beta moments in 
@@ -366,7 +392,25 @@ def families(params='published params.csv', sanity_file=None):
                           template_id[pdbid], params))
                    for pdbid in msa_path.keys())
 
-# Temporary, for testing:
-x = families()['1A0S']
-beta = Selection(x, lambda y: y.ss == 'E')
-exposed_beta = Selection(x, lambda y: y.ss == 'E' and y.rel_acc > .2)
+
+fams = families()
+rand_fams = families('normal random params.csv')
+
+def beta_exposed(pdbid):
+    return Selection(fams[pdbid], lambda y: y.ss == 'E' and y.rel_acc > .2)
+
+def rand_beta_exposed(pdbid):
+    return Selection(rand_fams[pdbid], lambda y: y.ss == 'E' and y.rel_acc > .2)
+def beta(pdbid):
+    return Selection(fams[pdbid], lambda y: y.ss == 'E')
+
+def pretty():
+    cmd.bg_color('white')
+    cmd.set('opaque_background', 'off')
+    cmd.hide('everything')
+    cmd.show('cartoon', 'polymer & ss s')
+    cmd.color('yellow', 'polymer')
+
+    cmd.show('everything', 'moment*')
+    cmd.hide('labels')
+    cmd.color('blue', 'moment*')
