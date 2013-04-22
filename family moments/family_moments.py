@@ -1,18 +1,24 @@
 # from __future__ improt division seems to do nothing in PyMOL
 # Left out to avoid a false sense of security
-from sundries import one_letter
-from sundries import CIDict
+
 import warnings
 from Bio.PDB import PDBParser
 import Bio.AlignIO
-import DSSP_win
-import zenergy
 import csv
 import numpy as np
 import re
 import glob
 import math
 #from pymol import cmd
+
+# Modules I made:
+from sundries import one_letter
+from sundries import CIDict
+import zenergy
+import DSSP_win
+import mfuncs
+
+
 
 def draw_vector(name, vector, center):
     """Create a distance with the length and direction of a given vector,
@@ -272,6 +278,8 @@ class Selection(list):
             cmd.color('green', 'resi ' + str(dos.resi))
 
     def show_pdb_structure(self):
+        '''Must use self.show() first. Fetch the PDB entry of this selection's
+        template and superimpose it on the structure produced by show().'''
         pdbid = self.family.stru_name
         pdb_stru_name = self.family.stru_name+'_pdb'
         cmd.fetch(pdbid, pdb_stru_name)
@@ -298,7 +306,7 @@ class Selection(list):
         cmd.spectrum('b', 'blue_white_red', 'included', -2, 2)
         cmd.color('black', 'not included')
 
-    def moment(self, seq_id):
+    def moment(self, func = mfuncs.ez_b, seq_id):
         running_total = np.zeros(2)
 
         for dos in self:
@@ -320,11 +328,12 @@ class Selection(list):
 
         return running_total
     
-    def show_moment(self, seq_id, length=None, name = None, z=0):
+    def show_moment(self, func = mfuncs.ez_b,
+                    seq_id, length=None, name = None, z=0):
         if name is None:
             name = seq_id
 
-        mx, my = self.moment(seq_id)
+        mx, my = self.moment(seq_id, func = func)
         if length is None:
             moment = np.array([mx, my, 0])
         else:
@@ -335,12 +344,13 @@ class Selection(list):
         geomed = np.array([gx, gy, z])
         draw_vector(name, moment, geomed)
 
-    def show_all_moments(self, length = None, z=0):
+    def show_all_moments(self, func, length = None, z=0):
         # This could be improved so that the moments are named after the
         # accession numbers so you could view particular ones - if I ever
         # needed to do that for some reason?
         for i, m in enumerate(self.family.msa.keys()):
-            self.show_moment(m, length=length, name='moment_{}'.format(i),
+            self.show_moment(m, func = func,
+                            length=length, name='moment_{}'.format(i),
                              z=z)
 
     def spreadsheet(self, path):
@@ -393,24 +403,3 @@ def families(params='published params.csv', sanity_file=None):
                    for pdbid in msa_path.keys())
 
 
-fams = families()
-rand_fams = families('normal random params.csv')
-
-def beta_exposed(pdbid):
-    return Selection(fams[pdbid], lambda y: y.ss == 'E' and y.rel_acc > .2)
-
-def rand_beta_exposed(pdbid):
-    return Selection(rand_fams[pdbid], lambda y: y.ss == 'E' and y.rel_acc > .2)
-def beta(pdbid):
-    return Selection(fams[pdbid], lambda y: y.ss == 'E')
-
-def pretty():
-    cmd.bg_color('white')
-    cmd.set('opaque_background', 'off')
-    cmd.hide('everything')
-    cmd.show('cartoon', 'polymer & ss s')
-    cmd.color('yellow', 'polymer')
-
-    cmd.show('everything', 'moment*')
-    cmd.hide('labels')
-    cmd.color('blue', 'moment*')
