@@ -306,15 +306,18 @@ class Selection(list):
         cmd.spectrum('b', 'blue_white_red', 'included', -2, 2)
         cmd.color('black', 'not included')
 
-    def moment(self, func = mfuncs.ez_b, seq_id):
+    def moment(self, seq_id, func = mfuncs.ez_b):
         running_total = np.zeros(2)
 
         for dos in self:
-            # Calculate ez-beta; skip this residue if this position is a gap
-            # or if there is no information on this kind of residue
+            # Calculate magnitude (by default, the ez-beta of the residue);
+            # skip this residue if this position is a gap or (if ez-beta),
+            # there is no information on this kind of residue
             try:
-                ez_b = dos.ez_b(seq_id)
+                magnitude = func(dos, seq_id)
             except zenergy.NoParameters:
+                continue
+            except mfuncs.GapException:
                 continue
             
             # Calculate vector that points from the geometric median of the
@@ -324,12 +327,12 @@ class Selection(list):
             relative_position = dos.ca_coord[:2] - self.geomed
             relative_direction = relative_position\
                                  / np.linalg.norm(relative_position)
-            running_total += ez_b * relative_direction
+            running_total += magnitude * relative_direction
 
         return running_total
     
-    def show_moment(self, func = mfuncs.ez_b,
-                    seq_id, length=None, name = None, z=0):
+    def show_moment(self, seq_id, func = mfuncs.ez_b, length=None, name = None,
+                    z=0):
         if name is None:
             name = seq_id
 
