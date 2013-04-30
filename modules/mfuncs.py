@@ -19,14 +19,14 @@ def ez_b(res_dos, seq_id):
     return res_dos.ez_b(seq_id)
 
 def blank_function(spec_func, res_dos, seq_id):
-    column = self.family.res_to_pos[self.residue]
-    resn = self.family.msa[seq_id][column]
+    column = res_dos.family.res_to_pos[res_dos.residue]
+    resn = res_dos.family.msa[seq_id][column]
     if resn == '-':
         raise GapException()
     
-    return spec_function(res_dos, resn)
+    return spec_func(res_dos, resn)
 
 def random_prefunction(res_dos, resn):
     return random.random()
 
-random = functools.partial(blank_function, random_prefunction)
+random_magnitude = functools.partial(blank_function, random_prefunction)
