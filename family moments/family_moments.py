@@ -330,6 +330,9 @@ class Selection(list):
             running_total += magnitude * relative_direction
 
         return running_total
+
+    def all_moments(self, func=mfuncs.ez_b):
+        return [self.moment(seq_id, func) for seq_id in self.family.msa.keys()]
     
     def show_moment(self, seq_id, func = mfuncs.ez_b, length=None, name = None,
                     z=0):
@@ -347,7 +350,7 @@ class Selection(list):
         geomed = np.array([gx, gy, z])
         draw_vector(name, moment, geomed)
 
-    def show_all_moments(self, func, length = None, z=0):
+    def show_all_moments(self, func = mfuncs.ez_b, length = None, z=0):
         # This could be improved so that the moments are named after the
         # accession numbers so you could view particular ones - if I ever
         # needed to do that for some reason?
