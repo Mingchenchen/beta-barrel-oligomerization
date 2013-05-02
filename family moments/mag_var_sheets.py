@@ -48,3 +48,4 @@ rand_ezb = ('random ezb parameters', 'normal random params.csv', mfuncs.ez_b)
 for name, param_path, func in [ez_b, rand_nrg, rand_ezb]:
     with open('magnitude vs variance plots/{}.csv'.format(name), 'wb') as f:
         csv.writer(f).writerows(mag_var_sheet(param_path, func))
+
